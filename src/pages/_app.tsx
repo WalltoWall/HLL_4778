@@ -1,6 +1,7 @@
 import Head from "next/head"
 import { AppProps } from "next/app"
 
+import "@fontsource/work-sans/variable.css"
 import "tailwindcss/tailwind.css"
 import "@/styles/global.css"
 
@@ -11,6 +12,9 @@ const App = ({ Component, pageProps }: AppProps) => {
 				<link rel="icon" href="/favicon-32x32.png" />
 				<link rel="apple-touch-icon" href="/icons/icon-144x144.png" />
 				<link rel="manifest" href="/manifest.webmanifest" />
+
+				<link rel="stylesheet" href="https://use.typekit.net/npv1wgq.css" />
+
 				<title>Site Title</title>
 			</Head>
 
