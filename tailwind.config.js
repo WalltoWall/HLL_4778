@@ -32,6 +32,24 @@ module.exports = {
 			black: "#000",
 			transparent: "#fff0",
 			current: "currentColor",
+
+			beige: { 92: "#F7F2E2" },
+			red: {
+				45: "#E70000",
+				50: "#FF0000",
+			},
+			yellow: {
+				50: "#FFAB00",
+			},
+			green: {
+				27: "#6D8E00",
+			},
+			blue: {
+				31: "#007CA0",
+			},
+			purple: {
+				57: "#7452D4",
+			},
 		},
 
 		capsize: {
