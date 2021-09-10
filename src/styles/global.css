@@ -1,4 +1,4 @@
 html {
-  text-rendering: optimizeLegibility;
-  @apply antialiased;
+	text-rendering: optimizeLegibility;
+	@apply antialiased;
 }
