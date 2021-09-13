@@ -85,6 +85,37 @@
 							}
 						},
 						"repeat": {}
+					},
+					"video_hero": {
+						"type": "Slice",
+						"fieldset": "Video Hero",
+						"description": "Large block with video background and text",
+						"icon": "ondemand_video",
+						"display": "list",
+						"non-repeat": {
+							"text": {
+								"type": "StructuredText",
+								"config": {
+									"multi": "heading3",
+									"label": "Text"
+								}
+							},
+							"video_thumbnail": {
+								"type": "Image",
+								"config": {
+									"constraint": {},
+									"thumbnails": [],
+									"label": "Video Thumbnail"
+								}
+							},
+							"video": {
+								"type": "Embed",
+								"config": {
+									"label": "Video"
+								}
+							}
+						},
+						"repeat": {}
 					}
 				}
 			}

@@ -17,6 +17,7 @@ import { findAllPages, findOnePage } from "../prismic/page"
 import { findSettings } from "../prismic/settings"
 import * as GradientText from "../slices/GradientText"
 import { SEO } from "../components/SEO"
+import { Layout } from "../components/Layout"
 
 const pageTemplateSliceMap: MapToComponentsProps["map"] = {
 	[GradientText.sliceType]: GradientText.default as React.ComponentType,
@@ -32,6 +33,14 @@ const getSliceKey: MapToComponentsProps["getKey"] = (slice: pt.Slice, idx) => {
 
 const getSliceType: MapToComponentsProps["getType"] = (slice: pt.Slice) => {
 	return slice.slice_type
+}
+
+const pageTemplateFallback: MapToComponentsProps["default"] = (data) => {
+	if (process.env.NODE_ENV === "development") {
+		console.error(`Could not find a component mapping for type: ${data.type}`)
+	}
+
+	return null
 }
 
 export type MapDataToPropsCtx<TData> = TCtx<
@@ -50,10 +59,10 @@ const PageTemplate = ({
 	slices,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
-		<>
+		<Layout>
 			<SEO
-				metaTitle={metaTitle}
-				metaDescription={metaDescription}
+				metaTitle={metaTitle ?? undefined}
+				metaDescription={metaDescription ?? undefined}
 				siteName={siteName}
 				siteDescription={siteDescription}
 				pageTitle={pageTitle}
@@ -65,8 +74,9 @@ const PageTemplate = ({
 				map={pageTemplateSliceMap}
 				mapDataToProps={mapDataToPropsMap}
 				list={slices}
+				default={pageTemplateFallback}
 			/>
-		</>
+		</Layout>
 	)
 }
 
@@ -101,8 +111,8 @@ export async function getStaticProps(
 			siteName: asText(settings.data.site_name),
 			siteDescription: asText(settings.data.site_description),
 			pageTitle: asText(page.data.title),
-			metaTitle: page.data.meta_title ?? undefined,
-			metaDescription: page.data.meta_description ?? undefined,
+			metaTitle: page.data.meta_title,
+			metaDescription: page.data.meta_description,
 			slices: page.data.body,
 		},
 	}
