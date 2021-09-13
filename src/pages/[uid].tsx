@@ -13,7 +13,7 @@ import { findSettings } from "../prismic/settings"
 
 const PageTemplate = ({
 	uid,
-	siteTitle,
+	siteName,
 	pageTitle,
 	metaDescription,
 	metaTitle,
@@ -23,7 +23,7 @@ const PageTemplate = ({
 		<>
 			<Head>
 				<title>
-					{metaTitle ?? pageTitle} | {siteTitle}
+					{metaTitle ?? pageTitle} | {siteName}
 				</title>
 				{metaDescription && (
 					<meta name="description" content={metaDescription} />
@@ -66,7 +66,7 @@ export async function getStaticProps(
 	return {
 		props: {
 			uid,
-			siteTitle: asText(settings.data.title),
+			siteName: asText(settings.data.site_name),
 			pageTitle: asText(page.data.title),
 			metaTitle: page.data.meta_title,
 			metaDescription: page.data.meta_description,
