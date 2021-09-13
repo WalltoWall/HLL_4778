@@ -3,7 +3,6 @@ import {
 	InferGetStaticPropsType,
 	GetStaticPropsContext,
 } from "next"
-import Head from "next/head"
 import { asText } from "@prismicio/helpers"
 import assert from "tiny-invariant"
 import {
@@ -17,6 +16,7 @@ import { createPrismicClient } from "../prismic/client"
 import { findAllPages, findOnePage } from "../prismic/page"
 import { findSettings } from "../prismic/settings"
 import * as GradientText from "../slices/GradientText"
+import { SEO } from "../components/SEO"
 
 const pageTemplateSliceMap: MapToComponentsProps["map"] = {
 	[GradientText.sliceType]: GradientText.default as React.ComponentType,
@@ -43,6 +43,7 @@ export type MapDataToPropsCtx<TData> = TCtx<
 
 const PageTemplate = ({
 	siteName,
+	siteDescription,
 	pageTitle,
 	metaDescription,
 	metaTitle,
@@ -50,14 +51,13 @@ const PageTemplate = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
 		<>
-			<Head>
-				<title>
-					{metaTitle ?? pageTitle} | {siteName}
-				</title>
-				{metaDescription && (
-					<meta name="description" content={metaDescription} />
-				)}
-			</Head>
+			<SEO
+				metaTitle={metaTitle}
+				metaDescription={metaDescription}
+				siteName={siteName}
+				siteDescription={siteDescription}
+				pageTitle={pageTitle}
+			/>
 
 			<MapToComponents
 				getKey={getSliceKey}
@@ -99,9 +99,10 @@ export async function getStaticProps(
 	return {
 		props: {
 			siteName: asText(settings.data.site_name),
+			siteDescription: asText(settings.data.site_description),
 			pageTitle: asText(page.data.title),
-			metaTitle: page.data.meta_title,
-			metaDescription: page.data.meta_description,
+			metaTitle: page.data.meta_title ?? undefined,
+			metaDescription: page.data.meta_description ?? undefined,
 			slices: page.data.body,
 		},
 	}
