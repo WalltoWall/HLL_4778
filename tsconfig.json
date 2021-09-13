@@ -20,7 +20,7 @@
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "allowJs": false,
+    "allowJs": true,
     "jsx": "preserve",
     "lib": [
       "dom",

@@ -20,6 +20,16 @@ const nextConfig = {
 		return config
 	},
 
+	redirects: async () => {
+		return [
+			{
+				source: "/home",
+				destination: "/",
+				permanent: true,
+			},
+		]
+	},
+
 	typescript: {
 		ignoreBuildErrors: true,
 		ignoreDevErrors: true,

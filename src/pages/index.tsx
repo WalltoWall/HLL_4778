@@ -1,7 +1,8 @@
-import { BoundedBox } from "../components/BoundedBox"
+import { GetStaticPropsContext } from "next"
+import PageTemplate, { getStaticProps as getPageStaticProps } from "./[uid]"
 
-const HomePage = () => {
-  return <BoundedBox tag="section">Home</BoundedBox>
+export function getStaticProps(ctx: GetStaticPropsContext) {
+	return getPageStaticProps({ ...ctx, params: { uid: "home" } })
 }
 
-export default HomePage
+export default PageTemplate
