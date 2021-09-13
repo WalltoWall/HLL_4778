@@ -498,7 +498,7 @@ export class Gradient {
   * Initializes the four section colors by retrieving them from css variables.
   */
   initGradientColors() {
-      this.sectionColors = ["--gradient-color-1", "--gradient-color-2", "--gradient-color-3", "--gradient-color-4"].map(cssPropertyName => {
+      this.sectionColors = ["--gradient-color-1", "--gradient-color-2", "--gradient-color-3", "--gradient-color-4", "--gradient-color-5"].map(cssPropertyName => {
           let hex = this.computedCanvasStyle.getPropertyValue(cssPropertyName).trim();
           //Check if shorthand hex value was used and double the length so the conversion in normalizeColor will work.
           if (4 === hex.length) {
