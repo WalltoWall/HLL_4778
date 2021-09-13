@@ -31,7 +31,8 @@
 			"type": "Link",
 			"config": {
 				"label": "Redirect To",
-				"placeholder": "Optional - Redirect this page to another page or external URL"
+				"placeholder": "Optional - Redirect this page to another page or external URL",
+				"select": null
 			}
 		},
 		"redirect_is_permanent": {
@@ -40,8 +41,7 @@
 				"placeholder_false": "No",
 				"placeholder_true": "Yes, redirect forever",
 				"default_value": false,
-				"label": "Redirect Is Permanent",
-				"placeholder": "Test"
+				"label": "Redirect Is Permanent"
 			}
 		}
 	},
@@ -50,20 +50,7 @@
 			"type": "Slices",
 			"fieldset": "Slice zone",
 			"config": {
-				"labels": {
-					"images": [],
-					"text": [],
-					"embed": [],
-					"textured_image": [],
-					"page_intro": [],
-					"centered_text": [],
-					"two_column_text": [],
-					"text_with_image": [],
-					"people_with_image": [],
-					"team": [],
-					"call_to_action": [],
-					"anchor": []
-				},
+				"labels": null,
 				"choices": {
 					"anchor": {
 						"type": "Slice",
@@ -77,6 +64,23 @@
 								"config": {
 									"label": "Anchor",
 									"placeholder": "Example: about-us"
+								}
+							}
+						},
+						"repeat": {}
+					},
+					"gradient_text": {
+						"type": "Slice",
+						"fieldset": "Gradient Text",
+						"description": "Large text block with gradient background",
+						"icon": "color_lens",
+						"display": "list",
+						"non-repeat": {
+							"text": {
+								"type": "StructuredText",
+								"config": {
+									"multi": "heading3",
+									"label": "Text"
 								}
 							}
 						},

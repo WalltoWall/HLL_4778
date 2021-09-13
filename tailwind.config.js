@@ -4,28 +4,39 @@ module.exports = {
 	darkMode: false, // or 'media' or 'class'
 	theme: {
 		fontSize: {
-			8: "8",
-			10: "10",
-			12: "12",
-			13: "13",
-			16: "16",
-			18: "18",
-			22: "22",
-			28: "28",
-			32: "32",
-			42: "42",
-			52: "52",
-			62: "62",
+			8: "8px",
+			10: "10px",
+			12: "12px",
+			13: "13px",
+			16: "16px",
+			18: "18px",
+			22: "22px",
+			24: "24px",
+			28: "28px",
+			32: "32px",
+			42: "42px",
+			52: "52px",
+			62: "62px",
 		},
 		lineHeight: {
 			1: "1",
 			"1_15": "1.15",
+			"1_2": "1.2",
 		},
 		fontFamily: {
 			sans: ["Work SansVariable", "system-ui"],
 			sansExt: ["monotype-grotesque-extended", "system-ui"],
 			serif: ["bely-display", "serif"],
 		},
+
+		spacing: Array.from({ length: 100 }, (_, idx) => idx).reduce(
+			(acc, curr) => {
+				acc[curr] = `${curr * 4}px`
+
+				return acc
+			},
+			{}
+		),
 
 		colors: {
 			white: "#fff",

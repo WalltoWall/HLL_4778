@@ -1,5 +1,5 @@
 import { Client } from "@prismicio/client"
-import * as pt from "@prismicio/types"
+import type * as pt from "@prismicio/types"
 
 const TYPE = "settings"
 

@@ -4,15 +4,44 @@ import {
 	GetStaticPropsContext,
 } from "next"
 import Head from "next/head"
-import { BoundedBox } from "../components/BoundedBox"
-import { createPrismicClient } from "../prismic/client"
-import { findAllPages, findOnePage } from "../prismic/page"
 import { asText } from "@prismicio/helpers"
 import assert from "tiny-invariant"
+import {
+	MapToComponents,
+	MapToComponentsProps,
+	TCtx,
+} from "react-map-to-components"
+import type * as pt from "@prismicio/types"
+
+import { createPrismicClient } from "../prismic/client"
+import { findAllPages, findOnePage } from "../prismic/page"
 import { findSettings } from "../prismic/settings"
+import * as GradientText from "../slices/GradientText"
+
+const pageTemplateSliceMap: MapToComponentsProps["map"] = {
+	[GradientText.sliceType]: GradientText.default as React.ComponentType,
+}
+
+const mapDataToPropsMap: MapToComponentsProps["mapDataToProps"] = {
+	[GradientText.sliceType]: GradientText.mapDataToProps,
+}
+
+const getSliceKey: MapToComponentsProps["getKey"] = (slice: pt.Slice, idx) => {
+	return `${slice.slice_type}-${idx}`
+}
+
+const getSliceType: MapToComponentsProps["getType"] = (slice: pt.Slice) => {
+	return slice.slice_type
+}
+
+export type MapDataToPropsCtx<TData> = TCtx<
+	keyof typeof pageTemplateSliceMap,
+	typeof pageTemplateSliceMap,
+	TData,
+	unknown
+>
 
 const PageTemplate = ({
-	uid,
 	siteName,
 	pageTitle,
 	metaDescription,
@@ -30,7 +59,13 @@ const PageTemplate = ({
 				)}
 			</Head>
 
-			<BoundedBox tag="section">{uid}</BoundedBox>
+			<MapToComponents
+				getKey={getSliceKey}
+				getType={getSliceType}
+				map={pageTemplateSliceMap}
+				mapDataToProps={mapDataToPropsMap}
+				list={slices}
+			/>
 		</>
 	)
 }
@@ -61,16 +96,13 @@ export async function getStaticProps(
 		findOnePage(client, uid),
 	])
 
-	// TODO: Handle redirects somehow
-
 	return {
 		props: {
-			uid,
 			siteName: asText(settings.data.site_name),
 			pageTitle: asText(page.data.title),
 			metaTitle: page.data.meta_title,
 			metaDescription: page.data.meta_description,
-			slices: [],
+			slices: page.data.body,
 		},
 	}
 }
