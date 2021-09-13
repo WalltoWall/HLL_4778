@@ -1,7 +1,10 @@
 import { Client } from "@prismicio/client"
 import * as pt from "@prismicio/types"
 
+const TYPE = "page"
+
 export type Page = pt.PrismicDocument<{
+	title: pt.TitleField
 	meta_title: pt.KeyTextField
 	meta_description: pt.KeyTextField
 	redirect_to: pt.LinkField
@@ -9,5 +12,9 @@ export type Page = pt.PrismicDocument<{
 }>
 
 export async function findAllPages(client: Client): Promise<Page[]> {
-	return await client.getAllByType<Page>("page")
+	return await client.getAllByType<Page>(TYPE)
+}
+
+export async function findOnePage(client: Client, uid: string): Promise<Page> {
+	return await client.getByUID<Page>(TYPE, uid)
 }
