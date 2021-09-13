@@ -15,7 +15,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
 				<link rel="stylesheet" href="https://use.typekit.net/npv1wgq.css" />
 
-				<title>Site Title</title>
+				<title>Honolulu Pride 2021</title>
 			</Head>
 
 			<Component {...pageProps} />
