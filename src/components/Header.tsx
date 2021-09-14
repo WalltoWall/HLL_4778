@@ -4,6 +4,7 @@ import Image from "next/image"
 import logoUrl from "../assets/logo.png"
 import { MenuButton } from "./MenuButton"
 import { VisuallyHidden } from "./VisuallyHidden"
+import { Link } from "./Link"
 
 export const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false)
@@ -17,14 +18,14 @@ export const Header = () => {
 			className={clsx(
 				"absolute top-0 inset-x-0",
 				"px-5 py-6",
-				"z-10",
+				"z-20",
 				"flex justify-between items-center space-x-4"
 			)}
 		>
-			<div className="w-18">
+			<Link className="w-18" href="/">
 				<VisuallyHidden>Honolulu Pride</VisuallyHidden>
 				<Image src={logoUrl} alt="Honolulu Pride" />
-			</div>
+			</Link>
 
 			<MenuButton onClick={toggleMenu}>
 				<VisuallyHidden>
