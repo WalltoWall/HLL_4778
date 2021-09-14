@@ -1,9 +1,9 @@
 import * as React from "react"
 import type * as pt from "@prismicio/types"
+import clsx from "clsx"
 import type { MapDataToPropsCtx } from "../pages/[uid]"
 import { BoundedBox } from "../components/BoundedBox"
 import { ColorVariant, getColorVariant } from "../lib/getColorVariant"
-import clsx from "clsx"
 
 type Filter = "watch" | "participate" | "learn"
 
@@ -148,8 +148,10 @@ const FilterableEvents = ({
 		return firstEventBgMap[firstEvent.color]
 	})
 
+	console.log(events)
+
 	return (
-		<BoundedBox tag="section" className={clsx("pb-10 pt-5", variant.bg)}>
+		<BoundedBox tag="section" className={clsx("py-10", variant.bg)}>
 			<FilterControls variant={variant} />
 		</BoundedBox>
 	)
