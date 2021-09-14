@@ -1,4 +1,4 @@
-import {
+import type {
 	GetStaticPathsContext,
 	InferGetStaticPropsType,
 	GetStaticPropsContext,
@@ -15,19 +15,23 @@ import type * as pt from "@prismicio/types"
 import { createPrismicClient } from "../prismic/client"
 import { findAllPages, findOnePage } from "../prismic/page"
 import { findSettings } from "../prismic/settings"
-import * as GradientText from "../slices/GradientText"
-import * as VideoHero from "../slices/VideoHero"
 import { SEO } from "../components/SEO"
 import { Layout } from "../components/Layout"
+
+import * as GradientText from "../slices/GradientText"
+import * as VideoHero from "../slices/VideoHero"
+import * as Introduction from "../slices/Introduction"
 
 const pageTemplateSliceMap: MapToComponentsProps["map"] = {
 	[VideoHero.sliceType]: VideoHero.default as React.ComponentType,
 	[GradientText.sliceType]: GradientText.default as React.ComponentType,
+	[Introduction.sliceType]: Introduction.default as React.ComponentType,
 }
 
 const mapDataToPropsMap: MapToComponentsProps["mapDataToProps"] = {
 	[VideoHero.sliceType]: VideoHero.mapDataToProps,
 	[GradientText.sliceType]: GradientText.mapDataToProps,
+	[Introduction.sliceType]: Introduction.mapDataToProps,
 }
 
 const getSliceKey: MapToComponentsProps["getKey"] = (slice: pt.Slice, idx) => {

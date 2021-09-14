@@ -1,10 +1,14 @@
 import { Client } from "@prismicio/client"
 import type * as pt from "@prismicio/types"
 import type { GradientTextSlice } from "../slices/GradientText"
+import type { VideoHeroSlice } from "../slices/VideoHero"
+import type { IntroductionSlice } from "../slices/Introduction"
 
 const TYPE = "page"
 
-export type PageSlices = pt.SliceZone<GradientTextSlice>
+export type PageSlices = pt.SliceZone<
+	GradientTextSlice | VideoHeroSlice | IntroductionSlice
+>
 
 export type Page = pt.PrismicDocument<{
 	title: pt.TitleField

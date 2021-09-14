@@ -1,0 +1,5 @@
+.htmlContent {
+	& p {
+		@apply font-sans font-light text-16 leading-1_2;
+	}
+}
