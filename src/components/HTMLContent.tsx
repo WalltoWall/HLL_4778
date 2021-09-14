@@ -8,10 +8,12 @@ interface Props extends React.ComponentPropsWithoutRef<"div"> {
 }
 
 export const HTMLContent = React.forwardRef<HTMLElement, Props>(
-	({ tag: Comp = "div", html, className, ...props }) => {
+	({ tag: Comp = "div", html, className, ...props }, ref) => {
 		return (
 			//@ts-expect-error - Complex polymorphic type
 			<Comp
+				//@ts-expect-error - Complex polymorphic type
+				ref={ref}
 				className={clsx(className, styles.htmlContent)}
 				dangerouslySetInnerHTML={{ __html: html }}
 				{...props}
