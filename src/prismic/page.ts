@@ -1,8 +1,10 @@
 import { Client } from "@prismicio/client"
 import type * as pt from "@prismicio/types"
+
 import type { GradientTextSlice } from "../slices/GradientText"
 import type { VideoHeroSlice } from "../slices/VideoHero"
 import type { IntroductionSlice } from "../slices/Introduction"
+import { eventFetchLinks } from "./event"
 
 const TYPE = "page"
 
@@ -24,5 +26,7 @@ export async function findAllPages(client: Client): Promise<Page[]> {
 }
 
 export async function findOnePage(client: Client, uid: string): Promise<Page> {
-	return await client.getByUID<Page>(TYPE, uid)
+	return await client.getByUID<Page>(TYPE, uid, {
+		fetchLinks: [...eventFetchLinks],
+	})
 }

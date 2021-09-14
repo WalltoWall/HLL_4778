@@ -3,6 +3,12 @@ import type * as pt from "@prismicio/types"
 
 const TYPE = "event"
 
+export const eventFetchLinks = [
+	"event.title",
+	"event.description",
+	"event.date",
+]
+
 export type Event = pt.PrismicDocument<{
 	title: pt.TitleField
 	description: pt.RichTextField
