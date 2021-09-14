@@ -1,7 +1,10 @@
-import { Gradient } from "../components/Gradient"
 import { asText } from "@prismicio/helpers"
 import type * as pt from "@prismicio/types"
+
 import type { MapDataToPropsCtx } from "../pages/[uid]"
+import clsx from "clsx"
+import { Gradient } from "../components/Gradient"
+import { serif } from "./typography"
 
 export const sliceType = "gradient_text"
 
@@ -16,11 +19,9 @@ export type GradientTextSlice = pt.Slice<
 const GradientText = ({ text }: ReturnType<typeof mapDataToProps>) => {
 	return (
 		<section className="relative px-8 text-center py-55">
-			<Gradient className="absolute inset-0" />
+			<Gradient className="absolute inset-0 pointer-events-none" />
 
-			<h2 className="relative font-serif text-24 leading-1_2 text-beige-92">
-				{text}
-			</h2>
+			<h2 className={clsx(serif, "relative text-beige-92")}>{text}</h2>
 		</section>
 	)
 }
