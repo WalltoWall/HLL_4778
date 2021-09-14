@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import * as React from "react"
 import clsx from "clsx"
 import { Gradient as GradientFoo } from "../lib/gradient"
 
@@ -8,7 +8,7 @@ export const Gradient = ({
 	style,
 	...props
 }: React.ComponentPropsWithoutRef<"canvas">) => {
-	useEffect(() => {
+	React.useEffect(() => {
 		const gradient = new GradientFoo()
 
 		//@ts-expect-error - Compiled JS types are wonky.

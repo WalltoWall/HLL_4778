@@ -1,6 +1,5 @@
 import * as React from "react"
 import clsx from "clsx"
-import Image from "next/image"
 import logoUrl from "../assets/logo.png"
 import { MenuButton } from "./MenuButton"
 import { VisuallyHidden } from "./VisuallyHidden"
@@ -24,7 +23,12 @@ export const Header = () => {
 		>
 			<Link className="w-18" href="/">
 				<VisuallyHidden>Honolulu Pride</VisuallyHidden>
-				<Image src={logoUrl} alt="Honolulu Pride" />
+				<img
+					src={logoUrl}
+					alt="Honolulu Pride"
+					loading="lazy"
+					decoding="async"
+				/>
 			</Link>
 
 			<MenuButton onClick={toggleMenu}>

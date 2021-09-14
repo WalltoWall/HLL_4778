@@ -1,3 +1,4 @@
+import * as React from "react"
 import clsx from "clsx"
 
 const Line = () => <div className="bg-beige-92 w-[30px] h-[3px] rounded-full" />

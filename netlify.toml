@@ -1,9 +1,6 @@
 [build]
-  command = "npm run build"
-  publish = "out"
+command = "npm run build"
+publish = "public/"
 
 [[plugins]]
-  package = "netlify-plugin-cache-nextjs"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+package = "@netlify/plugin-gatsby"

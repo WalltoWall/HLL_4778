@@ -1,0 +1,21 @@
+schema: http://localhost:8000/___graphql
+
+documents:
+  - ./src/**/*.{ts,tsx}
+  - ./.cache/fragments/*.js
+
+generates:
+  ./src/gqlTypes.gen.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+    config:
+      preResolveTypes: true
+      maybeValue: T | undefined
+      scalars:
+        Date: unknown
+        JSON: unknown
+
+hooks:
+  afterAllFileWrite:
+    - prettier --write

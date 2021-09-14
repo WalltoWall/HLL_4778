@@ -22,6 +22,7 @@ module.exports = {
 			1: "1",
 			"1_15": "1.15",
 			"1_2": "1.2",
+			"1_5": "1.5",
 		},
 		fontFamily: {
 			sans: ["Work SansVariable", "system-ui"],

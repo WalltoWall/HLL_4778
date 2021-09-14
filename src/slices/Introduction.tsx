@@ -1,23 +1,13 @@
-import { asHTML, asText } from "@prismicio/helpers"
+import * as React from "react"
 import clsx from "clsx"
-import type * as pt from "@prismicio/types"
 
-import type { MapDataToPropsCtx } from "../pages/[uid]"
+import type { MapDataToPropsCtx } from "../templates/page"
 import { ColorVariant, getColorVariant } from "../lib/getColorVariant"
 import { BoundedBox } from "../components/BoundedBox"
 import { HTMLContent } from "../components/HTMLContent"
 import { serifLarge } from "../typography"
 
 export const sliceType = "introduction"
-
-export type IntroductionSlice = pt.Slice<
-	typeof sliceType,
-	{
-		heading: pt.TitleField
-		text: pt.RichTextField
-		color: pt.SelectField<ColorVariant>
-	}
->
 
 interface IntroductionVariant {
 	bg: string
@@ -90,7 +80,7 @@ const Introduction = ({
 	)
 }
 
-export function mapDataToProps({ data }: MapDataToPropsCtx<IntroductionSlice>) {
+export function mapDataToProps({ data }: MapDataToPropsCtx<unknown>) {
 	return {
 		heading: asText(data.primary.heading),
 		textHTML: asHTML(data.primary.text),

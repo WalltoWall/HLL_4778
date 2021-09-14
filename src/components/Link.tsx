@@ -1,4 +1,5 @@
-import NextLink from "next/link"
+import * as React from "react"
+import { Link as GatsbyLink } from "gatsby"
 import { isInternal } from "@walltowall/helpers"
 import clsx from "clsx"
 
@@ -21,9 +22,5 @@ export const Link = ({ href, className, ...props }: LinkProps) => {
 			/>
 		)
 
-	return (
-		<NextLink href={href}>
-			<a href={href} {...linkProps} />
-		</NextLink>
-	)
+	return <GatsbyLink to={href} {...linkProps} />
 }
