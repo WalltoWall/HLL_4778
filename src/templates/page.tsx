@@ -94,6 +94,7 @@ export const pageTemplateQuery = graphql`
 
 				body {
 					__typename
+					...VideoHero
 				}
 			}
 			uid

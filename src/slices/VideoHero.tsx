@@ -1,7 +1,12 @@
 import * as React from "react"
+import { IGatsbyImageData, GatsbyImage } from "gatsby-plugin-image"
+import { graphql } from "gatsby"
 import clsx from "clsx"
-import type { MapDataToPropsCtx } from "../templates/page"
+
 import { serifLarge } from "../typography"
+
+import type { MapDataToPropsCtx } from "../templates/page"
+import type { VideoHeroFragment } from "../gqlTypes.gen"
 
 export const sliceType = "video_hero"
 
@@ -9,7 +14,7 @@ export const sliceType = "video_hero"
 const VideoHero = ({
 	text,
 	videoThumbnailAlt,
-	videoThumbnailUrl,
+	videoThumbnailImageData,
 }: ReturnType<typeof mapDataToProps>) => {
 	return (
 		<section
@@ -21,16 +26,17 @@ const VideoHero = ({
 			)}
 		>
 			<div className="flex flex-col justify-center h-full px-8 2xl:h-[800px]">
-				{false && (
-					<img
-						layout="fill"
-						objectFit="cover"
-						objectPosition="center"
-						src={videoThumbnailUrl}
-						alt={videoThumbnailAlt ?? ""}
-						className="absolute inset-0 bg-black pointer-events-none"
-					/>
-				)}
+				<div className="absolute inset-0 bg-black pointer-events-none">
+					{videoThumbnailImageData && (
+						<GatsbyImage
+							objectFit="cover"
+							objectPosition="center"
+							image={videoThumbnailImageData}
+							alt={videoThumbnailAlt ?? ""}
+							className="w-full h-full"
+						/>
+					)}
+				</div>
 
 				<video
 					className={clsx(
@@ -71,12 +77,32 @@ const VideoHero = ({
 	)
 }
 
-export function mapDataToProps({ data }: MapDataToPropsCtx<unknown>) {
+export function mapDataToProps({ data }: MapDataToPropsCtx<VideoHeroFragment>) {
 	return {
-		text: asText(data.primary.text),
-		videoThumbnailUrl: data.primary.video_thumbnail.url,
-		videoThumbnailAlt: data.primary.video_thumbnail.alt,
+		text: data.primary?.text?.text,
+		videoThumbnailImageData: data.primary?.video_thumbnail
+			?.gatsbyImageData as IGatsbyImageData,
+		videoThumbnailAlt: data.primary?.video_thumbnail?.alt,
 	}
 }
+
+export const gqlFragment = graphql`
+	fragment VideoHero on PrismicPageDataBodyVideoHero {
+		slice_type
+		primary {
+			text {
+				text
+			}
+			video_thumbnail {
+				alt
+				gatsbyImageData(
+					layout: FULL_WIDTH
+					placeholder: BLURRED
+					breakpoints: [360, 768, 1024, 1440]
+				)
+			}
+		}
+	}
+`
 
 export default VideoHero
