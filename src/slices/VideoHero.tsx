@@ -23,8 +23,15 @@ const VideoHero = ({
 	videoThumbnailUrl,
 }: ReturnType<typeof mapDataToProps>) => {
 	return (
-		<section className="z-10 text-center aspect-w-12 aspect-h-16">
-			<div className="flex flex-col justify-center h-full px-8">
+		<section
+			className={clsx(
+				"relative z-10 text-center",
+				"aspect-w-11 aspect-h-16",
+				"md:aspect-w-16 md:aspect-h-9",
+				"2xl:aspect-none 2xl:h-[800px]"
+			)}
+		>
+			<div className="flex flex-col justify-center h-full px-8 2xl:h-[800px]">
 				{videoThumbnailUrl && (
 					<PrismicImage
 						layout="fill"
