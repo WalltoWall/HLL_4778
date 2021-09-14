@@ -21,17 +21,20 @@ import { Layout } from "../components/Layout"
 import * as GradientText from "../slices/GradientText"
 import * as VideoHero from "../slices/VideoHero"
 import * as Introduction from "../slices/Introduction"
+import * as FilterableEvents from "../slices/FilterableEvents"
 
 const pageTemplateSliceMap: MapToComponentsProps["map"] = {
 	[VideoHero.sliceType]: VideoHero.default as React.ComponentType,
 	[GradientText.sliceType]: GradientText.default as React.ComponentType,
 	[Introduction.sliceType]: Introduction.default as React.ComponentType,
+	[FilterableEvents.sliceType]: FilterableEvents.default as React.ComponentType,
 }
 
 const mapDataToPropsMap: MapToComponentsProps["mapDataToProps"] = {
 	[VideoHero.sliceType]: VideoHero.mapDataToProps,
 	[GradientText.sliceType]: GradientText.mapDataToProps,
 	[Introduction.sliceType]: Introduction.mapDataToProps,
+	[FilterableEvents.sliceType]: FilterableEvents.mapDataToProps,
 }
 
 const getSliceKey: MapToComponentsProps["getKey"] = (slice: pt.Slice, idx) => {

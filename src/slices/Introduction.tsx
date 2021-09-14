@@ -1,11 +1,11 @@
 import { asHTML, asText } from "@prismicio/helpers"
+import clsx from "clsx"
 import type * as pt from "@prismicio/types"
 
 import type { MapDataToPropsCtx } from "../pages/[uid]"
 import { ColorVariant, getColorVariant } from "../lib/getColorVariant"
 import { BoundedBox } from "../components/BoundedBox"
 import { HTMLContent } from "../components/HTMLContent"
-import clsx from "clsx"
 import { serifLarge } from "../typography"
 
 export const sliceType = "introduction"

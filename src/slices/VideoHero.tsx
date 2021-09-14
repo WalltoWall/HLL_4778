@@ -17,6 +17,7 @@ export type VideoHeroSlice = pt.Slice<
 	}
 >
 
+// TODO: Use intersection observer to pause playback when not in view.
 const VideoHero = ({
 	text,
 	videoThumbnailAlt,
