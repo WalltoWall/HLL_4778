@@ -1,21 +1,9 @@
 import * as React from "react"
 import clsx from "clsx"
-import { asText } from "@prismicio/helpers"
-import type * as pt from "@prismicio/types"
-import type { MapDataToPropsCtx } from "../pages/[uid]"
+import type { MapDataToPropsCtx } from "../templates/page"
 import { serifLarge } from "../typography"
-import { PrismicImage } from "../components/PrismicImage"
 
 export const sliceType = "video_hero"
-
-export type VideoHeroSlice = pt.Slice<
-	typeof sliceType,
-	{
-		text: pt.RichTextField
-		video_thumbnail: pt.ImageField
-		video: pt.EmbedField
-	}
->
 
 // TODO: Use intersection observer to pause playback when not in view.
 const VideoHero = ({
@@ -33,8 +21,8 @@ const VideoHero = ({
 			)}
 		>
 			<div className="flex flex-col justify-center h-full px-8 2xl:h-[800px]">
-				{videoThumbnailUrl && (
-					<PrismicImage
+				{false && (
+					<img
 						layout="fill"
 						objectFit="cover"
 						objectPosition="center"
@@ -83,7 +71,7 @@ const VideoHero = ({
 	)
 }
 
-export function mapDataToProps({ data }: MapDataToPropsCtx<VideoHeroSlice>) {
+export function mapDataToProps({ data }: MapDataToPropsCtx<unknown>) {
 	return {
 		text: asText(data.primary.text),
 		videoThumbnailUrl: data.primary.video_thumbnail.url,

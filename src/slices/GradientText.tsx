@@ -1,19 +1,12 @@
-import { asText } from "@prismicio/helpers"
-import type * as pt from "@prismicio/types"
-
-import type { MapDataToPropsCtx } from "../pages/[uid]"
+import * as React from "react"
 import clsx from "clsx"
+import { asText } from "@prismicio/helpers"
+
+import type { MapDataToPropsCtx } from "../templates/page"
 import { Gradient } from "../components/Gradient"
 import { serif } from "../typography"
 
 export const sliceType = "gradient_text"
-
-export type GradientTextSlice = pt.Slice<
-	typeof sliceType,
-	{
-		text: pt.RichTextField
-	}
->
 
 // TODO: Use scroll position to disable animation
 const GradientText = ({ text }: ReturnType<typeof mapDataToProps>) => {
@@ -26,7 +19,7 @@ const GradientText = ({ text }: ReturnType<typeof mapDataToProps>) => {
 	)
 }
 
-export function mapDataToProps({ data }: MapDataToPropsCtx<GradientTextSlice>) {
+export function mapDataToProps({ data }: MapDataToPropsCtx<unknown>) {
 	return {
 		text: asText(data.primary.text),
 	}

@@ -1,6 +1,6 @@
+import * as React from "react"
 import clsx from "clsx"
-import React from "react"
-import styles from "./HTMLContent.module.css"
+import * as styles from "./HTMLContent.module.css"
 
 interface Props extends React.ComponentPropsWithoutRef<"div"> {
 	tag?: keyof JSX.IntrinsicElements
