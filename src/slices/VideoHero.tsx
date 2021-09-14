@@ -3,7 +3,7 @@ import clsx from "clsx"
 import { asText } from "@prismicio/helpers"
 import type * as pt from "@prismicio/types"
 import type { MapDataToPropsCtx } from "../pages/[uid]"
-import { serifLarge } from "./typography"
+import { serifLarge } from "../typography"
 import { PrismicImage } from "../components/PrismicImage"
 
 export const sliceType = "video_hero"
