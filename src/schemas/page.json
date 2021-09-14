@@ -142,20 +142,39 @@
 							"color": {
 								"type": "Select",
 								"config": {
-									"options": [
-										"Blue",
-										"Red",
-										"Yellow",
-										"Green",
-										"Blue",
-										"Purple"
-									],
+									"options": ["Blue", "Red", "Yellow", "Green", "Purple"],
 									"default_value": "Blue",
 									"label": "Color"
 								}
 							}
 						},
 						"repeat": {}
+					},
+					"filterable_events": {
+						"type": "Slice",
+						"fieldset": "Filterable Events",
+						"description": "Interactive block with filterable events.",
+						"icon": "event",
+						"display": "list",
+						"non-repeat": {},
+						"repeat": {
+							"event": {
+								"type": "Link",
+								"config": {
+									"select": "document",
+									"customtypes": ["event"],
+									"label": "Event"
+								}
+							},
+							"color": {
+								"type": "Select",
+								"config": {
+									"options": ["Blue", "Red", "Yellow", "Green", "Purple"],
+									"default_value": "Blue",
+									"label": "Color"
+								}
+							}
+						}
 					}
 				}
 			}

@@ -13,6 +13,14 @@
 				"label": "UID"
 			}
 		},
+		"type": {
+			"type": "Select",
+			"config": {
+				"options": ["Watch", "Participate", "Learn"],
+				"default_value": "Watch",
+				"label": "Type"
+			}
+		},
 		"description": {
 			"type": "StructuredText",
 			"config": {
