@@ -4,7 +4,7 @@ import type * as pt from "@prismicio/types"
 import type { MapDataToPropsCtx } from "../pages/[uid]"
 import clsx from "clsx"
 import { Gradient } from "../components/Gradient"
-import { serif } from "./typography"
+import { serif } from "../typography"
 
 export const sliceType = "gradient_text"
 

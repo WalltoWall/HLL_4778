@@ -6,7 +6,7 @@ import { ColorVariant, getColorVariant } from "../lib/getColorVariant"
 import { BoundedBox } from "../components/BoundedBox"
 import { HTMLContent } from "../components/HTMLContent"
 import clsx from "clsx"
-import { serifLarge } from "./typography"
+import { serifLarge } from "../typography"
 
 export const sliceType = "introduction"
 
@@ -22,12 +22,34 @@ export type IntroductionSlice = pt.Slice<
 interface IntroductionVariant {
 	bg: string
 	headingBg: string
+	text: string
 }
 
 const colorVariantMap: Record<ColorVariant, IntroductionVariant> = {
 	blue: {
 		bg: "bg-blue-31",
 		headingBg: "bg-yellow-50",
+		text: "text-beige-92",
+	},
+	green: {
+		bg: "bg-green-27",
+		headingBg: "bg-yellow-50",
+		text: "text-beige-92",
+	},
+	purple: {
+		bg: "bg-purple-57",
+		headingBg: "bg-yellow-50",
+		text: "text-beige-92",
+	},
+	yellow: {
+		bg: "bg-yellow-50",
+		headingBg: "bg-blue-31",
+		text: "text-black",
+	},
+	red: {
+		bg: "bg-red-45",
+		headingBg: "bg-yellow-50",
+		text: "text-beige-92",
 	},
 }
 
@@ -58,7 +80,10 @@ const Introduction = ({
 				)}
 
 				{textHTML && (
-					<HTMLContent html={textHTML} className="w-3/4 text-beige-92" />
+					<HTMLContent
+						html={textHTML}
+						className={clsx("w-3/4", variant.text)}
+					/>
 				)}
 			</div>
 		</BoundedBox>
