@@ -8,7 +8,7 @@ import { PrismicImage } from "../components/PrismicImage"
 
 export const sliceType = "video_hero"
 
-export type GradientTextSlice = pt.Slice<
+export type VideoHeroSlice = pt.Slice<
 	typeof sliceType,
 	{
 		text: pt.RichTextField
@@ -82,7 +82,7 @@ const VideoHero = ({
 	)
 }
 
-export function mapDataToProps({ data }: MapDataToPropsCtx<GradientTextSlice>) {
+export function mapDataToProps({ data }: MapDataToPropsCtx<VideoHeroSlice>) {
 	return {
 		text: asText(data.primary.text),
 		videoThumbnailUrl: data.primary.video_thumbnail.url,

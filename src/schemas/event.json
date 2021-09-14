@@ -1,0 +1,31 @@
+{
+	"Main": {
+		"title": {
+			"type": "StructuredText",
+			"config": {
+				"single": "heading1",
+				"label": "Title"
+			}
+		},
+		"uid": {
+			"type": "UID",
+			"config": {
+				"label": "UID"
+			}
+		},
+		"description": {
+			"type": "StructuredText",
+			"config": {
+				"single": "paragraph,heading4,strong,em,hyperlink",
+				"allowTargetBlank": true,
+				"label": "Description"
+			}
+		},
+		"date": {
+			"type": "Timestamp",
+			"config": {
+				"label": "Date"
+			}
+		}
+	}
+}
