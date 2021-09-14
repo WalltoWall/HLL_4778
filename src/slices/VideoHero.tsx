@@ -1,7 +1,8 @@
+import * as React from "react"
+import clsx from "clsx"
 import { asText } from "@prismicio/helpers"
 import type * as pt from "@prismicio/types"
 import type { MapDataToPropsCtx } from "../pages/[uid]"
-import clsx from "clsx"
 import { serifLarge } from "./typography"
 import { PrismicImage } from "../components/PrismicImage"
 
@@ -22,35 +23,53 @@ const VideoHero = ({
 	videoThumbnailUrl,
 }: ReturnType<typeof mapDataToProps>) => {
 	return (
-		<section className="relative z-10 px-8 text-center py-60">
-			{videoThumbnailUrl && (
-				<PrismicImage
-					layout="fill"
-					objectFit="cover"
-					objectPosition="center"
-					src={videoThumbnailUrl}
-					alt={videoThumbnailAlt ?? ""}
-					className="absolute inset-0 pointer-events-none bg-blue-31"
-				/>
-			)}
+		<section className="z-10 text-center aspect-w-12 aspect-h-16">
+			<div className="flex flex-col justify-center h-full px-8">
+				{videoThumbnailUrl && (
+					<PrismicImage
+						layout="fill"
+						objectFit="cover"
+						objectPosition="center"
+						src={videoThumbnailUrl}
+						alt={videoThumbnailAlt ?? ""}
+						className="absolute inset-0 bg-black pointer-events-none"
+					/>
+				)}
 
-			{text && (
-				<h1
+				<video
 					className={clsx(
-						serifLarge,
-						"relative text-beige-92 max-w-[10ch] mx-auto"
+						"absolute inset-0",
+						"object-cover object-center",
+						"w-full h-full",
+						"pointer-events-none",
+						"brightness-[.65]"
 					)}
+					autoPlay
+					loop
+					muted
+					playsInline
 				>
-					{text}
-				</h1>
-			)}
+					<source type="video/mp4" src="/fpo-hero.mp4" />
+				</video>
 
-			<div className="absolute inset-x-0 flex flex-col items-center space-y-3 -bottom-9">
-				<p className="font-sans font-light text-beige-92 text-12 leading-1_15">
-					Explore
-				</p>
+				{text && (
+					<h1
+						className={clsx(
+							serifLarge,
+							"relative text-beige-92 max-w-[10ch] mx-auto"
+						)}
+					>
+						{text}
+					</h1>
+				)}
 
-				<div aria-hidden className="bg-beige-92 w-[1px] h-18" />
+				<div className="absolute inset-x-0 flex flex-col items-center space-y-3 -bottom-9">
+					<p className="font-sans font-light text-beige-92 text-12 leading-1_15">
+						Explore
+					</p>
+
+					<div aria-hidden className="bg-beige-92 w-[1px] h-18" />
+				</div>
 			</div>
 		</section>
 	)
