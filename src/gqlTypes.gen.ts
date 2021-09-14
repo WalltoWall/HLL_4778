@@ -6402,6 +6402,7 @@ export type SettingsQuery = {
 	__typename?: "Query"
 	prismicSettings?: Maybe<{
 		__typename?: "PrismicSettings"
+		_previewable: string
 		data?: Maybe<{
 			__typename?: "PrismicSettingsDataType"
 			site_name?: Maybe<{
@@ -6424,6 +6425,23 @@ export type SettingsQuery = {
 	}>
 }
 
+export type VideoHeroFragment = {
+	__typename?: "PrismicPageDataBodyVideoHero"
+	slice_type: string
+	primary?: Maybe<{
+		__typename?: "PrismicPageDataBodyVideoHeroPrimary"
+		text?: Maybe<{
+			__typename?: "PrismicStructuredTextType"
+			text?: Maybe<string>
+		}>
+		video_thumbnail?: Maybe<{
+			__typename?: "PrismicPageDataBodyVideoHeroPrimaryVideoThumbnailImageType"
+			alt?: Maybe<string>
+			gatsbyImageData?: Maybe<unknown>
+		}>
+	}>
+}
+
 export type PageTemplateQueryVariables = Exact<{
 	uid: Scalars["String"]
 }>
@@ -6432,6 +6450,7 @@ export type PageTemplateQuery = {
 	__typename?: "Query"
 	prismicPage?: Maybe<{
 		__typename?: "PrismicPage"
+		_previewable: string
 		uid: string
 		url?: Maybe<string>
 		data?: Maybe<{

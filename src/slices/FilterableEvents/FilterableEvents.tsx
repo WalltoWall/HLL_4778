@@ -94,8 +94,6 @@ export function mapDataToProps({ data }: MapDataToPropsCtx<unknown>) {
 			const event = extractEventLinkField(item.event)
 			if (!event.data) return
 
-			console.log(event.data)
-
 			return {
 				// TODO: maybe consolidate this prefix logic?
 				title: asText(event.data.title),
