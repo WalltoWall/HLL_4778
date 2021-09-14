@@ -22,16 +22,9 @@ module.exports = {
 	plugins: [
 		process.env.ANALYZE && "gatsby-plugin-webpack-bundle-analyser-v2",
 		"gatsby-plugin-image",
-		"gatsby-plugin-react-helmet-async",
+		"gatsby-plugin-postcss",
 		"gatsby-plugin-catch-links",
 		"gatsby-plugin-sitemap",
-		// process.env.GOOGLE_ANALYTICS_TRACKING_ID && {
-		// 	resolve: "gatsby-plugin-google-gtag",
-		// 	options: {
-		// 		trackingIds: [process.env.GOOGLE_ANALYTICS_TRACKING_ID],
-		// 		exclude: ["/preview/**", "/admin/**", "/docs/**"],
-		// 	},
-		// },
 		{
 			resolve: "gatsby-plugin-manifest",
 			options: {
@@ -60,5 +53,12 @@ module.exports = {
 				accessToken: process.env.GATSBY_PRISMIC_ACCESS_TOKEN,
 			},
 		},
+		// process.env.GOOGLE_ANALYTICS_TRACKING_ID && {
+		// 	resolve: "gatsby-plugin-google-gtag",
+		// 	options: {
+		// 		trackingIds: [process.env.GOOGLE_ANALYTICS_TRACKING_ID],
+		// 		exclude: ["/preview/**", "/admin/**", "/docs/**"],
+		// 	},
+		// },
 	].filter(Boolean),
 }
