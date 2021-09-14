@@ -8,7 +8,10 @@ export const MenuButton = ({
 	...props
 }: React.ComponentPropsWithoutRef<"button">) => {
 	return (
-		<button className={clsx("grid gap-y-[10px]", className)} {...props}>
+		<button
+			className={clsx("grid gap-y-[10px]", "focus:ring", className)}
+			{...props}
+		>
 			<Line />
 			<Line />
 			{children}

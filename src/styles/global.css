@@ -2,3 +2,7 @@ html {
 	text-rendering: optimizeLegibility;
 	@apply antialiased;
 }
+
+button {
+	-webkit-tap-highlight-color: transparent;
+}

@@ -22,7 +22,7 @@ const VideoHero = ({
 	videoThumbnailUrl,
 }: ReturnType<typeof mapDataToProps>) => {
 	return (
-		<section className="relative px-8 text-center py-55">
+		<section className="relative z-10 px-8 text-center py-60">
 			{videoThumbnailUrl && (
 				<PrismicImage
 					layout="fill"
@@ -44,6 +44,14 @@ const VideoHero = ({
 					{text}
 				</h1>
 			)}
+
+			<div className="absolute inset-x-0 flex flex-col items-center space-y-3 -bottom-9">
+				<p className="font-sans font-light text-beige-92 text-12 leading-1_15">
+					Explore
+				</p>
+
+				<div aria-hidden className="bg-beige-92 w-[1px] h-18" />
+			</div>
 		</section>
 	)
 }
