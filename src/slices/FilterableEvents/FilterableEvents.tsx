@@ -1,7 +1,11 @@
 import * as React from "react"
 import clsx from "clsx"
+import { graphql } from "gatsby"
+import { undefIfEmpty } from "@walltowall/helpers"
 
 import type { MapDataToPropsCtx } from "../../templates/page"
+import type { FilterableEventsFragment } from "../../gqlTypes.gen"
+
 import { BoundedBox } from "../../components/BoundedBox"
 import { ColorVariant, getColorVariant } from "../../lib/getColorVariant"
 import { FilterControls } from "./FilterControls"
@@ -9,7 +13,7 @@ import { EventCard } from "./EventCard"
 
 export type Filter = "watch" | "participate" | "learn"
 
-export const sliceType = "filterable_events"
+export const sliceType = "PrismicPageDataBodyFilterableEvents"
 
 export interface FilterableEventsVariant {
 	bg: string
@@ -68,42 +72,65 @@ const FilterableEvents = ({
 				<FilterControls variant={variant} />
 
 				<ul className="space-y-12">
-					{events.map((e, idx) => {
-						if (!e) return null
-
-						return (
-							<EventCard
-								key={`event-${idx}`}
-								href={e.href}
-								color={e.color}
-								title={e.title}
-								descriptionHTML={e.descriptionHTML}
-								date={e.date}
-							/>
-						)
-					})}
+					{events.map((e, idx) => (
+						<EventCard
+							key={`event-${idx}`}
+							href={e.href}
+							color={e.color}
+							title={e.title}
+							descriptionHTML={e.descriptionHTML}
+							date={e.date}
+						/>
+					))}
 				</ul>
 			</div>
 		</BoundedBox>
 	)
 }
 
-export function mapDataToProps({ data }: MapDataToPropsCtx<unknown>) {
+export function mapDataToProps({
+	data,
+}: MapDataToPropsCtx<FilterableEventsFragment>) {
 	return {
-		events: data.items.map((item) => {
-			const event = extractEventLinkField(item.event)
-			if (!event.data) return
+		events:
+			data.items?.map((item) => {
+				const event = item?.event?.document
 
-			return {
-				// TODO: maybe consolidate this prefix logic?
-				title: asText(event.data.title),
-				descriptionHTML: asHTML(event.data.description, linkResolver),
-				date: asDate(event.data.date)!,
-				color: getColorVariant(item.color),
-				href: `/event/${event.uid}`,
-			}
-		}),
+				return {
+					color: getColorVariant(item?.color),
+					title: undefIfEmpty(event?.data?.title?.text),
+					descriptionHTML: undefIfEmpty(event?.data?.description?.html),
+					date: new Date(event?.data?.date as string),
+					href: item?.event?.url,
+				}
+			}) ?? [],
 	}
 }
+
+export const gqlFragment = graphql`
+	fragment FilterableEvents on PrismicPageDataBodyFilterableEvents {
+		items {
+			color
+			event {
+				url
+				document {
+					... on PrismicEvent {
+						_previewable
+						data {
+							date
+							description {
+								html
+							}
+							title {
+								text
+							}
+							type
+						}
+					}
+				}
+			}
+		}
+	}
+`
 
 export default FilterableEvents

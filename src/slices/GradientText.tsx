@@ -1,12 +1,14 @@
 import * as React from "react"
 import clsx from "clsx"
-import { asText } from "@prismicio/helpers"
+import { graphql } from "gatsby"
 
 import type { MapDataToPropsCtx } from "../templates/page"
+import type { GradientTextFragment } from "../gqlTypes.gen"
+
 import { Gradient } from "../components/Gradient"
 import { serif } from "../typography"
 
-export const sliceType = "gradient_text"
+export const sliceType = "PrismicPageDataBodyGradientText"
 
 // TODO: Use scroll position to disable animation
 const GradientText = ({ text }: ReturnType<typeof mapDataToProps>) => {
@@ -19,10 +21,22 @@ const GradientText = ({ text }: ReturnType<typeof mapDataToProps>) => {
 	)
 }
 
-export function mapDataToProps({ data }: MapDataToPropsCtx<unknown>) {
+export function mapDataToProps({
+	data,
+}: MapDataToPropsCtx<GradientTextFragment>) {
 	return {
-		text: asText(data.primary.text),
+		text: data.primary?.text?.text,
 	}
 }
+
+export const gqlFragment = graphql`
+	fragment GradientText on PrismicPageDataBodyGradientText {
+		primary {
+			text {
+				text
+			}
+		}
+	}
+`
 
 export default GradientText

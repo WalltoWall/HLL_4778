@@ -1,13 +1,17 @@
 import * as React from "react"
+import { graphql } from "gatsby"
 import clsx from "clsx"
 
 import type { MapDataToPropsCtx } from "../templates/page"
+import type { IntroductionFragment } from "../gqlTypes.gen"
+
 import { ColorVariant, getColorVariant } from "../lib/getColorVariant"
 import { BoundedBox } from "../components/BoundedBox"
 import { HTMLContent } from "../components/HTMLContent"
 import { serifLarge } from "../typography"
+import { undefIfEmpty } from "@walltowall/helpers"
 
-export const sliceType = "introduction"
+export const sliceType = "PrismicPageDataBodyIntroduction"
 
 interface IntroductionVariant {
 	bg: string
@@ -80,12 +84,28 @@ const Introduction = ({
 	)
 }
 
-export function mapDataToProps({ data }: MapDataToPropsCtx<unknown>) {
+export function mapDataToProps({
+	data,
+}: MapDataToPropsCtx<IntroductionFragment>) {
 	return {
-		heading: asText(data.primary.heading),
-		textHTML: asHTML(data.primary.text),
-		color: getColorVariant(data.primary.color),
+		heading: data.primary?.heading?.text,
+		textHTML: undefIfEmpty(data.primary?.text?.html),
+		color: getColorVariant(data.primary?.color),
 	}
 }
+
+export const gqlFragment = graphql`
+	fragment Introduction on PrismicPageDataBodyIntroduction {
+		primary {
+			heading {
+				text
+			}
+			text {
+				html
+			}
+			color
+		}
+	}
+`
 
 export default Introduction

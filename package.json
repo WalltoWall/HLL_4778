@@ -27,9 +27,9 @@
 		"tiny-invariant": "^1.1.0"
 	},
 	"devDependencies": {
-		"@graphql-codegen/cli": "^2.2.0",
-		"@graphql-codegen/typescript": "^2.2.2",
-		"@graphql-codegen/typescript-operations": "^2.1.4",
+		"@graphql-codegen/cli": "^1.21.6",
+		"@graphql-codegen/typescript": "^1.22.4",
+		"@graphql-codegen/typescript-operations": "^1.18.3",
 		"@netlify/plugin-gatsby": "^1.0.3",
 		"@next/bundle-analyzer": "^11.1.2",
 		"@tailwindcss/aspect-ratio": "^0.2.1",
