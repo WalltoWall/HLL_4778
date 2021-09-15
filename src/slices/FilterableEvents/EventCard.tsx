@@ -8,10 +8,10 @@ import { sansExt, serifMd } from "../../typography"
 
 interface Props {
 	color: ColorVariant
-	title: string
-	descriptionHTML: string
+	title?: string
+	descriptionHTML?: string
 	date: Date
-	href: string
+	href?: string
 }
 
 export const EventCard = ({
@@ -41,10 +41,12 @@ export const EventCard = ({
 							{dateAndMonth} at {time}
 						</h5>
 
-						<h4 className={clsx(serifMd, "text-beige-92")}>{title}</h4>
+						{title && (
+							<h4 className={clsx(serifMd, "text-beige-92")}>{title}</h4>
+						)}
 					</div>
 
-					<HTMLContent html={descriptionHTML} />
+					{descriptionHTML && <HTMLContent html={descriptionHTML} />}
 				</div>
 
 				<Link href="/">RSVP Now</Link>

@@ -9,7 +9,7 @@ import { graphql, PageProps } from "gatsby"
 import { SEO } from "../components/SEO"
 import { Layout } from "../components/Layout"
 
-import type { PageTemplateQuery, PrismicSliceType } from "../gqlTypes.gen"
+import type { PageTemplateQuery } from "../gqlTypes.gen"
 
 import * as GradientText from "../slices/GradientText"
 import * as VideoHero from "../slices/VideoHero"
@@ -30,22 +30,26 @@ const mapDataToPropsMap: MapToComponentsProps["mapDataToProps"] = {
 	[FilterableEvents.sliceType]: FilterableEvents.mapDataToProps,
 }
 
-const getSliceKey: MapToComponentsProps["getKey"] = (
-	slice: PrismicSliceType,
-	idx
-) => {
-	return `${slice.slice_type}-${idx}`
+interface PrismicSlice {
+	__typename: string
 }
 
-const getSliceType: MapToComponentsProps["getType"] = (
-	slice: PrismicSliceType
+const getSliceKey: MapToComponentsProps["getKey"] = (
+	slice: PrismicSlice,
+	idx
 ) => {
-	return slice.slice_type
+	return `${slice.__typename}-${idx}`
+}
+
+const getSliceType: MapToComponentsProps["getType"] = (slice: PrismicSlice) => {
+	return slice.__typename
 }
 
 const pageTemplateFallback: MapToComponentsProps["default"] = (data) => {
 	if (process.env.NODE_ENV === "development") {
-		console.error(`Could not find a component mapping for type: ${data.type}`)
+		console.error(
+			`Could not find a component mapping for type: ${data.__typename}`
+		)
 	}
 
 	return null
@@ -95,6 +99,9 @@ export const pageTemplateQuery = graphql`
 				body {
 					__typename
 					...VideoHero
+					...GradientText
+					...Introduction
+					...FilterableEvents
 				}
 			}
 			uid

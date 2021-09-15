@@ -8,7 +8,7 @@ import { serifLarge } from "../typography"
 import type { MapDataToPropsCtx } from "../templates/page"
 import type { VideoHeroFragment } from "../gqlTypes.gen"
 
-export const sliceType = "video_hero"
+export const sliceType = "PrismicPageDataBodyVideoHero"
 
 // TODO: Use intersection observer to pause playback when not in view.
 const VideoHero = ({
@@ -88,7 +88,6 @@ export function mapDataToProps({ data }: MapDataToPropsCtx<VideoHeroFragment>) {
 
 export const gqlFragment = graphql`
 	fragment VideoHero on PrismicPageDataBodyVideoHero {
-		slice_type
 		primary {
 			text {
 				text
