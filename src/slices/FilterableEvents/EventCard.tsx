@@ -1,10 +1,12 @@
 import * as React from "react"
 import clsx from "clsx"
+import { useInView } from "react-intersection-observer"
 
 import { HTMLContent } from "../../components/HTMLContent"
 import { Link } from "../../components/Link"
 import type { ColorVariant } from "../../lib/getColorVariant"
-import { sansExt, serifMd } from "../../typography"
+import { sansExt, sansExtMd, serifMd } from "../../typography"
+import type { FilterableEventsVariant } from "./FilterableEvents"
 
 interface Props {
 	color: ColorVariant
@@ -12,6 +14,8 @@ interface Props {
 	descriptionHTML?: string
 	date: Date
 	href?: string
+	updateBackground: (color: ColorVariant) => void
+	variant: FilterableEventsVariant
 }
 
 export const EventCard = ({
@@ -20,7 +24,11 @@ export const EventCard = ({
 	descriptionHTML,
 	date,
 	href,
+	updateBackground,
+	variant,
 }: Props) => {
+	const { ref, inView } = useInView({ threshold: 0.75 })
+
 	const dateAndMonth = date.toLocaleDateString("en-US", {
 		month: "short",
 		day: "numeric",
@@ -30,27 +38,63 @@ export const EventCard = ({
 		hour: "2-digit",
 	})
 
+	React.useEffect(() => {
+		if (!inView) return
+
+		updateBackground(color)
+	}, [inView, color])
+
 	return (
-		<div className="space-y-6">
+		<li className="space-y-6" ref={ref}>
 			<div className="bg-beige-92 aspect-w-1 aspect-h-1" />
 
 			<div>
-				<div className="space-y-5">
+				<div className="space-y-7">
 					<div className="space-y-3">
-						<h5 className={clsx(sansExt, "text-beige-92")}>
+						<p
+							className={clsx(
+								sansExt,
+								variant.textColor,
+								"transition duration-300"
+							)}
+						>
 							{dateAndMonth} at {time}
-						</h5>
+						</p>
 
 						{title && (
-							<h4 className={clsx(serifMd, "text-beige-92")}>{title}</h4>
+							<Link href={href} className="block">
+								<h4
+									className={clsx(
+										serifMd,
+										variant.textColor,
+										"transition duration-300"
+									)}
+								>
+									{title}
+								</h4>
+							</Link>
 						)}
 					</div>
 
-					{descriptionHTML && <HTMLContent html={descriptionHTML} />}
-				</div>
+					{descriptionHTML && (
+						<HTMLContent
+							html={descriptionHTML}
+							className={clsx("transition duration-300", variant.textColor)}
+						/>
+					)}
 
-				<Link href="/">RSVP Now</Link>
+					<Link
+						href="/"
+						className={clsx(
+							"block underline transition duration-300",
+							variant.textColor,
+							sansExtMd
+						)}
+					>
+						RSVP Now
+					</Link>
+				</div>
 			</div>
-		</div>
+		</li>
 	)
 }
