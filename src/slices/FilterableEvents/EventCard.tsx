@@ -27,7 +27,7 @@ export const EventCard = ({
 	updateBackground,
 	variant,
 }: Props) => {
-	const { ref, inView } = useInView({ threshold: 0.75 })
+	const { ref, inView } = useInView({ threshold: 0.25 })
 
 	const dateAndMonth = date.toLocaleDateString("en-US", {
 		month: "short",
@@ -46,7 +46,7 @@ export const EventCard = ({
 
 	return (
 		<li className="space-y-6" ref={ref}>
-			<div className="bg-beige-92 aspect-w-1 aspect-h-1" />
+			<Link href={href} className="block bg-beige-92 aspect-w-1 aspect-h-1" />
 
 			<div>
 				<div className="space-y-7">

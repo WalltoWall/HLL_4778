@@ -1,6 +1,7 @@
 import * as React from "react"
+import { useInView } from "react-intersection-observer"
 import clsx from "clsx"
-import { Gradient as GradientFoo } from "../lib/gradient"
+import { Gradient as GradientController } from "../lib/gradient"
 
 export const Gradient = ({
 	className,
@@ -8,18 +9,37 @@ export const Gradient = ({
 	style,
 	...props
 }: React.ComponentPropsWithoutRef<"canvas">) => {
+	const gradientRef = React.useRef<GradientController>()
+	const { ref: canvasRef, inView } = useInView({ threshold: 0 })
+
 	React.useEffect(() => {
-		const gradient = new GradientFoo()
+		const gradient = new GradientController()
+		gradientRef.current = gradient
 
 		//@ts-expect-error - Compiled JS types are wonky.
-		gradient.initGradient(`#${id}`)
+		gradientRef.current.initGradient(`#${id}`)
+
+		return () => gradientRef.current?.disconnect()
 	}, [id])
+
+	React.useEffect(() => {
+		if (!gradientRef.current) return
+
+		if (inView) {
+			//@ts-expect-error - Compiled JS types are wonky.
+			gradientRef.current.play()
+		} else {
+			//@ts-expect-error - Compiled JS types are wonky.
+			gradientRef.current.pause()
+		}
+	}, [inView])
 
 	return (
 		<canvas
 			id={id}
+			ref={canvasRef}
 			data-transition-in
-			className={clsx("w-full h-full", className)}
+			className={clsx("w-full h-full bg-purple-57", className)}
 			style={
 				{
 					...style,

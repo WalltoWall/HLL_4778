@@ -1,4 +1,6 @@
 import * as React from "react"
+import mergeRefs from "react-merge-refs"
+import { useInView } from "react-intersection-observer"
 import { IGatsbyImageData, GatsbyImage } from "gatsby-plugin-image"
 import { graphql } from "gatsby"
 import clsx from "clsx"
@@ -16,6 +18,19 @@ const VideoHero = ({
 	videoThumbnailAlt,
 	videoThumbnailImageData,
 }: ReturnType<typeof mapDataToProps>) => {
+	const videoRef = React.useRef<HTMLVideoElement | null>(null)
+	const { ref: observerRef, inView } = useInView({ threshold: 0 })
+
+	React.useEffect(() => {
+		if (!videoRef.current) return
+
+		if (inView) {
+			videoRef.current?.play()
+		} else {
+			videoRef.current?.pause()
+		}
+	}, [inView])
+
 	return (
 		<section
 			className={clsx(
@@ -39,6 +54,7 @@ const VideoHero = ({
 				</div>
 
 				<video
+					ref={mergeRefs([videoRef, observerRef])}
 					className={clsx(
 						"absolute inset-0",
 						"object-cover object-center",
