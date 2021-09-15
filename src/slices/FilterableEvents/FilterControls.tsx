@@ -19,8 +19,8 @@ const FilterButton = ({
 			className={clsx(
 				"font-sansExt text-10 uppercase leading-1_15 font-bold",
 				"rounded-full py-3 px-3",
-				isActive && clsx(variant.activeButtonBg, variant.activeTextColor),
-				!isActive && variant.inactiveTextColor,
+				isActive && clsx(variant.activeButtonBg, variant.activeContolTextColor),
+				!isActive && variant.inactiveControlTextColor,
 				className
 			)}
 			{...props}

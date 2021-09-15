@@ -17,41 +17,47 @@ export const sliceType = "PrismicPageDataBodyFilterableEvents"
 
 export interface FilterableEventsVariant {
 	bg: string
-	inactiveTextColor: string
-	activeTextColor: string
+	inactiveControlTextColor: string
+	activeContolTextColor: string
 	activeButtonBg: string
+	textColor: string
 }
 
-const firstEventBgMap: Record<ColorVariant, FilterableEventsVariant> = {
+const colorVariants: Record<ColorVariant, FilterableEventsVariant> = {
 	blue: {
 		bg: "bg-blue-31",
-		inactiveTextColor: "text-blue-31",
-		activeTextColor: "text-white",
+		inactiveControlTextColor: "text-blue-31",
+		activeContolTextColor: "text-white",
 		activeButtonBg: "bg-yellow-50",
+		textColor: "text-beige-92",
 	},
 	green: {
 		bg: "bg-green-27",
-		inactiveTextColor: "text-green-27",
-		activeTextColor: "text-white",
+		inactiveControlTextColor: "text-green-27",
+		activeContolTextColor: "text-white",
 		activeButtonBg: "bg-yellow-50",
+		textColor: "text-beige-92",
 	},
 	purple: {
 		bg: "bg-purple-57",
-		inactiveTextColor: "text-purple-57",
-		activeTextColor: "text-white",
+		inactiveControlTextColor: "text-purple-57",
+		activeContolTextColor: "text-white",
 		activeButtonBg: "bg-yellow-50",
+		textColor: "text-beige-92",
 	},
 	red: {
 		bg: "bg-red-45",
-		inactiveTextColor: "text-red-45",
-		activeTextColor: "text-white",
+		inactiveControlTextColor: "text-red-45",
+		activeContolTextColor: "text-white",
 		activeButtonBg: "bg-yellow-50",
+		textColor: "text-beige-92",
 	},
 	yellow: {
 		bg: "bg-yellow-50",
-		inactiveTextColor: "text-yellow-50",
-		activeTextColor: "text-white",
+		inactiveControlTextColor: "text-yellow-50",
+		activeContolTextColor: "text-white",
 		activeButtonBg: "bg-blue-31",
+		textColor: "text-black",
 	},
 }
 
@@ -59,19 +65,28 @@ const firstEventBgMap: Record<ColorVariant, FilterableEventsVariant> = {
 const FilterableEvents = ({
 	events = [],
 }: ReturnType<typeof mapDataToProps>) => {
-	const [variant, _setVariant] = React.useState<FilterableEventsVariant>(() => {
+	const [variant, setVariant] = React.useState<FilterableEventsVariant>(() => {
 		const [firstEvent] = events
-		if (!firstEvent) return firstEventBgMap.blue
+		if (!firstEvent) return colorVariants.blue
 
-		return firstEventBgMap[firstEvent.color]
+		return colorVariants[firstEvent.color]
 	})
 
+	function updateBackground(color: ColorVariant) {
+		const newVariant = colorVariants[color]
+
+		setVariant(newVariant)
+	}
+
 	return (
-		<BoundedBox tag="section" className={clsx("py-10", variant.bg)}>
+		<BoundedBox
+			tag="section"
+			className={clsx("py-10 transition duration-300", variant.bg)}
+		>
 			<div className="space-y-11">
 				<FilterControls variant={variant} />
 
-				<ul className="space-y-12">
+				<ul className="space-y-14">
 					{events.map((e, idx) => (
 						<EventCard
 							key={`event-${idx}`}
@@ -80,6 +95,8 @@ const FilterableEvents = ({
 							title={e.title}
 							descriptionHTML={e.descriptionHTML}
 							date={e.date}
+							updateBackground={updateBackground}
+							variant={variant}
 						/>
 					))}
 				</ul>
