@@ -25,6 +25,7 @@
 		"react-head": "^3.4.0",
 		"react-intersection-observer": "^8.32.1",
 		"react-map-to-components": "^1.2.1",
+		"react-merge-refs": "^1.1.0",
 		"tiny-invariant": "^1.1.0"
 	},
 	"devDependencies": {

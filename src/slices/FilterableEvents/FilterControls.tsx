@@ -1,6 +1,6 @@
 import * as React from "react"
 import clsx from "clsx"
-import type { Filter, FilterableEventsVariant } from "./FilterableEvents"
+import type { EventType, FilterableEventsVariant } from "./FilterableEvents"
 
 interface FilterButtonProps extends React.ComponentPropsWithoutRef<"button"> {
 	isActive: boolean
@@ -32,11 +32,17 @@ const FilterButton = ({
 
 interface FilterControlsProps {
 	variant: FilterableEventsVariant
+	activeFilter: EventType | undefined
+	clearFilters: () => void
+	filterEvents: (type: EventType) => void
 }
 
-export const FilterControls = ({ variant }: FilterControlsProps) => {
-	const [activeControl, setActiveControl] = React.useState<Filter | undefined>()
-
+export const FilterControls = ({
+	variant,
+	activeFilter,
+	clearFilters,
+	filterEvents,
+}: FilterControlsProps) => {
 	return (
 		<div className={clsx("relative", "p-1")}>
 			<div
@@ -49,29 +55,29 @@ export const FilterControls = ({ variant }: FilterControlsProps) => {
 
 			<div className="relative flex justify-between">
 				<FilterButton
-					isActive={!activeControl}
-					onClick={() => setActiveControl(undefined)}
+					isActive={!activeFilter}
+					onClick={clearFilters}
 					variant={variant}
 				>
 					All
 				</FilterButton>
 				<FilterButton
-					onClick={() => setActiveControl("watch")}
-					isActive={activeControl === "watch"}
+					onClick={() => filterEvents("watch")}
+					isActive={activeFilter === "watch"}
 					variant={variant}
 				>
 					Watch
 				</FilterButton>
 				<FilterButton
-					isActive={activeControl === "participate"}
-					onClick={() => setActiveControl("participate")}
+					isActive={activeFilter === "participate"}
+					onClick={() => filterEvents("participate")}
 					variant={variant}
 				>
 					Participate
 				</FilterButton>
 				<FilterButton
-					isActive={activeControl === "learn"}
-					onClick={() => setActiveControl("learn")}
+					isActive={activeFilter === "learn"}
+					onClick={() => filterEvents("learn")}
 					variant={variant}
 				>
 					Learn

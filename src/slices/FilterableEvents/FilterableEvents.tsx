@@ -11,7 +11,7 @@ import { ColorVariant, getColorVariant } from "../../lib/getColorVariant"
 import { FilterControls } from "./FilterControls"
 import { EventCard } from "./EventCard"
 
-export type Filter = "watch" | "participate" | "learn"
+export type EventType = "watch" | "participate" | "learn"
 
 export const sliceType = "PrismicPageDataBodyFilterableEvents"
 
@@ -65,11 +65,20 @@ const colorVariants: Record<ColorVariant, FilterableEventsVariant> = {
 const FilterableEvents = ({
 	events = [],
 }: ReturnType<typeof mapDataToProps>) => {
+	const [activeFilter, setActiveFilter] = React.useState<
+		EventType | undefined
+	>()
 	const [variant, setVariant] = React.useState<FilterableEventsVariant>(() => {
 		const [firstEvent] = events
 		if (!firstEvent) return colorVariants.blue
 
 		return colorVariants[firstEvent.color]
+	})
+
+	const filteredEvents = events.filter((e) => {
+		if (!activeFilter) return true
+
+		return e.type === activeFilter
 	})
 
 	function updateBackground(color: ColorVariant) {
@@ -78,16 +87,29 @@ const FilterableEvents = ({
 		setVariant(newVariant)
 	}
 
+	function clearFilters() {
+		setActiveFilter(undefined)
+	}
+
+	function filterEvents(type: EventType) {
+		setActiveFilter(type)
+	}
+
 	return (
 		<BoundedBox
 			tag="section"
 			className={clsx("py-10 transition duration-300", variant.bg)}
 		>
 			<div className="space-y-11">
-				<FilterControls variant={variant} />
+				<FilterControls
+					variant={variant}
+					activeFilter={activeFilter}
+					clearFilters={clearFilters}
+					filterEvents={filterEvents}
+				/>
 
 				<ul className="space-y-14">
-					{events.map((e, idx) => (
+					{filteredEvents.map((e, idx) => (
 						<EventCard
 							key={`event-${idx}`}
 							href={e.href}
@@ -118,6 +140,7 @@ export function mapDataToProps({
 					title: undefIfEmpty(event?.data?.title?.text),
 					descriptionHTML: undefIfEmpty(event?.data?.description?.html),
 					date: new Date(event?.data?.date as string),
+					type: event?.data?.type?.toLowerCase() as EventType,
 					href: item?.event?.url,
 				}
 			}) ?? [],

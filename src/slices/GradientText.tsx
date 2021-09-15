@@ -14,7 +14,7 @@ export const sliceType = "PrismicPageDataBodyGradientText"
 const GradientText = ({ text }: ReturnType<typeof mapDataToProps>) => {
 	return (
 		<section className="relative px-8 text-center py-55">
-			<Gradient className="absolute inset-0 pointer-events-none" />
+			<Gradient className="absolute inset-0" />
 
 			<h2 className={clsx(serif, "relative text-beige-92")}>{text}</h2>
 		</section>
