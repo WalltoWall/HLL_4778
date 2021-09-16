@@ -90,14 +90,13 @@ const Introduction = ({
 
 export function mapDataToProps({
 	data,
-	context,
 	nextContext,
 }: MapDataToPropsCtx<IntroductionFragment>) {
 	return {
 		heading: data.primary?.heading?.text,
 		textHTML: undefIfEmpty(data.primary?.text?.html),
 		color: getColorVariant(data.primary?.color),
-		nextSharesBg: nextContext.backgroundColor === context?.backgroundColor,
+		nextSharesBg: nextContext?.backgroundColor === "blue",
 	}
 }
 
