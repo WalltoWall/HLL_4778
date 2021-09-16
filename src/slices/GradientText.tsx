@@ -12,7 +12,7 @@ export const sliceType = "PrismicPageDataBodyGradientText"
 
 const GradientText = ({ text }: ReturnType<typeof mapDataToProps>) => {
 	return (
-		<section className="relative aspect-w-9 aspect-h-16">
+		<section className="relative aspect-w-10 aspect-h-16">
 			<Gradient className="absolute inset-0" />
 
 			<div className="flex items-center justify-center w-full h-full px-8">
