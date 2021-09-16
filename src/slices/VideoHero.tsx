@@ -8,6 +8,7 @@ import { serifLarge } from "../typography"
 
 import type { MapDataToPropsCtx } from "../templates/page"
 import type { VideoHeroFragment } from "../gqlTypes.gen"
+import { Image } from "../components/Image"
 
 export const sliceType = "PrismicPageDataBodyVideoHero"
 
@@ -42,12 +43,10 @@ const VideoHero = ({
 			<div className="flex flex-col justify-center h-full px-8 2xl:h-[800px]">
 				<div className="absolute inset-0 bg-black pointer-events-none">
 					{videoThumbnailUrl && (
-						<img
+						<Image
 							src={videoThumbnailUrl}
 							alt={videoThumbnailAlt ?? ""}
 							className="object-cover object-center w-full h-full"
-							loading="lazy"
-							decoding="async"
 						/>
 					)}
 				</div>

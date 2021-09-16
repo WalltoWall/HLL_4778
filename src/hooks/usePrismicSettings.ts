@@ -18,6 +18,7 @@ export function usePrismicSettings() {
 					}
 					site_copyright {
 						text
+						html
 					}
 				}
 			}
@@ -27,6 +28,10 @@ export function usePrismicSettings() {
 	return {
 		siteName: result.prismicSettings?.data?.site_name?.text,
 		siteDescription: result.prismicSettings?.data?.site_description?.text,
-		siteCopyright: result.prismicSettings?.data?.site_copyright?.text,
+		siteCopyrightHTML:
+			result.prismicSettings?.data?.site_copyright?.html?.replace(
+				"{YEAR}",
+				new Date().getFullYear().toString()
+			),
 	}
 }
