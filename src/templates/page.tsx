@@ -16,12 +16,14 @@ import * as GradientText from "../slices/GradientText"
 import * as VideoHero from "../slices/VideoHero"
 import * as Introduction from "../slices/Introduction"
 import * as FilterableEvents from "../slices/FilterableEvents"
+import * as Carousel from "../slices/Carousel"
 
 const pageTemplateSliceMap: MapToComponentsProps["map"] = {
 	[VideoHero.sliceType]: VideoHero.default as React.ComponentType,
 	[GradientText.sliceType]: GradientText.default as React.ComponentType,
 	[Introduction.sliceType]: Introduction.default as React.ComponentType,
 	[FilterableEvents.sliceType]: FilterableEvents.default as React.ComponentType,
+	[Carousel.sliceType]: Carousel.default as React.ComponentType,
 }
 
 const mapDataToPropsMap: MapToComponentsProps["mapDataToProps"] = {
@@ -29,6 +31,7 @@ const mapDataToPropsMap: MapToComponentsProps["mapDataToProps"] = {
 	[GradientText.sliceType]: GradientText.mapDataToProps,
 	[Introduction.sliceType]: Introduction.mapDataToProps,
 	[FilterableEvents.sliceType]: FilterableEvents.mapDataToProps,
+	[Carousel.sliceType]: Carousel.mapDataToProps,
 }
 
 const mapDataToContextMap: MapToComponentsProps["mapDataToContext"] = {
@@ -117,6 +120,7 @@ export const pageTemplateQuery = graphql`
 					...GradientText
 					...Introduction
 					...FilterableEvents
+					...Carousel
 				}
 			}
 			uid
