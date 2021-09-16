@@ -10,7 +10,6 @@ import { serif } from "../typography"
 
 export const sliceType = "PrismicPageDataBodyGradientText"
 
-// TODO: Use scroll position to disable animation
 const GradientText = ({ text }: ReturnType<typeof mapDataToProps>) => {
 	return (
 		<section className="relative px-8 text-center py-55">
