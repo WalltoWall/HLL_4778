@@ -10,7 +10,7 @@ import {
 import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
 import type { CarouselFragment } from "../gqlTypes.gen"
 
-import { Image } from "../components/Image"
+import { ArchImage } from "../components/ArchImage"
 
 import { sansExt, serifLarge } from "../typography"
 import { ButtonLink } from "../components/Button"
@@ -66,20 +66,12 @@ const Carousel = ({
 
 			<div ref={sliderRef} className="relative keen-slider">
 				{images.map((img, idx) => (
-					<div
+					<ArchImage
 						key={`carousel-${idx}`}
-						className={clsx("keen-slider__slide aspect-w-8 aspect-h-7")}
-					>
-						<Image
-							src={img.src}
-							alt={img.alt ?? ""}
-							className={clsx(
-								"object-cover object-center",
-								"w-full h-full",
-								"rounded-tl-full rounded-tr-full"
-							)}
-						/>
-					</div>
+						className="keen-slider__slide"
+						src={img.src}
+						alt={img.alt ?? ""}
+					/>
 				))}
 
 				<CarouselButton
