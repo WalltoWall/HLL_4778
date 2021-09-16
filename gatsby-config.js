@@ -21,7 +21,6 @@ module.exports = {
 	siteMetadata,
 	plugins: [
 		process.env.ANALYZE && "gatsby-plugin-webpack-bundle-analyser-v2",
-		"gatsby-plugin-image",
 		"gatsby-plugin-postcss",
 		"gatsby-plugin-catch-links",
 		"gatsby-plugin-sitemap",

@@ -1,7 +1,6 @@
 import * as React from "react"
 import mergeRefs from "react-merge-refs"
 import { useInView } from "react-intersection-observer"
-import { IGatsbyImageData, GatsbyImage } from "gatsby-plugin-image"
 import { graphql } from "gatsby"
 import clsx from "clsx"
 
@@ -16,7 +15,7 @@ export const sliceType = "PrismicPageDataBodyVideoHero"
 const VideoHero = ({
 	text,
 	videoThumbnailAlt,
-	videoThumbnailImageData,
+	videoThumbnailUrl,
 }: ReturnType<typeof mapDataToProps>) => {
 	const videoRef = React.useRef<HTMLVideoElement | null>(null)
 	const { ref: observerRef, inView } = useInView({ threshold: 0 })
@@ -35,20 +34,20 @@ const VideoHero = ({
 		<section
 			className={clsx(
 				"relative z-10 text-center",
-				"aspect-w-11 aspect-h-16",
+				"aspect-w-9 aspect-h-16",
 				"md:aspect-w-16 md:aspect-h-9",
 				"2xl:aspect-none 2xl:h-[800px]"
 			)}
 		>
 			<div className="flex flex-col justify-center h-full px-8 2xl:h-[800px]">
 				<div className="absolute inset-0 bg-black pointer-events-none">
-					{videoThumbnailImageData && (
-						<GatsbyImage
-							objectFit="cover"
-							objectPosition="center"
-							image={videoThumbnailImageData}
+					{videoThumbnailUrl && (
+						<img
+							src={videoThumbnailUrl}
 							alt={videoThumbnailAlt ?? ""}
-							className="w-full h-full"
+							className="object-cover object-center w-full h-full"
+							loading="lazy"
+							decoding="async"
 						/>
 					)}
 				</div>
@@ -96,8 +95,7 @@ const VideoHero = ({
 export function mapDataToProps({ data }: MapDataToPropsCtx<VideoHeroFragment>) {
 	return {
 		text: data.primary?.text?.text,
-		videoThumbnailImageData: data.primary?.video_thumbnail
-			?.gatsbyImageData as IGatsbyImageData,
+		videoThumbnailUrl: data.primary?.video_thumbnail?.url,
 		videoThumbnailAlt: data.primary?.video_thumbnail?.alt,
 	}
 }
@@ -110,11 +108,7 @@ export const gqlFragment = graphql`
 			}
 			video_thumbnail {
 				alt
-				gatsbyImageData(
-					layout: FULL_WIDTH
-					placeholder: BLURRED
-					breakpoints: [360, 768, 1024, 1440]
-				)
+				url
 			}
 		}
 	}
