@@ -201,7 +201,8 @@
 								"type": "Link",
 								"config": {
 									"allowTargetBlank": true,
-									"label": "Button Link"
+									"label": "Button Link",
+									"select": null
 								}
 							},
 							"button_text": {
@@ -221,6 +222,33 @@
 								}
 							}
 						}
+					},
+					"two_column_text": {
+						"type": "Slice",
+						"fieldset": "Two Column Text",
+						"description": "Two columns of rich text",
+						"icon": "text_fields",
+						"display": "list",
+						"non-repeat": {
+							"left_text": {
+								"type": "StructuredText",
+								"config": {
+									"multi": "paragraph, heading2, heading5, hyperlink, image",
+									"allowTargetBlank": true,
+									"label": "Left Text",
+									"placeholder": "(This text shows first on mobile)"
+								}
+							},
+							"right_text": {
+								"type": "StructuredText",
+								"config": {
+									"multi": "paragraph, heading2, heading5, hyperlink",
+									"allowTargetBlank": true,
+									"label": "Right Text"
+								}
+							}
+						},
+						"repeat": {}
 					}
 				}
 			}

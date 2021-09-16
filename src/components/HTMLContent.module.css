@@ -1,4 +1,12 @@
 .htmlContent {
+	& h2 {
+		@apply font-serif 
+		text-22 sm:text-28 md:text-32 lg:text-42
+		leading-1_2 md:leading-1_15
+		mt-2 first:mt-0	
+		mb-8 last:mb-0;
+	}
+
 	& p {
 		@apply font-sans text-16 leading-1_2 
 		mb-7 last:mb-0;
@@ -8,5 +16,15 @@
 		@apply font-sans font-semibold leading-1_3 text-18 
 		mt-2 first:mt-0
 		mb-7 last:mb-0;
+	}
+
+	& h5 {
+		@apply font-sansExt 
+		text-16 lg:text-18
+		leading-1_5 uppercase font-bold
+		mt-12 first:mt-0
+		mb-6 last:mb-0;
+
+		letter-spacing: 0.14em;
 	}
 }

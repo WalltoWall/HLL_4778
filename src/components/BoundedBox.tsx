@@ -11,7 +11,7 @@ export const BoundedBox = React.forwardRef<HTMLElement, Props>(
 		{
 			tag: Comp = "div",
 			className,
-			maxWidthClassName = "max-w-4xl",
+			maxWidthClassName = "max-w-6xl",
 			children,
 			...props
 		},
