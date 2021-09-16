@@ -123,7 +123,7 @@ const FilterableEvents = ({
 		<BoundedBox
 			tag="section"
 			ref={containerRef}
-			className={clsx("relative transition duration-300 pt-10", variant.bg)}
+			className={clsx("relative transition duration-300 py-10", variant.bg)}
 		>
 			<FilterControls
 				variant={variant}

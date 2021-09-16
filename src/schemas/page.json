@@ -175,6 +175,52 @@
 								}
 							}
 						}
+					},
+					"carousel": {
+						"type": "Slice",
+						"fieldset": "Carousel",
+						"description": "Horizontally scrolling images with text",
+						"icon": "image_aspect_ratio",
+						"display": "list",
+						"non-repeat": {
+							"subheading": {
+								"type": "StructuredText",
+								"config": {
+									"single": "heading4",
+									"label": "Subheading"
+								}
+							},
+							"heading": {
+								"type": "StructuredText",
+								"config": {
+									"single": "heading2",
+									"label": "Heading"
+								}
+							},
+							"button_link": {
+								"type": "Link",
+								"config": {
+									"allowTargetBlank": true,
+									"label": "Button Link"
+								}
+							},
+							"button_text": {
+								"type": "Text",
+								"config": {
+									"label": "Button Text"
+								}
+							}
+						},
+						"repeat": {
+							"image": {
+								"type": "Image",
+								"config": {
+									"constraint": {},
+									"thumbnails": [],
+									"label": "Image"
+								}
+							}
+						}
 					}
 				}
 			}
