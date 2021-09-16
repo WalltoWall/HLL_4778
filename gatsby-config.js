@@ -60,5 +60,6 @@ module.exports = {
 		// 		exclude: ["/preview/**", "/admin/**", "/docs/**"],
 		// 	},
 		// },
+		"gatsby-plugin-netlify",
 	].filter(Boolean),
 }
