@@ -1,0 +1,5 @@
+.footerHtml {
+	& p {
+		@apply text-13 leading-1_15 font-sans font-light;
+	}
+}

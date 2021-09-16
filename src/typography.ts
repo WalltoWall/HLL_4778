@@ -8,3 +8,5 @@ export const sansExt = clsx(
 	"tracking-[.14em] uppercase font-sansExt text-12 leading-1_5"
 )
 export const sansExtMd = clsx("uppercase font-sansExt text-13 leading-1_5")
+
+export const sansSm = clsx("text-13 leading-1_15 font-sans")

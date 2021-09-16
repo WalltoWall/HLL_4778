@@ -1,70 +1,70 @@
 {
-  "Main": {
-    "title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1",
-        "label": "Title"
+  "Main" : {
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Title"
       }
     },
-    "site_name": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1",
-        "label": "Site Name"
+    "site_name" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Site Name"
       }
     },
-    "site_description": {
-      "type": "StructuredText",
-      "config": {
-        "single": "paragraph",
-        "label": "Site Description"
+    "site_description" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph",
+        "label" : "Site Description"
       }
     },
-    "site_copyright": {
-      "type": "StructuredText",
-      "config": {
-        "single": "paragraph",
-        "label": "Site Copyright"
+    "site_copyright" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph",
+        "label" : "Site Copyright"
       }
     },
-    "site_disclaimer": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, em, hyperlink",
-        "allowTargetBlank": true,
-        "label": "site_disclaimer"
+    "site_disclaimer" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph,em,hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "site_disclaimer"
       }
     }
   },
-  "Redirects": {
-    "redirects": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "from_path": {
-            "type": "Text",
-            "config": {
-              "label": "From Path"
+  "Redirects" : {
+    "redirects" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "from_path" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "From Path"
             }
           },
-          "to_path": {
-            "type": "Text",
-            "config": {
-              "label": "To Path"
+          "to_path" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "To Path"
             }
           },
-          "is_permanent": {
-            "type": "Boolean",
-            "config": {
-              "placeholder_false": "No",
-              "placeholder_true": "Yes, redirect forever",
-              "default_value": false,
-              "label": "Is Permanent"
+          "is_permanent" : {
+            "type" : "Boolean",
+            "config" : {
+              "placeholder_false" : "No",
+              "placeholder_true" : "Yes, redirect forever",
+              "default_value" : false,
+              "label" : "Is Permanent"
             }
           }
         },
-        "label": "Redirects"
+        "label" : "Redirects"
       }
     }
   }
