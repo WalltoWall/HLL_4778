@@ -45,7 +45,7 @@ export const EventCard = ({
 	}, [inView, color])
 
 	return (
-		<li className="space-y-6" ref={ref}>
+		<li className="py-5 space-y-6" ref={ref}>
 			<Link href={href} className="block bg-beige-92 aspect-w-1 aspect-h-1" />
 
 			<div>

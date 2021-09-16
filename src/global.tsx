@@ -27,9 +27,5 @@ async function loadFeatures() {
 }
 
 export const GlobalProviders: React.FC = ({ children }) => {
-	return (
-		<LazyMotion features={loadFeatures} strict>
-			<PrismicPreviewProvider>{children}</PrismicPreviewProvider>
-		</LazyMotion>
-	)
+	return <PrismicPreviewProvider>{children}</PrismicPreviewProvider>
 }

@@ -98,9 +98,9 @@ const FilterableEvents = ({
 	return (
 		<BoundedBox
 			tag="section"
-			className={clsx("py-10 transition duration-300", variant.bg)}
+			className={clsx("relative transition duration-300", variant.bg)}
 		>
-			<div className="space-y-11">
+			<div className="space-y-5">
 				<FilterControls
 					variant={variant}
 					activeFilter={activeFilter}
@@ -108,7 +108,7 @@ const FilterableEvents = ({
 					filterEvents={filterEvents}
 				/>
 
-				<ul className="space-y-14">
+				<ul>
 					{filteredEvents.map((e, idx) => (
 						<EventCard
 							key={`event-${idx}`}
