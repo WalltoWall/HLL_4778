@@ -74,6 +74,7 @@ const FilterableEvents = ({
 
 		return colorVariants[firstEvent.color]
 	})
+	const containerRef = React.useRef<HTMLElement | null>(null)
 
 	const filteredEvents = events.filter((e) => {
 		if (!activeFilter) return true
@@ -87,20 +88,32 @@ const FilterableEvents = ({
 		setVariant(newVariant)
 	}
 
+	function scrollToContainerTop() {
+		if (!containerRef.current) return
+
+		containerRef.current.scrollIntoView({ block: "start" })
+	}
+
 	function clearFilters() {
 		setActiveFilter(undefined)
+		scrollToContainerTop()
 	}
 
 	function filterEvents(type: EventType) {
 		setActiveFilter(type)
+		scrollToContainerTop()
 	}
 
 	return (
 		<BoundedBox
 			tag="section"
-			className={clsx("relative transition duration-300", variant.bg)}
+			ref={containerRef}
+			className={clsx(
+				"relative transition duration-300 pt-10 -mt-10",
+				variant.bg
+			)}
 		>
-			<div className="space-y-5">
+			<div>
 				<FilterControls
 					variant={variant}
 					activeFilter={activeFilter}
