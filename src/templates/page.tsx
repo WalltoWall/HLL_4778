@@ -3,6 +3,7 @@ import {
 	MapToComponents,
 	MapToComponentsProps,
 	TCtx,
+	TCtxWithContext,
 } from "react-map-to-components"
 import { graphql, PageProps } from "gatsby"
 
@@ -30,6 +31,11 @@ const mapDataToPropsMap: MapToComponentsProps["mapDataToProps"] = {
 	[FilterableEvents.sliceType]: FilterableEvents.mapDataToProps,
 }
 
+const mapDataToContextMap: MapToComponentsProps["mapDataToContext"] = {
+	[Introduction.sliceType]: Introduction.mapDataToContext,
+	[FilterableEvents.sliceType]: FilterableEvents.mapDataToContext,
+}
+
 interface PrismicSlice {
 	__typename: string
 }
@@ -55,7 +61,15 @@ const pageTemplateFallback: MapToComponentsProps["default"] = (data) => {
 	return null
 }
 
-export type MapDataToPropsCtx<TData> = TCtx<
+export type MapDataToPropsCtx<TData> = TCtxWithContext<
+	keyof typeof pageTemplateSliceMap,
+	typeof pageTemplateSliceMap,
+	TData,
+	unknown,
+	Record<string, unknown>
+>
+
+export type MapDataToContextCtx<TData> = TCtx<
 	keyof typeof pageTemplateSliceMap,
 	typeof pageTemplateSliceMap,
 	TData,
@@ -78,6 +92,7 @@ const PageTemplate = ({ data }: PageProps<PageTemplateQuery>) => {
 				getType={getSliceType}
 				map={pageTemplateSliceMap}
 				mapDataToProps={mapDataToPropsMap}
+				mapDataToContext={mapDataToContextMap}
 				list={page?.data?.body ?? []}
 				default={pageTemplateFallback}
 			/>

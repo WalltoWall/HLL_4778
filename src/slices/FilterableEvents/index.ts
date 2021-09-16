@@ -1,5 +1,9 @@
-import FilterableEvents, { mapDataToProps, sliceType } from "./FilterableEvents"
+import FilterableEvents, {
+	mapDataToProps,
+	sliceType,
+	mapDataToContext,
+} from "./FilterableEvents"
 
-export { mapDataToProps, sliceType }
+export { mapDataToProps, sliceType, mapDataToContext }
 
 export default FilterableEvents

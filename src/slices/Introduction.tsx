@@ -2,7 +2,7 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import clsx from "clsx"
 
-import type { MapDataToPropsCtx } from "../templates/page"
+import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
 import type { IntroductionFragment } from "../gqlTypes.gen"
 
 import { ColorVariant, getColorVariant } from "../lib/getColorVariant"
@@ -51,11 +51,15 @@ const Introduction = ({
 	textHTML,
 	heading,
 	color,
+	nextSharesBg = false,
 }: ReturnType<typeof mapDataToProps>) => {
 	const variant = colorVariantMap[color]
 
 	return (
-		<BoundedBox tag="section" className={clsx(variant.bg, "py-23")}>
+		<BoundedBox
+			tag="section"
+			className={clsx(variant.bg, "pt-23", nextSharesBg ? "pb-10" : "pb-23")}
+		>
 			<div className="max-w-[280px] space-y-5">
 				{heading && (
 					<div className="relative">
@@ -86,11 +90,22 @@ const Introduction = ({
 
 export function mapDataToProps({
 	data,
+	context,
+	nextContext,
 }: MapDataToPropsCtx<IntroductionFragment>) {
 	return {
 		heading: data.primary?.heading?.text,
 		textHTML: undefIfEmpty(data.primary?.text?.html),
 		color: getColorVariant(data.primary?.color),
+		nextSharesBg: nextContext.backgroundColor === context?.backgroundColor,
+	}
+}
+
+export function mapDataToContext(
+	_ctx: MapDataToContextCtx<IntroductionFragment>
+) {
+	return {
+		backgroundColor: "blue",
 	}
 }
 

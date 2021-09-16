@@ -3,7 +3,10 @@ import clsx from "clsx"
 import { graphql } from "gatsby"
 import { undefIfEmpty } from "@walltowall/helpers"
 
-import type { MapDataToPropsCtx } from "../../templates/page"
+import type {
+	MapDataToContextCtx,
+	MapDataToPropsCtx,
+} from "../../templates/page"
 import type { FilterableEventsFragment } from "../../gqlTypes.gen"
 
 import { BoundedBox } from "../../components/BoundedBox"
@@ -108,10 +111,7 @@ const FilterableEvents = ({
 		<BoundedBox
 			tag="section"
 			ref={containerRef}
-			className={clsx(
-				"relative transition duration-300 pt-10 -mt-10",
-				variant.bg
-			)}
+			className={clsx("relative transition duration-300 pt-10", variant.bg)}
 		>
 			<div>
 				<FilterControls
@@ -157,6 +157,16 @@ export function mapDataToProps({
 					href: item?.event?.url,
 				}
 			}) ?? [],
+	}
+}
+
+export function mapDataToContext({
+	data,
+}: MapDataToContextCtx<FilterableEventsFragment>) {
+	const [firstEvent] = data.items ?? []
+
+	return {
+		backgroundColor: firstEvent ? getColorVariant(firstEvent.color) : "blue",
 	}
 }
 
