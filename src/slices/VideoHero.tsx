@@ -34,10 +34,11 @@ const VideoHero = ({
 	return (
 		<section
 			className={clsx(
-				"relative z-10 text-center",
+				"z-10 text-center",
 				"aspect-w-10 aspect-h-16",
 				"md:aspect-w-16 md:aspect-h-9",
-				"2xl:aspect-none 2xl:h-[800px]"
+				"2xl:aspect-none 2xl:h-[800px]",
+				"2xl:relative"
 			)}
 		>
 			<div className="flex flex-col justify-center h-full px-8 2xl:h-[800px]">
