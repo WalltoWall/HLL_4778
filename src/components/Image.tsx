@@ -1,5 +1,7 @@
 import * as React from "react"
 
-export const Image = (props: React.ComponentPropsWithoutRef<"img">) => {
+export type ImageProps = React.ComponentPropsWithoutRef<"img">
+
+export const Image = (props: ImageProps) => {
 	return <img loading="lazy" decoding="async" {...props} />
 }
