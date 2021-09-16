@@ -13,18 +13,11 @@
 
 import * as React from "react"
 import { PrismicPreviewProvider } from "gatsby-plugin-prismic-previews"
-import { LazyMotion } from "framer-motion"
 
 import "@fontsource/work-sans/variable.css"
 import "tailwindcss/tailwind.css"
 import "gatsby-plugin-prismic-previews/dist/styles.css"
 import "./styles/global.css"
-
-async function loadFeatures() {
-	const mod = await import("./lib/framerFeatures")
-
-	return mod.default
-}
 
 export const GlobalProviders: React.FC = ({ children }) => {
 	return <PrismicPreviewProvider>{children}</PrismicPreviewProvider>

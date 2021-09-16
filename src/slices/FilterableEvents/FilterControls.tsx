@@ -1,17 +1,11 @@
 import * as React from "react"
 import clsx from "clsx"
 import type { EventType, FilterableEventsVariant } from "./FilterableEvents"
-import { AnimateSharedLayout, motion, Spring } from "framer-motion"
+import { AnimateSharedLayout, m } from "framer-motion"
 
 interface FilterButtonProps extends React.ComponentPropsWithoutRef<"button"> {
 	isActive: boolean
 	variant: FilterableEventsVariant
-}
-
-const spring: Spring = {
-	type: "spring",
-	stiffness: 500,
-	damping: 30,
 }
 
 const FilterButton = ({
@@ -34,7 +28,7 @@ const FilterButton = ({
 			{...props}
 		>
 			{isActive && (
-				<motion.div
+				<m.div
 					layoutId="pillBg"
 					initial={false}
 					className={clsx(
@@ -42,7 +36,6 @@ const FilterButton = ({
 						"shadow",
 						variant.activeButtonBg
 					)}
-					// transition={spring}
 				/>
 			)}
 
