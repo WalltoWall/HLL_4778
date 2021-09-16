@@ -27,7 +27,7 @@ export const EventCard = ({
 	updateBackground,
 	variant,
 }: Props) => {
-	const { ref, inView } = useInView({ threshold: 0.5 })
+	const { ref, inView } = useInView({ threshold: 0.66 })
 
 	const dateAndMonth = date.toLocaleDateString("en-US", {
 		month: "short",

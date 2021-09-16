@@ -20,6 +20,8 @@ export const sliceType = "PrismicPageDataBodyFilterableEvents"
 
 export interface FilterableEventsVariant {
 	bg: string
+	controlsBg: string
+	controlsBorder: string
 	inactiveControlTextColor: string
 	activeContolTextColor: string
 	activeButtonBg: string
@@ -29,37 +31,47 @@ export interface FilterableEventsVariant {
 const colorVariants: Record<ColorVariant, FilterableEventsVariant> = {
 	blue: {
 		bg: "bg-blue-31",
+		controlsBg: "bg-beige-92",
+		controlsBorder: "border-blue-31",
 		inactiveControlTextColor: "text-blue-31",
-		activeContolTextColor: "text-white",
-		activeButtonBg: "bg-yellow-50",
+		activeContolTextColor: "text-beige-92",
+		activeButtonBg: "bg-blue-31",
 		textColor: "text-beige-92",
 	},
 	green: {
 		bg: "bg-green-27",
+		controlsBg: "bg-beige-92",
+		controlsBorder: "border-green-27",
 		inactiveControlTextColor: "text-green-27",
 		activeContolTextColor: "text-white",
-		activeButtonBg: "bg-yellow-50",
+		activeButtonBg: "bg-green-27",
 		textColor: "text-beige-92",
 	},
 	purple: {
 		bg: "bg-purple-57",
+		controlsBg: "bg-beige-92",
+		controlsBorder: "border-purple-57",
 		inactiveControlTextColor: "text-purple-57",
 		activeContolTextColor: "text-white",
-		activeButtonBg: "bg-yellow-50",
+		activeButtonBg: "bg-purple-57",
 		textColor: "text-beige-92",
 	},
 	red: {
 		bg: "bg-red-45",
+		controlsBg: "bg-beige-92",
+		controlsBorder: "border-red-45",
 		inactiveControlTextColor: "text-red-45",
 		activeContolTextColor: "text-white",
-		activeButtonBg: "bg-yellow-50",
+		activeButtonBg: "bg-red-45",
 		textColor: "text-beige-92",
 	},
 	yellow: {
 		bg: "bg-yellow-50",
-		inactiveControlTextColor: "text-yellow-50",
-		activeContolTextColor: "text-white",
-		activeButtonBg: "bg-blue-31",
+		controlsBg: "bg-yellow-50",
+		controlsBorder: "border-beige-92",
+		inactiveControlTextColor: "text-beige-92",
+		activeContolTextColor: "text-black",
+		activeButtonBg: "bg-beige-92",
 		textColor: "text-black",
 	},
 }
@@ -113,29 +125,27 @@ const FilterableEvents = ({
 			ref={containerRef}
 			className={clsx("relative transition duration-300 pt-10", variant.bg)}
 		>
-			<div>
-				<FilterControls
-					variant={variant}
-					activeFilter={activeFilter}
-					clearFilters={clearFilters}
-					filterEvents={filterEvents}
-				/>
+			<FilterControls
+				variant={variant}
+				activeFilter={activeFilter}
+				clearFilters={clearFilters}
+				filterEvents={filterEvents}
+			/>
 
-				<ul>
-					{filteredEvents.map((e, idx) => (
-						<EventCard
-							key={`event-${idx}`}
-							href={e.href}
-							color={e.color}
-							title={e.title}
-							descriptionHTML={e.descriptionHTML}
-							date={e.date}
-							updateBackground={updateBackground}
-							variant={variant}
-						/>
-					))}
-				</ul>
-			</div>
+			<ul>
+				{filteredEvents.map((e, idx) => (
+					<EventCard
+						key={`event-${idx}`}
+						href={e.href}
+						color={e.color}
+						title={e.title}
+						descriptionHTML={e.descriptionHTML}
+						date={e.date}
+						updateBackground={updateBackground}
+						variant={variant}
+					/>
+				))}
+			</ul>
 		</BoundedBox>
 	)
 }
