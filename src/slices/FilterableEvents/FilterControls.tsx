@@ -19,8 +19,9 @@ const FilterButton = ({
 		<button
 			className={clsx(
 				"relative",
-				"font-sansExt text-10 uppercase leading-1_15 font-bold",
+				"font-sansExt text-12 uppercase leading-1_15 font-bold",
 				"rounded-full py-3 px-3",
+				"transition duration-300",
 				isActive && variant.activeContolTextColor,
 				!isActive && variant.inactiveControlTextColor,
 				className
@@ -34,6 +35,7 @@ const FilterButton = ({
 					className={clsx(
 						"absolute inset-0 rounded-full pointer-events-none",
 						"shadow",
+						"transition-colors duration-300",
 						variant.activeButtonBg
 					)}
 				/>
@@ -58,16 +60,16 @@ export const FilterControls = ({
 	filterEvents,
 }: FilterControlsProps) => {
 	return (
-		<div className={clsx("sticky top-5 rounded-full z-10", "p-1", variant.bg)}>
-			<div
-				aria-hidden
-				className={clsx(
-					"absolute inset-0 rounded-full mix-blend-multiply",
-					"shadow-lg",
-					variant.bg
-				)}
-			/>
-
+		<div
+			className={clsx(
+				"sticky top-5 z-10",
+				"rounded-full",
+				"p-1",
+				"shadow-xl border-2",
+				variant.controlsBg,
+				variant.controlsBorder
+			)}
+		>
 			<div className="relative flex justify-between">
 				<AnimateSharedLayout>
 					<FilterButton
