@@ -34,7 +34,7 @@ const VideoHero = ({
 		<section
 			className={clsx(
 				"relative z-10 text-center",
-				"aspect-w-9 aspect-h-16",
+				"aspect-w-10 aspect-h-16",
 				"md:aspect-w-16 md:aspect-h-9",
 				"2xl:aspect-none 2xl:h-[800px]"
 			)}
