@@ -65,43 +65,43 @@ export const FilterControls = ({
 				"sticky top-5 z-10",
 				"rounded-full",
 				"p-1",
+				"self-center",
+				"flex justify-center space-x-4",
 				"shadow-xl border-2",
 				variant.controlsBg,
 				variant.controlsBorder
 			)}
 		>
-			<div className="relative flex justify-between">
-				<AnimateSharedLayout>
-					<FilterButton
-						isActive={!activeFilter}
-						onClick={clearFilters}
-						variant={variant}
-					>
-						All
-					</FilterButton>
-					<FilterButton
-						onClick={() => filterEvents("watch")}
-						isActive={activeFilter === "watch"}
-						variant={variant}
-					>
-						Watch
-					</FilterButton>
-					<FilterButton
-						isActive={activeFilter === "participate"}
-						onClick={() => filterEvents("participate")}
-						variant={variant}
-					>
-						Participate
-					</FilterButton>
-					<FilterButton
-						isActive={activeFilter === "learn"}
-						onClick={() => filterEvents("learn")}
-						variant={variant}
-					>
-						Learn
-					</FilterButton>
-				</AnimateSharedLayout>
-			</div>
+			<AnimateSharedLayout>
+				<FilterButton
+					isActive={!activeFilter}
+					onClick={clearFilters}
+					variant={variant}
+				>
+					All
+				</FilterButton>
+				<FilterButton
+					onClick={() => filterEvents("watch")}
+					isActive={activeFilter === "watch"}
+					variant={variant}
+				>
+					Watch
+				</FilterButton>
+				<FilterButton
+					isActive={activeFilter === "participate"}
+					onClick={() => filterEvents("participate")}
+					variant={variant}
+				>
+					Participate
+				</FilterButton>
+				<FilterButton
+					isActive={activeFilter === "learn"}
+					onClick={() => filterEvents("learn")}
+					variant={variant}
+				>
+					Learn
+				</FilterButton>
+			</AnimateSharedLayout>
 		</div>
 	)
 }
