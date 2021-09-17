@@ -24,7 +24,7 @@ function getButtonClasses(variant: ButtonVariant): string {
 		"inline-flex items-center justify-center",
 		"rounded-full",
 		"py-4 px-9",
-		"focus:ring",
+		"focus:ring focus:outline-none",
 		"transition duration-250",
 		variantStyles.bg,
 		variantStyles.color,

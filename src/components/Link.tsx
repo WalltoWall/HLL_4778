@@ -7,7 +7,7 @@ export type LinkProps = React.ComponentPropsWithoutRef<"a">
 
 export const Link = ({ href, className, ...props }: LinkProps) => {
 	const linkProps = {
-		className: clsx(className, "focus:ring"),
+		className: clsx(className, "focus:ring focus:outline-none"),
 		...props,
 	}
 

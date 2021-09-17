@@ -28,7 +28,7 @@ const CarouselButton = ({
 		<button
 			className={clsx(
 				"w-12 md:w-14 lg:w-16",
-				"text-beige-92 focus:ring rounded-full",
+				"text-beige-92 focus:ring focus:outline-none rounded-full",
 				className
 			)}
 			{...props}
