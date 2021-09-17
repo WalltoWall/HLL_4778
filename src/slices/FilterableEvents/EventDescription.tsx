@@ -56,7 +56,10 @@ export const EventDescription = ({
 			{descriptionHTML && (
 				<HTMLContent
 					html={descriptionHTML}
-					className={clsx("transition duration-300", variant.textColor)}
+					className={clsx(
+						"transition duration-300 max-w-sm",
+						variant.textColor
+					)}
 				/>
 			)}
 
