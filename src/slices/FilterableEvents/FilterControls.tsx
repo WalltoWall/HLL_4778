@@ -19,7 +19,7 @@ const FilterButton = ({
 		<button
 			className={clsx(
 				"relative",
-				"font-sansExt text-12 uppercase leading-1_15 font-bold",
+				"font-sansExt text-11 uppercase leading-1_15 font-bold",
 				"rounded-full py-3 px-3",
 				"transition duration-300",
 				isActive && variant.activeContolTextColor,
@@ -66,7 +66,7 @@ export const FilterControls = ({
 				"rounded-full",
 				"p-1",
 				"self-center",
-				"flex justify-center space-x-4",
+				"flex justify-center space-x-3",
 				"shadow-xl border-2",
 				variant.controlsBg,
 				variant.controlsBorder

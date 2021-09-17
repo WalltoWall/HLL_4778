@@ -3,10 +3,17 @@ import clsx from "clsx"
 
 import { Image, ImageProps } from "./Image"
 
+const variants = {
+	normal: "aspect-w-8 aspect-h-7",
+	tall: "aspect-w-8 aspect-h-9",
+}
+
 interface ArchImageProps extends React.ComponentPropsWithoutRef<"div"> {
 	imageProps?: ImageProps
 	src?: string
 	alt?: string
+	variant?: keyof typeof variants
+	aspectRatioClassName?: string
 }
 
 export const ArchImage = ({
@@ -14,10 +21,20 @@ export const ArchImage = ({
 	imageProps,
 	src,
 	alt,
+	variant = "normal",
+	aspectRatioClassName,
 	...props
 }: ArchImageProps) => {
+	const variantStyles = variants[variant]
+
 	return (
-		<div className={clsx("aspect-w-8 aspect-h-7", className)} {...props}>
+		<div
+			className={clsx(
+				aspectRatioClassName ? aspectRatioClassName : variantStyles,
+				className
+			)}
+			{...props}
+		>
 			<Image
 				{...imageProps}
 				className={clsx(

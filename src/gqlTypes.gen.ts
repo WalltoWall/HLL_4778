@@ -2794,6 +2794,94 @@ export type PrismicPageDataBodyGradientTextPrimary = {
 	text?: Maybe<PrismicStructuredTextType>
 }
 
+export type PrismicPageDataBodyImageCallToAction = PrismicSliceType & {
+	items?: Maybe<Array<Maybe<PrismicPageDataBodyImageCallToActionItem>>>
+	primary?: Maybe<PrismicPageDataBodyImageCallToActionPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicPageDataBodyImageCallToActionItem = {
+	button_link?: Maybe<PrismicLinkType>
+	button_text?: Maybe<Scalars["String"]>
+	style?: Maybe<Scalars["String"]>
+}
+
+export type PrismicPageDataBodyImageCallToActionPrimary = {
+	heading?: Maybe<PrismicStructuredTextType>
+	image?: Maybe<PrismicPageDataBodyImageCallToActionPrimaryImageImageType>
+	text?: Maybe<PrismicStructuredTextType>
+}
+
+export type PrismicPageDataBodyImageCallToActionPrimaryImageImageType = {
+	alt?: Maybe<Scalars["String"]>
+	copyright?: Maybe<Scalars["String"]>
+	dimensions?: Maybe<PrismicImageDimensionsType>
+	/**
+	 * A plain imgix URL with the URL and params applied.
+	 */
+	url?: Maybe<Scalars["String"]>
+	/**
+	 * Should be used to generate fixed-width images (i.e. the size of the image
+	 * doesn't change when the size of the browser changes, and are "fixed").
+	 * Returns data compatible with gatsby-image. Instead of accessing this data
+	 * directly, the GatsbySourceImgixFixed fragment should be used. See the
+	 * project's README for more information.
+	 */
+	fixed?: Maybe<ImgixFixed>
+	/**
+	 * Should be used to generate fluid-width images (i.e. images that change when
+	 * the size of the browser changes). Returns data compatible with
+	 * gatsby-image. Instead of accessing this data directly, the
+	 * GatsbySourceImgixFluid fragment should be used. See the project's README
+	 * for more information.
+	 */
+	fluid?: Maybe<ImgixFluid>
+	gatsbyImageData?: Maybe<Scalars["JSON"]>
+	localFile?: Maybe<File>
+}
+
+export type PrismicPageDataBodyImageCallToActionPrimaryImageImageTypeUrlArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicPageDataBodyImageCallToActionPrimaryImageImageTypeFixedArgs =
+	{
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		quality?: Maybe<Scalars["Int"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+	}
+
+export type PrismicPageDataBodyImageCallToActionPrimaryImageImageTypeFluidArgs =
+	{
+		imgixParams?: Maybe<ImgixParamsInput>
+		maxWidth?: Maybe<Scalars["Int"]>
+		maxHeight?: Maybe<Scalars["Int"]>
+		srcSetBreakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+	}
+
+export type PrismicPageDataBodyImageCallToActionPrimaryImageImageTypeGatsbyImageDataArgs =
+	{
+		layout?: Maybe<GatsbyImageLayout>
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		aspectRatio?: Maybe<Scalars["Float"]>
+		outputPixelDensities?: Maybe<Array<Maybe<Scalars["Float"]>>>
+		breakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		sizes?: Maybe<Scalars["String"]>
+		backgroundColor?: Maybe<Scalars["String"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+		placeholder?: Maybe<ImgixPlaceholder>
+		widthTolerance?: Maybe<Scalars["Float"]>
+		srcSetMinWidth?: Maybe<Scalars["Int"]>
+		srcSetMaxWidth?: Maybe<Scalars["Int"]>
+	}
+
 export type PrismicPageDataBodyIntroduction = PrismicSliceType & {
 	primary?: Maybe<PrismicPageDataBodyIntroductionPrimary>
 	id: Scalars["ID"]
@@ -2812,6 +2900,7 @@ export type PrismicPageDataBodySlicesType =
 	| PrismicPageDataBodyCarousel
 	| PrismicPageDataBodyFilterableEvents
 	| PrismicPageDataBodyGradientText
+	| PrismicPageDataBodyImageCallToAction
 	| PrismicPageDataBodyIntroduction
 	| PrismicPageDataBodyTwoColumnText
 	| PrismicPageDataBodyVideoHero
@@ -4685,6 +4774,7 @@ export enum SitePageFieldsEnum {
 	PluginCreatorPluginOptionsCacheDigest = "pluginCreator___pluginOptions___cacheDigest",
 	PluginCreatorPluginOptionsRepositoryName = "pluginCreator___pluginOptions___repositoryName",
 	PluginCreatorPluginOptionsAccessToken = "pluginCreator___pluginOptions___accessToken",
+	PluginCreatorPluginOptionsPromptForAccessToken = "pluginCreator___pluginOptions___promptForAccessToken",
 	PluginCreatorPluginOptionsApiEndpoint = "pluginCreator___pluginOptions___apiEndpoint",
 	PluginCreatorPluginOptionsLang = "pluginCreator___pluginOptions___lang",
 	PluginCreatorPluginOptionsImageImgixParamsAuto = "pluginCreator___pluginOptions___imageImgixParams___auto",
@@ -4692,7 +4782,6 @@ export enum SitePageFieldsEnum {
 	PluginCreatorPluginOptionsImageImgixParamsQ = "pluginCreator___pluginOptions___imageImgixParams___q",
 	PluginCreatorPluginOptionsImagePlaceholderImgixParamsW = "pluginCreator___pluginOptions___imagePlaceholderImgixParams___w",
 	PluginCreatorPluginOptionsImagePlaceholderImgixParamsBlur = "pluginCreator___pluginOptions___imagePlaceholderImgixParams___blur",
-	PluginCreatorPluginOptionsPromptForAccessToken = "pluginCreator___pluginOptions___promptForAccessToken",
 	PluginCreatorPluginOptionsToolbar = "pluginCreator___pluginOptions___toolbar",
 	PluginCreatorPluginOptionsPath = "pluginCreator___pluginOptions___path",
 	PluginCreatorPluginOptionsPathCheck = "pluginCreator___pluginOptions___pathCheck",
@@ -4917,6 +5006,7 @@ export enum SitePluginFieldsEnum {
 	PluginOptionsCacheDigest = "pluginOptions___cacheDigest",
 	PluginOptionsRepositoryName = "pluginOptions___repositoryName",
 	PluginOptionsAccessToken = "pluginOptions___accessToken",
+	PluginOptionsPromptForAccessToken = "pluginOptions___promptForAccessToken",
 	PluginOptionsApiEndpoint = "pluginOptions___apiEndpoint",
 	PluginOptionsLang = "pluginOptions___lang",
 	PluginOptionsImageImgixParamsAuto = "pluginOptions___imageImgixParams___auto",
@@ -4924,7 +5014,6 @@ export enum SitePluginFieldsEnum {
 	PluginOptionsImageImgixParamsQ = "pluginOptions___imageImgixParams___q",
 	PluginOptionsImagePlaceholderImgixParamsW = "pluginOptions___imagePlaceholderImgixParams___w",
 	PluginOptionsImagePlaceholderImgixParamsBlur = "pluginOptions___imagePlaceholderImgixParams___blur",
-	PluginOptionsPromptForAccessToken = "pluginOptions___promptForAccessToken",
 	PluginOptionsToolbar = "pluginOptions___toolbar",
 	PluginOptionsPath = "pluginOptions___path",
 	PluginOptionsPathCheck = "pluginOptions___pathCheck",
@@ -5066,18 +5155,18 @@ export type SitePluginPluginOptions = {
 	cacheDigest?: Maybe<Scalars["String"]>
 	repositoryName?: Maybe<Scalars["String"]>
 	accessToken?: Maybe<Scalars["String"]>
-	schemas?: Maybe<SitePluginPluginOptionsSchemas>
+	promptForAccessToken?: Maybe<Scalars["Boolean"]>
 	apiEndpoint?: Maybe<Scalars["String"]>
 	lang?: Maybe<Scalars["String"]>
 	imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParams>
 	imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParams>
-	promptForAccessToken?: Maybe<Scalars["Boolean"]>
 	toolbar?: Maybe<Scalars["String"]>
 	path?: Maybe<Scalars["String"]>
 	pathCheck?: Maybe<Scalars["Boolean"]>
 	allExtensions?: Maybe<Scalars["Boolean"]>
 	isTSX?: Maybe<Scalars["Boolean"]>
 	jsxPragma?: Maybe<Scalars["String"]>
+	schemas?: Maybe<SitePluginPluginOptionsSchemas>
 }
 
 export type SitePluginPluginOptionsFilterInput = {
@@ -5100,18 +5189,18 @@ export type SitePluginPluginOptionsFilterInput = {
 	cacheDigest?: Maybe<StringQueryOperatorInput>
 	repositoryName?: Maybe<StringQueryOperatorInput>
 	accessToken?: Maybe<StringQueryOperatorInput>
-	schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>
+	promptForAccessToken?: Maybe<BooleanQueryOperatorInput>
 	apiEndpoint?: Maybe<StringQueryOperatorInput>
 	lang?: Maybe<StringQueryOperatorInput>
 	imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParamsFilterInput>
 	imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParamsFilterInput>
-	promptForAccessToken?: Maybe<BooleanQueryOperatorInput>
 	toolbar?: Maybe<StringQueryOperatorInput>
 	path?: Maybe<StringQueryOperatorInput>
 	pathCheck?: Maybe<BooleanQueryOperatorInput>
 	allExtensions?: Maybe<BooleanQueryOperatorInput>
 	isTSX?: Maybe<BooleanQueryOperatorInput>
 	jsxPragma?: Maybe<StringQueryOperatorInput>
+	schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>
 }
 
 export type SitePluginPluginOptionsImageImgixParams = {
@@ -5442,6 +5531,7 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoices = {
 	filterable_events?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterable_Events>
 	carousel?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarousel>
 	two_column_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_Text>
+	image_call_to_action?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_Action>
 }
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesAnchor = {
@@ -5669,6 +5759,7 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterInput =
 		filterable_events?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterable_EventsFilterInput>
 		carousel?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselFilterInput>
 		two_column_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextFilterInput>
+		image_call_to_action?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterable_Events =
@@ -5807,6 +5898,200 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesGradient_Text
 	{
 		type?: Maybe<StringQueryOperatorInput>
 		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesGradient_TextNon_RepeatTextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_Action =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_Repeat>
+		repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeat>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatFilterInput>
+		repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_Repeat =
+	{
+		image?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImage>
+		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeading>
+		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatText>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatFilterInput =
+	{
+		image?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImageFilterInput>
+		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingFilterInput>
+		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeading =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImage =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImageConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImageConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImageConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImageFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImageConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatText =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeat =
+	{
+		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_Link>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_Text>
+		style?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatStyle>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_Link =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_LinkConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_LinkConfig =
+	{
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_LinkConfigFilterInput =
+	{
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_LinkFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_LinkConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_Text =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_TextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_TextConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_TextConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_TextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_TextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatFilterInput =
+	{
+		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_LinkFilterInput>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_TextFilterInput>
+		style?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatStyleFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatStyle =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatStyleConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatStyleConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatStyleConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatStyleFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatStyleConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesIntroduction =
@@ -6616,6 +6901,23 @@ export type GradientTextFragment = {
 	primary?: Maybe<{ text?: Maybe<{ text?: Maybe<string> }> }>
 }
 
+export type ImageCallToActionFragment = {
+	primary?: Maybe<{
+		image?: Maybe<{ url?: Maybe<string>; alt?: Maybe<string> }>
+		heading?: Maybe<{ text?: Maybe<string> }>
+		text?: Maybe<{ html?: Maybe<string> }>
+	}>
+	items?: Maybe<
+		Array<
+			Maybe<{
+				button_text?: Maybe<string>
+				style?: Maybe<string>
+				button_link?: Maybe<{ url?: Maybe<string> }>
+			}>
+		>
+	>
+}
+
 export type IntroductionFragment = {
 	primary?: Maybe<{
 		color?: Maybe<string>
@@ -6662,6 +6964,7 @@ export type PageTemplateQuery = {
 						| ({
 								__typename: "PrismicPageDataBodyGradientText"
 						  } & GradientTextFragment)
+						| { __typename: "PrismicPageDataBodyImageCallToAction" }
 						| ({
 								__typename: "PrismicPageDataBodyIntroduction"
 						  } & IntroductionFragment)

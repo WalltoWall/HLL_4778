@@ -18,6 +18,7 @@ import * as Introduction from "../slices/Introduction"
 import * as FilterableEvents from "../slices/FilterableEvents"
 import * as Carousel from "../slices/Carousel"
 import * as TwoColumnText from "../slices/TwoColumnText"
+import * as ImageCallToAction from "../slices/ImageCallToAction"
 
 const pageTemplateSliceMap: MapToComponentsProps["map"] = {
 	[VideoHero.sliceType]: VideoHero.default as React.ComponentType,
@@ -26,6 +27,8 @@ const pageTemplateSliceMap: MapToComponentsProps["map"] = {
 	[FilterableEvents.sliceType]: FilterableEvents.default as React.ComponentType,
 	[Carousel.sliceType]: Carousel.default as React.ComponentType,
 	[TwoColumnText.sliceType]: TwoColumnText.default as React.ComponentType,
+	[ImageCallToAction.sliceType]:
+		ImageCallToAction.default as React.ComponentType,
 }
 
 const mapDataToPropsMap: MapToComponentsProps["mapDataToProps"] = {
@@ -35,12 +38,14 @@ const mapDataToPropsMap: MapToComponentsProps["mapDataToProps"] = {
 	[FilterableEvents.sliceType]: FilterableEvents.mapDataToProps,
 	[Carousel.sliceType]: Carousel.mapDataToProps,
 	[TwoColumnText.sliceType]: TwoColumnText.mapDataToProps,
+	[ImageCallToAction.sliceType]: ImageCallToAction.mapDataToProps,
 }
 
 const mapDataToContextMap: MapToComponentsProps["mapDataToContext"] = {
 	[Introduction.sliceType]: Introduction.mapDataToContext,
 	[FilterableEvents.sliceType]: FilterableEvents.mapDataToContext,
 	[TwoColumnText.sliceType]: TwoColumnText.mapDataToContext,
+	[ImageCallToAction.sliceType]: ImageCallToAction.mapDataToContext,
 }
 
 interface PrismicSlice {
@@ -126,6 +131,7 @@ export const pageTemplateQuery = graphql`
 					...FilterableEvents
 					...Carousel
 					...TwoColumnText
+					...ImageCallToAction
 				}
 			}
 			uid
