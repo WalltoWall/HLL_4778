@@ -65,8 +65,6 @@ export const EventCard = ({
 								<h4
 									className={clsx(
 										"font-serif text-32 leading-1_15",
-										"md:text-36",
-										"lg:text-52",
 										variant.textColor,
 										"transition duration-300"
 									)}
