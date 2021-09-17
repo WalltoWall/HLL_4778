@@ -36,7 +36,7 @@ export const BoundedBox = React.forwardRef<HTMLElement, Props>(
 					variantStyles,
 					nextSharesBg && "pb-0 sm:pb-0 md:pb-0 lg:pb-0",
 					className,
-					"px-8"
+					"px-5 lg:px-8"
 				)}
 				{...props}
 			>
