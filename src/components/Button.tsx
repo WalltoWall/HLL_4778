@@ -4,13 +4,19 @@ import { sansExt } from "../typography"
 import { Link, LinkProps } from "./Link"
 
 const variants = {
-	yellow: {
+	filled: {
 		bg: "bg-yellow-50",
 		color: "text-black",
+		border: "border border-transparent",
+	},
+	outline: {
+		bg: "bg-transparent",
+		color: "text-black",
+		border: "border border-yellow-50",
 	},
 }
 
-type ButtonVariant = keyof typeof variants
+export type ButtonVariant = keyof typeof variants
 
 function getButtonClasses(variant: ButtonVariant): string {
 	const variantStyles = variants[variant]
@@ -21,7 +27,8 @@ function getButtonClasses(variant: ButtonVariant): string {
 		"py-4 px-9",
 		"focus:ring",
 		variantStyles.bg,
-		variantStyles.color
+		variantStyles.color,
+		variantStyles.border
 	)
 }
 
