@@ -3,6 +3,7 @@ import clsx from "clsx"
 
 export const variants = {
 	base: "py-16 sm:py-20 md:py-24 lg:py-36",
+	footer: "pt-43 pb-8",
 }
 
 interface Props extends React.ComponentPropsWithoutRef<"div"> {

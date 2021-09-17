@@ -24,6 +24,7 @@ const FilterButton = ({
 				"uppercase leading-1_15 font-bold",
 				"rounded-full py-3 px-3",
 				"transition duration-300",
+				"focus:outline-none focus:ring",
 				isActive && variant.activeContolTextColor,
 				!isActive && variant.inactiveControlTextColor,
 				className
