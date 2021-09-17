@@ -12,8 +12,8 @@ import type { FilterableEventsFragment } from "../../gqlTypes.gen"
 import { BoundedBox } from "../../components/BoundedBox"
 import { ColorVariant, getColorVariant } from "../../lib/getColorVariant"
 import { FilterControls } from "./FilterControls"
-import { MobileEventCard } from "./MobileEventCard"
 import { DesktopEvents } from "./DesktopEvents"
+import { MobileEvents } from "./MobileEvents"
 
 export interface Event {
 	color: ColorVariant
@@ -131,34 +131,24 @@ const FilterableEvents = ({
 		<BoundedBox
 			tag="section"
 			ref={containerRef}
-			className={clsx("relative transition duration-300 py-10", variant.bg)}
+			className={clsx("relative transition duration-300", variant.bg)}
 		>
-			<FilterControls
+			<MobileEvents
+				events={filteredEvents}
+				updateBackground={updateBackground}
 				variant={variant}
 				activeFilter={activeFilter}
 				clearFilters={clearFilters}
 				filterEvents={filterEvents}
 			/>
 
-			<div className="lg:hidden">
-				{filteredEvents.map((e, idx) => (
-					<MobileEventCard
-						key={`event-${idx}`}
-						href={e.href}
-						color={e.color}
-						title={e.title}
-						descriptionHTML={e.descriptionHTML}
-						date={e.date}
-						updateBackground={updateBackground}
-						variant={variant}
-					/>
-				))}
-			</div>
-
 			<DesktopEvents
 				events={filteredEvents}
 				updateBackground={updateBackground}
 				variant={variant}
+				activeFilter={activeFilter}
+				clearFilters={clearFilters}
+				filterEvents={filterEvents}
 			/>
 		</BoundedBox>
 	)

@@ -46,7 +46,7 @@ const FilterButton = ({
 	)
 }
 
-interface FilterControlsProps {
+interface FilterControlsProps extends React.ComponentPropsWithoutRef<"div"> {
 	variant: FilterableEventsVariant
 	activeFilter: EventType | undefined
 	clearFilters: () => void
@@ -58,6 +58,8 @@ export const FilterControls = ({
 	activeFilter,
 	clearFilters,
 	filterEvents,
+	className,
+	...props
 }: FilterControlsProps) => {
 	return (
 		<div
@@ -65,12 +67,14 @@ export const FilterControls = ({
 				"sticky top-5 z-10",
 				"rounded-full",
 				"p-1",
-				"self-center",
 				"flex justify-center space-x-3",
 				"shadow-xl border-2",
+				// "self-center lg:self-start",
 				variant.controlsBg,
-				variant.controlsBorder
+				variant.controlsBorder,
+				className
 			)}
+			{...props}
 		>
 			<AnimateSharedLayout>
 				<FilterButton

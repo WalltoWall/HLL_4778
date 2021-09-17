@@ -11,7 +11,7 @@ interface Args {
 export function useUpdateBackgroundInView({
 	updateBackground,
 	color,
-	threshold = 0.66,
+	threshold = 0,
 }: Args) {
 	const { ref, inView } = useInView({ threshold })
 
