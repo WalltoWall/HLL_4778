@@ -4,8 +4,6 @@ import { useInView } from "react-intersection-observer"
 import { graphql } from "gatsby"
 import clsx from "clsx"
 
-import { serifLarge } from "../typography"
-
 import type { MapDataToPropsCtx } from "../templates/page"
 import type { VideoHeroFragment } from "../gqlTypes.gen"
 import { Image } from "../components/Image"
@@ -72,8 +70,10 @@ const VideoHero = ({
 				{text && (
 					<h1
 						className={clsx(
-							serifLarge,
-							"relative text-beige-92 max-w-[10ch] mx-auto"
+							"font-serif leading-1",
+							"text-42 md:text-52 lg:text-62",
+							"relative text-beige-92 mx-auto",
+							"max-w-[10ch] lg:max-w-none"
 						)}
 					>
 						{text}

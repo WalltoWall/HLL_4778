@@ -5,7 +5,6 @@ import { useInView } from "react-intersection-observer"
 import { HTMLContent } from "../../components/HTMLContent"
 import { Link } from "../../components/Link"
 import type { ColorVariant } from "../../lib/getColorVariant"
-import { sansExt, sansExtMd, serifMd } from "../../typography"
 import type { FilterableEventsVariant } from "./FilterableEvents"
 
 interface Props {
@@ -53,9 +52,9 @@ export const EventCard = ({
 					<div className="space-y-3">
 						<p
 							className={clsx(
-								sansExt,
-								variant.textColor,
-								"transition duration-300"
+								"tracking-[.14em] uppercase font-sansExt text-12 leading-1_5",
+								"transition duration-300",
+								variant.textColor
 							)}
 						>
 							{dateAndMonth} at {time}
@@ -65,7 +64,9 @@ export const EventCard = ({
 							<Link href={href} className="block">
 								<h4
 									className={clsx(
-										serifMd,
+										"font-serif text-32 leading-1_15",
+										"md:text-36",
+										"lg:text-52",
 										variant.textColor,
 										"transition duration-300"
 									)}
@@ -87,8 +88,8 @@ export const EventCard = ({
 						href="/"
 						className={clsx(
 							"block underline transition duration-300",
-							variant.textColor,
-							sansExtMd
+							"uppercase font-sansExt text-13 leading-1_5",
+							variant.textColor
 						)}
 					>
 						RSVP Now

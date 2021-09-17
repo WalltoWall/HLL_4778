@@ -9,7 +9,6 @@ import { BoundedBox } from "../components/BoundedBox"
 import { ButtonLink, ButtonVariant } from "../components/Button"
 import { ArchImage } from "../components/ArchImage"
 import { HTMLContent } from "../components/HTMLContent"
-import { serifMd } from "../typography"
 
 export const sliceType = "PrismicPageDataBodyImageCallToAction"
 
@@ -44,7 +43,17 @@ const ImageCallToAction = ({
 
 				<div className="space-y-8">
 					<div className="text-center space-y-7 md:text-left lg:space-y-10">
-						{heading && <h2 className={serifMd}>{heading}</h2>}
+						{heading && (
+							<h2
+								className={clsx(
+									"font-serif text-32 leading-1_15",
+									"md:text-36",
+									"lg:text-52"
+								)}
+							>
+								{heading}
+							</h2>
+						)}
 						{textHTML && (
 							<HTMLContent
 								html={textHTML}

@@ -1,6 +1,5 @@
 import * as React from "react"
 import clsx from "clsx"
-import { sansExt } from "../typography"
 import { Link, LinkProps } from "./Link"
 
 const variants = {
@@ -44,7 +43,9 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
 				className={clsx(getButtonClasses(variant), className)}
 				{...props}
 			>
-				<div className={sansExt}>{children}</div>
+				<div className="tracking-[.14em] uppercase font-sansExt text-12 leading-1_5">
+					{children}
+				</div>
 			</button>
 		)
 	}
@@ -64,7 +65,9 @@ export const ButtonLink = ({
 }: ButtonLinkProps) => {
 	return (
 		<Link className={clsx(getButtonClasses(variant), className)} {...props}>
-			<div className={sansExt}>{children}</div>
+			<div className="tracking-[.14em] uppercase font-sansExt text-12 leading-1_5">
+				{children}
+			</div>
 		</Link>
 	)
 }
