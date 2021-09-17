@@ -6,7 +6,6 @@ import type { MapDataToPropsCtx } from "../templates/page"
 import type { GradientTextFragment } from "../gqlTypes.gen"
 
 import { Gradient } from "../components/Gradient"
-import { serif } from "../typography"
 
 export const sliceType = "PrismicPageDataBodyGradientText"
 
@@ -28,7 +27,15 @@ const GradientText = ({ text }: ReturnType<typeof mapDataToProps>) => {
 					"2xl:w-full 2xl:h-full"
 				)}
 			>
-				<h2 className={clsx(serif, "relative text-beige-92 text-center")}>
+				<h2
+					className={clsx(
+						"font-serif leading-1_2",
+						"text-24 md:text-32 lg:text-42",
+						"relative text-beige-92 text-center",
+						"mx-auto",
+						"max-w-[600px]"
+					)}
+				>
 					{text}
 				</h2>
 			</div>

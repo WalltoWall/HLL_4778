@@ -8,7 +8,6 @@ import type { IntroductionFragment } from "../gqlTypes.gen"
 import { ColorVariant, getColorVariant } from "../lib/getColorVariant"
 import { BoundedBox } from "../components/BoundedBox"
 import { HTMLContent } from "../components/HTMLContent"
-import { serifLarge } from "../typography"
 import { undefIfEmpty } from "@walltowall/helpers"
 
 export const sliceType = "PrismicPageDataBodyIntroduction"
@@ -61,7 +60,7 @@ const Introduction = ({
 			className={variant.bg}
 			nextSharesBg={nextSharesBg}
 		>
-			<div className="max-w-[280px] space-y-5">
+			<div className="max-w-[280px] md:max-w-[320px] lg:max-w-sm space-y-5">
 				{heading && (
 					<div className="relative">
 						<div
@@ -72,7 +71,13 @@ const Introduction = ({
 								variant.headingBg
 							)}
 						/>
-						<h2 className={clsx(serifLarge, "isolate text-black")}>
+						<h2
+							className={clsx(
+								"font-serif leading-1",
+								"text-42 md:text-52 lg:text-62",
+								"isolate text-black"
+							)}
+						>
 							{heading}
 						</h2>
 					</div>

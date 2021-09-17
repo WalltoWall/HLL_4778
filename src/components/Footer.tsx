@@ -1,8 +1,6 @@
 import * as React from "react"
-import clsx from "clsx"
 
 import { usePrismicSettings } from "../hooks/usePrismicSettings"
-import { sansSm } from "../typography"
 import { BoundedBox } from "./BoundedBox"
 
 import hllLogoUrl from "../assets/hll-logo.png"
@@ -26,11 +24,13 @@ export const Footer = () => {
 				</Link>
 
 				<div className="space-y-5">
-					<div
-						className={styles.footerHtml}
-						dangerouslySetInnerHTML={{ __html: settings.siteCopyrightHTML }}
-					/>
-					<p className={clsx(sansSm, "font-light")}>
+					{settings.siteCopyrightHTML && (
+						<div
+							className={styles.footerHtml}
+							dangerouslySetInnerHTML={{ __html: settings.siteCopyrightHTML }}
+						/>
+					)}
+					<p className="font-sans font-light text-13 leading-1_15">
 						Website design and development <br /> by Wall-to-Wall Studios
 					</p>
 				</div>
