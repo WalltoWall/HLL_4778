@@ -14,10 +14,14 @@ export const DesktopEventCard = ({
 	updateBackground,
 	variant,
 }: EventCardProps) => {
-	const { ref } = useUpdateBackgroundInView({ updateBackground, color })
+	const { ref } = useUpdateBackgroundInView({
+		updateBackground,
+		color,
+		threshold: 0,
+	})
 
 	return (
-		<div className="h-screen" ref={ref}>
+		<div className="h-screen col-start-1" ref={ref}>
 			<EventDescription
 				variant={variant}
 				date={date}

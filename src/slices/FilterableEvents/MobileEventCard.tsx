@@ -21,10 +21,14 @@ export const MobileEventCard = ({
 	updateBackground,
 	variant,
 }: EventCardProps) => {
-	const { ref } = useUpdateBackgroundInView({ updateBackground, color })
+	const { ref } = useUpdateBackgroundInView({
+		updateBackground,
+		color,
+		threshold: 0.25,
+	})
 
 	return (
-		<div className="py-10 space-y-6" ref={ref}>
+		<div className="space-y-6" ref={ref}>
 			<Link
 				href={href}
 				className={clsx("block bg-beige-92 aspect-w-1 aspect-h-1")}
