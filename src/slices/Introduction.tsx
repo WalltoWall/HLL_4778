@@ -1,6 +1,7 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import clsx from "clsx"
+import { undefIfEmpty } from "@walltowall/helpers"
 
 import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
 import type { IntroductionFragment } from "../gqlTypes.gen"
@@ -8,7 +9,8 @@ import type { IntroductionFragment } from "../gqlTypes.gen"
 import { ColorVariant, getColorVariant } from "../lib/getColorVariant"
 import { BoundedBox } from "../components/BoundedBox"
 import { HTMLContent } from "../components/HTMLContent"
-import { undefIfEmpty } from "@walltowall/helpers"
+
+import * as styles from "./Introduction.module.css"
 
 export const sliceType = "PrismicPageDataBodyIntroduction"
 
@@ -57,7 +59,7 @@ const Introduction = ({
 	return (
 		<BoundedBox
 			tag="section"
-			className={variant.bg}
+			className={clsx(variant.bg, "!pb-8")}
 			nextSharesBg={nextSharesBg}
 		>
 			<div className="max-w-[280px] md:max-w-[320px] lg:max-w-sm space-y-5">
@@ -86,7 +88,8 @@ const Introduction = ({
 				{textHTML && (
 					<HTMLContent
 						html={textHTML}
-						className={clsx("w-3/4", variant.text)}
+						htmlClassName={styles.html}
+						className={clsx("w-3/4 lg:w-full", variant.text)}
 					/>
 				)}
 			</div>

@@ -4,12 +4,12 @@ import { Link, LinkProps } from "./Link"
 
 const variants = {
 	filled: {
-		bg: "bg-yellow-50",
+		bg: "bg-yellow-50 hover:brightness-105 focus:brightness-105",
 		color: "text-black",
 		border: "border border-transparent",
 	},
 	outline: {
-		bg: "bg-transparent",
+		bg: "bg-transparent hover:bg-yellow-50 focus:bg-yellow-50",
 		color: "text-black",
 		border: "border border-yellow-50",
 	},
@@ -25,6 +25,7 @@ function getButtonClasses(variant: ButtonVariant): string {
 		"rounded-full",
 		"py-4 px-9",
 		"focus:ring",
+		"transition duration-250",
 		variantStyles.bg,
 		variantStyles.color,
 		variantStyles.border

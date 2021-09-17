@@ -4,6 +4,7 @@ import { Link } from "../../components/Link"
 
 import { useIsDesktop } from "../../hooks/useMediaQuery"
 import { DesktopEventCard } from "./DesktopEventCard"
+import { FilterControls } from "./FilterControls"
 
 import type { EventsListProps } from "./MobileEvents"
 
@@ -20,7 +21,18 @@ export const DesktopEvents = ({
 	if (!isDesktop) return null
 
 	return (
-		<div className={clsx("hidden lg:grid", "grid-cols-2", "relative")}>
+		<div className={clsx("hidden lg:grid", "grid-cols-2 gap-16", "relative")}>
+			<FilterControls
+				variant={variant}
+				activeFilter={activeFilter}
+				clearFilters={clearFilters}
+				filterEvents={filterEvents}
+				className={clsx(
+					"sticky z-10 top-16",
+					"self-start col-span-2 justify-self-start"
+				)}
+			/>
+
 			{events.map((e, idx) => (
 				<DesktopEventCard
 					color={e.color}
@@ -36,13 +48,13 @@ export const DesktopEvents = ({
 
 			<div
 				className={clsx(
-					"col-start-2 row-start-1 col-span-full",
+					"col-start-2 row-start-2",
 					"sticky top-0",
 					"h-screen",
-					"flex flex-col"
+					"flex flex-col py-16 -mt-43"
 				)}
 			>
-				<Link href="/" className="flex-1 block my-15 bg-beige-92" />
+				<Link href="/" className="flex-1 block bg-beige-92" />
 			</div>
 		</div>
 	)

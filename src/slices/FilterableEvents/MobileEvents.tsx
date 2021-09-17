@@ -39,10 +39,10 @@ export const MobileEvents = ({
 				activeFilter={activeFilter}
 				clearFilters={clearFilters}
 				filterEvents={filterEvents}
-				className="self-center"
+				className="sticky z-10 self-center top-5"
 			/>
 
-			<div className="space-y-10 lg:hidden">
+			<div className="space-y-16 lg:hidden">
 				{events.map((e, idx) => (
 					<MobileEventCard
 						key={`event-${idx}`}
