@@ -28,7 +28,8 @@
 		"react-intersection-observer": "^8.32.1",
 		"react-map-to-components": "^1.2.1",
 		"react-merge-refs": "^1.1.0",
-		"tiny-invariant": "^1.1.0"
+		"tiny-invariant": "^1.1.0",
+		"use-media": "^1.4.0"
 	},
 	"devDependencies": {
 		"@graphql-codegen/cli": "^1.21.6",
@@ -49,6 +50,7 @@
 		"eslint-plugin-react": "^7.25.1",
 		"eslint-plugin-react-hooks": "^4.2.0",
 		"eslint-plugin-tsdoc": "^0.2.14",
+		"gatsby-plugin-image": "^1.14.0",
 		"gatsby-plugin-manifest": "^3.13.0",
 		"gatsby-plugin-netlify": "^3.14.0",
 		"gatsby-plugin-postcss": "^4.13.0",
