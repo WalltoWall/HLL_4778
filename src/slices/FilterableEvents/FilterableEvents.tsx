@@ -12,11 +12,18 @@ import type { FilterableEventsFragment } from "../../gqlTypes.gen"
 import { BoundedBox } from "../../components/BoundedBox"
 import { ColorVariant, getColorVariant } from "../../lib/getColorVariant"
 import { FilterControls } from "./FilterControls"
-import { EventCard } from "./EventCard"
+import { MobileEventCard } from "./MobileEventCard"
+import { DesktopEvents } from "./DesktopEvents"
+
+export interface Event {
+	color: ColorVariant
+	title?: string
+	descriptionHTML?: string
+	date: Date
+	href?: string
+}
 
 export type EventType = "watch" | "participate" | "learn"
-
-export const sliceType = "PrismicPageDataBodyFilterableEvents"
 
 export interface FilterableEventsVariant {
 	bg: string
@@ -76,7 +83,8 @@ const colorVariants: Record<ColorVariant, FilterableEventsVariant> = {
 	},
 }
 
-// TODO: Setup nextSharesBg or equivalent
+export const sliceType = "PrismicPageDataBodyFilterableEvents"
+
 const FilterableEvents = ({
 	events = [],
 }: ReturnType<typeof mapDataToProps>) => {
@@ -132,9 +140,9 @@ const FilterableEvents = ({
 				filterEvents={filterEvents}
 			/>
 
-			<ul>
+			<div className="lg:hidden">
 				{filteredEvents.map((e, idx) => (
-					<EventCard
+					<MobileEventCard
 						key={`event-${idx}`}
 						href={e.href}
 						color={e.color}
@@ -145,7 +153,13 @@ const FilterableEvents = ({
 						variant={variant}
 					/>
 				))}
-			</ul>
+			</div>
+
+			<DesktopEvents
+				events={filteredEvents}
+				updateBackground={updateBackground}
+				variant={variant}
+			/>
 		</BoundedBox>
 	)
 }
