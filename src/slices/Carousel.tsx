@@ -51,10 +51,14 @@ const Carousel = ({
 		centered: true,
 		slidesPerView: 1.35,
 		breakpoints: {
+			"(min-width: 1024px)": {
+				spacing: 30,
+			},
 			"(min-width: 1280px)": {
 				slidesPerView: 1.5,
 			},
 			"(min-width: 1536px)": {
+				spacing: 48,
 				slidesPerView: 1.75,
 			},
 		},
