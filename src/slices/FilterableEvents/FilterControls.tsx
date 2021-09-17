@@ -64,12 +64,10 @@ export const FilterControls = ({
 	return (
 		<div
 			className={clsx(
-				"sticky top-5 z-10",
 				"rounded-full",
 				"p-1",
 				"flex justify-center space-x-3",
 				"shadow-xl border-2",
-				// "self-center lg:self-start",
 				variant.controlsBg,
 				variant.controlsBorder,
 				className
