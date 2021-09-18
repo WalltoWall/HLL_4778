@@ -1,4 +1,5 @@
 import * as React from "react"
+import clsx from "clsx"
 
 import { usePrismicSettings } from "../hooks/usePrismicSettings"
 import { BoundedBox } from "./BoundedBox"
@@ -23,7 +24,10 @@ interface SocialIconLinkProps {
 
 const SocialIconLink = ({ href, children, label }: SocialIconLinkProps) => {
 	return (
-		<Link href={href} className="w-8 h-8 text-beige-92">
+		<Link
+			href={href}
+			className="w-8 h-8 text-beige-92 md:w-11 md:h-11 lg:w-14 lg:h-14"
+		>
 			<VisuallyHidden>{label}</VisuallyHidden>
 			{children}
 		</Link>
@@ -39,8 +43,8 @@ export const Footer = () => {
 			className="bg-gray-13 text-beige-92"
 			variant="footer"
 		>
-			<div className="space-y-7">
-				<Link href="/" className="block w-30">
+			<div className={clsx("flex flex-col", "space-y-7")}>
+				<Link href="/" className="block w-30 md:w-45 lg:w-63">
 					<Image
 						src={hllLogoUrl}
 						alt="Hawaii LGBT Legacy Foundation"
@@ -97,7 +101,7 @@ export const Footer = () => {
 							dangerouslySetInnerHTML={{ __html: settings.siteCopyrightHTML }}
 						/>
 					)}
-					<p className="font-sans font-light text-13 leading-1_15">
+					<p className="font-sans font-light text-13 md:text-16 lg:text-18 leading-1_15">
 						Website design and development <br /> by{" "}
 						<Link
 							href="https://walltowall.com"
