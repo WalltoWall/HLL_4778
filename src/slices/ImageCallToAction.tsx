@@ -20,13 +20,17 @@ const ImageCallToAction = ({
 	buttons = [],
 }: ReturnType<typeof mapDataToProps>) => {
 	return (
-		<BoundedBox tag="section" className="bg-green-27 text-beige-92">
+		<BoundedBox
+			tag="section"
+			className="bg-green-27 text-beige-92"
+			width="base"
+		>
 			<div
 				className={clsx(
 					"grid",
 					"gap-y-7 md:gap-y-0",
 					"md:grid-cols-2 md:items-center",
-					"md:gap-x-8 lg:gap-x-12"
+					"md:gap-x-12 lg:gap-x-25"
 				)}
 			>
 				{imageUrl && (

@@ -69,7 +69,7 @@ const Introduction = ({
 							aria-hidden
 							className={clsx(
 								"absolute",
-								"-left-5 lg:left-[calc(calc((50vw-100%-32px)*-1))]",
+								"-left-5 md:-left-8 lg:-left-15",
 								"right-0 -top-2",
 								"h-full",
 								variant.headingBg

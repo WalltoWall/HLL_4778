@@ -4,13 +4,19 @@ import clsx from "clsx"
 export const variants = {
 	base: "py-16 sm:py-20 md:py-24 lg:py-36",
 	footer: "pt-43 pb-8",
+	header: "py-6 md:py-7 lg:py-8",
+}
+
+export const maxWidthVariants = {
+	base: "max-w-[1200px]",
+	wide: "max-w-[2000px]",
 }
 
 interface Props extends React.ComponentPropsWithoutRef<"div"> {
 	tag?: keyof JSX.IntrinsicElements
-	maxWidthClassName?: string
 	nextSharesBg?: boolean
 	variant?: keyof typeof variants
+	width?: keyof typeof maxWidthVariants
 }
 
 export const BoundedBox = React.forwardRef<HTMLElement, Props>(
@@ -18,15 +24,16 @@ export const BoundedBox = React.forwardRef<HTMLElement, Props>(
 		{
 			tag: Comp = "div",
 			className,
-			maxWidthClassName = "max-w-6xl",
 			children,
 			variant = "base",
+			width = "wide",
 			nextSharesBg = false,
 			...props
 		},
 		ref
 	) => {
 		const variantStyles = variants[variant]
+		const maxWidth = maxWidthVariants[width]
 
 		return (
 			//@ts-expect-error - Complex polymorphic type
@@ -37,16 +44,11 @@ export const BoundedBox = React.forwardRef<HTMLElement, Props>(
 					variantStyles,
 					nextSharesBg && "pb-0 sm:pb-0 md:pb-0 lg:pb-0",
 					className,
-					"px-5 lg:px-8"
+					"px-5 md:px-8 lg:px-15"
 				)}
 				{...props}
 			>
-				<div
-					className={clsx(
-						maxWidthClassName,
-						"w-full mx-auto h-full flex flex-col"
-					)}
-				>
+				<div className={clsx(maxWidth, "w-full mx-auto h-full flex flex-col")}>
 					{children}
 				</div>
 			</Comp>

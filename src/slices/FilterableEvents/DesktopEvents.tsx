@@ -21,7 +21,13 @@ export const DesktopEvents = ({
 	if (!isDesktop) return null
 
 	return (
-		<div className={clsx("hidden lg:grid", "grid-cols-2 gap-16", "relative")}>
+		<div
+			className={clsx(
+				"hidden lg:grid",
+				"grid-cols-2 gap-y-16 lg:gap-x-25",
+				"relative"
+			)}
+		>
 			<FilterControls
 				variant={variant}
 				activeFilter={activeFilter}

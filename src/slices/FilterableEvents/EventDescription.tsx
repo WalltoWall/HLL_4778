@@ -26,8 +26,8 @@ export const EventDescription = ({
 	})
 
 	return (
-		<div className="space-y-7 lg:space-y-9">
-			<div className="space-y-3 md:space-y-4 lg:space-y-5">
+		<div className="flex flex-col items-start space-y-7 lg:space-y-9">
+			<div className="flex flex-col items-start space-y-3 md:space-y-4 lg:space-y-5">
 				<p
 					className={clsx(
 						"tracking-caps uppercase font-sansExt",

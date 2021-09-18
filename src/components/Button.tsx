@@ -38,7 +38,7 @@ interface Props extends React.ComponentPropsWithoutRef<"button"> {
 
 const innerClasses = clsx(
 	"tracking-caps uppercase font-sansExt",
-	"text-13 md:text-15",
+	"text-13 sm:text-14 md:text-15",
 	"leading-1_5"
 )
 

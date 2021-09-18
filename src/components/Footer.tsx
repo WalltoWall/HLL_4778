@@ -15,6 +15,7 @@ import { TwitterIcon } from "./TwitterIcon"
 import hllLogoUrl from "../assets/hll-logo.png"
 import * as styles from "./Footer.module.css"
 import { VisuallyHidden } from "./VisuallyHidden"
+import { HTMLContent } from "./HTMLContent"
 
 interface SocialIconLinkProps {
 	href: string
@@ -26,7 +27,10 @@ const SocialIconLink = ({ href, children, label }: SocialIconLinkProps) => {
 	return (
 		<Link
 			href={href}
-			className="w-8 h-8 text-beige-92 md:w-11 md:h-11 lg:w-14 lg:h-14"
+			className={clsx(
+				"w-8 h-8 md:w-11 md:h-11 lg:w-14 lg:h-14",
+				"text-beige-92 hover:text-purple-57 focus:text-purple-57"
+			)}
 		>
 			<VisuallyHidden>{label}</VisuallyHidden>
 			{children}
@@ -43,7 +47,13 @@ export const Footer = () => {
 			className="bg-gray-13 text-beige-92"
 			variant="footer"
 		>
-			<div className={clsx("flex flex-col", "space-y-7")}>
+			<div
+				className={clsx(
+					"grid",
+					"gap-y-7",
+					"lg:grid-cols-[1fr,auto] lg:gap-y-12"
+				)}
+			>
 				<Link href="/" className="block w-30 md:w-45 lg:w-63">
 					<Image
 						src={hllLogoUrl}
@@ -54,7 +64,7 @@ export const Footer = () => {
 				</Link>
 
 				<nav
-					className="flex items-center space-x-3"
+					className="flex items-center space-x-3 lg:self-center"
 					aria-label="Social Media Navigation"
 				>
 					{settings.instagramURL && (
@@ -94,18 +104,19 @@ export const Footer = () => {
 					)}
 				</nav>
 
-				<div className="space-y-5">
+				<div className="space-y-5 lg:contents lg:space-y-0">
 					{settings.siteCopyrightHTML && (
-						<div
-							className={styles.footerHtml}
-							dangerouslySetInnerHTML={{ __html: settings.siteCopyrightHTML }}
+						<HTMLContent
+							html={settings.siteCopyrightHTML}
+							htmlClassName={styles.footerHtml}
 						/>
 					)}
-					<p className="font-sans font-light text-13 md:text-16 lg:text-18 leading-1_15">
+
+					<p className="font-sans font-light text-13 md:text-16 lg:text-18 leading-1_3">
 						Website design and development <br /> by{" "}
 						<Link
 							href="https://walltowall.com"
-							className="font-normal underline"
+							className="font-normal underline focus:text-purple-57 hover:text-purple-57"
 						>
 							Wall-to-Wall Studios
 						</Link>

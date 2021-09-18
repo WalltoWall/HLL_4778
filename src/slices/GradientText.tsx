@@ -10,6 +10,8 @@ import { Gradient } from "../components/Gradient"
 export const sliceType = "PrismicPageDataBodyGradientText"
 
 const GradientText = ({ text }: ReturnType<typeof mapDataToProps>) => {
+	return null
+
 	return (
 		<section
 			className={clsx(

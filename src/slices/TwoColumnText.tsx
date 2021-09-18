@@ -16,12 +16,16 @@ const TwoColumnText = ({
 	nextSharesBg,
 }: ReturnType<typeof mapDataToProps>) => {
 	return (
-		<BoundedBox className="bg-green-27" nextSharesBg={nextSharesBg}>
+		<BoundedBox
+			className="bg-green-27"
+			nextSharesBg={nextSharesBg}
+			width="base"
+		>
 			<div
 				className={clsx(
 					"grid text-center gap-y-12 text-beige-92",
 					"md:grid-cols-2 md:text-left md:gap-y-0",
-					"md:gap-x-8 lg:gap-x-12"
+					"md:gap-x-10 lg:gap-x-20"
 				)}
 			>
 				{leftHTML && <HTMLContent html={leftHTML} />}
