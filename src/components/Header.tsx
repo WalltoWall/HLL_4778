@@ -38,7 +38,7 @@ const DesktopMenu = () => {
 				<Link
 					key={`destkopMenu-${idx}`}
 					href={item.href}
-					className="block font-sansExt text-16 leading-1_15 uppercase tracking-[.14em]"
+					className="block uppercase font-sansExt text-16 leading-1_15 tracking-caps"
 				>
 					{item.label}
 				</Link>

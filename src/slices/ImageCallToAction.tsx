@@ -42,18 +42,18 @@ const ImageCallToAction = ({
 				)}
 
 				<div className="space-y-8">
-					<div className="text-center space-y-7 md:text-left lg:space-y-10">
+					<div className="text-center space-y-7 md:text-left lg:space-y-9">
 						{heading && (
 							<h2
 								className={clsx(
-									"font-serif text-32 leading-1_15",
-									"md:text-36",
-									"lg:text-52"
+									"font-serif leading-1_15",
+									"text-32 md:text-42 lg:text-52"
 								)}
 							>
 								{heading}
 							</h2>
 						)}
+
 						{textHTML && (
 							<HTMLContent
 								html={textHTML}

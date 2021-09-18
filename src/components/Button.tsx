@@ -23,7 +23,7 @@ function getButtonClasses(variant: ButtonVariant): string {
 	return clsx(
 		"inline-flex items-center justify-center",
 		"rounded-full",
-		"py-4 px-9",
+		"py-4 px-9 md:px-11",
 		"focus:ring focus:outline-none",
 		"transition duration-250",
 		variantStyles.bg,
@@ -36,6 +36,12 @@ interface Props extends React.ComponentPropsWithoutRef<"button"> {
 	variant: ButtonVariant
 }
 
+const innerClasses = clsx(
+	"tracking-caps uppercase font-sansExt",
+	"text-13 md:text-15",
+	"leading-1_5"
+)
+
 export const Button = React.forwardRef<HTMLButtonElement, Props>(
 	({ variant, children, className, ...props }, ref) => {
 		return (
@@ -44,9 +50,7 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
 				className={clsx(getButtonClasses(variant), className)}
 				{...props}
 			>
-				<div className="tracking-[.14em] uppercase font-sansExt text-12 leading-1_5">
-					{children}
-				</div>
+				<div className={innerClasses}>{children}</div>
 			</button>
 		)
 	}
@@ -66,9 +70,7 @@ export const ButtonLink = ({
 }: ButtonLinkProps) => {
 	return (
 		<Link className={clsx(getButtonClasses(variant), className)} {...props}>
-			<div className="tracking-[.14em] uppercase font-sansExt text-12 leading-1_5">
-				{children}
-			</div>
+			<div className={innerClasses}>{children}</div>
 		</Link>
 	)
 }

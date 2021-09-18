@@ -22,15 +22,17 @@ export const EventDescription = ({
 	})
 	const time = date.toLocaleTimeString("en-US", {
 		hour12: true,
-		hour: "2-digit",
+		hour: "numeric",
 	})
 
 	return (
-		<div className="space-y-7">
-			<div className="space-y-3">
+		<div className="space-y-7 lg:space-y-9">
+			<div className="space-y-3 md:space-y-4 lg:space-y-5">
 				<p
 					className={clsx(
-						"tracking-[.14em] uppercase font-sansExt text-12 leading-1_5",
+						"tracking-caps uppercase font-sansExt",
+						"text-12 md:text-13 lg:text-16",
+						"leading-1_5",
 						"transition duration-300",
 						variant.textColor
 					)}
@@ -42,7 +44,9 @@ export const EventDescription = ({
 					<Link href={href} className="block">
 						<h4
 							className={clsx(
-								"font-serif text-32 leading-1_15",
+								"font-serif",
+								"text-32 md:text-36 lg:text-42",
+								"leading-1_15",
 								variant.textColor,
 								"transition duration-300"
 							)}
@@ -67,7 +71,9 @@ export const EventDescription = ({
 				href="/"
 				className={clsx(
 					"block underline transition duration-300",
-					"uppercase font-sansExt text-13 leading-1_5",
+					"uppercase font-sansExt",
+					"text-13 md:text-16 lg:text-18",
+					"leading-1_5",
 					variant.textColor
 				)}
 			>
