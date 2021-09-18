@@ -13,15 +13,18 @@ import { TwitterIcon } from "./TwitterIcon"
 
 import hllLogoUrl from "../assets/hll-logo.png"
 import * as styles from "./Footer.module.css"
+import { VisuallyHidden } from "./VisuallyHidden"
 
 interface SocialIconLinkProps {
 	href: string
 	children: React.ReactNode
+	label: string
 }
 
-const SocialIconLink = ({ href, children }: SocialIconLinkProps) => {
+const SocialIconLink = ({ href, children, label }: SocialIconLinkProps) => {
 	return (
 		<Link href={href} className="w-8 h-8 text-beige-92">
+			<VisuallyHidden>{label}</VisuallyHidden>
 			{children}
 		</Link>
 	)
@@ -50,21 +53,41 @@ export const Footer = () => {
 					className="flex items-center space-x-3"
 					aria-label="Social Media Navigation"
 				>
-					<SocialIconLink href="/">
-						<InstagramIcon />
-					</SocialIconLink>
+					{settings.instagramURL && (
+						<SocialIconLink
+							href={settings.instagramURL}
+							label="Go to Instagram profile"
+						>
+							<InstagramIcon />
+						</SocialIconLink>
+					)}
 
-					<SocialIconLink href="/">
-						<FacebookIcon />
-					</SocialIconLink>
+					{settings.facebookURL && (
+						<SocialIconLink
+							href={settings.facebookURL}
+							label="Go to Facebook profile"
+						>
+							<FacebookIcon />
+						</SocialIconLink>
+					)}
 
-					<SocialIconLink href="/">
-						<YoutubeIcon />
-					</SocialIconLink>
+					{settings.youtubeURL && (
+						<SocialIconLink
+							href={settings.youtubeURL}
+							label="Go to YouTube profile"
+						>
+							<YoutubeIcon />
+						</SocialIconLink>
+					)}
 
-					<SocialIconLink href="/">
-						<TwitterIcon />
-					</SocialIconLink>
+					{settings.twitterURL && (
+						<SocialIconLink
+							href={settings.twitterURL}
+							label="Go to Twitter profile"
+						>
+							<TwitterIcon />
+						</SocialIconLink>
+					)}
 				</nav>
 
 				<div className="space-y-5">
