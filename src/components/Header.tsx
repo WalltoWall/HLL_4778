@@ -4,7 +4,6 @@ import logoUrl from "../assets/logo.png"
 import { MenuButton } from "./MenuButton"
 import { VisuallyHidden } from "./VisuallyHidden"
 import { Link } from "./Link"
-import { BoundedBox } from "./BoundedBox"
 import { useIsDesktop } from "../hooks/useMediaQuery"
 import { usePrismicPrimaryNavigation } from "../hooks/usePrismicPrimaryNavigation"
 
@@ -50,25 +49,27 @@ const DesktopMenu = () => {
 
 export const Header = () => {
 	return (
-		<BoundedBox
-			tag="header"
-			variant="header"
-			className={clsx("absolute top-0 inset-x-0", "px-5 py-6", "z-20", "")}
+		<header
+			className={clsx(
+				"absolute top-0 inset-x-0",
+				"px-5 lg:px-8",
+				"py-6 md:py-7 lg:py-8",
+				"flex items-center justify-between space-x-4",
+				"z-20"
+			)}
 		>
-			<div className="flex items-center justify-between space-x-4">
-				<Link className="w-18 md:w-24 lg:w-32" href="/">
-					<VisuallyHidden>Honolulu Pride</VisuallyHidden>
-					<img
-						src={logoUrl}
-						alt="Honolulu Pride"
-						loading="lazy"
-						decoding="async"
-					/>
-				</Link>
+			<Link className="w-18 md:w-24 lg:w-32" href="/">
+				<VisuallyHidden>Honolulu Pride</VisuallyHidden>
+				<img
+					src={logoUrl}
+					alt="Honolulu Pride"
+					loading="lazy"
+					decoding="async"
+				/>
+			</Link>
 
-				<MobileMenu />
-				<DesktopMenu />
-			</div>
-		</BoundedBox>
+			<MobileMenu />
+			<DesktopMenu />
+		</header>
 	)
 }
