@@ -6,7 +6,7 @@ export const YoutubeIcon = (props: React.ComponentPropsWithoutRef<"svg">) => {
 			<g fill="none" fillRule="evenodd" transform="translate(.25 .25)">
 				<path d="m0 0h32v32h-32z" />
 				<g
-					stroke="#f7f2e2"
+					stroke="currentColor"
 					strokeLinecap="round"
 					strokeLinejoin="round"
 					strokeWidth={2}

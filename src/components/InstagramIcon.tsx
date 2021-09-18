@@ -5,11 +5,17 @@ export const InstagramIcon = (props: React.ComponentPropsWithoutRef<"svg">) => {
 		<svg viewBox="0 0 33 33" xmlns="http://www.w3.org/2000/svg" {...props}>
 			<g fill="none" fillRule="evenodd">
 				<path d="m.25.25h32v32h-32z" />
-				<circle cx={16.25} cy={16.25} r={5} stroke="#f7f2e2" strokeWidth={2} />
+				<circle
+					cx={16.25}
+					cy={16.25}
+					r={5}
+					stroke="currentColor"
+					strokeWidth={2}
+				/>
 				<rect
 					height={23}
 					rx={6}
-					stroke="#f7f2e2"
+					stroke="currentColor"
 					strokeLinecap="round"
 					strokeLinejoin="round"
 					strokeWidth={2}
@@ -20,7 +26,7 @@ export const InstagramIcon = (props: React.ComponentPropsWithoutRef<"svg">) => {
 				<circle
 					cx={22.75}
 					cy={9.749998}
-					fill="#f7f2e2"
+					fill="currentColor"
 					fillRule="nonzero"
 					r={1.5}
 				/>

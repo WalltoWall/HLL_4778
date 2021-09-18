@@ -17,7 +17,7 @@ export const DesktopEventCard = ({
 	const { ref } = useUpdateBackgroundInView({
 		updateBackground,
 		color,
-		threshold: 0,
+		threshold: 0.33,
 	})
 
 	return (
