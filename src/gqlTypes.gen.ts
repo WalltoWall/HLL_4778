@@ -692,6 +692,17 @@ export type ImgixFixed = {
 	height: Scalars["Int"]
 }
 
+export type ImgixFixedFilterInput = {
+	base64?: Maybe<StringQueryOperatorInput>
+	src?: Maybe<StringQueryOperatorInput>
+	srcSet?: Maybe<StringQueryOperatorInput>
+	srcWebp?: Maybe<StringQueryOperatorInput>
+	srcSetWebp?: Maybe<StringQueryOperatorInput>
+	sizes?: Maybe<StringQueryOperatorInput>
+	width?: Maybe<IntQueryOperatorInput>
+	height?: Maybe<IntQueryOperatorInput>
+}
+
 export type ImgixFluid = {
 	base64: Scalars["String"]
 	src: Scalars["String"]
@@ -700,6 +711,16 @@ export type ImgixFluid = {
 	srcSetWebp: Scalars["String"]
 	sizes: Scalars["String"]
 	aspectRatio: Scalars["Float"]
+}
+
+export type ImgixFluidFilterInput = {
+	base64?: Maybe<StringQueryOperatorInput>
+	src?: Maybe<StringQueryOperatorInput>
+	srcSet?: Maybe<StringQueryOperatorInput>
+	srcWebp?: Maybe<StringQueryOperatorInput>
+	srcSetWebp?: Maybe<StringQueryOperatorInput>
+	sizes?: Maybe<StringQueryOperatorInput>
+	aspectRatio?: Maybe<FloatQueryOperatorInput>
 }
 
 export type ImgixParamsInput = {
@@ -2238,6 +2259,11 @@ export type PrismicImageDimensionsType = {
 	height: Scalars["Int"]
 }
 
+export type PrismicImageDimensionsTypeFilterInput = {
+	width?: Maybe<IntQueryOperatorInput>
+	height?: Maybe<IntQueryOperatorInput>
+}
+
 export type PrismicImageThumbnailType = {
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
@@ -3280,6 +3306,82 @@ export type PrismicSettingsConnectionGroupArgs = {
 	field: PrismicSettingsFieldsEnum
 }
 
+export type PrismicSettingsDataOpenGraphImageImageType = {
+	alt?: Maybe<Scalars["String"]>
+	copyright?: Maybe<Scalars["String"]>
+	dimensions?: Maybe<PrismicImageDimensionsType>
+	/**
+	 * A plain imgix URL with the URL and params applied.
+	 */
+	url?: Maybe<Scalars["String"]>
+	/**
+	 * Should be used to generate fixed-width images (i.e. the size of the image
+	 * doesn't change when the size of the browser changes, and are "fixed").
+	 * Returns data compatible with gatsby-image. Instead of accessing this data
+	 * directly, the GatsbySourceImgixFixed fragment should be used. See the
+	 * project's README for more information.
+	 */
+	fixed?: Maybe<ImgixFixed>
+	/**
+	 * Should be used to generate fluid-width images (i.e. images that change when
+	 * the size of the browser changes). Returns data compatible with
+	 * gatsby-image. Instead of accessing this data directly, the
+	 * GatsbySourceImgixFluid fragment should be used. See the project's README
+	 * for more information.
+	 */
+	fluid?: Maybe<ImgixFluid>
+	gatsbyImageData?: Maybe<Scalars["JSON"]>
+	localFile?: Maybe<File>
+}
+
+export type PrismicSettingsDataOpenGraphImageImageTypeUrlArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicSettingsDataOpenGraphImageImageTypeFixedArgs = {
+	width?: Maybe<Scalars["Int"]>
+	height?: Maybe<Scalars["Int"]>
+	quality?: Maybe<Scalars["Int"]>
+	imgixParams?: Maybe<ImgixParamsInput>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicSettingsDataOpenGraphImageImageTypeFluidArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+	maxWidth?: Maybe<Scalars["Int"]>
+	maxHeight?: Maybe<Scalars["Int"]>
+	srcSetBreakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicSettingsDataOpenGraphImageImageTypeGatsbyImageDataArgs = {
+	layout?: Maybe<GatsbyImageLayout>
+	width?: Maybe<Scalars["Int"]>
+	height?: Maybe<Scalars["Int"]>
+	aspectRatio?: Maybe<Scalars["Float"]>
+	outputPixelDensities?: Maybe<Array<Maybe<Scalars["Float"]>>>
+	breakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+	sizes?: Maybe<Scalars["String"]>
+	backgroundColor?: Maybe<Scalars["String"]>
+	imgixParams?: Maybe<ImgixParamsInput>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+	placeholder?: Maybe<ImgixPlaceholder>
+	widthTolerance?: Maybe<Scalars["Float"]>
+	srcSetMinWidth?: Maybe<Scalars["Int"]>
+	srcSetMaxWidth?: Maybe<Scalars["Int"]>
+}
+
+export type PrismicSettingsDataOpenGraphImageImageTypeFilterInput = {
+	alt?: Maybe<StringQueryOperatorInput>
+	copyright?: Maybe<StringQueryOperatorInput>
+	dimensions?: Maybe<PrismicImageDimensionsTypeFilterInput>
+	url?: Maybe<StringQueryOperatorInput>
+	fixed?: Maybe<ImgixFixedFilterInput>
+	fluid?: Maybe<ImgixFluidFilterInput>
+	gatsbyImageData?: Maybe<JsonQueryOperatorInput>
+	localFile?: Maybe<FileFilterInput>
+}
+
 export type PrismicSettingsDataRedirects = {
 	from_path?: Maybe<Scalars["String"]>
 	is_permanent?: Maybe<Scalars["Boolean"]>
@@ -3296,22 +3398,110 @@ export type PrismicSettingsDataRedirectsFilterListInput = {
 	elemMatch?: Maybe<PrismicSettingsDataRedirectsFilterInput>
 }
 
+export type PrismicSettingsDataTwitterCardImageImageType = {
+	alt?: Maybe<Scalars["String"]>
+	copyright?: Maybe<Scalars["String"]>
+	dimensions?: Maybe<PrismicImageDimensionsType>
+	/**
+	 * A plain imgix URL with the URL and params applied.
+	 */
+	url?: Maybe<Scalars["String"]>
+	/**
+	 * Should be used to generate fixed-width images (i.e. the size of the image
+	 * doesn't change when the size of the browser changes, and are "fixed").
+	 * Returns data compatible with gatsby-image. Instead of accessing this data
+	 * directly, the GatsbySourceImgixFixed fragment should be used. See the
+	 * project's README for more information.
+	 */
+	fixed?: Maybe<ImgixFixed>
+	/**
+	 * Should be used to generate fluid-width images (i.e. images that change when
+	 * the size of the browser changes). Returns data compatible with
+	 * gatsby-image. Instead of accessing this data directly, the
+	 * GatsbySourceImgixFluid fragment should be used. See the project's README
+	 * for more information.
+	 */
+	fluid?: Maybe<ImgixFluid>
+	gatsbyImageData?: Maybe<Scalars["JSON"]>
+	localFile?: Maybe<File>
+}
+
+export type PrismicSettingsDataTwitterCardImageImageTypeUrlArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicSettingsDataTwitterCardImageImageTypeFixedArgs = {
+	width?: Maybe<Scalars["Int"]>
+	height?: Maybe<Scalars["Int"]>
+	quality?: Maybe<Scalars["Int"]>
+	imgixParams?: Maybe<ImgixParamsInput>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicSettingsDataTwitterCardImageImageTypeFluidArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+	maxWidth?: Maybe<Scalars["Int"]>
+	maxHeight?: Maybe<Scalars["Int"]>
+	srcSetBreakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicSettingsDataTwitterCardImageImageTypeGatsbyImageDataArgs = {
+	layout?: Maybe<GatsbyImageLayout>
+	width?: Maybe<Scalars["Int"]>
+	height?: Maybe<Scalars["Int"]>
+	aspectRatio?: Maybe<Scalars["Float"]>
+	outputPixelDensities?: Maybe<Array<Maybe<Scalars["Float"]>>>
+	breakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+	sizes?: Maybe<Scalars["String"]>
+	backgroundColor?: Maybe<Scalars["String"]>
+	imgixParams?: Maybe<ImgixParamsInput>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+	placeholder?: Maybe<ImgixPlaceholder>
+	widthTolerance?: Maybe<Scalars["Float"]>
+	srcSetMinWidth?: Maybe<Scalars["Int"]>
+	srcSetMaxWidth?: Maybe<Scalars["Int"]>
+}
+
+export type PrismicSettingsDataTwitterCardImageImageTypeFilterInput = {
+	alt?: Maybe<StringQueryOperatorInput>
+	copyright?: Maybe<StringQueryOperatorInput>
+	dimensions?: Maybe<PrismicImageDimensionsTypeFilterInput>
+	url?: Maybe<StringQueryOperatorInput>
+	fixed?: Maybe<ImgixFixedFilterInput>
+	fluid?: Maybe<ImgixFluidFilterInput>
+	gatsbyImageData?: Maybe<JsonQueryOperatorInput>
+	localFile?: Maybe<FileFilterInput>
+}
+
 export type PrismicSettingsDataType = {
+	facebook_url?: Maybe<Scalars["String"]>
+	instagram_url?: Maybe<Scalars["String"]>
+	open_graph_image?: Maybe<PrismicSettingsDataOpenGraphImageImageType>
 	redirects?: Maybe<Array<Maybe<PrismicSettingsDataRedirects>>>
 	site_copyright?: Maybe<PrismicStructuredTextType>
 	site_description?: Maybe<PrismicStructuredTextType>
-	site_disclaimer?: Maybe<PrismicStructuredTextType>
 	site_name?: Maybe<PrismicStructuredTextType>
 	title?: Maybe<PrismicStructuredTextType>
+	twitter_card_image?: Maybe<PrismicSettingsDataTwitterCardImageImageType>
+	twitter_url?: Maybe<Scalars["String"]>
+	twitter_username?: Maybe<Scalars["String"]>
+	youtube_url?: Maybe<Scalars["String"]>
 }
 
 export type PrismicSettingsDataTypeFilterInput = {
+	facebook_url?: Maybe<StringQueryOperatorInput>
+	instagram_url?: Maybe<StringQueryOperatorInput>
+	open_graph_image?: Maybe<PrismicSettingsDataOpenGraphImageImageTypeFilterInput>
 	redirects?: Maybe<PrismicSettingsDataRedirectsFilterListInput>
 	site_copyright?: Maybe<PrismicStructuredTextTypeFilterInput>
 	site_description?: Maybe<PrismicStructuredTextTypeFilterInput>
-	site_disclaimer?: Maybe<PrismicStructuredTextTypeFilterInput>
 	site_name?: Maybe<PrismicStructuredTextTypeFilterInput>
 	title?: Maybe<PrismicStructuredTextTypeFilterInput>
+	twitter_card_image?: Maybe<PrismicSettingsDataTwitterCardImageImageTypeFilterInput>
+	twitter_url?: Maybe<StringQueryOperatorInput>
+	twitter_username?: Maybe<StringQueryOperatorInput>
+	youtube_url?: Maybe<StringQueryOperatorInput>
 }
 
 export type PrismicSettingsEdge = {
@@ -3321,6 +3511,62 @@ export type PrismicSettingsEdge = {
 }
 
 export enum PrismicSettingsFieldsEnum {
+	DataFacebookUrl = "data___facebook_url",
+	DataInstagramUrl = "data___instagram_url",
+	DataOpenGraphImageAlt = "data___open_graph_image___alt",
+	DataOpenGraphImageCopyright = "data___open_graph_image___copyright",
+	DataOpenGraphImageDimensionsWidth = "data___open_graph_image___dimensions___width",
+	DataOpenGraphImageDimensionsHeight = "data___open_graph_image___dimensions___height",
+	DataOpenGraphImageUrl = "data___open_graph_image___url",
+	DataOpenGraphImageFixedBase64 = "data___open_graph_image___fixed___base64",
+	DataOpenGraphImageFixedSrc = "data___open_graph_image___fixed___src",
+	DataOpenGraphImageFixedSrcSet = "data___open_graph_image___fixed___srcSet",
+	DataOpenGraphImageFixedSrcWebp = "data___open_graph_image___fixed___srcWebp",
+	DataOpenGraphImageFixedSrcSetWebp = "data___open_graph_image___fixed___srcSetWebp",
+	DataOpenGraphImageFixedSizes = "data___open_graph_image___fixed___sizes",
+	DataOpenGraphImageFixedWidth = "data___open_graph_image___fixed___width",
+	DataOpenGraphImageFixedHeight = "data___open_graph_image___fixed___height",
+	DataOpenGraphImageFluidBase64 = "data___open_graph_image___fluid___base64",
+	DataOpenGraphImageFluidSrc = "data___open_graph_image___fluid___src",
+	DataOpenGraphImageFluidSrcSet = "data___open_graph_image___fluid___srcSet",
+	DataOpenGraphImageFluidSrcWebp = "data___open_graph_image___fluid___srcWebp",
+	DataOpenGraphImageFluidSrcSetWebp = "data___open_graph_image___fluid___srcSetWebp",
+	DataOpenGraphImageFluidSizes = "data___open_graph_image___fluid___sizes",
+	DataOpenGraphImageFluidAspectRatio = "data___open_graph_image___fluid___aspectRatio",
+	DataOpenGraphImageGatsbyImageData = "data___open_graph_image___gatsbyImageData",
+	DataOpenGraphImageLocalFileSourceInstanceName = "data___open_graph_image___localFile___sourceInstanceName",
+	DataOpenGraphImageLocalFileAbsolutePath = "data___open_graph_image___localFile___absolutePath",
+	DataOpenGraphImageLocalFileRelativePath = "data___open_graph_image___localFile___relativePath",
+	DataOpenGraphImageLocalFileExtension = "data___open_graph_image___localFile___extension",
+	DataOpenGraphImageLocalFileSize = "data___open_graph_image___localFile___size",
+	DataOpenGraphImageLocalFilePrettySize = "data___open_graph_image___localFile___prettySize",
+	DataOpenGraphImageLocalFileModifiedTime = "data___open_graph_image___localFile___modifiedTime",
+	DataOpenGraphImageLocalFileAccessTime = "data___open_graph_image___localFile___accessTime",
+	DataOpenGraphImageLocalFileChangeTime = "data___open_graph_image___localFile___changeTime",
+	DataOpenGraphImageLocalFileBirthTime = "data___open_graph_image___localFile___birthTime",
+	DataOpenGraphImageLocalFileRoot = "data___open_graph_image___localFile___root",
+	DataOpenGraphImageLocalFileDir = "data___open_graph_image___localFile___dir",
+	DataOpenGraphImageLocalFileBase = "data___open_graph_image___localFile___base",
+	DataOpenGraphImageLocalFileExt = "data___open_graph_image___localFile___ext",
+	DataOpenGraphImageLocalFileName = "data___open_graph_image___localFile___name",
+	DataOpenGraphImageLocalFileRelativeDirectory = "data___open_graph_image___localFile___relativeDirectory",
+	DataOpenGraphImageLocalFileDev = "data___open_graph_image___localFile___dev",
+	DataOpenGraphImageLocalFileMode = "data___open_graph_image___localFile___mode",
+	DataOpenGraphImageLocalFileNlink = "data___open_graph_image___localFile___nlink",
+	DataOpenGraphImageLocalFileUid = "data___open_graph_image___localFile___uid",
+	DataOpenGraphImageLocalFileGid = "data___open_graph_image___localFile___gid",
+	DataOpenGraphImageLocalFileRdev = "data___open_graph_image___localFile___rdev",
+	DataOpenGraphImageLocalFileIno = "data___open_graph_image___localFile___ino",
+	DataOpenGraphImageLocalFileAtimeMs = "data___open_graph_image___localFile___atimeMs",
+	DataOpenGraphImageLocalFileMtimeMs = "data___open_graph_image___localFile___mtimeMs",
+	DataOpenGraphImageLocalFileCtimeMs = "data___open_graph_image___localFile___ctimeMs",
+	DataOpenGraphImageLocalFileAtime = "data___open_graph_image___localFile___atime",
+	DataOpenGraphImageLocalFileMtime = "data___open_graph_image___localFile___mtime",
+	DataOpenGraphImageLocalFileCtime = "data___open_graph_image___localFile___ctime",
+	DataOpenGraphImageLocalFileBirthtime = "data___open_graph_image___localFile___birthtime",
+	DataOpenGraphImageLocalFileBirthtimeMs = "data___open_graph_image___localFile___birthtimeMs",
+	DataOpenGraphImageLocalFileId = "data___open_graph_image___localFile___id",
+	DataOpenGraphImageLocalFileChildren = "data___open_graph_image___localFile___children",
 	DataRedirects = "data___redirects",
 	DataRedirectsFromPath = "data___redirects___from_path",
 	DataRedirectsIsPermanent = "data___redirects___is_permanent",
@@ -3331,15 +3577,69 @@ export enum PrismicSettingsFieldsEnum {
 	DataSiteDescriptionText = "data___site_description___text",
 	DataSiteDescriptionHtml = "data___site_description___html",
 	DataSiteDescriptionRaw = "data___site_description___raw",
-	DataSiteDisclaimerText = "data___site_disclaimer___text",
-	DataSiteDisclaimerHtml = "data___site_disclaimer___html",
-	DataSiteDisclaimerRaw = "data___site_disclaimer___raw",
 	DataSiteNameText = "data___site_name___text",
 	DataSiteNameHtml = "data___site_name___html",
 	DataSiteNameRaw = "data___site_name___raw",
 	DataTitleText = "data___title___text",
 	DataTitleHtml = "data___title___html",
 	DataTitleRaw = "data___title___raw",
+	DataTwitterCardImageAlt = "data___twitter_card_image___alt",
+	DataTwitterCardImageCopyright = "data___twitter_card_image___copyright",
+	DataTwitterCardImageDimensionsWidth = "data___twitter_card_image___dimensions___width",
+	DataTwitterCardImageDimensionsHeight = "data___twitter_card_image___dimensions___height",
+	DataTwitterCardImageUrl = "data___twitter_card_image___url",
+	DataTwitterCardImageFixedBase64 = "data___twitter_card_image___fixed___base64",
+	DataTwitterCardImageFixedSrc = "data___twitter_card_image___fixed___src",
+	DataTwitterCardImageFixedSrcSet = "data___twitter_card_image___fixed___srcSet",
+	DataTwitterCardImageFixedSrcWebp = "data___twitter_card_image___fixed___srcWebp",
+	DataTwitterCardImageFixedSrcSetWebp = "data___twitter_card_image___fixed___srcSetWebp",
+	DataTwitterCardImageFixedSizes = "data___twitter_card_image___fixed___sizes",
+	DataTwitterCardImageFixedWidth = "data___twitter_card_image___fixed___width",
+	DataTwitterCardImageFixedHeight = "data___twitter_card_image___fixed___height",
+	DataTwitterCardImageFluidBase64 = "data___twitter_card_image___fluid___base64",
+	DataTwitterCardImageFluidSrc = "data___twitter_card_image___fluid___src",
+	DataTwitterCardImageFluidSrcSet = "data___twitter_card_image___fluid___srcSet",
+	DataTwitterCardImageFluidSrcWebp = "data___twitter_card_image___fluid___srcWebp",
+	DataTwitterCardImageFluidSrcSetWebp = "data___twitter_card_image___fluid___srcSetWebp",
+	DataTwitterCardImageFluidSizes = "data___twitter_card_image___fluid___sizes",
+	DataTwitterCardImageFluidAspectRatio = "data___twitter_card_image___fluid___aspectRatio",
+	DataTwitterCardImageGatsbyImageData = "data___twitter_card_image___gatsbyImageData",
+	DataTwitterCardImageLocalFileSourceInstanceName = "data___twitter_card_image___localFile___sourceInstanceName",
+	DataTwitterCardImageLocalFileAbsolutePath = "data___twitter_card_image___localFile___absolutePath",
+	DataTwitterCardImageLocalFileRelativePath = "data___twitter_card_image___localFile___relativePath",
+	DataTwitterCardImageLocalFileExtension = "data___twitter_card_image___localFile___extension",
+	DataTwitterCardImageLocalFileSize = "data___twitter_card_image___localFile___size",
+	DataTwitterCardImageLocalFilePrettySize = "data___twitter_card_image___localFile___prettySize",
+	DataTwitterCardImageLocalFileModifiedTime = "data___twitter_card_image___localFile___modifiedTime",
+	DataTwitterCardImageLocalFileAccessTime = "data___twitter_card_image___localFile___accessTime",
+	DataTwitterCardImageLocalFileChangeTime = "data___twitter_card_image___localFile___changeTime",
+	DataTwitterCardImageLocalFileBirthTime = "data___twitter_card_image___localFile___birthTime",
+	DataTwitterCardImageLocalFileRoot = "data___twitter_card_image___localFile___root",
+	DataTwitterCardImageLocalFileDir = "data___twitter_card_image___localFile___dir",
+	DataTwitterCardImageLocalFileBase = "data___twitter_card_image___localFile___base",
+	DataTwitterCardImageLocalFileExt = "data___twitter_card_image___localFile___ext",
+	DataTwitterCardImageLocalFileName = "data___twitter_card_image___localFile___name",
+	DataTwitterCardImageLocalFileRelativeDirectory = "data___twitter_card_image___localFile___relativeDirectory",
+	DataTwitterCardImageLocalFileDev = "data___twitter_card_image___localFile___dev",
+	DataTwitterCardImageLocalFileMode = "data___twitter_card_image___localFile___mode",
+	DataTwitterCardImageLocalFileNlink = "data___twitter_card_image___localFile___nlink",
+	DataTwitterCardImageLocalFileUid = "data___twitter_card_image___localFile___uid",
+	DataTwitterCardImageLocalFileGid = "data___twitter_card_image___localFile___gid",
+	DataTwitterCardImageLocalFileRdev = "data___twitter_card_image___localFile___rdev",
+	DataTwitterCardImageLocalFileIno = "data___twitter_card_image___localFile___ino",
+	DataTwitterCardImageLocalFileAtimeMs = "data___twitter_card_image___localFile___atimeMs",
+	DataTwitterCardImageLocalFileMtimeMs = "data___twitter_card_image___localFile___mtimeMs",
+	DataTwitterCardImageLocalFileCtimeMs = "data___twitter_card_image___localFile___ctimeMs",
+	DataTwitterCardImageLocalFileAtime = "data___twitter_card_image___localFile___atime",
+	DataTwitterCardImageLocalFileMtime = "data___twitter_card_image___localFile___mtime",
+	DataTwitterCardImageLocalFileCtime = "data___twitter_card_image___localFile___ctime",
+	DataTwitterCardImageLocalFileBirthtime = "data___twitter_card_image___localFile___birthtime",
+	DataTwitterCardImageLocalFileBirthtimeMs = "data___twitter_card_image___localFile___birthtimeMs",
+	DataTwitterCardImageLocalFileId = "data___twitter_card_image___localFile___id",
+	DataTwitterCardImageLocalFileChildren = "data___twitter_card_image___localFile___children",
+	DataTwitterUrl = "data___twitter_url",
+	DataTwitterUsername = "data___twitter_username",
+	DataYoutubeUrl = "data___youtube_url",
 	DataRaw = "dataRaw",
 	PrismicId = "prismicId",
 	AlternateLanguages = "alternate_languages",
@@ -5990,14 +6290,14 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextConfig =
 	{
-		single?: Maybe<Scalars["String"]>
+		multi?: Maybe<Scalars["String"]>
 		allowTargetBlank?: Maybe<Scalars["Boolean"]>
 		label?: Maybe<Scalars["String"]>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextConfigFilterInput =
 	{
-		single?: Maybe<StringQueryOperatorInput>
+		multi?: Maybe<StringQueryOperatorInput>
 		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
 		label?: Maybe<StringQueryOperatorInput>
 	}
@@ -6561,11 +6861,13 @@ export type SitePluginPluginOptionsSchemasPageMainUidFilterInput = {
 export type SitePluginPluginOptionsSchemasSettings = {
 	Main?: Maybe<SitePluginPluginOptionsSchemasSettingsMain>
 	Redirects?: Maybe<SitePluginPluginOptionsSchemasSettingsRedirects>
+	SEO?: Maybe<SitePluginPluginOptionsSchemasSettingsSeo>
 }
 
 export type SitePluginPluginOptionsSchemasSettingsFilterInput = {
 	Main?: Maybe<SitePluginPluginOptionsSchemasSettingsMainFilterInput>
 	Redirects?: Maybe<SitePluginPluginOptionsSchemasSettingsRedirectsFilterInput>
+	SEO?: Maybe<SitePluginPluginOptionsSchemasSettingsSeoFilterInput>
 }
 
 export type SitePluginPluginOptionsSchemasSettingsMain = {
@@ -6573,16 +6875,68 @@ export type SitePluginPluginOptionsSchemasSettingsMain = {
 	site_name?: Maybe<SitePluginPluginOptionsSchemasSettingsMainSite_Name>
 	site_description?: Maybe<SitePluginPluginOptionsSchemasSettingsMainSite_Description>
 	site_copyright?: Maybe<SitePluginPluginOptionsSchemasSettingsMainSite_Copyright>
-	site_disclaimer?: Maybe<SitePluginPluginOptionsSchemasSettingsMainSite_Disclaimer>
+	facebook_url?: Maybe<SitePluginPluginOptionsSchemasSettingsMainFacebook_Url>
+	instagram_url?: Maybe<SitePluginPluginOptionsSchemasSettingsMainInstagram_Url>
+	youtube_url?: Maybe<SitePluginPluginOptionsSchemasSettingsMainYoutube_Url>
+	twitter_url?: Maybe<SitePluginPluginOptionsSchemasSettingsMainTwitter_Url>
+	twitter_username?: Maybe<SitePluginPluginOptionsSchemasSettingsMainTwitter_Username>
 }
+
+export type SitePluginPluginOptionsSchemasSettingsMainFacebook_Url = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSettingsMainFacebook_UrlConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsMainFacebook_UrlConfig = {
+	label?: Maybe<Scalars["String"]>
+	placeholder?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsMainFacebook_UrlConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+		placeholder?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsMainFacebook_UrlFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSettingsMainFacebook_UrlConfigFilterInput>
+	}
 
 export type SitePluginPluginOptionsSchemasSettingsMainFilterInput = {
 	title?: Maybe<SitePluginPluginOptionsSchemasSettingsMainTitleFilterInput>
 	site_name?: Maybe<SitePluginPluginOptionsSchemasSettingsMainSite_NameFilterInput>
 	site_description?: Maybe<SitePluginPluginOptionsSchemasSettingsMainSite_DescriptionFilterInput>
 	site_copyright?: Maybe<SitePluginPluginOptionsSchemasSettingsMainSite_CopyrightFilterInput>
-	site_disclaimer?: Maybe<SitePluginPluginOptionsSchemasSettingsMainSite_DisclaimerFilterInput>
+	facebook_url?: Maybe<SitePluginPluginOptionsSchemasSettingsMainFacebook_UrlFilterInput>
+	instagram_url?: Maybe<SitePluginPluginOptionsSchemasSettingsMainInstagram_UrlFilterInput>
+	youtube_url?: Maybe<SitePluginPluginOptionsSchemasSettingsMainYoutube_UrlFilterInput>
+	twitter_url?: Maybe<SitePluginPluginOptionsSchemasSettingsMainTwitter_UrlFilterInput>
+	twitter_username?: Maybe<SitePluginPluginOptionsSchemasSettingsMainTwitter_UsernameFilterInput>
 }
+
+export type SitePluginPluginOptionsSchemasSettingsMainInstagram_Url = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSettingsMainInstagram_UrlConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsMainInstagram_UrlConfig = {
+	label?: Maybe<Scalars["String"]>
+	placeholder?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsMainInstagram_UrlConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+		placeholder?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsMainInstagram_UrlFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSettingsMainInstagram_UrlConfigFilterInput>
+	}
 
 export type SitePluginPluginOptionsSchemasSettingsMainSite_Copyright = {
 	type?: Maybe<Scalars["String"]>
@@ -6628,30 +6982,6 @@ export type SitePluginPluginOptionsSchemasSettingsMainSite_DescriptionFilterInpu
 		config?: Maybe<SitePluginPluginOptionsSchemasSettingsMainSite_DescriptionConfigFilterInput>
 	}
 
-export type SitePluginPluginOptionsSchemasSettingsMainSite_Disclaimer = {
-	type?: Maybe<Scalars["String"]>
-	config?: Maybe<SitePluginPluginOptionsSchemasSettingsMainSite_DisclaimerConfig>
-}
-
-export type SitePluginPluginOptionsSchemasSettingsMainSite_DisclaimerConfig = {
-	multi?: Maybe<Scalars["String"]>
-	allowTargetBlank?: Maybe<Scalars["Boolean"]>
-	label?: Maybe<Scalars["String"]>
-}
-
-export type SitePluginPluginOptionsSchemasSettingsMainSite_DisclaimerConfigFilterInput =
-	{
-		multi?: Maybe<StringQueryOperatorInput>
-		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
-		label?: Maybe<StringQueryOperatorInput>
-	}
-
-export type SitePluginPluginOptionsSchemasSettingsMainSite_DisclaimerFilterInput =
-	{
-		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasSettingsMainSite_DisclaimerConfigFilterInput>
-	}
-
 export type SitePluginPluginOptionsSchemasSettingsMainSite_Name = {
 	type?: Maybe<Scalars["String"]>
 	config?: Maybe<SitePluginPluginOptionsSchemasSettingsMainSite_NameConfig>
@@ -6691,6 +7021,70 @@ export type SitePluginPluginOptionsSchemasSettingsMainTitleConfigFilterInput = {
 export type SitePluginPluginOptionsSchemasSettingsMainTitleFilterInput = {
 	type?: Maybe<StringQueryOperatorInput>
 	config?: Maybe<SitePluginPluginOptionsSchemasSettingsMainTitleConfigFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsMainTwitter_Url = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSettingsMainTwitter_UrlConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsMainTwitter_UrlConfig = {
+	label?: Maybe<Scalars["String"]>
+	placeholder?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsMainTwitter_UrlConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+		placeholder?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsMainTwitter_UrlFilterInput = {
+	type?: Maybe<StringQueryOperatorInput>
+	config?: Maybe<SitePluginPluginOptionsSchemasSettingsMainTwitter_UrlConfigFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsMainTwitter_Username = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSettingsMainTwitter_UsernameConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsMainTwitter_UsernameConfig = {
+	label?: Maybe<Scalars["String"]>
+	placeholder?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsMainTwitter_UsernameConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+		placeholder?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsMainTwitter_UsernameFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSettingsMainTwitter_UsernameConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsMainYoutube_Url = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSettingsMainYoutube_UrlConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsMainYoutube_UrlConfig = {
+	label?: Maybe<Scalars["String"]>
+	placeholder?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsMainYoutube_UrlConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+		placeholder?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsMainYoutube_UrlFilterInput = {
+	type?: Maybe<StringQueryOperatorInput>
+	config?: Maybe<SitePluginPluginOptionsSchemasSettingsMainYoutube_UrlConfigFilterInput>
 }
 
 export type SitePluginPluginOptionsSchemasSettingsRedirects = {
@@ -6809,6 +7203,85 @@ export type SitePluginPluginOptionsSchemasSettingsRedirectsRedirectsFilterInput 
 		config?: Maybe<SitePluginPluginOptionsSchemasSettingsRedirectsRedirectsConfigFilterInput>
 	}
 
+export type SitePluginPluginOptionsSchemasSettingsSeo = {
+	twitter_card_image?: Maybe<SitePluginPluginOptionsSchemasSettingsSeoTwitter_Card_Image>
+	open_graph_image?: Maybe<SitePluginPluginOptionsSchemasSettingsSeoOpen_Graph_Image>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsSeoFilterInput = {
+	twitter_card_image?: Maybe<SitePluginPluginOptionsSchemasSettingsSeoTwitter_Card_ImageFilterInput>
+	open_graph_image?: Maybe<SitePluginPluginOptionsSchemasSettingsSeoOpen_Graph_ImageFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsSeoOpen_Graph_Image = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSettingsSeoOpen_Graph_ImageConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsSeoOpen_Graph_ImageConfig = {
+	constraint?: Maybe<SitePluginPluginOptionsSchemasSettingsSeoOpen_Graph_ImageConfigConstraint>
+	label?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsSeoOpen_Graph_ImageConfigConstraint =
+	{
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsSeoOpen_Graph_ImageConfigConstraintFilterInput =
+	{
+		width?: Maybe<IntQueryOperatorInput>
+		height?: Maybe<IntQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsSeoOpen_Graph_ImageConfigFilterInput =
+	{
+		constraint?: Maybe<SitePluginPluginOptionsSchemasSettingsSeoOpen_Graph_ImageConfigConstraintFilterInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsSeoOpen_Graph_ImageFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSettingsSeoOpen_Graph_ImageConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsSeoTwitter_Card_Image = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSettingsSeoTwitter_Card_ImageConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsSeoTwitter_Card_ImageConfig =
+	{
+		constraint?: Maybe<SitePluginPluginOptionsSchemasSettingsSeoTwitter_Card_ImageConfigConstraint>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsSeoTwitter_Card_ImageConfigConstraint =
+	{
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsSeoTwitter_Card_ImageConfigConstraintFilterInput =
+	{
+		width?: Maybe<IntQueryOperatorInput>
+		height?: Maybe<IntQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsSeoTwitter_Card_ImageConfigFilterInput =
+	{
+		constraint?: Maybe<SitePluginPluginOptionsSchemasSettingsSeoTwitter_Card_ImageConfigConstraintFilterInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsSeoTwitter_Card_ImageFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSettingsSeoTwitter_Card_ImageConfigFilterInput>
+	}
+
 export type SitePluginSortInput = {
 	fields?: Maybe<Array<Maybe<SitePluginFieldsEnum>>>
 	order?: Maybe<Array<Maybe<SortOrderEnum>>>
@@ -6853,10 +7326,16 @@ export type SettingsQuery = {
 	prismicSettings?: Maybe<{
 		_previewable: string
 		data?: Maybe<{
+			facebook_url?: Maybe<string>
+			instagram_url?: Maybe<string>
+			youtube_url?: Maybe<string>
+			twitter_url?: Maybe<string>
+			twitter_username?: Maybe<string>
 			site_name?: Maybe<{ text?: Maybe<string> }>
-			site_disclaimer?: Maybe<{ text?: Maybe<string> }>
 			site_description?: Maybe<{ text?: Maybe<string> }>
 			site_copyright?: Maybe<{ text?: Maybe<string>; html?: Maybe<string> }>
+			twitter_card_image?: Maybe<{ url?: Maybe<string> }>
+			open_graph_image?: Maybe<{ url?: Maybe<string> }>
 		}>
 	}>
 }
@@ -6964,7 +7443,9 @@ export type PageTemplateQuery = {
 						| ({
 								__typename: "PrismicPageDataBodyGradientText"
 						  } & GradientTextFragment)
-						| { __typename: "PrismicPageDataBodyImageCallToAction" }
+						| ({
+								__typename: "PrismicPageDataBodyImageCallToAction"
+						  } & ImageCallToActionFragment)
 						| ({
 								__typename: "PrismicPageDataBodyIntroduction"
 						  } & IntroductionFragment)

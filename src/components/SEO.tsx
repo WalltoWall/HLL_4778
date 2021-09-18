@@ -2,12 +2,6 @@ import * as React from "react"
 import { Title, Link, Meta } from "react-head"
 import { usePrismicSettings } from "../hooks/usePrismicSettings"
 
-// TODO: Allow to be set via CMS?
-const DEFAULT_META = {
-	ogImage: "",
-	twitterImage: "",
-}
-
 interface SEOProps {
 	metaTitle?: string
 	metaDescription?: string
@@ -34,14 +28,18 @@ export const SEO = ({ metaDescription, pageTitle, metaTitle }: SEOProps) => {
 			<Meta property="og:site_name" content={settings.siteName} />
 			<Meta property="og:description" content={description} />
 			<Meta property="og:title" content={title} />
-			<Meta name="image" property="og:image" content={DEFAULT_META.ogImage} />
+			<Meta
+				name="image"
+				property="og:image"
+				content={settings.openGraphImageUrl}
+			/>
 
 			{/* Twitter */}
 			<Meta name="twitter:card" content="summary_large_image" />
-			<Meta name="twitter:site" content="@th_clarence" />
+			<Meta name="twitter:site" content={settings.twitterUsername} />
 			<Meta name="twitter:title" content={title} />
 			<Meta name="twitter:description" content={description} />
-			<Meta name="twitter:image" content={DEFAULT_META.twitterImage} />
+			<Meta name="twitter:image" content={settings.twitterCardImageUrl} />
 		</>
 	)
 }

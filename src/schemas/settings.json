@@ -1,70 +1,121 @@
 {
-  "Main" : {
-    "title" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading1",
-        "label" : "Title"
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Title"
       }
     },
-    "site_name" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading1",
-        "label" : "Site Name"
+    "site_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Site Name"
       }
     },
-    "site_description" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "paragraph",
-        "label" : "Site Description"
+    "site_description": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Site Description"
       }
     },
-    "site_copyright" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph",
-        "label" : "Site Copyright"
+    "site_copyright": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Site Copyright"
       }
     },
-    "site_disclaimer" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph,em,hyperlink",
-        "allowTargetBlank" : true,
-        "label" : "site_disclaimer"
+    "facebook_url": {
+      "type": "Text",
+      "config": {
+        "label": "Facebook URL",
+        "placeholder": "Link to Facebook profile"
+      }
+    },
+    "instagram_url": {
+      "type": "Text",
+      "config": {
+        "label": "Instagram URL",
+        "placeholder": "Link to Instagram profile"
+      }
+    },
+    "youtube_url": {
+      "type": "Text",
+      "config": {
+        "label": "YouTube URL",
+        "placeholder": "Link to YouTube profile"
+      }
+    },
+    "twitter_url": {
+      "type": "Text",
+      "config": {
+        "label": "Twitter URL",
+        "placeholder": "Link to Twitter Profile"
+      }
+    },
+    "twitter_username": {
+      "type": "Text",
+      "config": {
+        "label": "Twitter Username",
+        "placeholder": "@example_account"
       }
     }
   },
-  "Redirects" : {
-    "redirects" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "from_path" : {
-            "type" : "Text",
-            "config" : {
-              "label" : "From Path"
+  "Redirects": {
+    "redirects": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "from_path": {
+            "type": "Text",
+            "config": {
+              "label": "From Path"
             }
           },
-          "to_path" : {
-            "type" : "Text",
-            "config" : {
-              "label" : "To Path"
+          "to_path": {
+            "type": "Text",
+            "config": {
+              "label": "To Path"
             }
           },
-          "is_permanent" : {
-            "type" : "Boolean",
-            "config" : {
-              "placeholder_false" : "No",
-              "placeholder_true" : "Yes, redirect forever",
-              "default_value" : false,
-              "label" : "Is Permanent"
+          "is_permanent": {
+            "type": "Boolean",
+            "config": {
+              "placeholder_false": "No",
+              "placeholder_true": "Yes, redirect forever",
+              "default_value": false,
+              "label": "Is Permanent"
             }
           }
         },
-        "label" : "Redirects"
+        "label": "Redirects"
+      }
+    }
+  },
+  "SEO": {
+    "twitter_card_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 800,
+          "height": 418
+        },
+        "thumbnails": [],
+        "label": "Twitter Card Image"
+      }
+    },
+    "open_graph_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 1200,
+          "height": 627
+        },
+        "thumbnails": [],
+        "label": "Open Graph Image"
       }
     }
   }

@@ -10,9 +10,6 @@ export function usePrismicSettings() {
 					site_name {
 						text
 					}
-					site_disclaimer {
-						text
-					}
 					site_description {
 						text
 					}
@@ -20,18 +17,40 @@ export function usePrismicSettings() {
 						text
 						html
 					}
+
+					facebook_url
+					instagram_url
+					youtube_url
+
+					twitter_url
+					twitter_username
+
+					twitter_card_image {
+						url
+					}
+					open_graph_image {
+						url
+					}
 				}
 			}
 		}
 	`)
 
+	const data = result.prismicSettings?.data
+
 	return {
-		siteName: result.prismicSettings?.data?.site_name?.text,
-		siteDescription: result.prismicSettings?.data?.site_description?.text,
-		siteCopyrightHTML:
-			result.prismicSettings?.data?.site_copyright?.html?.replace(
-				"{YEAR}",
-				new Date().getFullYear().toString()
-			),
+		siteName: data?.site_name?.text,
+		siteDescription: data?.site_description?.text,
+		siteCopyrightHTML: data?.site_copyright?.html?.replace(
+			"{YEAR}",
+			new Date().getFullYear().toString()
+		),
+		facebookURL: data?.facebook_url,
+		instagramURL: data?.instagram_url,
+		youtubeURL: data?.youtube_url,
+		twitterURL: data?.twitter_url,
+		twitterCardImageUrl: data?.twitter_card_image?.url,
+		twitterUsername: data?.twitter_username,
+		openGraphImageUrl: data?.open_graph_image?.url,
 	}
 }
