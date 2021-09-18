@@ -9,6 +9,8 @@ module.exports = {
 			11: "11px",
 			12: "12px",
 			13: "13px",
+			14: "14px",
+			15: "15px",
 			16: "16px",
 			18: "18px",
 			22: "22px",
@@ -31,6 +33,9 @@ module.exports = {
 			sans: ["Work SansVariable", "system-ui"],
 			sansExt: ["monotype-grotesque-extended", "system-ui"],
 			serif: ["bely-display", "serif"],
+		},
+		letterSpacing: {
+			caps: ".14em",
 		},
 
 		spacing: Array.from({ length: 100 }, (_, idx) => idx).reduce(

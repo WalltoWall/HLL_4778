@@ -82,7 +82,7 @@ const Carousel = ({
 				{subheading && (
 					<h4
 						className={clsx(
-							"font-sansExt tracking-[.14em] leading-1_5 uppercase",
+							"font-sansExt tracking-caps leading-1_5 uppercase",
 							"text-12 md:text-16 lg:text-22"
 						)}
 					>
