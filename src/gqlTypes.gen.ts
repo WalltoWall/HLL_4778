@@ -7320,6 +7320,24 @@ export type StringQueryOperatorInput = {
 	glob?: Maybe<Scalars["String"]>
 }
 
+export type PrimaryNavigationQueryVariables = Exact<{ [key: string]: never }>
+
+export type PrimaryNavigationQuery = {
+	prismicNavigation?: Maybe<{
+		_previewable: string
+		data?: Maybe<{
+			nav_items?: Maybe<
+				Array<
+					Maybe<{
+						label?: Maybe<{ text?: Maybe<string> }>
+						link?: Maybe<{ url?: Maybe<string> }>
+					}>
+				>
+			>
+		}>
+	}>
+}
+
 export type SettingsQueryVariables = Exact<{ [key: string]: never }>
 
 export type SettingsQuery = {

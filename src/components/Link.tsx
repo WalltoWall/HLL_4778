@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link as GatsbyLink } from "gatsby"
-import { isInternal } from "@walltowall/helpers"
+import { isInternal, isAnchorOnly, extractAnchor } from "@walltowall/helpers"
 import clsx from "clsx"
 
 export type LinkProps = React.ComponentPropsWithoutRef<"a">
@@ -12,7 +12,10 @@ export const Link = ({ href, className, ...props }: LinkProps) => {
 	}
 
 	if (!href) return <a {...linkProps} />
-	if (!isInternal(href))
+	if (isAnchorOnly(href)) {
+		return <a href={extractAnchor(href)} {...linkProps} />
+	}
+	if (!isInternal(href)) {
 		return (
 			<a
 				href={href}
@@ -21,6 +24,7 @@ export const Link = ({ href, className, ...props }: LinkProps) => {
 				{...linkProps}
 			/>
 		)
+	}
 
 	return <GatsbyLink to={href} {...linkProps} />
 }
