@@ -2712,6 +2712,19 @@ export type PrismicPageDataBodyAnchorPrimary = {
 	anchor?: Maybe<Scalars["String"]>
 }
 
+export type PrismicPageDataBodyCallToAction = PrismicSliceType & {
+	primary?: Maybe<PrismicPageDataBodyCallToActionPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicPageDataBodyCallToActionPrimary = {
+	button_link?: Maybe<PrismicLinkType>
+	button_text?: Maybe<Scalars["String"]>
+	heading?: Maybe<PrismicStructuredTextType>
+}
+
 export type PrismicPageDataBodyCarousel = PrismicSliceType & {
 	items?: Maybe<Array<Maybe<PrismicPageDataBodyCarouselItem>>>
 	primary?: Maybe<PrismicPageDataBodyCarouselPrimary>
@@ -2916,13 +2929,27 @@ export type PrismicPageDataBodyIntroductionPrimary = {
 	text?: Maybe<PrismicStructuredTextType>
 }
 
+export type PrismicPageDataBodyNewsletterForm = PrismicSliceType & {
+	primary?: Maybe<PrismicPageDataBodyNewsletterFormPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicPageDataBodyNewsletterFormPrimary = {
+	heading?: Maybe<PrismicStructuredTextType>
+	placeholder_text?: Maybe<Scalars["String"]>
+}
+
 export type PrismicPageDataBodySlicesType =
 	| PrismicPageDataBodyAnchor
+	| PrismicPageDataBodyCallToAction
 	| PrismicPageDataBodyCarousel
 	| PrismicPageDataBodyFilterableEvents
 	| PrismicPageDataBodyGradientText
 	| PrismicPageDataBodyImageCallToAction
 	| PrismicPageDataBodyIntroduction
+	| PrismicPageDataBodyNewsletterForm
 	| PrismicPageDataBodyTwoColumnText
 	| PrismicPageDataBodyVideoHero
 
@@ -5827,6 +5854,8 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoices = {
 	carousel?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarousel>
 	two_column_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_Text>
 	image_call_to_action?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_Action>
+	call_to_action?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action>
+	newsletter_form?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_Form>
 }
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesAnchor = {
@@ -5880,6 +5909,110 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesAnchorNon_Rep
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesAnchorNon_RepeatFilterInput =
 	{
 		anchor?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesAnchorNon_RepeatAnchorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_Repeat>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_Repeat =
+	{
+		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatHeading>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_Link>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_Text>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_Link =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_LinkConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_LinkConfig =
+	{
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_LinkConfigFilterInput =
+	{
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_LinkFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_LinkConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_Text =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_TextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_TextConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_TextConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_TextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_TextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatFilterInput =
+	{
+		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatHeadingFilterInput>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_LinkFilterInput>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_TextFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatHeading =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatHeadingConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatHeadingConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatHeadingConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatHeadingFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatHeadingConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarousel = {
@@ -6055,6 +6188,8 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterInput =
 		carousel?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselFilterInput>
 		two_column_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextFilterInput>
 		image_call_to_action?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionFilterInput>
+		call_to_action?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionFilterInput>
+		newsletter_form?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterable_Events =
@@ -6459,6 +6594,86 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesIntroductionN
 	{
 		type?: Maybe<StringQueryOperatorInput>
 		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesIntroductionNon_RepeatTextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_Form =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_Repeat>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_Repeat =
+	{
+		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeading>
+		placeholder_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_Text>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatFilterInput =
+	{
+		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeadingFilterInput>
+		placeholder_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_TextFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeading =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeadingConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeadingConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeadingConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeadingFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeadingConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_Text =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_TextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_TextConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+		placeholder?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_TextConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+		placeholder?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_TextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_TextConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_Text =
@@ -7315,6 +7530,14 @@ export type SettingsQuery = {
 	}>
 }
 
+export type CallToActionFragment = {
+	primary?: Maybe<{
+		button_text?: Maybe<string>
+		heading?: Maybe<{ text?: Maybe<string> }>
+		button_link?: Maybe<{ url?: Maybe<string> }>
+	}>
+}
+
 export type CarouselFragment = {
 	primary?: Maybe<{
 		button_text?: Maybe<string>
@@ -7373,6 +7596,13 @@ export type IntroductionFragment = {
 	}>
 }
 
+export type NewsletterFormFragment = {
+	primary?: Maybe<{
+		placeholder_text?: Maybe<string>
+		heading?: Maybe<{ text?: Maybe<string> }>
+	}>
+}
+
 export type TwoColumnTextFragment = {
 	primary?: Maybe<{
 		left_text?: Maybe<{ html?: Maybe<string> }>
@@ -7404,6 +7634,9 @@ export type PageTemplateQuery = {
 				Array<
 					Maybe<
 						| { __typename: "PrismicPageDataBodyAnchor" }
+						| ({
+								__typename: "PrismicPageDataBodyCallToAction"
+						  } & CallToActionFragment)
 						| ({ __typename: "PrismicPageDataBodyCarousel" } & CarouselFragment)
 						| ({
 								__typename: "PrismicPageDataBodyFilterableEvents"
@@ -7417,6 +7650,9 @@ export type PageTemplateQuery = {
 						| ({
 								__typename: "PrismicPageDataBodyIntroduction"
 						  } & IntroductionFragment)
+						| ({
+								__typename: "PrismicPageDataBodyNewsletterForm"
+						  } & NewsletterFormFragment)
 						| ({
 								__typename: "PrismicPageDataBodyTwoColumnText"
 						  } & TwoColumnTextFragment)

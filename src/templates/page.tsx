@@ -19,6 +19,8 @@ import * as FilterableEvents from "../slices/FilterableEvents"
 import * as Carousel from "../slices/Carousel"
 import * as TwoColumnText from "../slices/TwoColumnText"
 import * as ImageCallToAction from "../slices/ImageCallToAction"
+import * as CallToAction from "../slices/CallToAction"
+import * as NewsletterForm from "../slices/NewsletterForm"
 
 const pageTemplateSliceMap: MapToComponentsProps["map"] = {
 	[VideoHero.sliceType]: VideoHero.default as React.ComponentType,
@@ -29,6 +31,8 @@ const pageTemplateSliceMap: MapToComponentsProps["map"] = {
 	[TwoColumnText.sliceType]: TwoColumnText.default as React.ComponentType,
 	[ImageCallToAction.sliceType]:
 		ImageCallToAction.default as React.ComponentType,
+	[CallToAction.sliceType]: CallToAction.default as React.ComponentType,
+	[NewsletterForm.sliceType]: NewsletterForm.default as React.ComponentType,
 }
 
 const mapDataToPropsMap: MapToComponentsProps["mapDataToProps"] = {
@@ -39,6 +43,8 @@ const mapDataToPropsMap: MapToComponentsProps["mapDataToProps"] = {
 	[Carousel.sliceType]: Carousel.mapDataToProps,
 	[TwoColumnText.sliceType]: TwoColumnText.mapDataToProps,
 	[ImageCallToAction.sliceType]: ImageCallToAction.mapDataToProps,
+	[CallToAction.sliceType]: CallToAction.mapDataToProps,
+	[NewsletterForm.sliceType]: NewsletterForm.mapDataToProps,
 }
 
 const mapDataToContextMap: MapToComponentsProps["mapDataToContext"] = {
@@ -46,6 +52,8 @@ const mapDataToContextMap: MapToComponentsProps["mapDataToContext"] = {
 	[FilterableEvents.sliceType]: FilterableEvents.mapDataToContext,
 	[TwoColumnText.sliceType]: TwoColumnText.mapDataToContext,
 	[ImageCallToAction.sliceType]: ImageCallToAction.mapDataToContext,
+	[NewsletterForm.sliceType]: NewsletterForm.mapDataToContext,
+	[CallToAction.sliceType]: CallToAction.mapDataToContext,
 }
 
 interface PrismicSlice {
@@ -73,12 +81,15 @@ const pageTemplateFallback: MapToComponentsProps["default"] = (data) => {
 	return null
 }
 
-export type MapDataToPropsCtx<TData> = TCtxWithContext<
+export type MapDataToPropsCtx<
+	TData,
+	TCtx extends Record<string, unknown> = Record<string, unknown>
+> = TCtxWithContext<
 	keyof typeof pageTemplateSliceMap,
 	typeof pageTemplateSliceMap,
 	TData,
 	unknown,
-	Record<string, unknown>
+	TCtx
 >
 
 export type MapDataToContextCtx<TData> = TCtx<
@@ -132,6 +143,8 @@ export const pageTemplateQuery = graphql`
 					...Carousel
 					...TwoColumnText
 					...ImageCallToAction
+					...CallToAction
+					...NewsletterForm
 				}
 			}
 			uid

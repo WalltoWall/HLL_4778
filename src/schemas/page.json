@@ -298,6 +298,37 @@
                 "type": "Link",
                 "config": {
                   "allowTargetBlank": true,
+                  "label": "Button Link",
+                  "select": null
+                }
+              },
+              "button_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Button Text"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "call_to_action": {
+            "type": "Slice",
+            "fieldset": "Call to Action",
+            "description": "Text and button CTA",
+            "icon": "local_phone",
+            "display": "list",
+            "non-repeat": {
+              "heading": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "Heading"
+                }
+              },
+              "button_link": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
                   "label": "Button Link"
                 }
               },
@@ -305,6 +336,30 @@
                 "type": "Text",
                 "config": {
                   "label": "Button Text"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "newsletter_form": {
+            "type": "Slice",
+            "fieldset": "Newsletter Form",
+            "description": "Block for newsletter form",
+            "icon": "perm_device_information",
+            "display": "list",
+            "non-repeat": {
+              "heading": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "Heading"
+                }
+              },
+              "placeholder_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Placeholder Text",
+                  "placeholder": "(Optional)"
                 }
               }
             },
