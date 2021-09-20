@@ -38,4 +38,8 @@
 		leading-1_2 lg:leading-1_3
 		mb-7 last:mb-0;
 	}
+
+	& a {
+		@apply underline font-medium;
+	}
 }

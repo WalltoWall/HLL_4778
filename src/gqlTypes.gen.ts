@@ -2821,20 +2821,15 @@ export type PrismicPageDataBodyGradientTextPrimary = {
 }
 
 export type PrismicPageDataBodyImageCallToAction = PrismicSliceType & {
-	items?: Maybe<Array<Maybe<PrismicPageDataBodyImageCallToActionItem>>>
 	primary?: Maybe<PrismicPageDataBodyImageCallToActionPrimary>
 	id: Scalars["ID"]
 	slice_type: Scalars["String"]
 	slice_label?: Maybe<Scalars["String"]>
 }
 
-export type PrismicPageDataBodyImageCallToActionItem = {
+export type PrismicPageDataBodyImageCallToActionPrimary = {
 	button_link?: Maybe<PrismicLinkType>
 	button_text?: Maybe<Scalars["String"]>
-	style?: Maybe<Scalars["String"]>
-}
-
-export type PrismicPageDataBodyImageCallToActionPrimary = {
 	heading?: Maybe<PrismicStructuredTextType>
 	image?: Maybe<PrismicPageDataBodyImageCallToActionPrimaryImageImageType>
 	text?: Maybe<PrismicStructuredTextType>
@@ -6208,7 +6203,6 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To
 		icon?: Maybe<Scalars["String"]>
 		display?: Maybe<Scalars["String"]>
 		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_Repeat>
-		repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeat>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionFilterInput =
@@ -6219,7 +6213,6 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To
 		icon?: Maybe<StringQueryOperatorInput>
 		display?: Maybe<StringQueryOperatorInput>
 		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatFilterInput>
-		repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_Repeat =
@@ -6227,6 +6220,54 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To
 		image?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImage>
 		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeading>
 		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatText>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_Link>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_Text>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_Link =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_LinkConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_LinkConfig =
+	{
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_LinkConfigFilterInput =
+	{
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_LinkFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_LinkConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_Text =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_TextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_TextConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_TextConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_TextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_TextConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatFilterInput =
@@ -6234,6 +6275,8 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To
 		image?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImageFilterInput>
 		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingFilterInput>
 		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextFilterInput>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_LinkFilterInput>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_TextFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeading =
@@ -6306,92 +6349,6 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To
 	{
 		type?: Maybe<StringQueryOperatorInput>
 		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextConfigFilterInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeat =
-	{
-		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_Link>
-		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_Text>
-		style?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatStyle>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_Link =
-	{
-		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_LinkConfig>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_LinkConfig =
-	{
-		allowTargetBlank?: Maybe<Scalars["Boolean"]>
-		label?: Maybe<Scalars["String"]>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_LinkConfigFilterInput =
-	{
-		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
-		label?: Maybe<StringQueryOperatorInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_LinkFilterInput =
-	{
-		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_LinkConfigFilterInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_Text =
-	{
-		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_TextConfig>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_TextConfig =
-	{
-		label?: Maybe<Scalars["String"]>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_TextConfigFilterInput =
-	{
-		label?: Maybe<StringQueryOperatorInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_TextFilterInput =
-	{
-		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_TextConfigFilterInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatFilterInput =
-	{
-		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_LinkFilterInput>
-		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatButton_TextFilterInput>
-		style?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatStyleFilterInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatStyle =
-	{
-		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatStyleConfig>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatStyleConfig =
-	{
-		options?: Maybe<Array<Maybe<Scalars["String"]>>>
-		default_value?: Maybe<Scalars["String"]>
-		label?: Maybe<Scalars["String"]>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatStyleConfigFilterInput =
-	{
-		options?: Maybe<StringQueryOperatorInput>
-		default_value?: Maybe<StringQueryOperatorInput>
-		label?: Maybe<StringQueryOperatorInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatStyleFilterInput =
-	{
-		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionRepeatStyleConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesIntroduction =
@@ -7400,19 +7357,12 @@ export type GradientTextFragment = {
 
 export type ImageCallToActionFragment = {
 	primary?: Maybe<{
+		button_text?: Maybe<string>
 		image?: Maybe<{ url?: Maybe<string>; alt?: Maybe<string> }>
 		heading?: Maybe<{ text?: Maybe<string> }>
 		text?: Maybe<{ html?: Maybe<string> }>
+		button_link?: Maybe<{ url?: Maybe<string> }>
 	}>
-	items?: Maybe<
-		Array<
-			Maybe<{
-				button_text?: Maybe<string>
-				style?: Maybe<string>
-				button_link?: Maybe<{ url?: Maybe<string> }>
-			}>
-		>
-	>
 }
 
 export type IntroductionFragment = {
