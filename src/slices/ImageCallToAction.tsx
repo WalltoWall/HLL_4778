@@ -6,7 +6,7 @@ import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
 import type { ImageCallToActionFragment } from "../gqlTypes.gen"
 
 import { BoundedBox } from "../components/BoundedBox"
-import { ButtonLink, ButtonVariant } from "../components/Button"
+import { ButtonLink } from "../components/Button"
 import { ArchImage } from "../components/ArchImage"
 import { HTMLContent } from "../components/HTMLContent"
 
@@ -17,7 +17,8 @@ const ImageCallToAction = ({
 	imageAlt,
 	heading,
 	textHTML,
-	buttons = [],
+	buttonHref,
+	buttonText,
 }: ReturnType<typeof mapDataToProps>) => {
 	return (
 		<BoundedBox
@@ -69,25 +70,11 @@ const ImageCallToAction = ({
 						)}
 					</div>
 
-					<div
-						className={clsx(
-							"flex",
-							"items-center md:items-start",
-							"space-y-4 lg:space-y-0",
-							"flex-col lg:flex-row",
-							"lg:space-x-8"
-						)}
-					>
-						{buttons.map((btn, idx) => (
-							<ButtonLink
-								key={`imageCtaBtn-${idx}`}
-								href={btn.href}
-								variant={btn.style}
-							>
-								{btn.text}
-							</ButtonLink>
-						))}
-					</div>
+					{buttonHref && buttonText && (
+						<ButtonLink href={buttonHref} variant="filled">
+							{buttonText}
+						</ButtonLink>
+					)}
 				</div>
 			</div>
 		</BoundedBox>
@@ -102,11 +89,8 @@ export function mapDataToProps({
 		imageAlt: data.primary?.image?.alt,
 		heading: data.primary?.heading?.text,
 		textHTML: data.primary?.text?.html,
-		buttons: data.items?.map((item) => ({
-			href: item?.button_link?.url,
-			text: item?.button_text,
-			style: item?.style?.toLowerCase() as ButtonVariant,
-		})),
+		buttonHref: data.primary?.button_link?.url,
+		buttonText: data.primary?.button_text,
 	}
 }
 
@@ -131,13 +115,10 @@ export const gqlFragment = graphql`
 			text {
 				html
 			}
-		}
-		items {
 			button_link {
 				url
 			}
 			button_text
-			style
 		}
 	}
 `
