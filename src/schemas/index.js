@@ -3,4 +3,5 @@ module.exports = {
 	navigation: require("./navigation.json"),
 	page: require("./page.json"),
 	settings: require("./settings.json"),
+	sponsor: require("./sponsor.json"),
 }

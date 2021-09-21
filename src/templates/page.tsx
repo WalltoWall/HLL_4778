@@ -21,6 +21,7 @@ import * as TwoColumnText from "../slices/TwoColumnText"
 import * as ImageCallToAction from "../slices/ImageCallToAction"
 import * as CallToAction from "../slices/CallToAction"
 import * as NewsletterForm from "../slices/NewsletterForm"
+import * as Sponsors from "../slices/Sponsors"
 
 const pageTemplateSliceMap: MapToComponentsProps["map"] = {
 	[VideoHero.sliceType]: VideoHero.default as React.ComponentType,
@@ -33,6 +34,7 @@ const pageTemplateSliceMap: MapToComponentsProps["map"] = {
 		ImageCallToAction.default as React.ComponentType,
 	[CallToAction.sliceType]: CallToAction.default as React.ComponentType,
 	[NewsletterForm.sliceType]: NewsletterForm.default as React.ComponentType,
+	[Sponsors.sliceType]: Sponsors.default as React.ComponentType,
 }
 
 const mapDataToPropsMap: MapToComponentsProps["mapDataToProps"] = {
@@ -45,6 +47,7 @@ const mapDataToPropsMap: MapToComponentsProps["mapDataToProps"] = {
 	[ImageCallToAction.sliceType]: ImageCallToAction.mapDataToProps,
 	[CallToAction.sliceType]: CallToAction.mapDataToProps,
 	[NewsletterForm.sliceType]: NewsletterForm.mapDataToProps,
+	[Sponsors.sliceType]: Sponsors.mapDataToProps,
 }
 
 const mapDataToContextMap: MapToComponentsProps["mapDataToContext"] = {
@@ -145,6 +148,7 @@ export const pageTemplateQuery = graphql`
 					...ImageCallToAction
 					...CallToAction
 					...NewsletterForm
+					...Sponsors
 				}
 			}
 			uid

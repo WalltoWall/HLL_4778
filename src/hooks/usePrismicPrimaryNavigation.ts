@@ -1,3 +1,4 @@
+import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { PrimaryNavigationQuery } from "../gqlTypes.gen"
 
@@ -20,11 +21,13 @@ export function usePrismicPrimaryNavigation() {
 		}
 	`)
 
-	return {
-		items:
-			result.prismicNavigation?.data?.nav_items?.map((item) => ({
-				label: item?.label?.text,
-				href: item?.link?.url,
-			})) ?? [],
-	}
+	return React.useMemo(() => {
+		return {
+			items:
+				result.prismicNavigation?.data?.nav_items?.map((item) => ({
+					label: item?.label?.text,
+					href: item?.link?.url,
+				})) ?? [],
+		}
+	}, [])
 }
