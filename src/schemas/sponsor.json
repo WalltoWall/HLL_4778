@@ -22,6 +22,14 @@
 				"label": "Type"
 			}
 		},
+		"link": {
+			"type": "Link",
+			"config": {
+				"allowTargetBlank": true,
+				"label": "Link",
+				"select": null
+			}
+		},
 		"image": {
 			"type": "Image",
 			"config": {
