@@ -15,6 +15,7 @@ interface Sponsor {
 	imageAlt?: string
 	name?: string
 	type?: SponsorType
+	href?: string
 }
 
 export function usePrismicSponsors() {
@@ -32,6 +33,9 @@ export function usePrismicSponsors() {
 							text
 						}
 						type
+						link {
+							url
+						}
 					}
 				}
 			}
@@ -53,6 +57,7 @@ export function usePrismicSponsors() {
 				type,
 				imageUrl: node.data?.image?.url,
 				imageAlt: node.data?.image?.alt,
+				href: node.data?.link?.url,
 			}
 
 			switch (type) {
