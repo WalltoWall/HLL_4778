@@ -1,0 +1,34 @@
+{
+	"Main": {
+		"name": {
+			"type": "StructuredText",
+			"config": {
+				"single": "heading2",
+				"label": "Name"
+			}
+		},
+		"type": {
+			"type": "Select",
+			"config": {
+				"options": [
+					"Visionary",
+					"Gold",
+					"Silver",
+					"Bronze",
+					"Partner",
+					"Rainbows Over Waikiki"
+				],
+				"default_value": "Visionary",
+				"label": "Type"
+			}
+		},
+		"image": {
+			"type": "Image",
+			"config": {
+				"constraint": {},
+				"thumbnails": [],
+				"label": "Image"
+			}
+		}
+	}
+}

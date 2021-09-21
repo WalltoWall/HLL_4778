@@ -329,7 +329,8 @@
                 "type": "Link",
                 "config": {
                   "allowTargetBlank": true,
-                  "label": "Button Link"
+                  "label": "Button Link",
+                  "select": null
                 }
               },
               "button_text": {
@@ -360,6 +361,30 @@
                 "config": {
                   "label": "Placeholder Text",
                   "placeholder": "(Optional)"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "sponsors": {
+            "type": "Slice",
+            "fieldset": "Sponsors",
+            "description": "List of all sponsors.",
+            "icon": "account_circle",
+            "display": "list",
+            "non-repeat": {
+              "subheading": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "Subheading"
+                }
+              },
+              "heading": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Heading"
                 }
               }
             },
