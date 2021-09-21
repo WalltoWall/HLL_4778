@@ -3964,12 +3964,14 @@ export type PrismicSponsorDataImageImageTypeFilterInput = {
 
 export type PrismicSponsorDataType = {
 	image?: Maybe<PrismicSponsorDataImageImageType>
+	link?: Maybe<PrismicLinkType>
 	name?: Maybe<PrismicStructuredTextType>
 	type?: Maybe<Scalars["String"]>
 }
 
 export type PrismicSponsorDataTypeFilterInput = {
 	image?: Maybe<PrismicSponsorDataImageImageTypeFilterInput>
+	link?: Maybe<PrismicLinkTypeFilterInput>
 	name?: Maybe<PrismicStructuredTextTypeFilterInput>
 	type?: Maybe<StringQueryOperatorInput>
 }
@@ -4035,6 +4037,51 @@ export enum PrismicSponsorFieldsEnum {
 	DataImageLocalFileBirthtimeMs = "data___image___localFile___birthtimeMs",
 	DataImageLocalFileId = "data___image___localFile___id",
 	DataImageLocalFileChildren = "data___image___localFile___children",
+	DataLinkLinkType = "data___link___link_type",
+	DataLinkIsBroken = "data___link___isBroken",
+	DataLinkUrl = "data___link___url",
+	DataLinkTarget = "data___link___target",
+	DataLinkSize = "data___link___size",
+	DataLinkId = "data___link___id",
+	DataLinkType = "data___link___type",
+	DataLinkTags = "data___link___tags",
+	DataLinkLang = "data___link___lang",
+	DataLinkSlug = "data___link___slug",
+	DataLinkUid = "data___link___uid",
+	DataLinkLocalFileSourceInstanceName = "data___link___localFile___sourceInstanceName",
+	DataLinkLocalFileAbsolutePath = "data___link___localFile___absolutePath",
+	DataLinkLocalFileRelativePath = "data___link___localFile___relativePath",
+	DataLinkLocalFileExtension = "data___link___localFile___extension",
+	DataLinkLocalFileSize = "data___link___localFile___size",
+	DataLinkLocalFilePrettySize = "data___link___localFile___prettySize",
+	DataLinkLocalFileModifiedTime = "data___link___localFile___modifiedTime",
+	DataLinkLocalFileAccessTime = "data___link___localFile___accessTime",
+	DataLinkLocalFileChangeTime = "data___link___localFile___changeTime",
+	DataLinkLocalFileBirthTime = "data___link___localFile___birthTime",
+	DataLinkLocalFileRoot = "data___link___localFile___root",
+	DataLinkLocalFileDir = "data___link___localFile___dir",
+	DataLinkLocalFileBase = "data___link___localFile___base",
+	DataLinkLocalFileExt = "data___link___localFile___ext",
+	DataLinkLocalFileName = "data___link___localFile___name",
+	DataLinkLocalFileRelativeDirectory = "data___link___localFile___relativeDirectory",
+	DataLinkLocalFileDev = "data___link___localFile___dev",
+	DataLinkLocalFileMode = "data___link___localFile___mode",
+	DataLinkLocalFileNlink = "data___link___localFile___nlink",
+	DataLinkLocalFileUid = "data___link___localFile___uid",
+	DataLinkLocalFileGid = "data___link___localFile___gid",
+	DataLinkLocalFileRdev = "data___link___localFile___rdev",
+	DataLinkLocalFileIno = "data___link___localFile___ino",
+	DataLinkLocalFileAtimeMs = "data___link___localFile___atimeMs",
+	DataLinkLocalFileMtimeMs = "data___link___localFile___mtimeMs",
+	DataLinkLocalFileCtimeMs = "data___link___localFile___ctimeMs",
+	DataLinkLocalFileAtime = "data___link___localFile___atime",
+	DataLinkLocalFileMtime = "data___link___localFile___mtime",
+	DataLinkLocalFileCtime = "data___link___localFile___ctime",
+	DataLinkLocalFileBirthtime = "data___link___localFile___birthtime",
+	DataLinkLocalFileBirthtimeMs = "data___link___localFile___birthtimeMs",
+	DataLinkLocalFileId = "data___link___localFile___id",
+	DataLinkLocalFileChildren = "data___link___localFile___children",
+	DataLinkRaw = "data___link___raw",
 	DataNameText = "data___name___text",
 	DataNameHtml = "data___name___html",
 	DataNameRaw = "data___name___raw",
@@ -7947,12 +7994,14 @@ export type SitePluginPluginOptionsSchemasSponsorFilterInput = {
 export type SitePluginPluginOptionsSchemasSponsorMain = {
 	name?: Maybe<SitePluginPluginOptionsSchemasSponsorMainName>
 	type?: Maybe<SitePluginPluginOptionsSchemasSponsorMainType>
+	link?: Maybe<SitePluginPluginOptionsSchemasSponsorMainLink>
 	image?: Maybe<SitePluginPluginOptionsSchemasSponsorMainImage>
 }
 
 export type SitePluginPluginOptionsSchemasSponsorMainFilterInput = {
 	name?: Maybe<SitePluginPluginOptionsSchemasSponsorMainNameFilterInput>
 	type?: Maybe<SitePluginPluginOptionsSchemasSponsorMainTypeFilterInput>
+	link?: Maybe<SitePluginPluginOptionsSchemasSponsorMainLinkFilterInput>
 	image?: Maybe<SitePluginPluginOptionsSchemasSponsorMainImageFilterInput>
 }
 
@@ -7972,6 +8021,26 @@ export type SitePluginPluginOptionsSchemasSponsorMainImageConfigFilterInput = {
 export type SitePluginPluginOptionsSchemasSponsorMainImageFilterInput = {
 	type?: Maybe<StringQueryOperatorInput>
 	config?: Maybe<SitePluginPluginOptionsSchemasSponsorMainImageConfigFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasSponsorMainLink = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSponsorMainLinkConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSponsorMainLinkConfig = {
+	allowTargetBlank?: Maybe<Scalars["Boolean"]>
+	label?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasSponsorMainLinkConfigFilterInput = {
+	allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+	label?: Maybe<StringQueryOperatorInput>
+}
+
+export type SitePluginPluginOptionsSchemasSponsorMainLinkFilterInput = {
+	type?: Maybe<StringQueryOperatorInput>
+	config?: Maybe<SitePluginPluginOptionsSchemasSponsorMainLinkConfigFilterInput>
 }
 
 export type SitePluginPluginOptionsSchemasSponsorMainName = {
@@ -8102,6 +8171,7 @@ export type AllSponsorsQuery = {
 				type?: Maybe<string>
 				image?: Maybe<{ url?: Maybe<string>; alt?: Maybe<string> }>
 				name?: Maybe<{ text?: Maybe<string> }>
+				link?: Maybe<{ url?: Maybe<string> }>
 			}>
 		}>
 	}
