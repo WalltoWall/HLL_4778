@@ -9,6 +9,7 @@ import type { ColorVariant } from "../lib/getColorVariant"
 
 import { HTMLContent } from "../components/HTMLContent"
 import { BoundedBox } from "../components/BoundedBox"
+import { sliceType as CallToActionCardSliceType } from "./CallToActionCard"
 
 export const sliceType = "PrismicPageDataBodyTwoColumnText"
 
@@ -16,9 +17,14 @@ const TwoColumnText = ({
 	leftHTML,
 	rightHTML,
 	nextSharesBg,
+	prevOverhangs = false,
 }: ReturnType<typeof mapDataToProps>) => {
 	return (
-		<BoundedBox className="bg-blue-31" nextSharesBg={nextSharesBg} width="base">
+		<BoundedBox
+			className={clsx("bg-blue-31", prevOverhangs && "pt-40 md:pt-48 lg:pt-80")}
+			nextSharesBg={nextSharesBg}
+			width="base"
+		>
 			<div
 				className={clsx(
 					"grid text-center gap-y-12 text-beige-92",
@@ -36,11 +42,15 @@ const TwoColumnText = ({
 export function mapDataToProps({
 	data,
 	nextContext,
+	previousType,
 }: MapDataToPropsCtx<TwoColumnTextFragment>) {
+	const prevOverhangs = previousType === CallToActionCardSliceType
+
 	return {
 		leftHTML: undefIfEmpty(data.primary?.left_text?.html),
 		rightHTML: undefIfEmpty(data.primary?.right_text?.html),
 		nextSharesBg: nextContext?.backgroundColor === "blue",
+		prevOverhangs,
 	}
 }
 

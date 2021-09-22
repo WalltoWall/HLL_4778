@@ -13,6 +13,7 @@ import { BoundedBox } from "../../components/BoundedBox"
 import { ColorVariant, getColorVariant } from "../../lib/getColorVariant"
 import { DesktopEvents } from "./DesktopEvents"
 import { MobileEvents } from "./MobileEvents"
+import { sliceType as CallToActionCardSliceType } from "../CallToActionCard"
 
 export interface Event {
 	color: ColorVariant
@@ -88,6 +89,7 @@ export const sliceType = "PrismicPageDataBodyFilterableEvents"
 
 const FilterableEvents = ({
 	events = [],
+	nextOverhangs = false,
 }: ReturnType<typeof mapDataToProps>) => {
 	const [activeFilter, setActiveFilter] = React.useState<
 		EventType | undefined
@@ -132,7 +134,11 @@ const FilterableEvents = ({
 		<BoundedBox
 			tag="section"
 			ref={containerRef}
-			className={clsx("relative transition duration-300", variant.bg)}
+			className={clsx(
+				"relative transition duration-300",
+				variant.bg,
+				nextOverhangs && "pb-40 md:pb-48 lg:pb-64"
+			)}
 		>
 			<MobileEvents
 				events={filteredEvents}
@@ -157,7 +163,10 @@ const FilterableEvents = ({
 
 export function mapDataToProps({
 	data,
+	nextType,
 }: MapDataToPropsCtx<FilterableEventsFragment>) {
+	const nextOverhangs = nextType === CallToActionCardSliceType
+
 	return {
 		events:
 			data.items?.map((item) => {
@@ -174,6 +183,7 @@ export function mapDataToProps({
 					href: item?.event?.url,
 				}
 			}) ?? [],
+		nextOverhangs,
 	}
 }
 
