@@ -47,6 +47,7 @@ export const MobileEvents = ({
 					<MobileEventCard
 						key={`event-${idx}`}
 						href={e.href}
+						illustration={e.illustration}
 						color={e.color}
 						title={e.title}
 						descriptionHTML={e.descriptionHTML}

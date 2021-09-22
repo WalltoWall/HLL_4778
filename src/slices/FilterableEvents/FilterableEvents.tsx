@@ -20,9 +20,11 @@ export interface Event {
 	descriptionHTML?: string
 	date: Date
 	href?: string
+	illustration: IllustrationType
 }
 
 export type EventType = "watch" | "participate" | "learn"
+export type IllustrationType = "flag" | "shaka" | "wave" | "slippers"
 
 export interface FilterableEventsVariant {
 	bg: string
@@ -166,6 +168,8 @@ export function mapDataToProps({
 					title: undefIfEmpty(event?.data?.title?.text),
 					descriptionHTML: undefIfEmpty(event?.data?.description?.html),
 					date: new Date(event?.data?.date as string),
+					illustration:
+						event?.data?.illustration?.toLowerCase() as IllustrationType,
 					type: event?.data?.type?.toLowerCase() as EventType,
 					href: item?.event?.url,
 				}
@@ -198,6 +202,7 @@ export const gqlFragment = graphql`
 						_previewable
 						data {
 							date
+							illustration
 							description {
 								html
 							}

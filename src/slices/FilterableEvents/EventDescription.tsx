@@ -5,7 +5,7 @@ import type { Event, FilterableEventsVariant } from "./FilterableEvents"
 import { Link } from "../../components/Link"
 import { HTMLContent } from "../../components/HTMLContent"
 
-interface Props extends Omit<Event, "color"> {
+interface Props extends Omit<Event, "color" | "illustration"> {
 	variant: FilterableEventsVariant
 }
 
