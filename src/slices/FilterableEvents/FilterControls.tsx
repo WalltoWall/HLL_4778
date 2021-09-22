@@ -1,18 +1,19 @@
 import * as React from "react"
 import clsx from "clsx"
-import type { EventType, FilterableEventsVariant } from "./FilterableEvents"
 import { AnimateSharedLayout, m } from "framer-motion"
+
+import type { EventType, FilterableEventsVariant } from "./FilterableEvents"
 
 interface FilterButtonProps extends React.ComponentPropsWithoutRef<"button"> {
 	isActive: boolean
-	variant: FilterableEventsVariant
+	activeVariant: FilterableEventsVariant
 }
 
 const FilterButton = ({
 	isActive,
 	children,
 	className,
-	variant,
+	activeVariant,
 	...props
 }: FilterButtonProps) => {
 	return (
@@ -24,8 +25,8 @@ const FilterButton = ({
 				"uppercase leading-1_15 font-bold",
 				"rounded-full py-3 px-3",
 				"transition duration-300",
-				isActive && variant.activeContolTextColor,
-				!isActive && variant.inactiveControlTextColor,
+				isActive && activeVariant.activeContolTextColor,
+				!isActive && activeVariant.inactiveControlTextColor,
 				className
 			)}
 			{...props}
@@ -38,7 +39,7 @@ const FilterButton = ({
 						"absolute inset-0 rounded-full pointer-events-none",
 						"shadow",
 						"transition-colors duration-300",
-						variant.activeButtonBg
+						activeVariant.activeButtonBg
 					)}
 				/>
 			)}
@@ -49,14 +50,14 @@ const FilterButton = ({
 }
 
 interface FilterControlsProps extends React.ComponentPropsWithoutRef<"div"> {
-	variant: FilterableEventsVariant
+	activeVariant: FilterableEventsVariant
 	activeFilter: EventType | undefined
 	clearFilters: () => void
 	filterEvents: (type: EventType) => void
 }
 
 export const FilterControls = ({
-	variant,
+	activeVariant,
 	activeFilter,
 	clearFilters,
 	filterEvents,
@@ -70,8 +71,8 @@ export const FilterControls = ({
 				"p-1",
 				"flex justify-center space-x-3 lg:space-x-5",
 				"shadow-xl border-2",
-				variant.controlsBg,
-				variant.controlsBorder,
+				activeVariant.controlsBg,
+				activeVariant.controlsBorder,
 				className
 			)}
 			{...props}
@@ -80,28 +81,28 @@ export const FilterControls = ({
 				<FilterButton
 					isActive={!activeFilter}
 					onClick={clearFilters}
-					variant={variant}
+					activeVariant={activeVariant}
 				>
 					All
 				</FilterButton>
 				<FilterButton
 					onClick={() => filterEvents("watch")}
 					isActive={activeFilter === "watch"}
-					variant={variant}
+					activeVariant={activeVariant}
 				>
 					Watch
 				</FilterButton>
 				<FilterButton
 					isActive={activeFilter === "participate"}
 					onClick={() => filterEvents("participate")}
-					variant={variant}
+					activeVariant={activeVariant}
 				>
 					Participate
 				</FilterButton>
 				<FilterButton
 					isActive={activeFilter === "learn"}
 					onClick={() => filterEvents("learn")}
-					variant={variant}
+					activeVariant={activeVariant}
 				>
 					Learn
 				</FilterButton>

@@ -1,19 +1,15 @@
 import * as React from "react"
 
-import type { ColorVariant } from "../../lib/getColorVariant"
-import type {
-	EventType,
-	FilterableEventsVariant,
-	Event,
-} from "./FilterableEvents"
-
 import { MobileEventCard } from "./MobileEventCard"
 import { useIsDesktop } from "../../hooks/useMediaQuery"
 import { FilterControls } from "./FilterControls"
 
+import type { EventType, Event } from "./FilterableEvents"
+import type { FilterableEventsVariant } from "./getFilterableEventsVariant"
+
 export interface EventsListProps {
-	updateBackground: (color: ColorVariant) => void
-	variant: FilterableEventsVariant
+	updateActiveEvent: (newEvent: Event) => void
+	activeVariant: FilterableEventsVariant
 	events: Event[]
 	activeFilter: EventType | undefined
 	clearFilters: () => void
@@ -22,8 +18,8 @@ export interface EventsListProps {
 
 export const MobileEvents = ({
 	events,
-	updateBackground,
-	variant,
+	updateActiveEvent,
+	activeVariant,
 	activeFilter,
 	clearFilters,
 	filterEvents,
@@ -35,7 +31,7 @@ export const MobileEvents = ({
 	return (
 		<div className="flex flex-col space-y-16">
 			<FilterControls
-				variant={variant}
+				activeVariant={activeVariant}
 				activeFilter={activeFilter}
 				clearFilters={clearFilters}
 				filterEvents={filterEvents}
@@ -52,8 +48,8 @@ export const MobileEvents = ({
 						title={e.title}
 						descriptionHTML={e.descriptionHTML}
 						date={e.date}
-						updateBackground={updateBackground}
-						variant={variant}
+						updateActiveEvent={updateActiveEvent}
+						activeVariant={activeVariant}
 					/>
 				))}
 			</div>

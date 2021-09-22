@@ -1,12 +1,14 @@
 import * as React from "react"
 import clsx from "clsx"
 
-import type { Event, FilterableEventsVariant } from "./FilterableEvents"
 import { Link } from "../../components/Link"
 import { HTMLContent } from "../../components/HTMLContent"
 
+import type { Event } from "./FilterableEvents"
+import type { FilterableEventsVariant } from "./getFilterableEventsVariant"
+
 interface Props extends Omit<Event, "color" | "illustration"> {
-	variant: FilterableEventsVariant
+	activeVariant: FilterableEventsVariant
 }
 
 export const EventDescription = ({
@@ -14,7 +16,7 @@ export const EventDescription = ({
 	descriptionHTML,
 	href,
 	title,
-	variant,
+	activeVariant,
 }: Props) => {
 	const dateAndMonth = date.toLocaleDateString("en-US", {
 		month: "short",
@@ -34,7 +36,7 @@ export const EventDescription = ({
 						"text-12 md:text-13 lg:text-16",
 						"leading-1_5",
 						"transition duration-300",
-						variant.textColor
+						activeVariant.textColor
 					)}
 				>
 					{dateAndMonth} at {time}
@@ -47,7 +49,7 @@ export const EventDescription = ({
 								"font-serif",
 								"text-32 md:text-36 lg:text-42",
 								"leading-1_15",
-								variant.textColor,
+								activeVariant.textColor,
 								"transition duration-300"
 							)}
 						>
@@ -62,7 +64,7 @@ export const EventDescription = ({
 					html={descriptionHTML}
 					className={clsx(
 						"transition duration-300 max-w-sm",
-						variant.textColor
+						activeVariant.textColor
 					)}
 				/>
 			)}
@@ -74,7 +76,7 @@ export const EventDescription = ({
 					"uppercase font-sansExt",
 					"text-13 md:text-16 lg:text-18",
 					"leading-1_5",
-					variant.textColor
+					activeVariant.textColor
 				)}
 			>
 				RSVP Now

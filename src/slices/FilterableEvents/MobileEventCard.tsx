@@ -3,43 +3,17 @@ import clsx from "clsx"
 
 import { Link } from "../../components/Link"
 import { Image } from "../../components/Image"
-import type { ColorVariant } from "../../lib/getColorVariant"
-import type {
-	Event,
-	FilterableEventsVariant,
-	IllustrationType,
-} from "./FilterableEvents"
 
-import { useUpdateBackgroundInView } from "./useUpdateBackgroundInView"
+import { useUpdateEventInView } from "./useUpdateEventInView"
 import { EventDescription } from "./EventDescription"
+import { getIllustrationUrl } from "./getIllustrationUrl"
 
-import flagSvgUrl from "../../assets/flag.svg"
-import shakaSvgUrl from "../../assets/shaka.svg"
-import slippersSvgUrl from "../../assets/slippers.svg"
-import waveSvgUrl from "../../assets/wave.svg"
-
-export function getIllustrationUrl(type: IllustrationType): string {
-	switch (type) {
-		case "flag":
-			return flagSvgUrl
-
-		case "shaka":
-			return shakaSvgUrl
-
-		case "slippers":
-			return slippersSvgUrl
-
-		case "wave":
-			return waveSvgUrl
-
-		default:
-			throw new Error("Got invalid illustration type")
-	}
-}
+import type { FilterableEventsVariant } from "./getFilterableEventsVariant"
+import type { Event } from "./FilterableEvents"
 
 export interface EventCardProps extends Event {
-	updateBackground: (color: ColorVariant) => void
-	variant: FilterableEventsVariant
+	updateActiveEvent: (newEvent: Event) => void
+	activeVariant: FilterableEventsVariant
 }
 
 export const MobileEventCard = ({
@@ -49,15 +23,15 @@ export const MobileEventCard = ({
 	date,
 	illustration,
 	href,
-	updateBackground,
-	variant,
+	updateActiveEvent,
+	activeVariant,
 }: EventCardProps) => {
-	const illustrationUrl = getIllustrationUrl(illustration)
-	const { ref } = useUpdateBackgroundInView({
-		updateBackground,
-		color,
+	const { ref } = useUpdateEventInView({
+		updateEvent: updateActiveEvent,
+		event: { color, title, date, descriptionHTML, illustration, href },
 		threshold: 0.25,
 	})
+	const illustrationUrl = getIllustrationUrl(illustration)
 
 	return (
 		<div className="space-y-6" ref={ref}>
@@ -71,7 +45,7 @@ export const MobileEventCard = ({
 			</Link>
 
 			<EventDescription
-				variant={variant}
+				activeVariant={activeVariant}
 				date={date}
 				descriptionHTML={descriptionHTML}
 				title={title}
