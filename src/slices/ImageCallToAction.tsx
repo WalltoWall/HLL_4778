@@ -46,7 +46,7 @@ const ImageCallToAction = ({
 					</div>
 				)}
 
-				<div className="space-y-8">
+				<div className="flex flex-col space-y-8">
 					<div className="text-center space-y-7 md:text-left lg:space-y-9">
 						{heading && (
 							<h2
@@ -71,7 +71,11 @@ const ImageCallToAction = ({
 					</div>
 
 					{buttonHref && buttonText && (
-						<ButtonLink href={buttonHref} variant="filled">
+						<ButtonLink
+							href={buttonHref}
+							variant="filled"
+							className="self-center md:self-start"
+						>
 							{buttonText}
 						</ButtonLink>
 					)}
