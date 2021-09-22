@@ -241,7 +241,7 @@ const Sponsors = ({
 	heading,
 }: ReturnType<typeof mapDataToProps>) => {
 	return (
-		<BoundedBox tag="section">
+		<BoundedBox tag="section" width="base">
 			<div className="flex flex-col items-center mb-16 space-y-4 text-center lg:mb-30">
 				{subheading && (
 					<h4
