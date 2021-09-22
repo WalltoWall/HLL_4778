@@ -1,5 +1,6 @@
 import clsx from "clsx"
 import * as React from "react"
+import { m } from "framer-motion"
 
 import { Image } from "../../components/Image"
 
@@ -15,6 +16,8 @@ interface DesktopIllustrationProps {
 	activeEvent: Event
 }
 
+const MotionImage = m(Image)
+
 const DesktopIllustration = ({ activeEvent }: DesktopIllustrationProps) => {
 	const illustrationUrl = getIllustrationUrl(activeEvent.illustration)
 
@@ -28,7 +31,11 @@ const DesktopIllustration = ({ activeEvent }: DesktopIllustrationProps) => {
 			)}
 		>
 			<div className="relative flex-1 bg-beige-92">
-				<Image
+				<MotionImage
+					key={activeEvent.illustration}
+					animate={{ opacity: 1 }}
+					initial={{ opacity: 0 }}
+					transition={{ type: "tween", duration: 0.75, ease: "easeOut" }}
 					src={illustrationUrl}
 					alt=""
 					className="absolute inset-0 w-full h-full p-15"
