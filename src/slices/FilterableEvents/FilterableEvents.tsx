@@ -11,7 +11,6 @@ import type { FilterableEventsFragment } from "../../gqlTypes.gen"
 
 import { BoundedBox } from "../../components/BoundedBox"
 import { ColorVariant, getColorVariant } from "../../lib/getColorVariant"
-import { FilterControls } from "./FilterControls"
 import { DesktopEvents } from "./DesktopEvents"
 import { MobileEvents } from "./MobileEvents"
 
@@ -76,7 +75,7 @@ const colorVariants: Record<ColorVariant, FilterableEventsVariant> = {
 		bg: "bg-yellow-50",
 		controlsBg: "bg-yellow-50",
 		controlsBorder: "border-beige-92",
-		inactiveControlTextColor: "text-beige-92",
+		inactiveControlTextColor: "text-black",
 		activeContolTextColor: "text-black",
 		activeButtonBg: "bg-beige-92",
 		textColor: "text-black",
