@@ -13,6 +13,14 @@
 				"label": "UID"
 			}
 		},
+		"illustration": {
+			"type": "Select",
+			"config": {
+				"options": ["Shaka", "Flag", "Slippers", "Wave"],
+				"default_value": "Shaka",
+				"label": "Illustration"
+			}
+		},
 		"type": {
 			"type": "Select",
 			"config": {
@@ -24,7 +32,7 @@
 		"description": {
 			"type": "StructuredText",
 			"config": {
-				"single": "paragraph,heading4,strong,em,hyperlink",
+				"multi": "paragraph,heading4,strong,em,hyperlink",
 				"allowTargetBlank": true,
 				"label": "Description"
 			}

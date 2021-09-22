@@ -13,7 +13,7 @@ export const DesktopEventCard = ({
 	href,
 	updateBackground,
 	variant,
-}: EventCardProps) => {
+}: Omit<EventCardProps, "illustration">) => {
 	const { ref } = useUpdateBackgroundInView({
 		updateBackground,
 		color,

@@ -2078,6 +2078,7 @@ export type PrismicEventConnectionGroupArgs = {
 export type PrismicEventDataType = {
 	date?: Maybe<Scalars["Date"]>
 	description?: Maybe<PrismicStructuredTextType>
+	illustration?: Maybe<Scalars["String"]>
 	title?: Maybe<PrismicStructuredTextType>
 	type?: Maybe<Scalars["String"]>
 }
@@ -2092,6 +2093,7 @@ export type PrismicEventDataTypeDateArgs = {
 export type PrismicEventDataTypeFilterInput = {
 	date?: Maybe<DateQueryOperatorInput>
 	description?: Maybe<PrismicStructuredTextTypeFilterInput>
+	illustration?: Maybe<StringQueryOperatorInput>
 	title?: Maybe<PrismicStructuredTextTypeFilterInput>
 	type?: Maybe<StringQueryOperatorInput>
 }
@@ -2108,6 +2110,7 @@ export enum PrismicEventFieldsEnum {
 	DataDescriptionText = "data___description___text",
 	DataDescriptionHtml = "data___description___html",
 	DataDescriptionRaw = "data___description___raw",
+	DataIllustration = "data___illustration",
 	DataTitleText = "data___title___text",
 	DataTitleHtml = "data___title___html",
 	DataTitleRaw = "data___title___raw",
@@ -5471,6 +5474,7 @@ export enum SitePageFieldsEnum {
 	PluginCreatorPluginOptionsCacheDigest = "pluginCreator___pluginOptions___cacheDigest",
 	PluginCreatorPluginOptionsRepositoryName = "pluginCreator___pluginOptions___repositoryName",
 	PluginCreatorPluginOptionsAccessToken = "pluginCreator___pluginOptions___accessToken",
+	PluginCreatorPluginOptionsPromptForAccessToken = "pluginCreator___pluginOptions___promptForAccessToken",
 	PluginCreatorPluginOptionsApiEndpoint = "pluginCreator___pluginOptions___apiEndpoint",
 	PluginCreatorPluginOptionsLang = "pluginCreator___pluginOptions___lang",
 	PluginCreatorPluginOptionsImageImgixParamsAuto = "pluginCreator___pluginOptions___imageImgixParams___auto",
@@ -5478,7 +5482,6 @@ export enum SitePageFieldsEnum {
 	PluginCreatorPluginOptionsImageImgixParamsQ = "pluginCreator___pluginOptions___imageImgixParams___q",
 	PluginCreatorPluginOptionsImagePlaceholderImgixParamsW = "pluginCreator___pluginOptions___imagePlaceholderImgixParams___w",
 	PluginCreatorPluginOptionsImagePlaceholderImgixParamsBlur = "pluginCreator___pluginOptions___imagePlaceholderImgixParams___blur",
-	PluginCreatorPluginOptionsPromptForAccessToken = "pluginCreator___pluginOptions___promptForAccessToken",
 	PluginCreatorPluginOptionsToolbar = "pluginCreator___pluginOptions___toolbar",
 	PluginCreatorPluginOptionsPath = "pluginCreator___pluginOptions___path",
 	PluginCreatorPluginOptionsPathCheck = "pluginCreator___pluginOptions___pathCheck",
@@ -5703,6 +5706,7 @@ export enum SitePluginFieldsEnum {
 	PluginOptionsCacheDigest = "pluginOptions___cacheDigest",
 	PluginOptionsRepositoryName = "pluginOptions___repositoryName",
 	PluginOptionsAccessToken = "pluginOptions___accessToken",
+	PluginOptionsPromptForAccessToken = "pluginOptions___promptForAccessToken",
 	PluginOptionsApiEndpoint = "pluginOptions___apiEndpoint",
 	PluginOptionsLang = "pluginOptions___lang",
 	PluginOptionsImageImgixParamsAuto = "pluginOptions___imageImgixParams___auto",
@@ -5710,7 +5714,6 @@ export enum SitePluginFieldsEnum {
 	PluginOptionsImageImgixParamsQ = "pluginOptions___imageImgixParams___q",
 	PluginOptionsImagePlaceholderImgixParamsW = "pluginOptions___imagePlaceholderImgixParams___w",
 	PluginOptionsImagePlaceholderImgixParamsBlur = "pluginOptions___imagePlaceholderImgixParams___blur",
-	PluginOptionsPromptForAccessToken = "pluginOptions___promptForAccessToken",
 	PluginOptionsToolbar = "pluginOptions___toolbar",
 	PluginOptionsPath = "pluginOptions___path",
 	PluginOptionsPathCheck = "pluginOptions___pathCheck",
@@ -5852,18 +5855,18 @@ export type SitePluginPluginOptions = {
 	cacheDigest?: Maybe<Scalars["String"]>
 	repositoryName?: Maybe<Scalars["String"]>
 	accessToken?: Maybe<Scalars["String"]>
-	schemas?: Maybe<SitePluginPluginOptionsSchemas>
+	promptForAccessToken?: Maybe<Scalars["Boolean"]>
 	apiEndpoint?: Maybe<Scalars["String"]>
 	lang?: Maybe<Scalars["String"]>
 	imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParams>
 	imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParams>
-	promptForAccessToken?: Maybe<Scalars["Boolean"]>
 	toolbar?: Maybe<Scalars["String"]>
 	path?: Maybe<Scalars["String"]>
 	pathCheck?: Maybe<Scalars["Boolean"]>
 	allExtensions?: Maybe<Scalars["Boolean"]>
 	isTSX?: Maybe<Scalars["Boolean"]>
 	jsxPragma?: Maybe<Scalars["String"]>
+	schemas?: Maybe<SitePluginPluginOptionsSchemas>
 }
 
 export type SitePluginPluginOptionsFilterInput = {
@@ -5886,18 +5889,18 @@ export type SitePluginPluginOptionsFilterInput = {
 	cacheDigest?: Maybe<StringQueryOperatorInput>
 	repositoryName?: Maybe<StringQueryOperatorInput>
 	accessToken?: Maybe<StringQueryOperatorInput>
-	schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>
+	promptForAccessToken?: Maybe<BooleanQueryOperatorInput>
 	apiEndpoint?: Maybe<StringQueryOperatorInput>
 	lang?: Maybe<StringQueryOperatorInput>
 	imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParamsFilterInput>
 	imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParamsFilterInput>
-	promptForAccessToken?: Maybe<BooleanQueryOperatorInput>
 	toolbar?: Maybe<StringQueryOperatorInput>
 	path?: Maybe<StringQueryOperatorInput>
 	pathCheck?: Maybe<BooleanQueryOperatorInput>
 	allExtensions?: Maybe<BooleanQueryOperatorInput>
 	isTSX?: Maybe<BooleanQueryOperatorInput>
 	jsxPragma?: Maybe<StringQueryOperatorInput>
+	schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>
 }
 
 export type SitePluginPluginOptionsImageImgixParams = {
@@ -5941,6 +5944,7 @@ export type SitePluginPluginOptionsSchemasEventFilterInput = {
 export type SitePluginPluginOptionsSchemasEventMain = {
 	title?: Maybe<SitePluginPluginOptionsSchemasEventMainTitle>
 	uid?: Maybe<SitePluginPluginOptionsSchemasEventMainUid>
+	illustration?: Maybe<SitePluginPluginOptionsSchemasEventMainIllustration>
 	type?: Maybe<SitePluginPluginOptionsSchemasEventMainType>
 	description?: Maybe<SitePluginPluginOptionsSchemasEventMainDescription>
 	date?: Maybe<SitePluginPluginOptionsSchemasEventMainDate>
@@ -5970,14 +5974,14 @@ export type SitePluginPluginOptionsSchemasEventMainDescription = {
 }
 
 export type SitePluginPluginOptionsSchemasEventMainDescriptionConfig = {
-	single?: Maybe<Scalars["String"]>
+	multi?: Maybe<Scalars["String"]>
 	allowTargetBlank?: Maybe<Scalars["Boolean"]>
 	label?: Maybe<Scalars["String"]>
 }
 
 export type SitePluginPluginOptionsSchemasEventMainDescriptionConfigFilterInput =
 	{
-		single?: Maybe<StringQueryOperatorInput>
+		multi?: Maybe<StringQueryOperatorInput>
 		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
 		label?: Maybe<StringQueryOperatorInput>
 	}
@@ -5990,9 +5994,33 @@ export type SitePluginPluginOptionsSchemasEventMainDescriptionFilterInput = {
 export type SitePluginPluginOptionsSchemasEventMainFilterInput = {
 	title?: Maybe<SitePluginPluginOptionsSchemasEventMainTitleFilterInput>
 	uid?: Maybe<SitePluginPluginOptionsSchemasEventMainUidFilterInput>
+	illustration?: Maybe<SitePluginPluginOptionsSchemasEventMainIllustrationFilterInput>
 	type?: Maybe<SitePluginPluginOptionsSchemasEventMainTypeFilterInput>
 	description?: Maybe<SitePluginPluginOptionsSchemasEventMainDescriptionFilterInput>
 	date?: Maybe<SitePluginPluginOptionsSchemasEventMainDateFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasEventMainIllustration = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasEventMainIllustrationConfig>
+}
+
+export type SitePluginPluginOptionsSchemasEventMainIllustrationConfig = {
+	options?: Maybe<Array<Maybe<Scalars["String"]>>>
+	default_value?: Maybe<Scalars["String"]>
+	label?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasEventMainIllustrationConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventMainIllustrationFilterInput = {
+	type?: Maybe<StringQueryOperatorInput>
+	config?: Maybe<SitePluginPluginOptionsSchemasEventMainIllustrationConfigFilterInput>
 }
 
 export type SitePluginPluginOptionsSchemasEventMainTitle = {
@@ -8101,6 +8129,7 @@ export type FilterableEventsFragment = {
 						_previewable: string
 						data?: Maybe<{
 							date?: Maybe<unknown>
+							illustration?: Maybe<string>
 							type?: Maybe<string>
 							description?: Maybe<{ html?: Maybe<string> }>
 							title?: Maybe<{ text?: Maybe<string> }>
