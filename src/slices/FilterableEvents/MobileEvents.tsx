@@ -33,7 +33,7 @@ export const MobileEvents = ({
 	if (isDesktop) return null
 
 	return (
-		<div className="flex flex-col space-y-10">
+		<div className="flex flex-col space-y-16">
 			<FilterControls
 				variant={variant}
 				activeFilter={activeFilter}

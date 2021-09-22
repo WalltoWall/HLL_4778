@@ -4,6 +4,11 @@ import { useUpdateBackgroundInView } from "./useUpdateBackgroundInView"
 import { EventDescription } from "./EventDescription"
 
 import type { EventCardProps } from "./MobileEventCard"
+import type { IllustrationType } from "./FilterableEvents"
+
+interface DesktopEventCardProps extends EventCardProps {
+	updateIllustration: (illustration: IllustrationType) => void
+}
 
 export const DesktopEventCard = ({
 	color,
@@ -12,12 +17,19 @@ export const DesktopEventCard = ({
 	date,
 	href,
 	updateBackground,
+	updateIllustration,
+	illustration,
 	variant,
-}: Omit<EventCardProps, "illustration">) => {
+}: DesktopEventCardProps) => {
+	const updateCardIllustration = React.useCallback(() => {
+		updateIllustration(illustration)
+	}, [illustration])
+
 	const { ref } = useUpdateBackgroundInView({
 		updateBackground,
 		color,
 		threshold: 0.33,
+		callback: updateCardIllustration,
 	})
 
 	return (
