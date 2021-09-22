@@ -5,31 +5,54 @@ import { Image } from "../../components/Image"
 
 import { useIsDesktop } from "../../hooks/useMediaQuery"
 import { DesktopEventCard } from "./DesktopEventCard"
-import { IllustrationType } from "./FilterableEvents"
 import { FilterControls } from "./FilterControls"
-import { getIllustrationUrl } from "./MobileEventCard"
 
+import type { Event } from "./FilterableEvents"
 import type { EventsListProps } from "./MobileEvents"
+import { getIllustrationUrl } from "./getIllustrationUrl"
+
+interface DesktopIllustrationProps {
+	activeEvent: Event
+}
+
+const DesktopIllustration = ({ activeEvent }: DesktopIllustrationProps) => {
+	const illustrationUrl = getIllustrationUrl(activeEvent.illustration)
+
+	return (
+		<div
+			className={clsx(
+				"col-start-2 row-start-2",
+				"sticky top-0",
+				"h-screen",
+				"flex flex-col py-16 -mt-43"
+			)}
+		>
+			<div className="relative flex-1 bg-beige-92">
+				<Image
+					src={illustrationUrl}
+					alt=""
+					className="absolute inset-0 w-full h-full p-15"
+					loading="eager"
+				/>
+			</div>
+		</div>
+	)
+}
+
+interface DesktopEventsProps extends EventsListProps {
+	activeEvent: Event
+}
 
 export const DesktopEvents = ({
 	events,
-	variant,
-	updateBackground,
+	activeEvent,
+	activeVariant,
+	updateActiveEvent,
 	activeFilter,
 	clearFilters,
 	filterEvents,
-}: EventsListProps) => {
-	const [illustration, setIllustration] = React.useState<IllustrationType>(
-		() => {
-			const firstEvent = events[0]
-			if (!firstEvent) return "flag"
-
-			return firstEvent.illustration
-		}
-	)
-
+}: DesktopEventsProps) => {
 	const isDesktop = useIsDesktop()
-	const illustrationUrl = getIllustrationUrl(illustration)
 
 	if (!isDesktop) return null
 
@@ -42,7 +65,7 @@ export const DesktopEvents = ({
 			)}
 		>
 			<FilterControls
-				variant={variant}
+				activeVariant={activeVariant}
 				activeFilter={activeFilter}
 				clearFilters={clearFilters}
 				filterEvents={filterEvents}
@@ -54,36 +77,19 @@ export const DesktopEvents = ({
 
 			{events.map((e, idx) => (
 				<DesktopEventCard
+					key={`desktopEvent-${idx}`}
 					color={e.color}
 					date={e.date}
 					descriptionHTML={e.descriptionHTML}
-					illustration={e.illustration}
 					href={e.href}
 					title={e.title}
-					key={`desktopEvent-${idx}`}
-					variant={variant}
-					updateBackground={updateBackground}
-					updateIllustration={setIllustration}
+					illustration={e.illustration}
+					activeVariant={activeVariant}
+					updateActiveEvent={updateActiveEvent}
 				/>
 			))}
 
-			<div
-				className={clsx(
-					"col-start-2 row-start-2",
-					"sticky top-0",
-					"h-screen",
-					"flex flex-col py-16 -mt-43"
-				)}
-			>
-				<div className="relative flex-1 bg-beige-92">
-					<Image
-						src={illustrationUrl}
-						alt=""
-						className="absolute inset-0 w-full h-full p-15"
-						loading="eager"
-					/>
-				</div>
-			</div>
+			<DesktopIllustration activeEvent={activeEvent} />
 		</div>
 	)
 }
