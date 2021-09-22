@@ -16,7 +16,7 @@ import * as GradientText from "../slices/GradientText"
 import * as VideoHero from "../slices/VideoHero"
 import * as Introduction from "../slices/Introduction"
 import * as FilterableEvents from "../slices/FilterableEvents"
-import * as Carousel from "../slices/Carousel"
+import * as CallToActionCard from "../slices/CallToActionCard"
 import * as TwoColumnText from "../slices/TwoColumnText"
 import * as ImageCallToAction from "../slices/ImageCallToAction"
 import * as CallToAction from "../slices/CallToAction"
@@ -28,7 +28,7 @@ const pageTemplateSliceMap: MapToComponentsProps["map"] = {
 	[GradientText.sliceType]: GradientText.default as React.ComponentType,
 	[Introduction.sliceType]: Introduction.default as React.ComponentType,
 	[FilterableEvents.sliceType]: FilterableEvents.default as React.ComponentType,
-	[Carousel.sliceType]: Carousel.default as React.ComponentType,
+	[CallToActionCard.sliceType]: CallToActionCard.default as React.ComponentType,
 	[TwoColumnText.sliceType]: TwoColumnText.default as React.ComponentType,
 	[ImageCallToAction.sliceType]:
 		ImageCallToAction.default as React.ComponentType,
@@ -42,7 +42,7 @@ const mapDataToPropsMap: MapToComponentsProps["mapDataToProps"] = {
 	[GradientText.sliceType]: GradientText.mapDataToProps,
 	[Introduction.sliceType]: Introduction.mapDataToProps,
 	[FilterableEvents.sliceType]: FilterableEvents.mapDataToProps,
-	[Carousel.sliceType]: Carousel.mapDataToProps,
+	[CallToActionCard.sliceType]: CallToActionCard.mapDataToProps,
 	[TwoColumnText.sliceType]: TwoColumnText.mapDataToProps,
 	[ImageCallToAction.sliceType]: ImageCallToAction.mapDataToProps,
 	[CallToAction.sliceType]: CallToAction.mapDataToProps,
@@ -143,7 +143,7 @@ export const pageTemplateQuery = graphql`
 					...GradientText
 					...Introduction
 					...FilterableEvents
-					...Carousel
+					...CallToActionCard
 					...TwoColumnText
 					...ImageCallToAction
 					...CallToAction

@@ -2720,95 +2720,24 @@ export type PrismicPageDataBodyCallToAction = PrismicSliceType & {
 	slice_label?: Maybe<Scalars["String"]>
 }
 
-export type PrismicPageDataBodyCallToActionPrimary = {
-	button_link?: Maybe<PrismicLinkType>
-	button_text?: Maybe<Scalars["String"]>
-	heading?: Maybe<PrismicStructuredTextType>
-}
-
-export type PrismicPageDataBodyCarousel = PrismicSliceType & {
-	items?: Maybe<Array<Maybe<PrismicPageDataBodyCarouselItem>>>
-	primary?: Maybe<PrismicPageDataBodyCarouselPrimary>
+export type PrismicPageDataBodyCallToActionCard = PrismicSliceType & {
+	primary?: Maybe<PrismicPageDataBodyCallToActionCardPrimary>
 	id: Scalars["ID"]
 	slice_type: Scalars["String"]
 	slice_label?: Maybe<Scalars["String"]>
 }
 
-export type PrismicPageDataBodyCarouselItem = {
-	image?: Maybe<PrismicPageDataBodyCarouselItemsImageImageType>
-}
-
-export type PrismicPageDataBodyCarouselItemsImageImageType = {
-	alt?: Maybe<Scalars["String"]>
-	copyright?: Maybe<Scalars["String"]>
-	dimensions?: Maybe<PrismicImageDimensionsType>
-	/**
-	 * A plain imgix URL with the URL and params applied.
-	 */
-	url?: Maybe<Scalars["String"]>
-	/**
-	 * Should be used to generate fixed-width images (i.e. the size of the image
-	 * doesn't change when the size of the browser changes, and are "fixed").
-	 * Returns data compatible with gatsby-image. Instead of accessing this data
-	 * directly, the GatsbySourceImgixFixed fragment should be used. See the
-	 * project's README for more information.
-	 */
-	fixed?: Maybe<ImgixFixed>
-	/**
-	 * Should be used to generate fluid-width images (i.e. images that change when
-	 * the size of the browser changes). Returns data compatible with
-	 * gatsby-image. Instead of accessing this data directly, the
-	 * GatsbySourceImgixFluid fragment should be used. See the project's README
-	 * for more information.
-	 */
-	fluid?: Maybe<ImgixFluid>
-	gatsbyImageData?: Maybe<Scalars["JSON"]>
-	localFile?: Maybe<File>
-}
-
-export type PrismicPageDataBodyCarouselItemsImageImageTypeUrlArgs = {
-	imgixParams?: Maybe<ImgixParamsInput>
-}
-
-export type PrismicPageDataBodyCarouselItemsImageImageTypeFixedArgs = {
-	width?: Maybe<Scalars["Int"]>
-	height?: Maybe<Scalars["Int"]>
-	quality?: Maybe<Scalars["Int"]>
-	imgixParams?: Maybe<ImgixParamsInput>
-	placeholderImgixParams?: Maybe<ImgixParamsInput>
-}
-
-export type PrismicPageDataBodyCarouselItemsImageImageTypeFluidArgs = {
-	imgixParams?: Maybe<ImgixParamsInput>
-	maxWidth?: Maybe<Scalars["Int"]>
-	maxHeight?: Maybe<Scalars["Int"]>
-	srcSetBreakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
-	placeholderImgixParams?: Maybe<ImgixParamsInput>
-}
-
-export type PrismicPageDataBodyCarouselItemsImageImageTypeGatsbyImageDataArgs =
-	{
-		layout?: Maybe<GatsbyImageLayout>
-		width?: Maybe<Scalars["Int"]>
-		height?: Maybe<Scalars["Int"]>
-		aspectRatio?: Maybe<Scalars["Float"]>
-		outputPixelDensities?: Maybe<Array<Maybe<Scalars["Float"]>>>
-		breakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
-		sizes?: Maybe<Scalars["String"]>
-		backgroundColor?: Maybe<Scalars["String"]>
-		imgixParams?: Maybe<ImgixParamsInput>
-		placeholderImgixParams?: Maybe<ImgixParamsInput>
-		placeholder?: Maybe<ImgixPlaceholder>
-		widthTolerance?: Maybe<Scalars["Float"]>
-		srcSetMinWidth?: Maybe<Scalars["Int"]>
-		srcSetMaxWidth?: Maybe<Scalars["Int"]>
-	}
-
-export type PrismicPageDataBodyCarouselPrimary = {
+export type PrismicPageDataBodyCallToActionCardPrimary = {
 	button_link?: Maybe<PrismicLinkType>
 	button_text?: Maybe<Scalars["String"]>
 	heading?: Maybe<PrismicStructuredTextType>
 	subheading?: Maybe<PrismicStructuredTextType>
+}
+
+export type PrismicPageDataBodyCallToActionPrimary = {
+	button_link?: Maybe<PrismicLinkType>
+	button_text?: Maybe<Scalars["String"]>
+	heading?: Maybe<PrismicStructuredTextType>
 }
 
 export type PrismicPageDataBodyFilterableEvents = PrismicSliceType & {
@@ -2945,7 +2874,7 @@ export type PrismicPageDataBodyNewsletterFormPrimary = {
 export type PrismicPageDataBodySlicesType =
 	| PrismicPageDataBodyAnchor
 	| PrismicPageDataBodyCallToAction
-	| PrismicPageDataBodyCarousel
+	| PrismicPageDataBodyCallToActionCard
 	| PrismicPageDataBodyFilterableEvents
 	| PrismicPageDataBodyGradientText
 	| PrismicPageDataBodyImageCallToAction
@@ -5542,7 +5471,6 @@ export enum SitePageFieldsEnum {
 	PluginCreatorPluginOptionsCacheDigest = "pluginCreator___pluginOptions___cacheDigest",
 	PluginCreatorPluginOptionsRepositoryName = "pluginCreator___pluginOptions___repositoryName",
 	PluginCreatorPluginOptionsAccessToken = "pluginCreator___pluginOptions___accessToken",
-	PluginCreatorPluginOptionsPromptForAccessToken = "pluginCreator___pluginOptions___promptForAccessToken",
 	PluginCreatorPluginOptionsApiEndpoint = "pluginCreator___pluginOptions___apiEndpoint",
 	PluginCreatorPluginOptionsLang = "pluginCreator___pluginOptions___lang",
 	PluginCreatorPluginOptionsImageImgixParamsAuto = "pluginCreator___pluginOptions___imageImgixParams___auto",
@@ -5550,6 +5478,7 @@ export enum SitePageFieldsEnum {
 	PluginCreatorPluginOptionsImageImgixParamsQ = "pluginCreator___pluginOptions___imageImgixParams___q",
 	PluginCreatorPluginOptionsImagePlaceholderImgixParamsW = "pluginCreator___pluginOptions___imagePlaceholderImgixParams___w",
 	PluginCreatorPluginOptionsImagePlaceholderImgixParamsBlur = "pluginCreator___pluginOptions___imagePlaceholderImgixParams___blur",
+	PluginCreatorPluginOptionsPromptForAccessToken = "pluginCreator___pluginOptions___promptForAccessToken",
 	PluginCreatorPluginOptionsToolbar = "pluginCreator___pluginOptions___toolbar",
 	PluginCreatorPluginOptionsPath = "pluginCreator___pluginOptions___path",
 	PluginCreatorPluginOptionsPathCheck = "pluginCreator___pluginOptions___pathCheck",
@@ -5774,7 +5703,6 @@ export enum SitePluginFieldsEnum {
 	PluginOptionsCacheDigest = "pluginOptions___cacheDigest",
 	PluginOptionsRepositoryName = "pluginOptions___repositoryName",
 	PluginOptionsAccessToken = "pluginOptions___accessToken",
-	PluginOptionsPromptForAccessToken = "pluginOptions___promptForAccessToken",
 	PluginOptionsApiEndpoint = "pluginOptions___apiEndpoint",
 	PluginOptionsLang = "pluginOptions___lang",
 	PluginOptionsImageImgixParamsAuto = "pluginOptions___imageImgixParams___auto",
@@ -5782,6 +5710,7 @@ export enum SitePluginFieldsEnum {
 	PluginOptionsImageImgixParamsQ = "pluginOptions___imageImgixParams___q",
 	PluginOptionsImagePlaceholderImgixParamsW = "pluginOptions___imagePlaceholderImgixParams___w",
 	PluginOptionsImagePlaceholderImgixParamsBlur = "pluginOptions___imagePlaceholderImgixParams___blur",
+	PluginOptionsPromptForAccessToken = "pluginOptions___promptForAccessToken",
 	PluginOptionsToolbar = "pluginOptions___toolbar",
 	PluginOptionsPath = "pluginOptions___path",
 	PluginOptionsPathCheck = "pluginOptions___pathCheck",
@@ -5923,18 +5852,18 @@ export type SitePluginPluginOptions = {
 	cacheDigest?: Maybe<Scalars["String"]>
 	repositoryName?: Maybe<Scalars["String"]>
 	accessToken?: Maybe<Scalars["String"]>
-	promptForAccessToken?: Maybe<Scalars["Boolean"]>
+	schemas?: Maybe<SitePluginPluginOptionsSchemas>
 	apiEndpoint?: Maybe<Scalars["String"]>
 	lang?: Maybe<Scalars["String"]>
 	imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParams>
 	imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParams>
+	promptForAccessToken?: Maybe<Scalars["Boolean"]>
 	toolbar?: Maybe<Scalars["String"]>
 	path?: Maybe<Scalars["String"]>
 	pathCheck?: Maybe<Scalars["Boolean"]>
 	allExtensions?: Maybe<Scalars["Boolean"]>
 	isTSX?: Maybe<Scalars["Boolean"]>
 	jsxPragma?: Maybe<Scalars["String"]>
-	schemas?: Maybe<SitePluginPluginOptionsSchemas>
 }
 
 export type SitePluginPluginOptionsFilterInput = {
@@ -5957,18 +5886,18 @@ export type SitePluginPluginOptionsFilterInput = {
 	cacheDigest?: Maybe<StringQueryOperatorInput>
 	repositoryName?: Maybe<StringQueryOperatorInput>
 	accessToken?: Maybe<StringQueryOperatorInput>
-	promptForAccessToken?: Maybe<BooleanQueryOperatorInput>
+	schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>
 	apiEndpoint?: Maybe<StringQueryOperatorInput>
 	lang?: Maybe<StringQueryOperatorInput>
 	imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParamsFilterInput>
 	imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParamsFilterInput>
+	promptForAccessToken?: Maybe<BooleanQueryOperatorInput>
 	toolbar?: Maybe<StringQueryOperatorInput>
 	path?: Maybe<StringQueryOperatorInput>
 	pathCheck?: Maybe<BooleanQueryOperatorInput>
 	allExtensions?: Maybe<BooleanQueryOperatorInput>
 	isTSX?: Maybe<BooleanQueryOperatorInput>
 	jsxPragma?: Maybe<StringQueryOperatorInput>
-	schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>
 }
 
 export type SitePluginPluginOptionsImageImgixParams = {
@@ -6299,12 +6228,12 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoices = {
 	video_hero?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_Hero>
 	introduction?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesIntroduction>
 	filterable_events?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterable_Events>
-	carousel?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarousel>
 	two_column_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_Text>
 	image_call_to_action?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_Action>
 	call_to_action?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action>
 	newsletter_form?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_Form>
 	sponsors?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsors>
+	call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_Card>
 }
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesAnchor = {
@@ -6464,167 +6393,134 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Actio
 		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionNon_RepeatHeadingConfigFilterInput>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarousel = {
-	type?: Maybe<Scalars["String"]>
-	fieldset?: Maybe<Scalars["String"]>
-	description?: Maybe<Scalars["String"]>
-	icon?: Maybe<Scalars["String"]>
-	display?: Maybe<Scalars["String"]>
-	non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_Repeat>
-	repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselRepeat>
-}
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_Card =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_Repeat>
+	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselFilterInput =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardFilterInput =
 	{
 		type?: Maybe<StringQueryOperatorInput>
 		fieldset?: Maybe<StringQueryOperatorInput>
 		description?: Maybe<StringQueryOperatorInput>
 		icon?: Maybe<StringQueryOperatorInput>
 		display?: Maybe<StringQueryOperatorInput>
-		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatFilterInput>
-		repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselRepeatFilterInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatFilterInput>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_Repeat =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_Repeat =
 	{
-		subheading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatSubheading>
-		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatHeading>
-		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatButton_Link>
-		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatButton_Text>
+		subheading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheading>
+		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeading>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_Link>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_Text>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatButton_Link =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_Link =
 	{
 		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatButton_LinkConfig>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_LinkConfig>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatButton_LinkConfig =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_LinkConfig =
 	{
 		allowTargetBlank?: Maybe<Scalars["Boolean"]>
 		label?: Maybe<Scalars["String"]>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatButton_LinkConfigFilterInput =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_LinkConfigFilterInput =
 	{
 		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
 		label?: Maybe<StringQueryOperatorInput>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatButton_LinkFilterInput =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_LinkFilterInput =
 	{
 		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatButton_LinkConfigFilterInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_LinkConfigFilterInput>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatButton_Text =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_Text =
 	{
 		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatButton_TextConfig>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_TextConfig>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatButton_TextConfig =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_TextConfig =
 	{
 		label?: Maybe<Scalars["String"]>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatButton_TextConfigFilterInput =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_TextConfigFilterInput =
 	{
 		label?: Maybe<StringQueryOperatorInput>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatButton_TextFilterInput =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_TextFilterInput =
 	{
 		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatButton_TextConfigFilterInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_TextConfigFilterInput>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatFilterInput =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatFilterInput =
 	{
-		subheading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatSubheadingFilterInput>
-		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatHeadingFilterInput>
-		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatButton_LinkFilterInput>
-		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatButton_TextFilterInput>
+		subheading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingFilterInput>
+		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingFilterInput>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_LinkFilterInput>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_TextFilterInput>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatHeading =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeading =
 	{
 		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatHeadingConfig>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingConfig>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatHeadingConfig =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingConfig =
 	{
 		single?: Maybe<Scalars["String"]>
 		label?: Maybe<Scalars["String"]>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatHeadingConfigFilterInput =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingConfigFilterInput =
 	{
 		single?: Maybe<StringQueryOperatorInput>
 		label?: Maybe<StringQueryOperatorInput>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatHeadingFilterInput =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingFilterInput =
 	{
 		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatHeadingConfigFilterInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingConfigFilterInput>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatSubheading =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheading =
 	{
 		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatSubheadingConfig>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfig>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatSubheadingConfig =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfig =
 	{
 		single?: Maybe<Scalars["String"]>
 		label?: Maybe<Scalars["String"]>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatSubheadingConfigFilterInput =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfigFilterInput =
 	{
 		single?: Maybe<StringQueryOperatorInput>
 		label?: Maybe<StringQueryOperatorInput>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatSubheadingFilterInput =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingFilterInput =
 	{
 		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselNon_RepeatSubheadingConfigFilterInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselRepeat =
-	{
-		image?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselRepeatImage>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselRepeatFilterInput =
-	{
-		image?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselRepeatImageFilterInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselRepeatImage =
-	{
-		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselRepeatImageConfig>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselRepeatImageConfig =
-	{
-		label?: Maybe<Scalars["String"]>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselRepeatImageConfigFilterInput =
-	{
-		label?: Maybe<StringQueryOperatorInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselRepeatImageFilterInput =
-	{
-		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselRepeatImageConfigFilterInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterInput =
@@ -6634,12 +6530,12 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterInput =
 		video_hero?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroFilterInput>
 		introduction?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesIntroductionFilterInput>
 		filterable_events?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterable_EventsFilterInput>
-		carousel?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCarouselFilterInput>
 		two_column_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextFilterInput>
 		image_call_to_action?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionFilterInput>
 		call_to_action?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_ActionFilterInput>
 		newsletter_form?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormFilterInput>
 		sponsors?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsFilterInput>
+		call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterable_Events =
@@ -8185,18 +8081,13 @@ export type CallToActionFragment = {
 	}>
 }
 
-export type CarouselFragment = {
+export type CallToActionCardFragment = {
 	primary?: Maybe<{
 		button_text?: Maybe<string>
 		subheading?: Maybe<{ text?: Maybe<string> }>
 		heading?: Maybe<{ text?: Maybe<string> }>
 		button_link?: Maybe<{ url?: Maybe<string> }>
 	}>
-	items?: Maybe<
-		Array<
-			Maybe<{ image?: Maybe<{ alt?: Maybe<string>; url?: Maybe<string> }> }>
-		>
-	>
 }
 
 export type FilterableEventsFragment = {
@@ -8291,7 +8182,9 @@ export type PageTemplateQuery = {
 						| ({
 								__typename: "PrismicPageDataBodyCallToAction"
 						  } & CallToActionFragment)
-						| ({ __typename: "PrismicPageDataBodyCarousel" } & CarouselFragment)
+						| ({
+								__typename: "PrismicPageDataBodyCallToActionCard"
+						  } & CallToActionCardFragment)
 						| ({
 								__typename: "PrismicPageDataBodyFilterableEvents"
 						  } & FilterableEventsFragment)

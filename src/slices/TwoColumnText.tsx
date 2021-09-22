@@ -1,10 +1,12 @@
 import * as React from "react"
 import clsx from "clsx"
 import { graphql } from "gatsby"
+import { undefIfEmpty } from "@walltowall/helpers"
 
 import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
 import type { TwoColumnTextFragment } from "../gqlTypes.gen"
-import { undefIfEmpty } from "@walltowall/helpers"
+import type { ColorVariant } from "../lib/getColorVariant"
+
 import { HTMLContent } from "../components/HTMLContent"
 import { BoundedBox } from "../components/BoundedBox"
 
@@ -50,7 +52,7 @@ export function mapDataToContext(
 	_ctx: MapDataToContextCtx<TwoColumnTextFragment>
 ) {
 	return {
-		backgroundColor: "green",
+		backgroundColor: "green" as ColorVariant,
 	}
 }
 

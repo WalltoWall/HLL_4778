@@ -7,6 +7,7 @@ import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
 import type { NewsletterFormFragment } from "../gqlTypes.gen"
 import { BoundedBox } from "../components/BoundedBox"
 import { SendIcon } from "../components/SendIcon"
+import { Card } from "../components/Card"
 
 type FormState = "unsubmitted" | "submitting" | "submitted" | "error"
 
@@ -77,11 +78,9 @@ const NewsletterForm = ({
 			className="bg-beige-92"
 			nextSharesBg={withOverhang}
 		>
-			<div
+			<Card
 				className={clsx(
 					variant.bg,
-					"px-4 md:px-9 lg:px-14",
-					"py-5 md:py-12 lg:py-18",
 					"space-y-18 md:space-y-32 lg:space-y-45",
 					"transition duration-250",
 					withOverhang && "-mb-21 md:-mb-39 lg:-mb-54"
@@ -91,8 +90,8 @@ const NewsletterForm = ({
 					<h2
 						className={clsx(
 							"font-serif",
-							"text-white",
-							"text-32 md:text-42 lg:text-62",
+							"text-beige-92",
+							"text-42 md:text-52 lg:text-62",
 							"leading-1"
 						)}
 					>
@@ -140,7 +139,7 @@ const NewsletterForm = ({
 						)}
 					/>
 				</form>
-			</div>
+			</Card>
 		</BoundedBox>
 	)
 }

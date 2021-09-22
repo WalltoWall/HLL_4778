@@ -176,10 +176,14 @@ export function mapDataToProps({
 export function mapDataToContext({
 	data,
 }: MapDataToContextCtx<FilterableEventsFragment>) {
-	const [firstEvent] = data.items ?? []
+	const events = data.items ?? []
+
+	const firstEvent = events[0]
+	const lastEvent = events[events.length - 1]
 
 	return {
-		backgroundColor: firstEvent ? getColorVariant(firstEvent.color) : "blue",
+		backgroundColor: getColorVariant(firstEvent?.color),
+		lastBackgroundColor: getColorVariant(lastEvent?.color),
 	}
 }
 
