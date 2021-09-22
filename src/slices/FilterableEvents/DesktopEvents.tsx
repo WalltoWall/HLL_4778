@@ -75,15 +75,10 @@ export const DesktopEvents = ({
 				)}
 			/>
 
-			{events.map((e, idx) => (
+			{events.map((event, idx) => (
 				<DesktopEventCard
 					key={`desktopEvent-${idx}`}
-					color={e.color}
-					date={e.date}
-					descriptionHTML={e.descriptionHTML}
-					href={e.href}
-					title={e.title}
-					illustration={e.illustration}
+					event={event}
 					activeVariant={activeVariant}
 					updateActiveEvent={updateActiveEvent}
 				/>

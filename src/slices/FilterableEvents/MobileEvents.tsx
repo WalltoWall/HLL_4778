@@ -39,15 +39,10 @@ export const MobileEvents = ({
 			/>
 
 			<div className="space-y-16 lg:hidden">
-				{events.map((e, idx) => (
+				{events.map((event, idx) => (
 					<MobileEventCard
 						key={`event-${idx}`}
-						href={e.href}
-						illustration={e.illustration}
-						color={e.color}
-						title={e.title}
-						descriptionHTML={e.descriptionHTML}
-						date={e.date}
+						event={event}
 						updateActiveEvent={updateActiveEvent}
 						activeVariant={activeVariant}
 					/>

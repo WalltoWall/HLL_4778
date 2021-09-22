@@ -11,32 +11,28 @@ import { getIllustrationUrl } from "./getIllustrationUrl"
 import type { FilterableEventsVariant } from "./getFilterableEventsVariant"
 import type { Event } from "./FilterableEvents"
 
-export interface EventCardProps extends Event {
+export interface EventCardProps {
+	event: Event
 	updateActiveEvent: (newEvent: Event) => void
 	activeVariant: FilterableEventsVariant
 }
 
 export const MobileEventCard = ({
-	color,
-	title,
-	descriptionHTML,
-	date,
-	illustration,
-	href,
+	event,
 	updateActiveEvent,
 	activeVariant,
 }: EventCardProps) => {
 	const { ref } = useUpdateEventInView({
 		updateEvent: updateActiveEvent,
-		event: { color, title, date, descriptionHTML, illustration, href },
+		event,
 		threshold: 0.25,
 	})
-	const illustrationUrl = getIllustrationUrl(illustration)
+	const illustrationUrl = getIllustrationUrl(event.illustration)
 
 	return (
 		<div className="space-y-6" ref={ref}>
 			<Link
-				href={href}
+				href={event.href}
 				className={clsx("block bg-beige-92 aspect-w-1 aspect-h-1")}
 			>
 				<div className="flex items-center justify-center p-5">
@@ -46,10 +42,10 @@ export const MobileEventCard = ({
 
 			<EventDescription
 				activeVariant={activeVariant}
-				date={date}
-				descriptionHTML={descriptionHTML}
-				title={title}
-				href={href}
+				date={event.date}
+				descriptionHTML={event.descriptionHTML}
+				title={event.title}
+				href={event.href}
 			/>
 		</div>
 	)
