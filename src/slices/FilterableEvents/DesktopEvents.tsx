@@ -1,10 +1,13 @@
 import clsx from "clsx"
 import * as React from "react"
-import { Link } from "../../components/Link"
+
+import { Image } from "../../components/Image"
 
 import { useIsDesktop } from "../../hooks/useMediaQuery"
 import { DesktopEventCard } from "./DesktopEventCard"
+import { IllustrationType } from "./FilterableEvents"
 import { FilterControls } from "./FilterControls"
+import { getIllustrationUrl } from "./MobileEventCard"
 
 import type { EventsListProps } from "./MobileEvents"
 
@@ -16,7 +19,17 @@ export const DesktopEvents = ({
 	clearFilters,
 	filterEvents,
 }: EventsListProps) => {
+	const [illustration, setIllustration] = React.useState<IllustrationType>(
+		() => {
+			const firstEvent = events[0]
+			if (!firstEvent) return "flag"
+
+			return firstEvent.illustration
+		}
+	)
+
 	const isDesktop = useIsDesktop()
+	const illustrationUrl = getIllustrationUrl(illustration)
 
 	if (!isDesktop) return null
 
@@ -44,11 +57,13 @@ export const DesktopEvents = ({
 					color={e.color}
 					date={e.date}
 					descriptionHTML={e.descriptionHTML}
+					illustration={e.illustration}
 					href={e.href}
 					title={e.title}
 					key={`desktopEvent-${idx}`}
 					variant={variant}
 					updateBackground={updateBackground}
+					updateIllustration={setIllustration}
 				/>
 			))}
 
@@ -60,7 +75,14 @@ export const DesktopEvents = ({
 					"flex flex-col py-16 -mt-43"
 				)}
 			>
-				<Link href="/" className="flex-1 block bg-beige-92" />
+				<div className="relative flex-1 bg-beige-92">
+					<Image
+						src={illustrationUrl}
+						alt=""
+						className="absolute inset-0 w-full h-full p-15"
+						loading="eager"
+					/>
+				</div>
 			</div>
 		</div>
 	)

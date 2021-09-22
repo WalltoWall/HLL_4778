@@ -18,7 +18,7 @@ import shakaSvgUrl from "../../assets/shaka.svg"
 import slippersSvgUrl from "../../assets/slippers.svg"
 import waveSvgUrl from "../../assets/wave.svg"
 
-function getIllustrationUrl(type: IllustrationType): string {
+export function getIllustrationUrl(type: IllustrationType): string {
 	switch (type) {
 		case "flag":
 			return flagSvgUrl
