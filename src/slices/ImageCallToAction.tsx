@@ -9,6 +9,7 @@ import { BoundedBox } from "../components/BoundedBox"
 import { ButtonLink } from "../components/Button"
 import { ArchImage } from "../components/ArchImage"
 import { HTMLContent } from "../components/HTMLContent"
+import { ColorVariant } from "../lib/getColorVariant"
 
 export const sliceType = "PrismicPageDataBodyImageCallToAction"
 
@@ -21,11 +22,7 @@ const ImageCallToAction = ({
 	buttonText,
 }: ReturnType<typeof mapDataToProps>) => {
 	return (
-		<BoundedBox
-			tag="section"
-			className="bg-green-27 text-beige-92"
-			width="base"
-		>
+		<BoundedBox tag="section" className="bg-blue-31 text-beige-92" width="base">
 			<div
 				className={clsx(
 					"grid",
@@ -102,7 +99,7 @@ export function mapDataToContext(
 	_ctx: MapDataToContextCtx<ImageCallToActionFragment>
 ) {
 	return {
-		backgroundColor: "green",
+		backgroundColor: "blue" as ColorVariant,
 	}
 }
 

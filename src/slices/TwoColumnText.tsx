@@ -18,11 +18,7 @@ const TwoColumnText = ({
 	nextSharesBg,
 }: ReturnType<typeof mapDataToProps>) => {
 	return (
-		<BoundedBox
-			className="bg-green-27"
-			nextSharesBg={nextSharesBg}
-			width="base"
-		>
+		<BoundedBox className="bg-blue-31" nextSharesBg={nextSharesBg} width="base">
 			<div
 				className={clsx(
 					"grid text-center gap-y-12 text-beige-92",
@@ -44,7 +40,7 @@ export function mapDataToProps({
 	return {
 		leftHTML: undefIfEmpty(data.primary?.left_text?.html),
 		rightHTML: undefIfEmpty(data.primary?.right_text?.html),
-		nextSharesBg: nextContext?.backgroundColor === "green",
+		nextSharesBg: nextContext?.backgroundColor === "blue",
 	}
 }
 
@@ -52,7 +48,7 @@ export function mapDataToContext(
 	_ctx: MapDataToContextCtx<TwoColumnTextFragment>
 ) {
 	return {
-		backgroundColor: "green" as ColorVariant,
+		backgroundColor: "blue" as ColorVariant,
 	}
 }
 
