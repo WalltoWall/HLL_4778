@@ -1,5 +1,6 @@
 import * as React from "react"
 import mergeRefs from "react-merge-refs"
+import { useReducedMotion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { graphql } from "gatsby"
 import { m } from "framer-motion"
@@ -21,6 +22,7 @@ const VideoHero = ({
 	const { isOpen: isMobileMenuOpen } = useMobileMenu()
 	const videoRef = React.useRef<HTMLVideoElement | null>(null)
 	const { ref: observerRef, inView } = useInView({ threshold: 0 })
+	const shouldReduceMotion = useReducedMotion()
 
 	// Pause the video when the video is not in view.
 	React.useEffect(() => {
@@ -74,7 +76,7 @@ const VideoHero = ({
 						"pointer-events-none",
 						"brightness-[.65]"
 					)}
-					autoPlay
+					autoPlay={!shouldReduceMotion}
 					loop
 					muted
 					playsInline

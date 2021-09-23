@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useReducedMotion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import clsx from "clsx"
 import type { Gradient as GradientController } from "../lib/gradient"
@@ -20,6 +21,7 @@ export const Gradient = ({
 		return null
 	}
 
+	const shouldReduceMotion = useReducedMotion()
 	const gradientRef = React.useRef<GradientController>()
 	const { ref: canvasRef, inView } = useInView({ threshold: 0 })
 
@@ -40,14 +42,14 @@ export const Gradient = ({
 	React.useEffect(() => {
 		if (!gradientRef.current) return
 
-		if (inView && shouldPlay) {
+		if (inView && shouldPlay && !shouldReduceMotion) {
 			//@ts-expect-error - Compiled JS types are wonky.
 			gradientRef.current.play()
 		} else {
 			//@ts-expect-error - Compiled JS types are wonky.
 			gradientRef.current.pause()
 		}
-	}, [inView, shouldPlay])
+	}, [inView, shouldPlay, shouldReduceMotion])
 
 	return (
 		<canvas
