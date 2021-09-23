@@ -1,4 +1,5 @@
 import * as React from "react"
+import clsx from "clsx"
 import * as Dialog from "@radix-ui/react-dialog"
 
 import { BoundedBox } from "../BoundedBox"
@@ -7,7 +8,6 @@ import { VisuallyHidden } from "../VisuallyHidden"
 import { Logo } from "./Logo"
 import { Link, LinkProps } from "../Link"
 import { usePrismicPrimaryNavigation } from "../../hooks/usePrismicPrimaryNavigation"
-import clsx from "clsx"
 import { SocialNavigation } from "../SocialNavigation"
 import { Gradient } from "../Gradient"
 
