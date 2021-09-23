@@ -8,6 +8,7 @@ import clsx from "clsx"
 import type { MapDataToPropsCtx } from "../templates/page"
 import type { VideoHeroFragment } from "../gqlTypes.gen"
 import { Image } from "../components/Image"
+import { useMobileMenu } from "../components/Header/MobileMenuProvider"
 
 export const sliceType = "PrismicPageDataBodyVideoHero"
 
@@ -17,9 +18,11 @@ const VideoHero = ({
 	videoThumbnailAlt,
 	videoThumbnailUrl,
 }: ReturnType<typeof mapDataToProps>) => {
+	const { isOpen: isMobileMenuOpen } = useMobileMenu()
 	const videoRef = React.useRef<HTMLVideoElement | null>(null)
 	const { ref: observerRef, inView } = useInView({ threshold: 0 })
 
+	// Pause the video when the video is not in view.
 	React.useEffect(() => {
 		if (!videoRef.current) return
 
@@ -29,6 +32,17 @@ const VideoHero = ({
 			videoRef.current?.pause()
 		}
 	}, [inView])
+
+	// Pause the video when the mobile menu is open.
+	React.useEffect(() => {
+		if (!videoRef.current) return
+
+		if (isMobileMenuOpen) {
+			videoRef.current.pause()
+		} else {
+			videoRef.current.play()
+		}
+	}, [isMobileMenuOpen])
 
 	return (
 		<section

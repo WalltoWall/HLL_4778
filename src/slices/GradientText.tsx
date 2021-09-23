@@ -6,10 +6,13 @@ import type { MapDataToPropsCtx } from "../templates/page"
 import type { GradientTextFragment } from "../gqlTypes.gen"
 
 import { Gradient } from "../components/Gradient"
+import { useMobileMenu } from "../components/Header/MobileMenuProvider"
 
 export const sliceType = "PrismicPageDataBodyGradientText"
 
 const GradientText = ({ text }: ReturnType<typeof mapDataToProps>) => {
+	const { isOpen: isMobileMenuOpen } = useMobileMenu()
+
 	return (
 		<section
 			className={clsx(
@@ -19,7 +22,10 @@ const GradientText = ({ text }: ReturnType<typeof mapDataToProps>) => {
 				"2xl:relative"
 			)}
 		>
-			<Gradient className="absolute inset-0 2xl:absolute 2xl:inset-0 2xl:w-full 2xl:h-full" />
+			<Gradient
+				className="absolute inset-0 2xl:absolute 2xl:inset-0 2xl:w-full 2xl:h-full"
+				shouldPlay={!isMobileMenuOpen}
+			/>
 
 			<div
 				className={clsx(

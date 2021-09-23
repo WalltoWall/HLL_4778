@@ -2,14 +2,20 @@ import * as React from "react"
 import { useInView } from "react-intersection-observer"
 import clsx from "clsx"
 import type { Gradient as GradientController } from "../lib/gradient"
+
 import * as styles from "./Gradient.module.css"
+
+interface Props extends React.ComponentPropsWithoutRef<"canvas"> {
+	shouldPlay?: boolean
+}
 
 export const Gradient = ({
 	className,
 	id = "gradient-canvas",
 	style,
+	shouldPlay = true,
 	...props
-}: React.ComponentPropsWithoutRef<"canvas">) => {
+}: Props) => {
 	if (process.env.NODE_ENV === "development") {
 		return null
 	}
@@ -34,14 +40,14 @@ export const Gradient = ({
 	React.useEffect(() => {
 		if (!gradientRef.current) return
 
-		if (inView) {
+		if (inView && shouldPlay) {
 			//@ts-expect-error - Compiled JS types are wonky.
 			gradientRef.current.play()
 		} else {
 			//@ts-expect-error - Compiled JS types are wonky.
 			gradientRef.current.pause()
 		}
-	}, [inView])
+	}, [inView, shouldPlay])
 
 	return (
 		<canvas

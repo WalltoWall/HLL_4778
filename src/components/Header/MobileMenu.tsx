@@ -5,32 +5,29 @@ import { useIsDesktop } from "../../hooks/useMediaQuery"
 import { MenuButton } from "../MenuButton"
 import { VisuallyHidden } from "../VisuallyHidden"
 import { MobileDrawer } from "./MobileDrawer"
+import { useMobileMenu } from "./MobileMenuProvider"
 
 export const MobileMenu = () => {
-	const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+	const { isOpen, setIsOpen } = useMobileMenu()
 	const isDesktop = useIsDesktop()
 
 	function toggleMenu() {
-		setIsMenuOpen((prev) => !prev)
+		setIsOpen((prev) => !prev)
 	}
 
 	if (isDesktop) return null
 
 	return (
-		<Dialog.Root open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+		<Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
 			<Dialog.Trigger asChild>
-				<MenuButton
-					onClick={toggleMenu}
-					className="lg:hidden"
-					isOpen={isMenuOpen}
-				>
+				<MenuButton onClick={toggleMenu} className="lg:hidden" isOpen={isOpen}>
 					<VisuallyHidden>
-						{isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+						{isOpen ? "Close navigation menu" : "Open navigation menu"}
 					</VisuallyHidden>
 				</MenuButton>
 			</Dialog.Trigger>
 
-			<MobileDrawer toggleMenu={toggleMenu} isOpen={isMenuOpen} />
+			<MobileDrawer toggleMenu={toggleMenu} isOpen={isOpen} />
 		</Dialog.Root>
 	)
 }
