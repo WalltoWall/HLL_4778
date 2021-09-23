@@ -10,6 +10,10 @@ export const Gradient = ({
 	style,
 	...props
 }: React.ComponentPropsWithoutRef<"canvas">) => {
+	if (process.env.NODE_ENV === "development") {
+		return null
+	}
+
 	const gradientRef = React.useRef<GradientController>()
 	const { ref: canvasRef, inView } = useInView({ threshold: 0 })
 
