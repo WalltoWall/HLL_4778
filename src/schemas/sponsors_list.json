@@ -1,0 +1,105 @@
+{
+	"Main": {
+		"title": {
+			"type": "StructuredText",
+			"config": {
+				"single": "heading2",
+				"label": "Title"
+			}
+		},
+		"uid": {
+			"type": "UID",
+			"config": {
+				"label": "UID"
+			}
+		},
+		"rainbows_over_waikiki_sponsor": {
+			"type": "Link",
+			"config": {
+				"select": "document",
+				"customtypes": ["sponsor"],
+				"label": "Rainbows Over Waikiki Sponsor"
+			}
+		},
+		"visionary_sponsors": {
+			"type": "Group",
+			"config": {
+				"fields": {
+					"sponsor": {
+						"type": "Link",
+						"config": {
+							"select": "document",
+							"customtypes": ["sponsor"],
+							"label": "Sponsor"
+						}
+					}
+				},
+				"label": "Visionary Sponsors"
+			}
+		},
+		"gold_sponsors": {
+			"type": "Group",
+			"config": {
+				"fields": {
+					"sponsor": {
+						"type": "Link",
+						"config": {
+							"select": "document",
+							"customtypes": ["sponsor"],
+							"label": "Sponsor"
+						}
+					}
+				},
+				"label": "Gold Sponsors"
+			}
+		},
+		"silver_sponsors": {
+			"type": "Group",
+			"config": {
+				"fields": {
+					"sponsor": {
+						"type": "Link",
+						"config": {
+							"select": "document",
+							"customtypes": ["sponsor"],
+							"label": "Sponsor"
+						}
+					}
+				},
+				"label": "Silver Sponsors"
+			}
+		},
+		"bronze_sponsors": {
+			"type": "Group",
+			"config": {
+				"fields": {
+					"sponsor": {
+						"type": "Link",
+						"config": {
+							"select": "document",
+							"customtypes": ["sponsor"],
+							"label": "Sponsor"
+						}
+					}
+				},
+				"label": "Bronze Sponsors"
+			}
+		},
+		"partner_sponsors": {
+			"type": "Group",
+			"config": {
+				"fields": {
+					"sponsor": {
+						"type": "Link",
+						"config": {
+							"select": "document",
+							"customtypes": ["sponsor"],
+							"label": "Sponsor"
+						}
+					}
+				},
+				"label": "Partner Sponsors"
+			}
+		}
+	}
+}

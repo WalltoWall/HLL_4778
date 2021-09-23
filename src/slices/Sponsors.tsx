@@ -3,10 +3,9 @@ import clsx from "clsx"
 import { graphql } from "gatsby"
 
 import type { MapDataToPropsCtx } from "../templates/page"
-import type { SponsorsFragment } from "../gqlTypes.gen"
+import type { SponsorFragment, SponsorsFragment } from "../gqlTypes.gen"
 
 import { BoundedBox } from "../components/BoundedBox"
-import { usePrismicSponsors } from "../hooks/usePrismicSponsors"
 import { Image } from "../components/Image"
 import { Link } from "../components/Link"
 
@@ -59,21 +58,29 @@ const SponsorContainer = ({
 	)
 }
 
-const RainbowsSponsor = (props: React.ComponentPropsWithoutRef<"div">) => {
-	const sponsors = usePrismicSponsors()
-	const [rainbowSponsor] = sponsors.rainbowsOverWaikiki
+interface Sponsor {
+	imageUrl?: string
+	imageAlt?: string
+	href?: string
+	name?: string
+}
 
+interface RainbowsSponsorProps extends React.ComponentPropsWithoutRef<"div"> {
+	sponsor: Sponsor
+}
+
+const RainbowsSponsor = ({ sponsor, ...props }: RainbowsSponsorProps) => {
 	return (
 		<SponsorContainer
 			heading="Rainbows Over Waikiki Presenting Sponsor"
 			className="lg:grid-cols-2 lg:items-center lg:gap-10"
 			{...props}
 		>
-			<Link href={rainbowSponsor.href}>
-				{rainbowSponsor && (
+			<Link href={sponsor.href}>
+				{sponsor && (
 					<Image
-						src={rainbowSponsor.imageUrl}
-						alt={rainbowSponsor.imageAlt ?? rainbowSponsor.name}
+						src={sponsor.imageUrl}
+						alt={sponsor.imageAlt ?? sponsor.name}
 						className="max-w-[250px] w-full lg:max-w-[400px]"
 					/>
 				)}
@@ -82,19 +89,21 @@ const RainbowsSponsor = (props: React.ComponentPropsWithoutRef<"div">) => {
 	)
 }
 
-const VisionarySponsors = (props: React.ComponentPropsWithoutRef<"div">) => {
-	const { visionary } = usePrismicSponsors()
+interface SponsorsListProps extends React.ComponentPropsWithoutRef<"div"> {
+	sponsors: Sponsor[]
+}
 
+const VisionarySponsors = ({ sponsors, ...props }: SponsorsListProps) => {
 	return (
 		<SponsorContainer heading="Visionary" {...props}>
 			<div
 				className={clsx(
-					"grid grid-cols-2 justify-items-center items-center",
+					"grid justify-items-center items-center",
 					"w-full",
 					"gap-10 lg:gap-20"
 				)}
 			>
-				{visionary.map((sponsor, idx) => (
+				{sponsors.map((sponsor, idx) => (
 					<Link key={`visionarySponsor-${idx}`} href={sponsor.href}>
 						<Image
 							src={sponsor.imageUrl}
@@ -111,9 +120,7 @@ const VisionarySponsors = (props: React.ComponentPropsWithoutRef<"div">) => {
 	)
 }
 
-const GoldSponsors = (props: React.ComponentPropsWithoutRef<"div">) => {
-	const { gold } = usePrismicSponsors()
-
+const GoldSponsors = ({ sponsors, ...props }: SponsorsListProps) => {
 	return (
 		<SponsorContainer heading="Gold" {...props}>
 			<div
@@ -123,7 +130,7 @@ const GoldSponsors = (props: React.ComponentPropsWithoutRef<"div">) => {
 					"gap-10 lg:gap-20"
 				)}
 			>
-				{gold.map((sponsor, idx) => (
+				{sponsors.map((sponsor, idx) => (
 					<Link key={`goldSponsor-${idx}`} href={sponsor.href}>
 						<Image
 							src={sponsor.imageUrl}
@@ -140,10 +147,8 @@ const GoldSponsors = (props: React.ComponentPropsWithoutRef<"div">) => {
 	)
 }
 
-const SilverSponsors = (props: React.ComponentPropsWithoutRef<"div">) => {
-	const { silver } = usePrismicSponsors()
-
-	const columns = silver.length >= 3 ? "grid-cols-3" : "grid-cols-2"
+const SilverSponsors = ({ sponsors, ...props }: SponsorsListProps) => {
+	const columns = sponsors.length >= 3 ? "grid-cols-3" : "grid-cols-2"
 
 	return (
 		<SponsorContainer heading="Silver" {...props}>
@@ -155,7 +160,7 @@ const SilverSponsors = (props: React.ComponentPropsWithoutRef<"div">) => {
 					"gap-10 lg:gap-20"
 				)}
 			>
-				{silver.map((sponsor, idx) => (
+				{sponsors.map((sponsor, idx) => (
 					<Link key={`silverSponsor-${idx}`} href={sponsor.href}>
 						<Image
 							src={sponsor.imageUrl}
@@ -172,10 +177,8 @@ const SilverSponsors = (props: React.ComponentPropsWithoutRef<"div">) => {
 	)
 }
 
-const BronzeSponsors = (props: React.ComponentPropsWithoutRef<"div">) => {
-	const { bronze } = usePrismicSponsors()
-
-	const columns = bronze.length >= 3 ? "grid-cols-3" : "grid-cols-2"
+const BronzeSponsors = ({ sponsors, ...props }: SponsorsListProps) => {
+	const columns = sponsors.length >= 3 ? "grid-cols-3" : "grid-cols-2"
 
 	return (
 		<SponsorContainer heading="Bronze" {...props}>
@@ -187,7 +190,7 @@ const BronzeSponsors = (props: React.ComponentPropsWithoutRef<"div">) => {
 					"gap-10 lg:gap-20"
 				)}
 			>
-				{bronze.map((sponsor, idx) => (
+				{sponsors.map((sponsor, idx) => (
 					<Link key={`bronzeSponsor-${idx}`} href={sponsor.href}>
 						<Image
 							src={sponsor.imageUrl}
@@ -204,10 +207,8 @@ const BronzeSponsors = (props: React.ComponentPropsWithoutRef<"div">) => {
 	)
 }
 
-const PartnerSponsors = (props: React.ComponentPropsWithoutRef<"div">) => {
-	const { partner } = usePrismicSponsors()
-
-	const columns = partner.length >= 3 ? "grid-cols-3" : "grid-cols-2"
+const PartnerSponsors = ({ sponsors, ...props }: SponsorsListProps) => {
+	const columns = sponsors.length >= 3 ? "grid-cols-3" : "grid-cols-2"
 
 	return (
 		<SponsorContainer heading="Partners" {...props}>
@@ -219,7 +220,7 @@ const PartnerSponsors = (props: React.ComponentPropsWithoutRef<"div">) => {
 					"gap-10 lg:gap-20"
 				)}
 			>
-				{partner.map((sponsor, idx) => (
+				{sponsors.map((sponsor, idx) => (
 					<Link key={`partnerSponsor-${idx}`} href={sponsor.href}>
 						<Image
 							src={sponsor.imageUrl}
@@ -239,6 +240,12 @@ const PartnerSponsors = (props: React.ComponentPropsWithoutRef<"div">) => {
 const Sponsors = ({
 	subheading,
 	heading,
+	bronzeSponsors = [],
+	goldSponsors = [],
+	partnerSponsors = [],
+	rainbowSponsor,
+	silverSponsors = [],
+	visionarySponsors = [],
 }: ReturnType<typeof mapDataToProps>) => {
 	return (
 		<BoundedBox tag="section" width="base">
@@ -270,25 +277,69 @@ const Sponsors = ({
 			</div>
 
 			<div className="space-y-16 lg:space-y-30">
-				<RainbowsSponsor />
-				<VisionarySponsors />
-				<GoldSponsors />
-				<SilverSponsors />
-				<BronzeSponsors />
-				<PartnerSponsors />
+				<RainbowsSponsor sponsor={rainbowSponsor} />
+				<VisionarySponsors sponsors={visionarySponsors} />
+				<GoldSponsors sponsors={goldSponsors} />
+				<SilverSponsors sponsors={silverSponsors} />
+				<BronzeSponsors sponsors={bronzeSponsors} />
+				<PartnerSponsors sponsors={partnerSponsors} />
 			</div>
 		</BoundedBox>
 	)
 }
 
+function mapDocumentToSponsor(document?: SponsorFragment): Sponsor {
+	return {
+		href: document?.data?.link?.url,
+		imageAlt: document?.data?.image?.alt,
+		imageUrl: document?.data?.image?.url,
+		name: document?.data?.name?.text,
+	}
+}
+
 export function mapDataToProps({ data }: MapDataToPropsCtx<SponsorsFragment>) {
+	const sponsorsList = data.primary?.sponsor_list?.document?.data
+
 	return {
 		heading: data.primary?.heading?.text,
 		subheading: data.primary?.subheading?.text,
+		rainbowSponsor: mapDocumentToSponsor(
+			sponsorsList?.rainbows_over_waikiki_sponsor?.document
+		),
+		visionarySponsors: sponsorsList?.visionary_sponsors?.map((s) =>
+			mapDocumentToSponsor(s?.sponsor?.document)
+		),
+		goldSponsors: sponsorsList?.gold_sponsors?.map((s) =>
+			mapDocumentToSponsor(s?.sponsor?.document)
+		),
+		silverSponsors: sponsorsList?.silver_sponsors?.map((s) =>
+			mapDocumentToSponsor(s?.sponsor?.document)
+		),
+		bronzeSponsors: sponsorsList?.bronze_sponsors?.map((s) =>
+			mapDocumentToSponsor(s?.sponsor?.document)
+		),
+		partnerSponsors: sponsorsList?.partner_sponsors?.map((s) =>
+			mapDocumentToSponsor(s?.sponsor?.document)
+		),
 	}
 }
 
 export const gqlFragment = graphql`
+	fragment Sponsor on PrismicSponsor {
+		data {
+			image {
+				alt
+				url
+			}
+			link {
+				url
+			}
+			name {
+				text
+			}
+		}
+	}
+
 	fragment Sponsors on PrismicPageDataBodySponsors {
 		primary {
 			heading {
@@ -296,6 +347,55 @@ export const gqlFragment = graphql`
 			}
 			subheading {
 				text
+			}
+			sponsor_list {
+				document {
+					... on PrismicSponsorsList {
+						id
+						data {
+							rainbows_over_waikiki_sponsor {
+								document {
+									...Sponsor
+								}
+							}
+							visionary_sponsors {
+								sponsor {
+									document {
+										...Sponsor
+									}
+								}
+							}
+							gold_sponsors {
+								sponsor {
+									document {
+										...Sponsor
+									}
+								}
+							}
+							silver_sponsors {
+								sponsor {
+									document {
+										...Sponsor
+									}
+								}
+							}
+							bronze_sponsors {
+								sponsor {
+									document {
+										...Sponsor
+									}
+								}
+							}
+							partner_sponsors {
+								sponsor {
+									document {
+										...Sponsor
+									}
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}
