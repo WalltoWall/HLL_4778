@@ -1828,6 +1828,7 @@ export type PrismicAllDocumentTypes =
 	| PrismicPage
 	| PrismicSettings
 	| PrismicSponsor
+	| PrismicSponsorsList
 
 export type PrismicAlternateLanguageType = {
 	id?: Maybe<Scalars["ID"]>
@@ -2896,6 +2897,7 @@ export type PrismicPageDataBodySponsors = PrismicSliceType & {
 
 export type PrismicPageDataBodySponsorsPrimary = {
 	heading?: Maybe<PrismicStructuredTextType>
+	sponsor_list?: Maybe<PrismicLinkType>
 	subheading?: Maybe<PrismicStructuredTextType>
 }
 
@@ -3898,14 +3900,12 @@ export type PrismicSponsorDataType = {
 	image?: Maybe<PrismicSponsorDataImageImageType>
 	link?: Maybe<PrismicLinkType>
 	name?: Maybe<PrismicStructuredTextType>
-	type?: Maybe<Scalars["String"]>
 }
 
 export type PrismicSponsorDataTypeFilterInput = {
 	image?: Maybe<PrismicSponsorDataImageImageTypeFilterInput>
 	link?: Maybe<PrismicLinkTypeFilterInput>
 	name?: Maybe<PrismicStructuredTextTypeFilterInput>
-	type?: Maybe<StringQueryOperatorInput>
 }
 
 export type PrismicSponsorEdge = {
@@ -4017,7 +4017,6 @@ export enum PrismicSponsorFieldsEnum {
 	DataNameText = "data___name___text",
 	DataNameHtml = "data___name___html",
 	DataNameRaw = "data___name___raw",
-	DataType = "data___type",
 	DataRaw = "dataRaw",
 	PrismicId = "prismicId",
 	AlternateLanguages = "alternate_languages",
@@ -4152,6 +4151,415 @@ export type PrismicSponsorGroupConnection = {
 
 export type PrismicSponsorSortInput = {
 	fields?: Maybe<Array<Maybe<PrismicSponsorFieldsEnum>>>
+	order?: Maybe<Array<Maybe<SortOrderEnum>>>
+}
+
+export type PrismicSponsorsList = Node & {
+	uid: Scalars["String"]
+	data?: Maybe<PrismicSponsorsListDataType>
+	dataRaw: Scalars["JSON"]
+	prismicId: Scalars["ID"]
+	alternate_languages: Array<PrismicAlternateLanguageType>
+	first_publication_date: Scalars["Date"]
+	href: Scalars["String"]
+	lang: Scalars["String"]
+	last_publication_date: Scalars["Date"]
+	tags: Array<Scalars["String"]>
+	type: Scalars["String"]
+	url?: Maybe<Scalars["String"]>
+	_previewable: Scalars["ID"]
+	id: Scalars["ID"]
+	parent?: Maybe<Node>
+	children: Array<Node>
+	internal: Internal
+}
+
+export type PrismicSponsorsListFirst_Publication_DateArgs = {
+	formatString?: Maybe<Scalars["String"]>
+	fromNow?: Maybe<Scalars["Boolean"]>
+	difference?: Maybe<Scalars["String"]>
+	locale?: Maybe<Scalars["String"]>
+}
+
+export type PrismicSponsorsListLast_Publication_DateArgs = {
+	formatString?: Maybe<Scalars["String"]>
+	fromNow?: Maybe<Scalars["Boolean"]>
+	difference?: Maybe<Scalars["String"]>
+	locale?: Maybe<Scalars["String"]>
+}
+
+export type PrismicSponsorsListConnection = {
+	totalCount: Scalars["Int"]
+	edges: Array<PrismicSponsorsListEdge>
+	nodes: Array<PrismicSponsorsList>
+	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<PrismicSponsorsListGroupConnection>
+}
+
+export type PrismicSponsorsListConnectionDistinctArgs = {
+	field: PrismicSponsorsListFieldsEnum
+}
+
+export type PrismicSponsorsListConnectionMaxArgs = {
+	field: PrismicSponsorsListFieldsEnum
+}
+
+export type PrismicSponsorsListConnectionMinArgs = {
+	field: PrismicSponsorsListFieldsEnum
+}
+
+export type PrismicSponsorsListConnectionSumArgs = {
+	field: PrismicSponsorsListFieldsEnum
+}
+
+export type PrismicSponsorsListConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: PrismicSponsorsListFieldsEnum
+}
+
+export type PrismicSponsorsListDataBronzeSponsors = {
+	sponsor?: Maybe<PrismicLinkType>
+}
+
+export type PrismicSponsorsListDataBronzeSponsorsFilterInput = {
+	sponsor?: Maybe<PrismicLinkTypeFilterInput>
+}
+
+export type PrismicSponsorsListDataBronzeSponsorsFilterListInput = {
+	elemMatch?: Maybe<PrismicSponsorsListDataBronzeSponsorsFilterInput>
+}
+
+export type PrismicSponsorsListDataGoldSponsors = {
+	sponsor?: Maybe<PrismicLinkType>
+}
+
+export type PrismicSponsorsListDataGoldSponsorsFilterInput = {
+	sponsor?: Maybe<PrismicLinkTypeFilterInput>
+}
+
+export type PrismicSponsorsListDataGoldSponsorsFilterListInput = {
+	elemMatch?: Maybe<PrismicSponsorsListDataGoldSponsorsFilterInput>
+}
+
+export type PrismicSponsorsListDataPartnerSponsors = {
+	sponsor?: Maybe<PrismicLinkType>
+}
+
+export type PrismicSponsorsListDataPartnerSponsorsFilterInput = {
+	sponsor?: Maybe<PrismicLinkTypeFilterInput>
+}
+
+export type PrismicSponsorsListDataPartnerSponsorsFilterListInput = {
+	elemMatch?: Maybe<PrismicSponsorsListDataPartnerSponsorsFilterInput>
+}
+
+export type PrismicSponsorsListDataSilverSponsors = {
+	sponsor?: Maybe<PrismicLinkType>
+}
+
+export type PrismicSponsorsListDataSilverSponsorsFilterInput = {
+	sponsor?: Maybe<PrismicLinkTypeFilterInput>
+}
+
+export type PrismicSponsorsListDataSilverSponsorsFilterListInput = {
+	elemMatch?: Maybe<PrismicSponsorsListDataSilverSponsorsFilterInput>
+}
+
+export type PrismicSponsorsListDataType = {
+	bronze_sponsors?: Maybe<Array<Maybe<PrismicSponsorsListDataBronzeSponsors>>>
+	gold_sponsors?: Maybe<Array<Maybe<PrismicSponsorsListDataGoldSponsors>>>
+	partner_sponsors?: Maybe<Array<Maybe<PrismicSponsorsListDataPartnerSponsors>>>
+	rainbows_over_waikiki_sponsor?: Maybe<PrismicLinkType>
+	silver_sponsors?: Maybe<Array<Maybe<PrismicSponsorsListDataSilverSponsors>>>
+	title?: Maybe<PrismicStructuredTextType>
+	visionary_sponsors?: Maybe<
+		Array<Maybe<PrismicSponsorsListDataVisionarySponsors>>
+	>
+}
+
+export type PrismicSponsorsListDataTypeFilterInput = {
+	bronze_sponsors?: Maybe<PrismicSponsorsListDataBronzeSponsorsFilterListInput>
+	gold_sponsors?: Maybe<PrismicSponsorsListDataGoldSponsorsFilterListInput>
+	partner_sponsors?: Maybe<PrismicSponsorsListDataPartnerSponsorsFilterListInput>
+	rainbows_over_waikiki_sponsor?: Maybe<PrismicLinkTypeFilterInput>
+	silver_sponsors?: Maybe<PrismicSponsorsListDataSilverSponsorsFilterListInput>
+	title?: Maybe<PrismicStructuredTextTypeFilterInput>
+	visionary_sponsors?: Maybe<PrismicSponsorsListDataVisionarySponsorsFilterListInput>
+}
+
+export type PrismicSponsorsListDataVisionarySponsors = {
+	sponsor?: Maybe<PrismicLinkType>
+}
+
+export type PrismicSponsorsListDataVisionarySponsorsFilterInput = {
+	sponsor?: Maybe<PrismicLinkTypeFilterInput>
+}
+
+export type PrismicSponsorsListDataVisionarySponsorsFilterListInput = {
+	elemMatch?: Maybe<PrismicSponsorsListDataVisionarySponsorsFilterInput>
+}
+
+export type PrismicSponsorsListEdge = {
+	next?: Maybe<PrismicSponsorsList>
+	node: PrismicSponsorsList
+	previous?: Maybe<PrismicSponsorsList>
+}
+
+export enum PrismicSponsorsListFieldsEnum {
+	Uid = "uid",
+	DataBronzeSponsors = "data___bronze_sponsors",
+	DataBronzeSponsorsSponsorLinkType = "data___bronze_sponsors___sponsor___link_type",
+	DataBronzeSponsorsSponsorIsBroken = "data___bronze_sponsors___sponsor___isBroken",
+	DataBronzeSponsorsSponsorUrl = "data___bronze_sponsors___sponsor___url",
+	DataBronzeSponsorsSponsorTarget = "data___bronze_sponsors___sponsor___target",
+	DataBronzeSponsorsSponsorSize = "data___bronze_sponsors___sponsor___size",
+	DataBronzeSponsorsSponsorId = "data___bronze_sponsors___sponsor___id",
+	DataBronzeSponsorsSponsorType = "data___bronze_sponsors___sponsor___type",
+	DataBronzeSponsorsSponsorTags = "data___bronze_sponsors___sponsor___tags",
+	DataBronzeSponsorsSponsorLang = "data___bronze_sponsors___sponsor___lang",
+	DataBronzeSponsorsSponsorSlug = "data___bronze_sponsors___sponsor___slug",
+	DataBronzeSponsorsSponsorUid = "data___bronze_sponsors___sponsor___uid",
+	DataBronzeSponsorsSponsorRaw = "data___bronze_sponsors___sponsor___raw",
+	DataGoldSponsors = "data___gold_sponsors",
+	DataGoldSponsorsSponsorLinkType = "data___gold_sponsors___sponsor___link_type",
+	DataGoldSponsorsSponsorIsBroken = "data___gold_sponsors___sponsor___isBroken",
+	DataGoldSponsorsSponsorUrl = "data___gold_sponsors___sponsor___url",
+	DataGoldSponsorsSponsorTarget = "data___gold_sponsors___sponsor___target",
+	DataGoldSponsorsSponsorSize = "data___gold_sponsors___sponsor___size",
+	DataGoldSponsorsSponsorId = "data___gold_sponsors___sponsor___id",
+	DataGoldSponsorsSponsorType = "data___gold_sponsors___sponsor___type",
+	DataGoldSponsorsSponsorTags = "data___gold_sponsors___sponsor___tags",
+	DataGoldSponsorsSponsorLang = "data___gold_sponsors___sponsor___lang",
+	DataGoldSponsorsSponsorSlug = "data___gold_sponsors___sponsor___slug",
+	DataGoldSponsorsSponsorUid = "data___gold_sponsors___sponsor___uid",
+	DataGoldSponsorsSponsorRaw = "data___gold_sponsors___sponsor___raw",
+	DataPartnerSponsors = "data___partner_sponsors",
+	DataPartnerSponsorsSponsorLinkType = "data___partner_sponsors___sponsor___link_type",
+	DataPartnerSponsorsSponsorIsBroken = "data___partner_sponsors___sponsor___isBroken",
+	DataPartnerSponsorsSponsorUrl = "data___partner_sponsors___sponsor___url",
+	DataPartnerSponsorsSponsorTarget = "data___partner_sponsors___sponsor___target",
+	DataPartnerSponsorsSponsorSize = "data___partner_sponsors___sponsor___size",
+	DataPartnerSponsorsSponsorId = "data___partner_sponsors___sponsor___id",
+	DataPartnerSponsorsSponsorType = "data___partner_sponsors___sponsor___type",
+	DataPartnerSponsorsSponsorTags = "data___partner_sponsors___sponsor___tags",
+	DataPartnerSponsorsSponsorLang = "data___partner_sponsors___sponsor___lang",
+	DataPartnerSponsorsSponsorSlug = "data___partner_sponsors___sponsor___slug",
+	DataPartnerSponsorsSponsorUid = "data___partner_sponsors___sponsor___uid",
+	DataPartnerSponsorsSponsorRaw = "data___partner_sponsors___sponsor___raw",
+	DataRainbowsOverWaikikiSponsorLinkType = "data___rainbows_over_waikiki_sponsor___link_type",
+	DataRainbowsOverWaikikiSponsorIsBroken = "data___rainbows_over_waikiki_sponsor___isBroken",
+	DataRainbowsOverWaikikiSponsorUrl = "data___rainbows_over_waikiki_sponsor___url",
+	DataRainbowsOverWaikikiSponsorTarget = "data___rainbows_over_waikiki_sponsor___target",
+	DataRainbowsOverWaikikiSponsorSize = "data___rainbows_over_waikiki_sponsor___size",
+	DataRainbowsOverWaikikiSponsorId = "data___rainbows_over_waikiki_sponsor___id",
+	DataRainbowsOverWaikikiSponsorType = "data___rainbows_over_waikiki_sponsor___type",
+	DataRainbowsOverWaikikiSponsorTags = "data___rainbows_over_waikiki_sponsor___tags",
+	DataRainbowsOverWaikikiSponsorLang = "data___rainbows_over_waikiki_sponsor___lang",
+	DataRainbowsOverWaikikiSponsorSlug = "data___rainbows_over_waikiki_sponsor___slug",
+	DataRainbowsOverWaikikiSponsorUid = "data___rainbows_over_waikiki_sponsor___uid",
+	DataRainbowsOverWaikikiSponsorLocalFileSourceInstanceName = "data___rainbows_over_waikiki_sponsor___localFile___sourceInstanceName",
+	DataRainbowsOverWaikikiSponsorLocalFileAbsolutePath = "data___rainbows_over_waikiki_sponsor___localFile___absolutePath",
+	DataRainbowsOverWaikikiSponsorLocalFileRelativePath = "data___rainbows_over_waikiki_sponsor___localFile___relativePath",
+	DataRainbowsOverWaikikiSponsorLocalFileExtension = "data___rainbows_over_waikiki_sponsor___localFile___extension",
+	DataRainbowsOverWaikikiSponsorLocalFileSize = "data___rainbows_over_waikiki_sponsor___localFile___size",
+	DataRainbowsOverWaikikiSponsorLocalFilePrettySize = "data___rainbows_over_waikiki_sponsor___localFile___prettySize",
+	DataRainbowsOverWaikikiSponsorLocalFileModifiedTime = "data___rainbows_over_waikiki_sponsor___localFile___modifiedTime",
+	DataRainbowsOverWaikikiSponsorLocalFileAccessTime = "data___rainbows_over_waikiki_sponsor___localFile___accessTime",
+	DataRainbowsOverWaikikiSponsorLocalFileChangeTime = "data___rainbows_over_waikiki_sponsor___localFile___changeTime",
+	DataRainbowsOverWaikikiSponsorLocalFileBirthTime = "data___rainbows_over_waikiki_sponsor___localFile___birthTime",
+	DataRainbowsOverWaikikiSponsorLocalFileRoot = "data___rainbows_over_waikiki_sponsor___localFile___root",
+	DataRainbowsOverWaikikiSponsorLocalFileDir = "data___rainbows_over_waikiki_sponsor___localFile___dir",
+	DataRainbowsOverWaikikiSponsorLocalFileBase = "data___rainbows_over_waikiki_sponsor___localFile___base",
+	DataRainbowsOverWaikikiSponsorLocalFileExt = "data___rainbows_over_waikiki_sponsor___localFile___ext",
+	DataRainbowsOverWaikikiSponsorLocalFileName = "data___rainbows_over_waikiki_sponsor___localFile___name",
+	DataRainbowsOverWaikikiSponsorLocalFileRelativeDirectory = "data___rainbows_over_waikiki_sponsor___localFile___relativeDirectory",
+	DataRainbowsOverWaikikiSponsorLocalFileDev = "data___rainbows_over_waikiki_sponsor___localFile___dev",
+	DataRainbowsOverWaikikiSponsorLocalFileMode = "data___rainbows_over_waikiki_sponsor___localFile___mode",
+	DataRainbowsOverWaikikiSponsorLocalFileNlink = "data___rainbows_over_waikiki_sponsor___localFile___nlink",
+	DataRainbowsOverWaikikiSponsorLocalFileUid = "data___rainbows_over_waikiki_sponsor___localFile___uid",
+	DataRainbowsOverWaikikiSponsorLocalFileGid = "data___rainbows_over_waikiki_sponsor___localFile___gid",
+	DataRainbowsOverWaikikiSponsorLocalFileRdev = "data___rainbows_over_waikiki_sponsor___localFile___rdev",
+	DataRainbowsOverWaikikiSponsorLocalFileIno = "data___rainbows_over_waikiki_sponsor___localFile___ino",
+	DataRainbowsOverWaikikiSponsorLocalFileAtimeMs = "data___rainbows_over_waikiki_sponsor___localFile___atimeMs",
+	DataRainbowsOverWaikikiSponsorLocalFileMtimeMs = "data___rainbows_over_waikiki_sponsor___localFile___mtimeMs",
+	DataRainbowsOverWaikikiSponsorLocalFileCtimeMs = "data___rainbows_over_waikiki_sponsor___localFile___ctimeMs",
+	DataRainbowsOverWaikikiSponsorLocalFileAtime = "data___rainbows_over_waikiki_sponsor___localFile___atime",
+	DataRainbowsOverWaikikiSponsorLocalFileMtime = "data___rainbows_over_waikiki_sponsor___localFile___mtime",
+	DataRainbowsOverWaikikiSponsorLocalFileCtime = "data___rainbows_over_waikiki_sponsor___localFile___ctime",
+	DataRainbowsOverWaikikiSponsorLocalFileBirthtime = "data___rainbows_over_waikiki_sponsor___localFile___birthtime",
+	DataRainbowsOverWaikikiSponsorLocalFileBirthtimeMs = "data___rainbows_over_waikiki_sponsor___localFile___birthtimeMs",
+	DataRainbowsOverWaikikiSponsorLocalFileId = "data___rainbows_over_waikiki_sponsor___localFile___id",
+	DataRainbowsOverWaikikiSponsorLocalFileChildren = "data___rainbows_over_waikiki_sponsor___localFile___children",
+	DataRainbowsOverWaikikiSponsorRaw = "data___rainbows_over_waikiki_sponsor___raw",
+	DataSilverSponsors = "data___silver_sponsors",
+	DataSilverSponsorsSponsorLinkType = "data___silver_sponsors___sponsor___link_type",
+	DataSilverSponsorsSponsorIsBroken = "data___silver_sponsors___sponsor___isBroken",
+	DataSilverSponsorsSponsorUrl = "data___silver_sponsors___sponsor___url",
+	DataSilverSponsorsSponsorTarget = "data___silver_sponsors___sponsor___target",
+	DataSilverSponsorsSponsorSize = "data___silver_sponsors___sponsor___size",
+	DataSilverSponsorsSponsorId = "data___silver_sponsors___sponsor___id",
+	DataSilverSponsorsSponsorType = "data___silver_sponsors___sponsor___type",
+	DataSilverSponsorsSponsorTags = "data___silver_sponsors___sponsor___tags",
+	DataSilverSponsorsSponsorLang = "data___silver_sponsors___sponsor___lang",
+	DataSilverSponsorsSponsorSlug = "data___silver_sponsors___sponsor___slug",
+	DataSilverSponsorsSponsorUid = "data___silver_sponsors___sponsor___uid",
+	DataSilverSponsorsSponsorRaw = "data___silver_sponsors___sponsor___raw",
+	DataTitleText = "data___title___text",
+	DataTitleHtml = "data___title___html",
+	DataTitleRaw = "data___title___raw",
+	DataVisionarySponsors = "data___visionary_sponsors",
+	DataVisionarySponsorsSponsorLinkType = "data___visionary_sponsors___sponsor___link_type",
+	DataVisionarySponsorsSponsorIsBroken = "data___visionary_sponsors___sponsor___isBroken",
+	DataVisionarySponsorsSponsorUrl = "data___visionary_sponsors___sponsor___url",
+	DataVisionarySponsorsSponsorTarget = "data___visionary_sponsors___sponsor___target",
+	DataVisionarySponsorsSponsorSize = "data___visionary_sponsors___sponsor___size",
+	DataVisionarySponsorsSponsorId = "data___visionary_sponsors___sponsor___id",
+	DataVisionarySponsorsSponsorType = "data___visionary_sponsors___sponsor___type",
+	DataVisionarySponsorsSponsorTags = "data___visionary_sponsors___sponsor___tags",
+	DataVisionarySponsorsSponsorLang = "data___visionary_sponsors___sponsor___lang",
+	DataVisionarySponsorsSponsorSlug = "data___visionary_sponsors___sponsor___slug",
+	DataVisionarySponsorsSponsorUid = "data___visionary_sponsors___sponsor___uid",
+	DataVisionarySponsorsSponsorRaw = "data___visionary_sponsors___sponsor___raw",
+	DataRaw = "dataRaw",
+	PrismicId = "prismicId",
+	AlternateLanguages = "alternate_languages",
+	AlternateLanguagesId = "alternate_languages___id",
+	AlternateLanguagesUid = "alternate_languages___uid",
+	AlternateLanguagesLang = "alternate_languages___lang",
+	AlternateLanguagesType = "alternate_languages___type",
+	AlternateLanguagesRaw = "alternate_languages___raw",
+	FirstPublicationDate = "first_publication_date",
+	Href = "href",
+	Lang = "lang",
+	LastPublicationDate = "last_publication_date",
+	Tags = "tags",
+	Type = "type",
+	Url = "url",
+	Previewable = "_previewable",
+	Id = "id",
+	ParentId = "parent___id",
+	ParentParentId = "parent___parent___id",
+	ParentParentParentId = "parent___parent___parent___id",
+	ParentParentParentChildren = "parent___parent___parent___children",
+	ParentParentChildren = "parent___parent___children",
+	ParentParentChildrenId = "parent___parent___children___id",
+	ParentParentChildrenChildren = "parent___parent___children___children",
+	ParentParentInternalContent = "parent___parent___internal___content",
+	ParentParentInternalContentDigest = "parent___parent___internal___contentDigest",
+	ParentParentInternalDescription = "parent___parent___internal___description",
+	ParentParentInternalFieldOwners = "parent___parent___internal___fieldOwners",
+	ParentParentInternalIgnoreType = "parent___parent___internal___ignoreType",
+	ParentParentInternalMediaType = "parent___parent___internal___mediaType",
+	ParentParentInternalOwner = "parent___parent___internal___owner",
+	ParentParentInternalType = "parent___parent___internal___type",
+	ParentChildren = "parent___children",
+	ParentChildrenId = "parent___children___id",
+	ParentChildrenParentId = "parent___children___parent___id",
+	ParentChildrenParentChildren = "parent___children___parent___children",
+	ParentChildrenChildren = "parent___children___children",
+	ParentChildrenChildrenId = "parent___children___children___id",
+	ParentChildrenChildrenChildren = "parent___children___children___children",
+	ParentChildrenInternalContent = "parent___children___internal___content",
+	ParentChildrenInternalContentDigest = "parent___children___internal___contentDigest",
+	ParentChildrenInternalDescription = "parent___children___internal___description",
+	ParentChildrenInternalFieldOwners = "parent___children___internal___fieldOwners",
+	ParentChildrenInternalIgnoreType = "parent___children___internal___ignoreType",
+	ParentChildrenInternalMediaType = "parent___children___internal___mediaType",
+	ParentChildrenInternalOwner = "parent___children___internal___owner",
+	ParentChildrenInternalType = "parent___children___internal___type",
+	ParentInternalContent = "parent___internal___content",
+	ParentInternalContentDigest = "parent___internal___contentDigest",
+	ParentInternalDescription = "parent___internal___description",
+	ParentInternalFieldOwners = "parent___internal___fieldOwners",
+	ParentInternalIgnoreType = "parent___internal___ignoreType",
+	ParentInternalMediaType = "parent___internal___mediaType",
+	ParentInternalOwner = "parent___internal___owner",
+	ParentInternalType = "parent___internal___type",
+	Children = "children",
+	ChildrenId = "children___id",
+	ChildrenParentId = "children___parent___id",
+	ChildrenParentParentId = "children___parent___parent___id",
+	ChildrenParentParentChildren = "children___parent___parent___children",
+	ChildrenParentChildren = "children___parent___children",
+	ChildrenParentChildrenId = "children___parent___children___id",
+	ChildrenParentChildrenChildren = "children___parent___children___children",
+	ChildrenParentInternalContent = "children___parent___internal___content",
+	ChildrenParentInternalContentDigest = "children___parent___internal___contentDigest",
+	ChildrenParentInternalDescription = "children___parent___internal___description",
+	ChildrenParentInternalFieldOwners = "children___parent___internal___fieldOwners",
+	ChildrenParentInternalIgnoreType = "children___parent___internal___ignoreType",
+	ChildrenParentInternalMediaType = "children___parent___internal___mediaType",
+	ChildrenParentInternalOwner = "children___parent___internal___owner",
+	ChildrenParentInternalType = "children___parent___internal___type",
+	ChildrenChildren = "children___children",
+	ChildrenChildrenId = "children___children___id",
+	ChildrenChildrenParentId = "children___children___parent___id",
+	ChildrenChildrenParentChildren = "children___children___parent___children",
+	ChildrenChildrenChildren = "children___children___children",
+	ChildrenChildrenChildrenId = "children___children___children___id",
+	ChildrenChildrenChildrenChildren = "children___children___children___children",
+	ChildrenChildrenInternalContent = "children___children___internal___content",
+	ChildrenChildrenInternalContentDigest = "children___children___internal___contentDigest",
+	ChildrenChildrenInternalDescription = "children___children___internal___description",
+	ChildrenChildrenInternalFieldOwners = "children___children___internal___fieldOwners",
+	ChildrenChildrenInternalIgnoreType = "children___children___internal___ignoreType",
+	ChildrenChildrenInternalMediaType = "children___children___internal___mediaType",
+	ChildrenChildrenInternalOwner = "children___children___internal___owner",
+	ChildrenChildrenInternalType = "children___children___internal___type",
+	ChildrenInternalContent = "children___internal___content",
+	ChildrenInternalContentDigest = "children___internal___contentDigest",
+	ChildrenInternalDescription = "children___internal___description",
+	ChildrenInternalFieldOwners = "children___internal___fieldOwners",
+	ChildrenInternalIgnoreType = "children___internal___ignoreType",
+	ChildrenInternalMediaType = "children___internal___mediaType",
+	ChildrenInternalOwner = "children___internal___owner",
+	ChildrenInternalType = "children___internal___type",
+	InternalContent = "internal___content",
+	InternalContentDigest = "internal___contentDigest",
+	InternalDescription = "internal___description",
+	InternalFieldOwners = "internal___fieldOwners",
+	InternalIgnoreType = "internal___ignoreType",
+	InternalMediaType = "internal___mediaType",
+	InternalOwner = "internal___owner",
+	InternalType = "internal___type",
+}
+
+export type PrismicSponsorsListFilterInput = {
+	uid?: Maybe<StringQueryOperatorInput>
+	data?: Maybe<PrismicSponsorsListDataTypeFilterInput>
+	dataRaw?: Maybe<JsonQueryOperatorInput>
+	prismicId?: Maybe<IdQueryOperatorInput>
+	alternate_languages?: Maybe<PrismicAlternateLanguageTypeFilterListInput>
+	first_publication_date?: Maybe<DateQueryOperatorInput>
+	href?: Maybe<StringQueryOperatorInput>
+	lang?: Maybe<StringQueryOperatorInput>
+	last_publication_date?: Maybe<DateQueryOperatorInput>
+	tags?: Maybe<StringQueryOperatorInput>
+	type?: Maybe<StringQueryOperatorInput>
+	url?: Maybe<StringQueryOperatorInput>
+	_previewable?: Maybe<IdQueryOperatorInput>
+	id?: Maybe<StringQueryOperatorInput>
+	parent?: Maybe<NodeFilterInput>
+	children?: Maybe<NodeFilterListInput>
+	internal?: Maybe<InternalFilterInput>
+}
+
+export type PrismicSponsorsListGroupConnection = {
+	totalCount: Scalars["Int"]
+	edges: Array<PrismicSponsorsListEdge>
+	nodes: Array<PrismicSponsorsList>
+	pageInfo: PageInfo
+	field: Scalars["String"]
+	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type PrismicSponsorsListSortInput = {
+	fields?: Maybe<Array<Maybe<PrismicSponsorsListFieldsEnum>>>
 	order?: Maybe<Array<Maybe<SortOrderEnum>>>
 }
 
@@ -4355,6 +4763,8 @@ export type Query = {
 	allPrismicSettings: PrismicSettingsConnection
 	prismicSponsor?: Maybe<PrismicSponsor>
 	allPrismicSponsor: PrismicSponsorConnection
+	prismicSponsorsList?: Maybe<PrismicSponsorsList>
+	allPrismicSponsorsList: PrismicSponsorsListConnection
 	sitePlugin?: Maybe<SitePlugin>
 	allSitePlugin: SitePluginConnection
 	siteBuildMetadata?: Maybe<SiteBuildMetadata>
@@ -4675,6 +5085,33 @@ export type QueryPrismicSponsorArgs = {
 export type QueryAllPrismicSponsorArgs = {
 	filter?: Maybe<PrismicSponsorFilterInput>
 	sort?: Maybe<PrismicSponsorSortInput>
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+}
+
+export type QueryPrismicSponsorsListArgs = {
+	uid?: Maybe<StringQueryOperatorInput>
+	data?: Maybe<PrismicSponsorsListDataTypeFilterInput>
+	dataRaw?: Maybe<JsonQueryOperatorInput>
+	prismicId?: Maybe<IdQueryOperatorInput>
+	alternate_languages?: Maybe<PrismicAlternateLanguageTypeFilterListInput>
+	first_publication_date?: Maybe<DateQueryOperatorInput>
+	href?: Maybe<StringQueryOperatorInput>
+	lang?: Maybe<StringQueryOperatorInput>
+	last_publication_date?: Maybe<DateQueryOperatorInput>
+	tags?: Maybe<StringQueryOperatorInput>
+	type?: Maybe<StringQueryOperatorInput>
+	url?: Maybe<StringQueryOperatorInput>
+	_previewable?: Maybe<IdQueryOperatorInput>
+	id?: Maybe<StringQueryOperatorInput>
+	parent?: Maybe<NodeFilterInput>
+	children?: Maybe<NodeFilterListInput>
+	internal?: Maybe<InternalFilterInput>
+}
+
+export type QueryAllPrismicSponsorsListArgs = {
+	filter?: Maybe<PrismicSponsorsListFilterInput>
+	sort?: Maybe<PrismicSponsorsListSortInput>
 	skip?: Maybe<Scalars["Int"]>
 	limit?: Maybe<Scalars["Int"]>
 }
@@ -5931,6 +6368,7 @@ export type SitePluginPluginOptionsSchemas = {
 	page?: Maybe<SitePluginPluginOptionsSchemasPage>
 	settings?: Maybe<SitePluginPluginOptionsSchemasSettings>
 	sponsor?: Maybe<SitePluginPluginOptionsSchemasSponsor>
+	sponsors_list?: Maybe<SitePluginPluginOptionsSchemasSponsors_List>
 }
 
 export type SitePluginPluginOptionsSchemasEvent = {
@@ -6089,6 +6527,7 @@ export type SitePluginPluginOptionsSchemasFilterInput = {
 	page?: Maybe<SitePluginPluginOptionsSchemasPageFilterInput>
 	settings?: Maybe<SitePluginPluginOptionsSchemasSettingsFilterInput>
 	sponsor?: Maybe<SitePluginPluginOptionsSchemasSponsorFilterInput>
+	sponsors_list?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListFilterInput>
 }
 
 export type SitePluginPluginOptionsSchemasNavigation = {
@@ -7073,12 +7512,14 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_R
 	{
 		subheading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_RepeatSubheading>
 		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_RepeatHeading>
+		sponsor_list?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_RepeatSponsor_List>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_RepeatFilterInput =
 	{
 		subheading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_RepeatSubheadingFilterInput>
 		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_RepeatHeadingFilterInput>
+		sponsor_list?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_RepeatSponsor_ListFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_RepeatHeading =
@@ -7103,6 +7544,32 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_R
 	{
 		type?: Maybe<StringQueryOperatorInput>
 		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_RepeatHeadingConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_RepeatSponsor_List =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_RepeatSponsor_ListConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_RepeatSponsor_ListConfig =
+	{
+		select?: Maybe<Scalars["String"]>
+		customtypes?: Maybe<Array<Maybe<Scalars["String"]>>>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_RepeatSponsor_ListConfigFilterInput =
+	{
+		select?: Maybe<StringQueryOperatorInput>
+		customtypes?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_RepeatSponsor_ListFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_RepeatSponsor_ListConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_RepeatSubheading =
@@ -7917,14 +8384,12 @@ export type SitePluginPluginOptionsSchemasSponsorFilterInput = {
 
 export type SitePluginPluginOptionsSchemasSponsorMain = {
 	name?: Maybe<SitePluginPluginOptionsSchemasSponsorMainName>
-	type?: Maybe<SitePluginPluginOptionsSchemasSponsorMainType>
 	link?: Maybe<SitePluginPluginOptionsSchemasSponsorMainLink>
 	image?: Maybe<SitePluginPluginOptionsSchemasSponsorMainImage>
 }
 
 export type SitePluginPluginOptionsSchemasSponsorMainFilterInput = {
 	name?: Maybe<SitePluginPluginOptionsSchemasSponsorMainNameFilterInput>
-	type?: Maybe<SitePluginPluginOptionsSchemasSponsorMainTypeFilterInput>
 	link?: Maybe<SitePluginPluginOptionsSchemasSponsorMainLinkFilterInput>
 	image?: Maybe<SitePluginPluginOptionsSchemasSponsorMainImageFilterInput>
 }
@@ -7987,27 +8452,397 @@ export type SitePluginPluginOptionsSchemasSponsorMainNameFilterInput = {
 	config?: Maybe<SitePluginPluginOptionsSchemasSponsorMainNameConfigFilterInput>
 }
 
-export type SitePluginPluginOptionsSchemasSponsorMainType = {
-	type?: Maybe<Scalars["String"]>
-	config?: Maybe<SitePluginPluginOptionsSchemasSponsorMainTypeConfig>
+export type SitePluginPluginOptionsSchemasSponsors_List = {
+	Main?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMain>
 }
 
-export type SitePluginPluginOptionsSchemasSponsorMainTypeConfig = {
-	options?: Maybe<Array<Maybe<Scalars["String"]>>>
-	default_value?: Maybe<Scalars["String"]>
+export type SitePluginPluginOptionsSchemasSponsors_ListFilterInput = {
+	Main?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMain = {
+	title?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainTitle>
+	uid?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainUid>
+	rainbows_over_waikiki_sponsor?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainRainbows_Over_Waikiki_Sponsor>
+	visionary_sponsors?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_Sponsors>
+	gold_sponsors?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainGold_Sponsors>
+	silver_sponsors?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainSilver_Sponsors>
+	bronze_sponsors?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainBronze_Sponsors>
+	partner_sponsors?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainPartner_Sponsors>
+}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainBronze_Sponsors = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsConfig =
+	{
+		fields?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsConfigFields>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsConfigFields =
+	{
+		sponsor?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsConfigFieldsSponsor>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsConfigFieldsFilterInput =
+	{
+		sponsor?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsConfigFieldsSponsorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsConfigFieldsSponsor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsConfigFieldsSponsorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsConfigFieldsSponsorConfig =
+	{
+		select?: Maybe<Scalars["String"]>
+		customtypes?: Maybe<Array<Maybe<Scalars["String"]>>>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsConfigFieldsSponsorConfigFilterInput =
+	{
+		select?: Maybe<StringQueryOperatorInput>
+		customtypes?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsConfigFieldsSponsorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsConfigFieldsSponsorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsConfigFilterInput =
+	{
+		fields?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsConfigFieldsFilterInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainFilterInput = {
+	title?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainTitleFilterInput>
+	uid?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainUidFilterInput>
+	rainbows_over_waikiki_sponsor?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainRainbows_Over_Waikiki_SponsorFilterInput>
+	visionary_sponsors?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsFilterInput>
+	gold_sponsors?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsFilterInput>
+	silver_sponsors?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsFilterInput>
+	bronze_sponsors?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainBronze_SponsorsFilterInput>
+	partner_sponsors?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainGold_Sponsors = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsConfig =
+	{
+		fields?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsConfigFields>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsConfigFields =
+	{
+		sponsor?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsConfigFieldsSponsor>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsConfigFieldsFilterInput =
+	{
+		sponsor?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsConfigFieldsSponsorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsConfigFieldsSponsor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsConfigFieldsSponsorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsConfigFieldsSponsorConfig =
+	{
+		select?: Maybe<Scalars["String"]>
+		customtypes?: Maybe<Array<Maybe<Scalars["String"]>>>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsConfigFieldsSponsorConfigFilterInput =
+	{
+		select?: Maybe<StringQueryOperatorInput>
+		customtypes?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsConfigFieldsSponsorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsConfigFieldsSponsorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsConfigFilterInput =
+	{
+		fields?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsConfigFieldsFilterInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainGold_SponsorsConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainPartner_Sponsors = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsConfig =
+	{
+		fields?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsConfigFields>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsConfigFields =
+	{
+		sponsor?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsConfigFieldsSponsor>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsConfigFieldsFilterInput =
+	{
+		sponsor?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsConfigFieldsSponsorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsConfigFieldsSponsor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsConfigFieldsSponsorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsConfigFieldsSponsorConfig =
+	{
+		select?: Maybe<Scalars["String"]>
+		customtypes?: Maybe<Array<Maybe<Scalars["String"]>>>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsConfigFieldsSponsorConfigFilterInput =
+	{
+		select?: Maybe<StringQueryOperatorInput>
+		customtypes?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsConfigFieldsSponsorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsConfigFieldsSponsorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsConfigFilterInput =
+	{
+		fields?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsConfigFieldsFilterInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainPartner_SponsorsConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainRainbows_Over_Waikiki_Sponsor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainRainbows_Over_Waikiki_SponsorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainRainbows_Over_Waikiki_SponsorConfig =
+	{
+		select?: Maybe<Scalars["String"]>
+		customtypes?: Maybe<Array<Maybe<Scalars["String"]>>>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainRainbows_Over_Waikiki_SponsorConfigFilterInput =
+	{
+		select?: Maybe<StringQueryOperatorInput>
+		customtypes?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainRainbows_Over_Waikiki_SponsorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainRainbows_Over_Waikiki_SponsorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainSilver_Sponsors = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsConfig =
+	{
+		fields?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsConfigFields>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsConfigFields =
+	{
+		sponsor?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsConfigFieldsSponsor>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsConfigFieldsFilterInput =
+	{
+		sponsor?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsConfigFieldsSponsorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsConfigFieldsSponsor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsConfigFieldsSponsorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsConfigFieldsSponsorConfig =
+	{
+		select?: Maybe<Scalars["String"]>
+		customtypes?: Maybe<Array<Maybe<Scalars["String"]>>>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsConfigFieldsSponsorConfigFilterInput =
+	{
+		select?: Maybe<StringQueryOperatorInput>
+		customtypes?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsConfigFieldsSponsorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsConfigFieldsSponsorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsConfigFilterInput =
+	{
+		fields?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsConfigFieldsFilterInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainSilver_SponsorsConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainTitle = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainTitleConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainTitleConfig = {
+	single?: Maybe<Scalars["String"]>
 	label?: Maybe<Scalars["String"]>
 }
 
-export type SitePluginPluginOptionsSchemasSponsorMainTypeConfigFilterInput = {
-	options?: Maybe<StringQueryOperatorInput>
-	default_value?: Maybe<StringQueryOperatorInput>
-	label?: Maybe<StringQueryOperatorInput>
+export type SitePluginPluginOptionsSchemasSponsors_ListMainTitleConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainTitleFilterInput = {
+	type?: Maybe<StringQueryOperatorInput>
+	config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainTitleConfigFilterInput>
 }
 
-export type SitePluginPluginOptionsSchemasSponsorMainTypeFilterInput = {
-	type?: Maybe<StringQueryOperatorInput>
-	config?: Maybe<SitePluginPluginOptionsSchemasSponsorMainTypeConfigFilterInput>
+export type SitePluginPluginOptionsSchemasSponsors_ListMainUid = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainUidConfig>
 }
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainUidConfig = {
+	label?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainUidConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainUidFilterInput = {
+	type?: Maybe<StringQueryOperatorInput>
+	config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainUidConfigFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_Sponsors =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsConfig =
+	{
+		fields?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsConfigFields>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsConfigFields =
+	{
+		sponsor?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsConfigFieldsSponsor>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsConfigFieldsFilterInput =
+	{
+		sponsor?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsConfigFieldsSponsorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsConfigFieldsSponsor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsConfigFieldsSponsorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsConfigFieldsSponsorConfig =
+	{
+		select?: Maybe<Scalars["String"]>
+		customtypes?: Maybe<Array<Maybe<Scalars["String"]>>>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsConfigFieldsSponsorConfigFilterInput =
+	{
+		select?: Maybe<StringQueryOperatorInput>
+		customtypes?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsConfigFieldsSponsorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsConfigFieldsSponsorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsConfigFilterInput =
+	{
+		fields?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsConfigFieldsFilterInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsConfigFilterInput>
+	}
 
 export type SitePluginSortInput = {
 	fields?: Maybe<Array<Maybe<SitePluginFieldsEnum>>>
@@ -8085,22 +8920,6 @@ export type SettingsQuery = {
 	}>
 }
 
-export type AllSponsorsQueryVariables = Exact<{ [key: string]: never }>
-
-export type AllSponsorsQuery = {
-	allPrismicSponsor: {
-		nodes: Array<{
-			_previewable: string
-			data?: Maybe<{
-				type?: Maybe<string>
-				image?: Maybe<{ url?: Maybe<string>; alt?: Maybe<string> }>
-				name?: Maybe<{ text?: Maybe<string> }>
-				link?: Maybe<{ url?: Maybe<string> }>
-			}>
-		}>
-	}
-}
-
 export type CallToActionFragment = {
 	primary?: Maybe<{
 		button_text?: Maybe<string>
@@ -8170,10 +8989,53 @@ export type NewsletterFormFragment = {
 	}>
 }
 
+export type SponsorFragment = {
+	data?: Maybe<{
+		image?: Maybe<{ alt?: Maybe<string>; url?: Maybe<string> }>
+		link?: Maybe<{ url?: Maybe<string> }>
+		name?: Maybe<{ text?: Maybe<string> }>
+	}>
+}
+
 export type SponsorsFragment = {
 	primary?: Maybe<{
 		heading?: Maybe<{ text?: Maybe<string> }>
 		subheading?: Maybe<{ text?: Maybe<string> }>
+		sponsor_list?: Maybe<{
+			document?: Maybe<{
+				id: string
+				data?: Maybe<{
+					rainbows_over_waikiki_sponsor?: Maybe<{
+						document?: Maybe<SponsorFragment>
+					}>
+					visionary_sponsors?: Maybe<
+						Array<
+							Maybe<{ sponsor?: Maybe<{ document?: Maybe<SponsorFragment> }> }>
+						>
+					>
+					gold_sponsors?: Maybe<
+						Array<
+							Maybe<{ sponsor?: Maybe<{ document?: Maybe<SponsorFragment> }> }>
+						>
+					>
+					silver_sponsors?: Maybe<
+						Array<
+							Maybe<{ sponsor?: Maybe<{ document?: Maybe<SponsorFragment> }> }>
+						>
+					>
+					bronze_sponsors?: Maybe<
+						Array<
+							Maybe<{ sponsor?: Maybe<{ document?: Maybe<SponsorFragment> }> }>
+						>
+					>
+					partner_sponsors?: Maybe<
+						Array<
+							Maybe<{ sponsor?: Maybe<{ document?: Maybe<SponsorFragment> }> }>
+						>
+					>
+				}>
+			}>
+		}>
 	}>
 }
 

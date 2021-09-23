@@ -7,21 +7,6 @@
 				"label": "Name"
 			}
 		},
-		"type": {
-			"type": "Select",
-			"config": {
-				"options": [
-					"Visionary",
-					"Gold",
-					"Silver",
-					"Bronze",
-					"Partner",
-					"Rainbows Over Waikiki"
-				],
-				"default_value": "Visionary",
-				"label": "Type"
-			}
-		},
 		"link": {
 			"type": "Link",
 			"config": {
