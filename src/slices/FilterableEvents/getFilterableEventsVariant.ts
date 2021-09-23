@@ -1,4 +1,4 @@
-import type { ColorVariant } from "../../lib/getColorVariant"
+import type { ColorVariant } from "../../lib/colorVariant"
 
 export interface FilterableEventsVariant {
 	bg: string

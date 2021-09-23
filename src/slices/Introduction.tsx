@@ -6,7 +6,7 @@ import { undefIfEmpty } from "@walltowall/helpers"
 import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
 import type { IntroductionFragment } from "../gqlTypes.gen"
 
-import { ColorVariant, getColorVariant } from "../lib/getColorVariant"
+import { ColorVariant, getColorVariant } from "../lib/colorVariant"
 import { BoundedBox } from "../components/BoundedBox"
 import { HTMLContent } from "../components/HTMLContent"
 

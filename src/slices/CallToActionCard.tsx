@@ -8,6 +8,7 @@ import type { CallToActionCardFragment } from "../gqlTypes.gen"
 import { ButtonLink } from "../components/Button"
 import { BoundedBox } from "../components/BoundedBox"
 import { Card } from "../components/Card"
+import { getColorVariant, getColorVariantStyles } from "../lib/colorVariant"
 
 export const sliceType = "PrismicPageDataBodyCallToActionCard"
 
@@ -16,7 +17,10 @@ const CallToActionCard = ({
 	heading,
 	buttonHref,
 	buttonText,
+	color,
 }: ReturnType<typeof mapDataToProps>) => {
+	const variant = getColorVariantStyles(color)
+
 	return (
 		<BoundedBox
 			tag="section"
@@ -28,7 +32,7 @@ const CallToActionCard = ({
 				className={clsx(
 					"isolate",
 					"flex flex-col items-center text-center",
-					"bg-purple-57",
+					variant.bg,
 					"translate-y-[-50%]"
 				)}
 			>
@@ -37,7 +41,7 @@ const CallToActionCard = ({
 						className={clsx(
 							"font-sansExt",
 							"tracking-caps",
-							"text-beige-92",
+							variant.textColor,
 							"text-12 md:text-16 lg:text-22",
 							"leading-1",
 							"mb-3 md:mb-4 lg:mb-6"
@@ -51,7 +55,7 @@ const CallToActionCard = ({
 					<h2
 						className={clsx(
 							"font-serif",
-							"text-beige-92",
+							variant.textColor,
 							"text-42 md:text-52 lg:text-62",
 							"leading-1",
 							"mb-8 md:mb-10 lg:mb-12"
@@ -62,7 +66,7 @@ const CallToActionCard = ({
 				)}
 
 				{buttonHref && buttonText && (
-					<ButtonLink variant="filled" href={buttonHref}>
+					<ButtonLink color={variant.buttonColor} href={buttonHref}>
 						{buttonText}
 					</ButtonLink>
 				)}
@@ -79,6 +83,7 @@ export function mapDataToProps({
 		heading: data.primary?.heading?.text,
 		buttonHref: data.primary?.button_link?.url,
 		buttonText: data.primary?.button_text,
+		color: getColorVariant(data.primary?.color),
 	}
 }
 
@@ -101,6 +106,7 @@ export const gqlFragment = graphql`
 				url
 			}
 			button_text
+			color
 		}
 	}
 `

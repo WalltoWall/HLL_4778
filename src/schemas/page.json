@@ -371,6 +371,14 @@
                 "config" : {
                   "label" : "Button Text"
                 }
+              },
+              "color" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "Blue", "Red", "Yellow", "Green", "Purple" ],
+                  "default_value" : "Blue",
+                  "label" : "Color"
+                }
               }
             },
             "repeat" : { }

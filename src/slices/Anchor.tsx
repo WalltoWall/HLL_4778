@@ -40,8 +40,6 @@ export function mapDataToContext({
 	//@ts-expect-error - Slice components generally have this function available.
 	const forwardedCtx = NextComp?.mapDataToContext?.({ NextComp, ...rest })
 
-	console.log({ forwardedCtx })
-
 	return forwardedCtx
 }
 
