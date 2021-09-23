@@ -15,7 +15,7 @@ export const MobileMenu = () => {
 	if (isDesktop) return null
 
 	return (
-		<MenuButton onClick={toggleMenu} className="lg:hidden">
+		<MenuButton onClick={toggleMenu} className="lg:hidden" isOpen={isMenuOpen}>
 			<VisuallyHidden>
 				{isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
 			</VisuallyHidden>
