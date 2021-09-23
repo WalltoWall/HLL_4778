@@ -44,7 +44,10 @@ export const MobileDrawer = ({ toggleMenu, isOpen }: Props) => {
 			className="fixed inset-0 flex flex-col lg:hidden bg-gradient-to-b from-purple-57 to-blue-31"
 			aria-label="Mobile navigation menu"
 		>
-			<Gradient className="absolute inset-0 pointer-events-none" />
+			<Gradient
+				className="absolute inset-0 pointer-events-none"
+				id="mobile-menu-gradient"
+			/>
 
 			<BoundedBox variant="header" width="wide" className="flex-grow isolate">
 				<div className="flex items-center justify-between mb-15">
