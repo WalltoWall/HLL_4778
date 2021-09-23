@@ -61,3 +61,30 @@ export function mapDataToContextFactory(
 
 	return result
 }
+
+interface PrismicSlice {
+	__typename: string
+}
+
+export const getSliceKey: MapToComponentsProps["getKey"] = (
+	slice: PrismicSlice,
+	idx
+) => {
+	return `${slice.__typename}-${idx}`
+}
+
+export const getSliceType: MapToComponentsProps["getType"] = (
+	slice: PrismicSlice
+) => {
+	return slice.__typename
+}
+
+export const fallbackSlice: MapToComponentsProps["default"] = (data) => {
+	if (process.env.NODE_ENV === "development") {
+		console.error(
+			`Could not find a component mapping for type: ${data.__typename}`
+		)
+	}
+
+	return null
+}

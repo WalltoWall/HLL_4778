@@ -1,10 +1,5 @@
 import * as React from "react"
-import {
-	MapToComponents,
-	MapToComponentsProps,
-	TCtx,
-	TCtxWithContext,
-} from "react-map-to-components"
+import { MapToComponents, TCtx, TCtxWithContext } from "react-map-to-components"
 import { graphql, PageProps } from "gatsby"
 
 import { SEO } from "../components/SEO"
@@ -28,7 +23,22 @@ import {
 	mapDataToPropsFactory,
 	mapFactory,
 	SliceMap,
-} from "../lib/sliceFactories"
+	fallbackSlice,
+	getSliceKey,
+	getSliceType,
+} from "../lib/mapToComponents"
+
+export type MapDataToPropsCtx<
+	TData,
+	TCtx extends Record<string, unknown> = Record<string, unknown>
+> = TCtxWithContext<keyof typeof map, typeof map, TData, unknown, TCtx>
+
+export type MapDataToContextCtx<TData> = TCtx<
+	keyof typeof map,
+	typeof map,
+	TData,
+	unknown
+>
 
 const sliceMap: SliceMap = {
 	VideoHero,
@@ -48,43 +58,6 @@ const map = mapFactory(sliceMap)
 const mapDataToProps = mapDataToPropsFactory(sliceMap)
 const mapDataToContext = mapDataToContextFactory(sliceMap)
 
-interface PrismicSlice {
-	__typename: string
-}
-
-const getSliceKey: MapToComponentsProps["getKey"] = (
-	slice: PrismicSlice,
-	idx
-) => {
-	return `${slice.__typename}-${idx}`
-}
-
-const getSliceType: MapToComponentsProps["getType"] = (slice: PrismicSlice) => {
-	return slice.__typename
-}
-
-const pageTemplateFallback: MapToComponentsProps["default"] = (data) => {
-	if (process.env.NODE_ENV === "development") {
-		console.error(
-			`Could not find a component mapping for type: ${data.__typename}`
-		)
-	}
-
-	return null
-}
-
-export type MapDataToPropsCtx<
-	TData,
-	TCtx extends Record<string, unknown> = Record<string, unknown>
-> = TCtxWithContext<keyof typeof map, typeof map, TData, unknown, TCtx>
-
-export type MapDataToContextCtx<TData> = TCtx<
-	keyof typeof map,
-	typeof map,
-	TData,
-	unknown
->
-
 const PageTemplate = ({ data }: PageProps<PageTemplateQuery>) => {
 	const page = data.prismicPage
 
@@ -103,7 +76,7 @@ const PageTemplate = ({ data }: PageProps<PageTemplateQuery>) => {
 				mapDataToProps={mapDataToProps}
 				mapDataToContext={mapDataToContext}
 				list={page?.data?.body ?? []}
-				default={pageTemplateFallback}
+				default={fallbackSlice}
 			/>
 		</Layout>
 	)
