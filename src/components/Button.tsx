@@ -1,36 +1,29 @@
 import * as React from "react"
 import clsx from "clsx"
 import { Link, LinkProps } from "./Link"
+import { GetVariants, variantFnFactory } from "../lib/variants"
 
-const variants = {
-	filled: {
-		bg: "bg-yellow-50 hover:bg-transparent focus:bg-transparent",
-		color: "text-black",
-		border:
-			"border border-transparent hover:border-yellow-50 focus:border-yellow-50",
-	},
-}
-
-export type ButtonVariant = keyof typeof variants
-
-function getButtonClasses(variant: ButtonVariant): string {
-	const variantStyles = variants[variant]
-
-	return clsx(
+const buttonVariants = variantFnFactory({
+	base: clsx(
 		"inline-flex items-center justify-center",
-		"rounded-full",
 		"py-4 px-9 md:px-11 lg:py-6",
-		"focus:ring focus:outline-none",
+		"border border-transparent",
+		"rounded-full",
 		"transition duration-250",
-		variantStyles.bg,
-		variantStyles.color,
-		variantStyles.border
-	)
-}
-
-interface Props extends React.ComponentPropsWithoutRef<"button"> {
-	variant?: ButtonVariant
-}
+		"focus:ring focus:outline-none",
+		"hover:bg-transparent"
+	),
+	variants: {
+		color: {
+			yellow: clsx("bg-yellow-50 text-black", "hover:border-yellow-50"),
+			blue: clsx("bg-blue-31 text-black", "hover:border-blue-31"),
+		},
+	},
+	defaultVariants: {
+		color: "yellow",
+	},
+})
+export type ButtonVariants = GetVariants<typeof buttonVariants>
 
 const innerClasses = clsx(
 	"tracking-caps uppercase font-sansExt",
@@ -38,12 +31,14 @@ const innerClasses = clsx(
 	"leading-1_5"
 )
 
-export const Button = React.forwardRef<HTMLButtonElement, Props>(
-	({ variant = "filled", children, className, ...props }, ref) => {
+type ButtonProps = React.ComponentPropsWithoutRef<"button"> & ButtonVariants
+
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+	({ color, children, className, ...props }, ref) => {
 		return (
 			<button
 				ref={ref}
-				className={clsx(getButtonClasses(variant), className)}
+				className={clsx(buttonVariants({ color }), className)}
 				{...props}
 			>
 				<div className={innerClasses}>{children}</div>
@@ -51,21 +46,18 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
 		)
 	}
 )
-
 Button.displayName = "Button"
 
-interface ButtonLinkProps extends LinkProps {
-	variant: ButtonVariant
-}
+type ButtonLinkProps = LinkProps & ButtonVariants
 
 export const ButtonLink = ({
-	variant,
+	color,
 	children,
 	className,
 	...props
 }: ButtonLinkProps) => {
 	return (
-		<Link className={clsx(getButtonClasses(variant), className)} {...props}>
+		<Link className={clsx(buttonVariants({ color }), className)} {...props}>
 			<div className={innerClasses}>{children}</div>
 		</Link>
 	)

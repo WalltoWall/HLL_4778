@@ -6,7 +6,7 @@ import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
 import type { CallToActionFragment } from "../gqlTypes.gen"
 import { BoundedBox } from "../components/BoundedBox"
 import { ButtonLink } from "../components/Button"
-import type { ColorVariant } from "../lib/getColorVariant"
+import type { ColorVariant } from "../lib/colorVariant"
 
 export const sliceType = "PrismicPageDataBodyCallToAction"
 
@@ -42,7 +42,7 @@ const CallToAction = ({
 					</h2>
 				)}
 				{buttonHref && buttonText && (
-					<ButtonLink variant="filled" href={buttonHref}>
+					<ButtonLink color="yellow" href={buttonHref}>
 						{buttonText}
 					</ButtonLink>
 				)}

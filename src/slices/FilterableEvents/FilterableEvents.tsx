@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import { undefIfEmpty } from "@walltowall/helpers"
 
 import { BoundedBox } from "../../components/BoundedBox"
-import { ColorVariant, getColorVariant } from "../../lib/getColorVariant"
+import { ColorVariant, getColorVariant } from "../../lib/colorVariant"
 import { DesktopEvents } from "./DesktopEvents"
 import { MobileEvents } from "./MobileEvents"
 import { getFilterableEventsVariant } from "./getFilterableEventsVariant"
@@ -99,8 +99,6 @@ export function mapDataToProps({
 	data,
 	nextContext,
 }: MapDataToPropsCtx<FilterableEventsFragment>) {
-	console.log(nextContext)
-
 	return {
 		events:
 			data.items?.map((item) => {

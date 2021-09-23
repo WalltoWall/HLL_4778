@@ -9,7 +9,7 @@ import { BoundedBox } from "../components/BoundedBox"
 import { ButtonLink } from "../components/Button"
 import { ArchImage } from "../components/ArchImage"
 import { HTMLContent } from "../components/HTMLContent"
-import { ColorVariant } from "../lib/getColorVariant"
+import { ColorVariant } from "../lib/colorVariant"
 
 export const sliceType = "PrismicPageDataBodyImageCallToAction"
 
@@ -70,7 +70,7 @@ const ImageCallToAction = ({
 					{buttonHref && buttonText && (
 						<ButtonLink
 							href={buttonHref}
-							variant="filled"
+							color="yellow"
 							className="self-center md:self-start"
 						>
 							{buttonText}
