@@ -2,11 +2,11 @@ import * as React from "react"
 import clsx from "clsx"
 import { graphql } from "gatsby"
 
-import type { MapDataToPropsCtx } from "../templates/page"
-import type { GradientTextFragment } from "../gqlTypes.gen"
-
 import { Gradient } from "../components/Gradient"
 import { useMobileMenu } from "../components/Header/MobileMenuProvider"
+
+import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
+import type { GradientTextFragment } from "../gqlTypes.gen"
 
 export const sliceType = "PrismicPageDataBodyGradientText"
 
@@ -55,6 +55,12 @@ export function mapDataToProps({
 	return {
 		text: data.primary?.text?.text,
 	}
+}
+
+export function mapDataToContext(
+	_ctx: MapDataToContextCtx<GradientTextFragment>
+) {
+	return { backgroundColor: Symbol("gradient-text") }
 }
 
 export const gqlFragment = graphql`

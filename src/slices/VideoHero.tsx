@@ -6,10 +6,11 @@ import { graphql } from "gatsby"
 import { m } from "framer-motion"
 import clsx from "clsx"
 
-import type { MapDataToPropsCtx } from "../templates/page"
-import type { VideoHeroFragment } from "../gqlTypes.gen"
 import { Image } from "../components/Image"
 import { useMobileMenu } from "../components/Header/MobileMenuProvider"
+
+import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
+import type { VideoHeroFragment } from "../gqlTypes.gen"
 
 export const sliceType = "PrismicPageDataBodyVideoHero"
 
@@ -124,6 +125,10 @@ export function mapDataToProps({ data }: MapDataToPropsCtx<VideoHeroFragment>) {
 		videoThumbnailUrl: data.primary?.video_thumbnail?.url,
 		videoThumbnailAlt: data.primary?.video_thumbnail?.alt,
 	}
+}
+
+export function mapDataToContext(_ctx: MapDataToContextCtx<VideoHeroFragment>) {
+	return {}
 }
 
 export const gqlFragment = graphql`

@@ -85,7 +85,7 @@ export function mapDataToProps({
 export function mapDataToContext(
 	_ctx: MapDataToContextCtx<CallToActionCardFragment>
 ) {
-	return { backgroundColor: Symbol("never") }
+	return { backgroundColor: Symbol("never"), overhangs: true }
 }
 
 export const gqlFragment = graphql`

@@ -6,8 +6,9 @@ import { FilterControls } from "./FilterControls"
 
 import type { EventType, Event } from "./FilterableEvents"
 import type { FilterableEventsVariant } from "./getFilterableEventsVariant"
+import clsx from "clsx"
 
-export interface EventsListProps {
+export interface EventsListProps extends React.ComponentProps<"div"> {
 	updateActiveEvent: (newEvent: Event) => void
 	activeVariant: FilterableEventsVariant
 	events: Event[]
@@ -23,13 +24,15 @@ export const MobileEvents = ({
 	activeFilter,
 	clearFilters,
 	filterEvents,
+	className,
+	...props
 }: EventsListProps) => {
 	const isDesktop = useIsDesktop()
 
 	if (isDesktop) return null
 
 	return (
-		<div className="flex flex-col space-y-16">
+		<div className={clsx("flex flex-col space-y-16", className)} {...props}>
 			<FilterControls
 				activeVariant={activeVariant}
 				activeFilter={activeFilter}

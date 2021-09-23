@@ -6,6 +6,7 @@ import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
 import type { CallToActionFragment } from "../gqlTypes.gen"
 import { BoundedBox } from "../components/BoundedBox"
 import { ButtonLink } from "../components/Button"
+import type { ColorVariant } from "../lib/getColorVariant"
 
 export const sliceType = "PrismicPageDataBodyCallToAction"
 
@@ -66,7 +67,7 @@ export function mapDataToContext(
 	_ctx: MapDataToContextCtx<CallToActionFragment>
 ) {
 	return {
-		backgroundColor: "beige",
+		backgroundColor: "beige" as ColorVariant,
 	}
 }
 

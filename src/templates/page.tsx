@@ -22,42 +22,31 @@ import * as ImageCallToAction from "../slices/ImageCallToAction"
 import * as CallToAction from "../slices/CallToAction"
 import * as NewsletterForm from "../slices/NewsletterForm"
 import * as Sponsors from "../slices/Sponsors"
+import * as Anchor from "../slices/Anchor"
+import {
+	mapDataToContextFactory,
+	mapDataToPropsFactory,
+	mapFactory,
+	SliceMap,
+} from "../lib/sliceFactories"
 
-const pageTemplateSliceMap: MapToComponentsProps["map"] = {
-	[VideoHero.sliceType]: VideoHero.default as React.ComponentType,
-	[GradientText.sliceType]: GradientText.default as React.ComponentType,
-	[Introduction.sliceType]: Introduction.default as React.ComponentType,
-	[FilterableEvents.sliceType]: FilterableEvents.default as React.ComponentType,
-	[CallToActionCard.sliceType]: CallToActionCard.default as React.ComponentType,
-	[TwoColumnText.sliceType]: TwoColumnText.default as React.ComponentType,
-	[ImageCallToAction.sliceType]:
-		ImageCallToAction.default as React.ComponentType,
-	[CallToAction.sliceType]: CallToAction.default as React.ComponentType,
-	[NewsletterForm.sliceType]: NewsletterForm.default as React.ComponentType,
-	[Sponsors.sliceType]: Sponsors.default as React.ComponentType,
+const sliceMap: SliceMap = {
+	VideoHero,
+	GradientText,
+	Introduction,
+	FilterableEvents,
+	CallToActionCard,
+	TwoColumnText,
+	ImageCallToAction,
+	CallToAction,
+	NewsletterForm,
+	Sponsors,
+	Anchor,
 }
 
-const mapDataToPropsMap: MapToComponentsProps["mapDataToProps"] = {
-	[VideoHero.sliceType]: VideoHero.mapDataToProps,
-	[GradientText.sliceType]: GradientText.mapDataToProps,
-	[Introduction.sliceType]: Introduction.mapDataToProps,
-	[FilterableEvents.sliceType]: FilterableEvents.mapDataToProps,
-	[CallToActionCard.sliceType]: CallToActionCard.mapDataToProps,
-	[TwoColumnText.sliceType]: TwoColumnText.mapDataToProps,
-	[ImageCallToAction.sliceType]: ImageCallToAction.mapDataToProps,
-	[CallToAction.sliceType]: CallToAction.mapDataToProps,
-	[NewsletterForm.sliceType]: NewsletterForm.mapDataToProps,
-	[Sponsors.sliceType]: Sponsors.mapDataToProps,
-}
-
-const mapDataToContextMap: MapToComponentsProps["mapDataToContext"] = {
-	[Introduction.sliceType]: Introduction.mapDataToContext,
-	[FilterableEvents.sliceType]: FilterableEvents.mapDataToContext,
-	[TwoColumnText.sliceType]: TwoColumnText.mapDataToContext,
-	[ImageCallToAction.sliceType]: ImageCallToAction.mapDataToContext,
-	[NewsletterForm.sliceType]: NewsletterForm.mapDataToContext,
-	[CallToAction.sliceType]: CallToAction.mapDataToContext,
-}
+const map = mapFactory(sliceMap)
+const mapDataToProps = mapDataToPropsFactory(sliceMap)
+const mapDataToContext = mapDataToContextFactory(sliceMap)
 
 interface PrismicSlice {
 	__typename: string
@@ -87,17 +76,11 @@ const pageTemplateFallback: MapToComponentsProps["default"] = (data) => {
 export type MapDataToPropsCtx<
 	TData,
 	TCtx extends Record<string, unknown> = Record<string, unknown>
-> = TCtxWithContext<
-	keyof typeof pageTemplateSliceMap,
-	typeof pageTemplateSliceMap,
-	TData,
-	unknown,
-	TCtx
->
+> = TCtxWithContext<keyof typeof map, typeof map, TData, unknown, TCtx>
 
 export type MapDataToContextCtx<TData> = TCtx<
-	keyof typeof pageTemplateSliceMap,
-	typeof pageTemplateSliceMap,
+	keyof typeof map,
+	typeof map,
 	TData,
 	unknown
 >
@@ -116,9 +99,9 @@ const PageTemplate = ({ data }: PageProps<PageTemplateQuery>) => {
 			<MapToComponents
 				getKey={getSliceKey}
 				getType={getSliceType}
-				map={pageTemplateSliceMap}
-				mapDataToProps={mapDataToPropsMap}
-				mapDataToContext={mapDataToContextMap}
+				map={map}
+				mapDataToProps={mapDataToProps}
+				mapDataToContext={mapDataToContext}
 				list={page?.data?.body ?? []}
 				default={pageTemplateFallback}
 			/>
@@ -149,6 +132,7 @@ export const pageTemplateQuery = graphql`
 					...CallToAction
 					...NewsletterForm
 					...Sponsors
+					...Anchor
 				}
 			}
 			uid

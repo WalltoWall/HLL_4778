@@ -7,7 +7,6 @@ import { BoundedBox } from "../../components/BoundedBox"
 import { ColorVariant, getColorVariant } from "../../lib/getColorVariant"
 import { DesktopEvents } from "./DesktopEvents"
 import { MobileEvents } from "./MobileEvents"
-import { sliceType as CallToActionCardSliceType } from "../CallToActionCard"
 import { getFilterableEventsVariant } from "./getFilterableEventsVariant"
 
 import type { IllustrationType } from "./getIllustrationUrl"
@@ -90,6 +89,7 @@ const FilterableEvents = ({
 				activeFilter={activeFilter}
 				clearFilters={clearFilters}
 				filterEvents={filterEvents}
+				className={clsx()}
 			/>
 		</BoundedBox>
 	)
@@ -97,9 +97,9 @@ const FilterableEvents = ({
 
 export function mapDataToProps({
 	data,
-	nextType,
+	nextContext,
 }: MapDataToPropsCtx<FilterableEventsFragment>) {
-	const nextOverhangs = nextType === CallToActionCardSliceType
+	console.log(nextContext)
 
 	return {
 		events:
@@ -117,7 +117,7 @@ export function mapDataToProps({
 					href: item?.event?.url,
 				}
 			}) ?? [],
-		nextOverhangs,
+		nextOverhangs: nextContext?.overhangs ?? false,
 	}
 }
 
