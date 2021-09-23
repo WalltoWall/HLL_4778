@@ -58,6 +58,8 @@ export const DesktopEvents = ({
 	activeFilter,
 	clearFilters,
 	filterEvents,
+	className,
+	...props
 }: DesktopEventsProps) => {
 	const isDesktop = useIsDesktop()
 
@@ -68,8 +70,10 @@ export const DesktopEvents = ({
 			className={clsx(
 				"hidden lg:grid",
 				"grid-cols-2 gap-y-16 lg:gap-x-25",
-				"relative"
+				"relative",
+				className
 			)}
+			{...props}
 		>
 			<FilterControls
 				activeVariant={activeVariant}

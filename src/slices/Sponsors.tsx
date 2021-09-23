@@ -2,12 +2,12 @@ import * as React from "react"
 import clsx from "clsx"
 import { graphql } from "gatsby"
 
-import type { MapDataToPropsCtx } from "../templates/page"
-import type { SponsorFragment, SponsorsFragment } from "../gqlTypes.gen"
-
 import { BoundedBox } from "../components/BoundedBox"
 import { Image } from "../components/Image"
 import { Link } from "../components/Link"
+
+import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
+import type { SponsorFragment, SponsorsFragment } from "../gqlTypes.gen"
 
 export const sliceType = "PrismicPageDataBodySponsors"
 
@@ -322,6 +322,10 @@ export function mapDataToProps({ data }: MapDataToPropsCtx<SponsorsFragment>) {
 			mapDocumentToSponsor(s?.sponsor?.document)
 		),
 	}
+}
+
+export function mapDataToContext(_ctx: MapDataToContextCtx<SponsorFragment>) {
+	return {}
 }
 
 export const gqlFragment = graphql`
