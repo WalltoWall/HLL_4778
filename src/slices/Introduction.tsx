@@ -6,7 +6,11 @@ import { undefIfEmpty } from "@walltowall/helpers"
 import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
 import type { IntroductionFragment } from "../gqlTypes.gen"
 
-import { ColorVariant, getColorVariant } from "../lib/colorVariant"
+import {
+	ColorVariant,
+	getColorVariant,
+	getColorVariantStyles,
+} from "../lib/colorVariant"
 import { BoundedBox } from "../components/BoundedBox"
 import { HTMLContent } from "../components/HTMLContent"
 
@@ -15,37 +19,15 @@ import * as styles from "./Introduction.module.css"
 export const sliceType = "PrismicPageDataBodyIntroduction"
 
 interface IntroductionVariant {
-	bg: string
 	headingBg: string
-	text: string
 }
 
-const colorVariantMap: Record<ColorVariant, IntroductionVariant> = {
-	blue: {
-		bg: "bg-blue-31",
-		headingBg: "bg-yellow-50",
-		text: "text-beige-92",
-	},
-	green: {
-		bg: "bg-green-27",
-		headingBg: "bg-yellow-50",
-		text: "text-beige-92",
-	},
-	purple: {
-		bg: "bg-purple-57",
-		headingBg: "bg-yellow-50",
-		text: "text-beige-92",
-	},
-	yellow: {
-		bg: "bg-yellow-50",
-		headingBg: "bg-blue-31",
-		text: "text-black",
-	},
-	red: {
-		bg: "bg-red-45",
-		headingBg: "bg-yellow-50",
-		text: "text-beige-92",
-	},
+const introductionVariants: Record<ColorVariant, IntroductionVariant> = {
+	blue: { headingBg: "bg-yellow-50" },
+	green: { headingBg: "bg-yellow-50" },
+	purple: { headingBg: "bg-yellow-50" },
+	yellow: { headingBg: "bg-blue-31" },
+	red: { headingBg: "bg-yellow-50" },
 }
 
 const Introduction = ({
@@ -54,12 +36,13 @@ const Introduction = ({
 	color,
 	nextSharesBg = false,
 }: ReturnType<typeof mapDataToProps>) => {
-	const variant = colorVariantMap[color]
+	const variant = introductionVariants[color]
+	const variantStyles = getColorVariantStyles(color)
 
 	return (
 		<BoundedBox
 			tag="section"
-			className={clsx(variant.bg, "!pb-8")}
+			className={clsx(variantStyles.bg, "!pb-8")}
 			nextSharesBg={nextSharesBg}
 		>
 			<div className="max-w-[280px] md:max-w-[320px] lg:max-w-sm space-y-5">
@@ -91,7 +74,7 @@ const Introduction = ({
 					<HTMLContent
 						html={textHTML}
 						htmlClassName={styles.html}
-						className={clsx("w-3/4 lg:w-full", variant.text)}
+						className={clsx("w-3/4 lg:w-full", variantStyles.textColor)}
 					/>
 				)}
 			</div>
