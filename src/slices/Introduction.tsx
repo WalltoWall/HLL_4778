@@ -94,11 +94,11 @@ export function mapDataToProps({
 	}
 }
 
-export function mapDataToContext(
-	_ctx: MapDataToContextCtx<IntroductionFragment>
-) {
+export function mapDataToContext({
+	data,
+}: MapDataToContextCtx<IntroductionFragment>) {
 	return {
-		backgroundColor: "blue",
+		backgroundColor: getColorVariant(data.primary?.color),
 	}
 }
 
