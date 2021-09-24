@@ -98,7 +98,7 @@ const VisionarySponsors = ({ sponsors, ...props }: SponsorsListProps) => {
 		<SponsorContainer heading="Visionary" {...props}>
 			<div
 				className={clsx(
-					"grid justify-items-center items-center",
+					"grid grid-cols-2 justify-items-center items-center",
 					"w-full",
 					"gap-10 lg:gap-20"
 				)}
