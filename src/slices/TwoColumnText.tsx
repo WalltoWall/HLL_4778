@@ -5,7 +5,7 @@ import { undefIfEmpty } from "@walltowall/helpers"
 
 import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
 import type { TwoColumnTextFragment } from "../gqlTypes.gen"
-import type { ColorVariant } from "../lib/colorVariant"
+import { getColorVariant, getColorVariantStyles } from "../lib/colorVariant"
 
 import { HTMLContent } from "../components/HTMLContent"
 import { BoundedBox } from "../components/BoundedBox"
@@ -18,18 +18,25 @@ const TwoColumnText = ({
 	rightHTML,
 	nextSharesBg,
 	prevOverhangs = false,
+	color,
 }: ReturnType<typeof mapDataToProps>) => {
+	const variantStyles = getColorVariantStyles(color)
+
 	return (
 		<BoundedBox
-			className={clsx("bg-blue-31", prevOverhangs && "pt-40 md:pt-48 lg:pt-80")}
+			className={clsx(
+				variantStyles.bg,
+				prevOverhangs && "pt-40 md:pt-48 lg:pt-80"
+			)}
 			nextSharesBg={nextSharesBg}
 			width="base"
 		>
 			<div
 				className={clsx(
-					"grid text-center gap-y-12 text-beige-92",
+					"grid text-center gap-y-12",
 					"md:grid-cols-2 md:text-left md:gap-y-0",
-					"md:gap-x-10 lg:gap-x-20"
+					"md:gap-x-10 lg:gap-x-20",
+					variantStyles.textColor
 				)}
 			>
 				{leftHTML && <HTMLContent html={leftHTML} />}
@@ -49,16 +56,17 @@ export function mapDataToProps({
 	return {
 		leftHTML: undefIfEmpty(data.primary?.left_text?.html),
 		rightHTML: undefIfEmpty(data.primary?.right_text?.html),
+		color: getColorVariant(data.primary?.color),
 		nextSharesBg: nextContext?.backgroundColor === "blue",
 		prevOverhangs,
 	}
 }
 
-export function mapDataToContext(
-	_ctx: MapDataToContextCtx<TwoColumnTextFragment>
-) {
+export function mapDataToContext({
+	data,
+}: MapDataToContextCtx<TwoColumnTextFragment>) {
 	return {
-		backgroundColor: "blue" as ColorVariant,
+		backgroundColor: getColorVariant(data.primary?.color),
 	}
 }
 
@@ -71,6 +79,7 @@ export const gqlFragment = graphql`
 			right_text {
 				html
 			}
+			color
 		}
 	}
 `

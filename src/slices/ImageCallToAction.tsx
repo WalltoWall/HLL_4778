@@ -9,7 +9,7 @@ import { BoundedBox } from "../components/BoundedBox"
 import { ButtonLink } from "../components/Button"
 import { ArchImage } from "../components/ArchImage"
 import { HTMLContent } from "../components/HTMLContent"
-import { ColorVariant } from "../lib/colorVariant"
+import { getColorVariant, getColorVariantStyles } from "../lib/colorVariant"
 
 export const sliceType = "PrismicPageDataBodyImageCallToAction"
 
@@ -20,9 +20,16 @@ const ImageCallToAction = ({
 	textHTML,
 	buttonHref,
 	buttonText,
+	color,
 }: ReturnType<typeof mapDataToProps>) => {
+	const variantStyles = getColorVariantStyles(color)
+
 	return (
-		<BoundedBox tag="section" className="bg-blue-31 text-beige-92" width="base">
+		<BoundedBox
+			tag="section"
+			className={clsx(variantStyles.bg, variantStyles.textColor)}
+			width="base"
+		>
 			<div
 				className={clsx(
 					"grid",
@@ -70,7 +77,7 @@ const ImageCallToAction = ({
 					{buttonHref && buttonText && (
 						<ButtonLink
 							href={buttonHref}
-							color="yellow"
+							color={variantStyles.buttonColor}
 							className="self-center md:self-start"
 						>
 							{buttonText}
@@ -92,14 +99,15 @@ export function mapDataToProps({
 		textHTML: data.primary?.text?.html,
 		buttonHref: data.primary?.button_link?.url,
 		buttonText: data.primary?.button_text,
+		color: getColorVariant(data.primary?.color),
 	}
 }
 
-export function mapDataToContext(
-	_ctx: MapDataToContextCtx<ImageCallToActionFragment>
-) {
+export function mapDataToContext({
+	data,
+}: MapDataToContextCtx<ImageCallToActionFragment>) {
 	return {
-		backgroundColor: "blue" as ColorVariant,
+		backgroundColor: getColorVariant(data.primary?.color),
 	}
 }
 
@@ -120,6 +128,7 @@ export const gqlFragment = graphql`
 				url
 			}
 			button_text
+			color
 		}
 	}
 `

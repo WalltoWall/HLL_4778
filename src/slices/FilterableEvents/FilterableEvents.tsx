@@ -123,13 +123,10 @@ export function mapDataToContext({
 	data,
 }: MapDataToContextCtx<FilterableEventsFragment>) {
 	const events = data.items ?? []
-
 	const firstEvent = events[0]
-	const lastEvent = events[events.length - 1]
 
 	return {
 		backgroundColor: getColorVariant(firstEvent?.color),
-		lastBackgroundColor: getColorVariant(lastEvent?.color),
 	}
 }
 

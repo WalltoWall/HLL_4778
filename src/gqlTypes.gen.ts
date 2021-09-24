@@ -2778,6 +2778,7 @@ export type PrismicPageDataBodyImageCallToAction = PrismicSliceType & {
 export type PrismicPageDataBodyImageCallToActionPrimary = {
 	button_link?: Maybe<PrismicLinkType>
 	button_text?: Maybe<Scalars["String"]>
+	color?: Maybe<Scalars["String"]>
 	heading?: Maybe<PrismicStructuredTextType>
 	image?: Maybe<PrismicPageDataBodyImageCallToActionPrimaryImageImageType>
 	text?: Maybe<PrismicStructuredTextType>
@@ -2872,6 +2873,7 @@ export type PrismicPageDataBodyNewsletterForm = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyNewsletterFormPrimary = {
+	color?: Maybe<Scalars["String"]>
 	heading?: Maybe<PrismicStructuredTextType>
 	placeholder_text?: Maybe<Scalars["String"]>
 }
@@ -2910,6 +2912,7 @@ export type PrismicPageDataBodyTwoColumnText = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyTwoColumnTextPrimary = {
+	color?: Maybe<Scalars["String"]>
 	left_text?: Maybe<PrismicStructuredTextType>
 	right_text?: Maybe<PrismicStructuredTextType>
 }
@@ -7199,6 +7202,7 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To
 		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatText>
 		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_Link>
 		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_Text>
+		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColor>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_Link =
@@ -7247,6 +7251,32 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To
 		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_TextConfigFilterInput>
 	}
 
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColorConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColorConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColorConfigFilterInput>
+	}
+
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatFilterInput =
 	{
 		image?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImageFilterInput>
@@ -7254,6 +7284,7 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To
 		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextFilterInput>
 		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_LinkFilterInput>
 		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_TextFilterInput>
+		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColorFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeading =
@@ -7462,12 +7493,40 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_Fo
 	{
 		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeading>
 		placeholder_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_Text>
+		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatColor>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatColor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatColorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatColorConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatColorConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatColorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatColorConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatFilterInput =
 	{
 		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeadingFilterInput>
 		placeholder_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_TextFilterInput>
+		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatColorFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeading =
@@ -7649,12 +7708,40 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_Te
 	{
 		left_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatLeft_Text>
 		right_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatRight_Text>
+		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColor>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColorConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColorConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColorConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatFilterInput =
 	{
 		left_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatLeft_TextFilterInput>
 		right_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatRight_TextFilterInput>
+		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColorFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatLeft_Text =
@@ -8999,6 +9086,7 @@ export type GradientTextFragment = {
 export type ImageCallToActionFragment = {
 	primary?: Maybe<{
 		button_text?: Maybe<string>
+		color?: Maybe<string>
 		image?: Maybe<{ url?: Maybe<string>; alt?: Maybe<string> }>
 		heading?: Maybe<{ text?: Maybe<string> }>
 		text?: Maybe<{ html?: Maybe<string> }>
@@ -9017,6 +9105,7 @@ export type IntroductionFragment = {
 export type NewsletterFormFragment = {
 	primary?: Maybe<{
 		placeholder_text?: Maybe<string>
+		color?: Maybe<string>
 		heading?: Maybe<{ text?: Maybe<string> }>
 	}>
 }
@@ -9073,6 +9162,7 @@ export type SponsorsFragment = {
 
 export type TwoColumnTextFragment = {
 	primary?: Maybe<{
+		color?: Maybe<string>
 		left_text?: Maybe<{ html?: Maybe<string> }>
 		right_text?: Maybe<{ html?: Maybe<string> }>
 	}>

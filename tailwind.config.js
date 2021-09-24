@@ -53,10 +53,9 @@ module.exports = {
 			transparent: "#fff0",
 			current: "currentColor",
 
-			gray: { 13: "#241F20" },
+			gray: { 13: "#241F20", 23: "#3f3738" },
 			beige: { 92: "#F7F2E2" },
 			red: {
-				40: "#CC0000",
 				45: "#CC0000",
 				50: "#FF0000",
 			},
@@ -70,7 +69,7 @@ module.exports = {
 				31: "#007CA0",
 			},
 			purple: {
-				57: "#7452D4",
+				57: "#6E3CBE",
 			},
 		},
 
