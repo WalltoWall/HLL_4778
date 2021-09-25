@@ -53,6 +53,32 @@ exports.createPages = async (gatsbyContext) => {
 	}
 
 	/**
+	 * Create pages for all Event documents in Prismic. The document's UID is
+	 * passed as context here to allow the template to query for the specific document.
+	 *
+	 * @see https://www.gatsbyjs.org/docs/node-apis/#createPages
+	 */
+	const eventResult = await graphql(`
+		query {
+			allPrismicEvent {
+				nodes {
+					uid
+					url
+				}
+			}
+		}
+	`)
+	const eventNodes = eventResult.data.allPrismicEvent.nodes
+
+	for (const event of eventNodes) {
+		createPage({
+			path: event.url,
+			component: path.resolve(__dirname, "src/templates/event.tsx"),
+			context: { uid: event.uid },
+		})
+	}
+
+	/**
 	 * Create global redirects defined in the Settings document.
 	 *
 	 * @see https://www.gatsbyjs.org/docs/actions/#createRedirect

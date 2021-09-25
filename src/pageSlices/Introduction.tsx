@@ -28,6 +28,8 @@ const introductionVariants: Record<ColorVariant, IntroductionVariant> = {
 	purple: { headingBg: "bg-yellow-50" },
 	yellow: { headingBg: "bg-blue-31" },
 	red: { headingBg: "bg-yellow-50" },
+	gray: { headingBg: "bg-yellow-50" },
+	orange: { headingBg: "bg-yellow-50" },
 }
 
 const Introduction = ({
@@ -42,10 +44,10 @@ const Introduction = ({
 	return (
 		<BoundedBox
 			tag="section"
-			className={clsx(variantStyles.bg, "!pb-8")}
+			className={clsx(variantStyles.bg, "!pb-20")}
 			nextSharesBg={nextSharesBg}
 		>
-			<div className="max-w-[280px] md:max-w-[320px] lg:max-w-sm space-y-5">
+			<div className="max-w-[280px] md:max-w-[320px] lg:max-w-sm space-y-5 md:space-y-8 lg:space-y-12">
 				{heading && (
 					<div className="relative">
 						<div
@@ -58,6 +60,7 @@ const Introduction = ({
 								variant.headingBg
 							)}
 						/>
+
 						<h2
 							className={clsx(
 								"font-serif leading-1",

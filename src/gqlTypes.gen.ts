@@ -343,8 +343,35 @@ export type DirectoryGroupConnection = {
 	edges: Array<DirectoryEdge>
 	nodes: Array<Directory>
 	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<DirectoryGroupConnection>
 	field: Scalars["String"]
 	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type DirectoryGroupConnectionDistinctArgs = {
+	field: DirectoryFieldsEnum
+}
+
+export type DirectoryGroupConnectionMaxArgs = {
+	field: DirectoryFieldsEnum
+}
+
+export type DirectoryGroupConnectionMinArgs = {
+	field: DirectoryFieldsEnum
+}
+
+export type DirectoryGroupConnectionSumArgs = {
+	field: DirectoryFieldsEnum
+}
+
+export type DirectoryGroupConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: DirectoryFieldsEnum
 }
 
 export type DirectorySortInput = {
@@ -648,8 +675,35 @@ export type FileGroupConnection = {
 	edges: Array<FileEdge>
 	nodes: Array<File>
 	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<FileGroupConnection>
 	field: Scalars["String"]
 	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type FileGroupConnectionDistinctArgs = {
+	field: FileFieldsEnum
+}
+
+export type FileGroupConnectionMaxArgs = {
+	field: FileFieldsEnum
+}
+
+export type FileGroupConnectionMinArgs = {
+	field: FileFieldsEnum
+}
+
+export type FileGroupConnectionSumArgs = {
+	field: FileFieldsEnum
+}
+
+export type FileGroupConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: FileFieldsEnum
 }
 
 export type FileSortInput = {
@@ -1999,8 +2053,35 @@ export type PrismicEmbedTypeGroupConnection = {
 	edges: Array<PrismicEmbedTypeEdge>
 	nodes: Array<PrismicEmbedType>
 	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<PrismicEmbedTypeGroupConnection>
 	field: Scalars["String"]
 	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEmbedTypeGroupConnectionDistinctArgs = {
+	field: PrismicEmbedTypeFieldsEnum
+}
+
+export type PrismicEmbedTypeGroupConnectionMaxArgs = {
+	field: PrismicEmbedTypeFieldsEnum
+}
+
+export type PrismicEmbedTypeGroupConnectionMinArgs = {
+	field: PrismicEmbedTypeFieldsEnum
+}
+
+export type PrismicEmbedTypeGroupConnectionSumArgs = {
+	field: PrismicEmbedTypeFieldsEnum
+}
+
+export type PrismicEmbedTypeGroupConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: PrismicEmbedTypeFieldsEnum
 }
 
 export type PrismicEmbedTypeSortInput = {
@@ -2076,7 +2157,278 @@ export type PrismicEventConnectionGroupArgs = {
 	field: PrismicEventFieldsEnum
 }
 
+export type PrismicEventDataBodyAnchor = PrismicSliceType & {
+	primary?: Maybe<PrismicEventDataBodyAnchorPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyAnchorPrimary = {
+	anchor?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyCallToAction = PrismicSliceType & {
+	primary?: Maybe<PrismicEventDataBodyCallToActionPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyCallToActionCard = PrismicSliceType & {
+	primary?: Maybe<PrismicEventDataBodyCallToActionCardPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyCallToActionCardPrimary = {
+	button_link?: Maybe<PrismicLinkType>
+	button_text?: Maybe<Scalars["String"]>
+	color?: Maybe<Scalars["String"]>
+	heading?: Maybe<PrismicStructuredTextType>
+	subheading?: Maybe<PrismicStructuredTextType>
+}
+
+export type PrismicEventDataBodyCallToActionPrimary = {
+	button_link?: Maybe<PrismicLinkType>
+	button_text?: Maybe<Scalars["String"]>
+	heading?: Maybe<PrismicStructuredTextType>
+}
+
+export type PrismicEventDataBodyImageCallToAction = PrismicSliceType & {
+	primary?: Maybe<PrismicEventDataBodyImageCallToActionPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyImageCallToActionPrimary = {
+	button_link?: Maybe<PrismicLinkType>
+	button_text?: Maybe<Scalars["String"]>
+	color?: Maybe<Scalars["String"]>
+	heading?: Maybe<PrismicStructuredTextType>
+	image?: Maybe<PrismicEventDataBodyImageCallToActionPrimaryImageImageType>
+	text?: Maybe<PrismicStructuredTextType>
+}
+
+export type PrismicEventDataBodyImageCallToActionPrimaryImageImageType = {
+	alt?: Maybe<Scalars["String"]>
+	copyright?: Maybe<Scalars["String"]>
+	dimensions?: Maybe<PrismicImageDimensionsType>
+	/**
+	 * A plain imgix URL with the URL and params applied.
+	 */
+	url?: Maybe<Scalars["String"]>
+	/**
+	 * Should be used to generate fixed-width images (i.e. the size of the image
+	 * doesn't change when the size of the browser changes, and are "fixed").
+	 * Returns data compatible with gatsby-image. Instead of accessing this data
+	 * directly, the GatsbySourceImgixFixed fragment should be used. See the
+	 * project's README for more information.
+	 */
+	fixed?: Maybe<ImgixFixed>
+	/**
+	 * Should be used to generate fluid-width images (i.e. images that change when
+	 * the size of the browser changes). Returns data compatible with
+	 * gatsby-image. Instead of accessing this data directly, the
+	 * GatsbySourceImgixFluid fragment should be used. See the project's README
+	 * for more information.
+	 */
+	fluid?: Maybe<ImgixFluid>
+	gatsbyImageData?: Maybe<Scalars["JSON"]>
+	localFile?: Maybe<File>
+}
+
+export type PrismicEventDataBodyImageCallToActionPrimaryImageImageTypeUrlArgs =
+	{
+		imgixParams?: Maybe<ImgixParamsInput>
+	}
+
+export type PrismicEventDataBodyImageCallToActionPrimaryImageImageTypeFixedArgs =
+	{
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		quality?: Maybe<Scalars["Int"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+	}
+
+export type PrismicEventDataBodyImageCallToActionPrimaryImageImageTypeFluidArgs =
+	{
+		imgixParams?: Maybe<ImgixParamsInput>
+		maxWidth?: Maybe<Scalars["Int"]>
+		maxHeight?: Maybe<Scalars["Int"]>
+		srcSetBreakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+	}
+
+export type PrismicEventDataBodyImageCallToActionPrimaryImageImageTypeGatsbyImageDataArgs =
+	{
+		layout?: Maybe<GatsbyImageLayout>
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		aspectRatio?: Maybe<Scalars["Float"]>
+		outputPixelDensities?: Maybe<Array<Maybe<Scalars["Float"]>>>
+		breakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		sizes?: Maybe<Scalars["String"]>
+		backgroundColor?: Maybe<Scalars["String"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+		placeholder?: Maybe<ImgixPlaceholder>
+		widthTolerance?: Maybe<Scalars["Float"]>
+		srcSetMinWidth?: Maybe<Scalars["Int"]>
+		srcSetMaxWidth?: Maybe<Scalars["Int"]>
+	}
+
+export type PrismicEventDataBodyIntroduction = PrismicSliceType & {
+	primary?: Maybe<PrismicEventDataBodyIntroductionPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyIntroductionPrimary = {
+	color?: Maybe<Scalars["String"]>
+	heading?: Maybe<PrismicStructuredTextType>
+	text?: Maybe<PrismicStructuredTextType>
+}
+
+export type PrismicEventDataBodyNewsletterForm = PrismicSliceType & {
+	primary?: Maybe<PrismicEventDataBodyNewsletterFormPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyNewsletterFormPrimary = {
+	color?: Maybe<Scalars["String"]>
+	heading?: Maybe<PrismicStructuredTextType>
+	placeholder_text?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyRichText = PrismicSliceType & {
+	primary?: Maybe<PrismicEventDataBodyRichTextPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyRichTextPrimary = {
+	button_link?: Maybe<PrismicLinkType>
+	button_text?: Maybe<Scalars["String"]>
+	color?: Maybe<Scalars["String"]>
+	text?: Maybe<PrismicStructuredTextType>
+}
+
+export type PrismicEventDataBodySlicesType =
+	| PrismicEventDataBodyAnchor
+	| PrismicEventDataBodyCallToAction
+	| PrismicEventDataBodyCallToActionCard
+	| PrismicEventDataBodyImageCallToAction
+	| PrismicEventDataBodyIntroduction
+	| PrismicEventDataBodyNewsletterForm
+	| PrismicEventDataBodyRichText
+	| PrismicEventDataBodyTwoColumnText
+	| PrismicEventDataBodyVideoHero
+
+export type PrismicEventDataBodyTwoColumnText = PrismicSliceType & {
+	primary?: Maybe<PrismicEventDataBodyTwoColumnTextPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyTwoColumnTextPrimary = {
+	color?: Maybe<Scalars["String"]>
+	left_text?: Maybe<PrismicStructuredTextType>
+	right_text?: Maybe<PrismicStructuredTextType>
+}
+
+export type PrismicEventDataBodyVideoHero = PrismicSliceType & {
+	primary?: Maybe<PrismicEventDataBodyVideoHeroPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyVideoHeroPrimary = {
+	text?: Maybe<PrismicStructuredTextType>
+	video?: Maybe<PrismicEmbedType>
+	video_thumbnail?: Maybe<PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageType>
+}
+
+export type PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageType = {
+	alt?: Maybe<Scalars["String"]>
+	copyright?: Maybe<Scalars["String"]>
+	dimensions?: Maybe<PrismicImageDimensionsType>
+	/**
+	 * A plain imgix URL with the URL and params applied.
+	 */
+	url?: Maybe<Scalars["String"]>
+	/**
+	 * Should be used to generate fixed-width images (i.e. the size of the image
+	 * doesn't change when the size of the browser changes, and are "fixed").
+	 * Returns data compatible with gatsby-image. Instead of accessing this data
+	 * directly, the GatsbySourceImgixFixed fragment should be used. See the
+	 * project's README for more information.
+	 */
+	fixed?: Maybe<ImgixFixed>
+	/**
+	 * Should be used to generate fluid-width images (i.e. images that change when
+	 * the size of the browser changes). Returns data compatible with
+	 * gatsby-image. Instead of accessing this data directly, the
+	 * GatsbySourceImgixFluid fragment should be used. See the project's README
+	 * for more information.
+	 */
+	fluid?: Maybe<ImgixFluid>
+	gatsbyImageData?: Maybe<Scalars["JSON"]>
+	localFile?: Maybe<File>
+}
+
+export type PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageTypeUrlArgs =
+	{
+		imgixParams?: Maybe<ImgixParamsInput>
+	}
+
+export type PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageTypeFixedArgs =
+	{
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		quality?: Maybe<Scalars["Int"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+	}
+
+export type PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageTypeFluidArgs =
+	{
+		imgixParams?: Maybe<ImgixParamsInput>
+		maxWidth?: Maybe<Scalars["Int"]>
+		maxHeight?: Maybe<Scalars["Int"]>
+		srcSetBreakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+	}
+
+export type PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageTypeGatsbyImageDataArgs =
+	{
+		layout?: Maybe<GatsbyImageLayout>
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		aspectRatio?: Maybe<Scalars["Float"]>
+		outputPixelDensities?: Maybe<Array<Maybe<Scalars["Float"]>>>
+		breakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		sizes?: Maybe<Scalars["String"]>
+		backgroundColor?: Maybe<Scalars["String"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+		placeholder?: Maybe<ImgixPlaceholder>
+		widthTolerance?: Maybe<Scalars["Float"]>
+		srcSetMinWidth?: Maybe<Scalars["Int"]>
+		srcSetMaxWidth?: Maybe<Scalars["Int"]>
+	}
+
 export type PrismicEventDataType = {
+	body?: Maybe<Array<Maybe<PrismicEventDataBodySlicesType>>>
 	date?: Maybe<Scalars["Date"]>
 	description?: Maybe<PrismicStructuredTextType>
 	illustration?: Maybe<Scalars["String"]>
@@ -2245,8 +2597,35 @@ export type PrismicEventGroupConnection = {
 	edges: Array<PrismicEventEdge>
 	nodes: Array<PrismicEvent>
 	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<PrismicEventGroupConnection>
 	field: Scalars["String"]
 	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventGroupConnectionDistinctArgs = {
+	field: PrismicEventFieldsEnum
+}
+
+export type PrismicEventGroupConnectionMaxArgs = {
+	field: PrismicEventFieldsEnum
+}
+
+export type PrismicEventGroupConnectionMinArgs = {
+	field: PrismicEventFieldsEnum
+}
+
+export type PrismicEventGroupConnectionSumArgs = {
+	field: PrismicEventFieldsEnum
+}
+
+export type PrismicEventGroupConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: PrismicEventFieldsEnum
 }
 
 export type PrismicEventSortInput = {
@@ -2629,8 +3008,35 @@ export type PrismicNavigationGroupConnection = {
 	edges: Array<PrismicNavigationEdge>
 	nodes: Array<PrismicNavigation>
 	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<PrismicNavigationGroupConnection>
 	field: Scalars["String"]
 	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type PrismicNavigationGroupConnectionDistinctArgs = {
+	field: PrismicNavigationFieldsEnum
+}
+
+export type PrismicNavigationGroupConnectionMaxArgs = {
+	field: PrismicNavigationFieldsEnum
+}
+
+export type PrismicNavigationGroupConnectionMinArgs = {
+	field: PrismicNavigationFieldsEnum
+}
+
+export type PrismicNavigationGroupConnectionSumArgs = {
+	field: PrismicNavigationFieldsEnum
+}
+
+export type PrismicNavigationGroupConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: PrismicNavigationFieldsEnum
 }
 
 export type PrismicNavigationSortInput = {
@@ -2878,6 +3284,20 @@ export type PrismicPageDataBodyNewsletterFormPrimary = {
 	placeholder_text?: Maybe<Scalars["String"]>
 }
 
+export type PrismicPageDataBodyRichText = PrismicSliceType & {
+	primary?: Maybe<PrismicPageDataBodyRichTextPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicPageDataBodyRichTextPrimary = {
+	button_link?: Maybe<PrismicLinkType>
+	button_text?: Maybe<Scalars["String"]>
+	color?: Maybe<Scalars["String"]>
+	text?: Maybe<PrismicStructuredTextType>
+}
+
 export type PrismicPageDataBodySlicesType =
 	| PrismicPageDataBodyAnchor
 	| PrismicPageDataBodyCallToAction
@@ -2887,6 +3307,7 @@ export type PrismicPageDataBodySlicesType =
 	| PrismicPageDataBodyImageCallToAction
 	| PrismicPageDataBodyIntroduction
 	| PrismicPageDataBodyNewsletterForm
+	| PrismicPageDataBodyRichText
 	| PrismicPageDataBodySponsors
 	| PrismicPageDataBodyTwoColumnText
 	| PrismicPageDataBodyVideoHero
@@ -3204,8 +3625,35 @@ export type PrismicPageGroupConnection = {
 	edges: Array<PrismicPageEdge>
 	nodes: Array<PrismicPage>
 	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<PrismicPageGroupConnection>
 	field: Scalars["String"]
 	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type PrismicPageGroupConnectionDistinctArgs = {
+	field: PrismicPageFieldsEnum
+}
+
+export type PrismicPageGroupConnectionMaxArgs = {
+	field: PrismicPageFieldsEnum
+}
+
+export type PrismicPageGroupConnectionMinArgs = {
+	field: PrismicPageFieldsEnum
+}
+
+export type PrismicPageGroupConnectionSumArgs = {
+	field: PrismicPageFieldsEnum
+}
+
+export type PrismicPageGroupConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: PrismicPageFieldsEnum
 }
 
 export type PrismicPageSortInput = {
@@ -3742,8 +4190,35 @@ export type PrismicSettingsGroupConnection = {
 	edges: Array<PrismicSettingsEdge>
 	nodes: Array<PrismicSettings>
 	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<PrismicSettingsGroupConnection>
 	field: Scalars["String"]
 	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type PrismicSettingsGroupConnectionDistinctArgs = {
+	field: PrismicSettingsFieldsEnum
+}
+
+export type PrismicSettingsGroupConnectionMaxArgs = {
+	field: PrismicSettingsFieldsEnum
+}
+
+export type PrismicSettingsGroupConnectionMinArgs = {
+	field: PrismicSettingsFieldsEnum
+}
+
+export type PrismicSettingsGroupConnectionSumArgs = {
+	field: PrismicSettingsFieldsEnum
+}
+
+export type PrismicSettingsGroupConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: PrismicSettingsFieldsEnum
 }
 
 export type PrismicSettingsSortInput = {
@@ -4149,8 +4624,35 @@ export type PrismicSponsorGroupConnection = {
 	edges: Array<PrismicSponsorEdge>
 	nodes: Array<PrismicSponsor>
 	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<PrismicSponsorGroupConnection>
 	field: Scalars["String"]
 	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type PrismicSponsorGroupConnectionDistinctArgs = {
+	field: PrismicSponsorFieldsEnum
+}
+
+export type PrismicSponsorGroupConnectionMaxArgs = {
+	field: PrismicSponsorFieldsEnum
+}
+
+export type PrismicSponsorGroupConnectionMinArgs = {
+	field: PrismicSponsorFieldsEnum
+}
+
+export type PrismicSponsorGroupConnectionSumArgs = {
+	field: PrismicSponsorFieldsEnum
+}
+
+export type PrismicSponsorGroupConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: PrismicSponsorFieldsEnum
 }
 
 export type PrismicSponsorSortInput = {
@@ -4558,8 +5060,35 @@ export type PrismicSponsorsListGroupConnection = {
 	edges: Array<PrismicSponsorsListEdge>
 	nodes: Array<PrismicSponsorsList>
 	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<PrismicSponsorsListGroupConnection>
 	field: Scalars["String"]
 	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type PrismicSponsorsListGroupConnectionDistinctArgs = {
+	field: PrismicSponsorsListFieldsEnum
+}
+
+export type PrismicSponsorsListGroupConnectionMaxArgs = {
+	field: PrismicSponsorsListFieldsEnum
+}
+
+export type PrismicSponsorsListGroupConnectionMinArgs = {
+	field: PrismicSponsorsListFieldsEnum
+}
+
+export type PrismicSponsorsListGroupConnectionSumArgs = {
+	field: PrismicSponsorsListFieldsEnum
+}
+
+export type PrismicSponsorsListGroupConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: PrismicSponsorsListFieldsEnum
 }
 
 export type PrismicSponsorsListSortInput = {
@@ -4733,8 +5262,35 @@ export type PrismicTypePathTypeGroupConnection = {
 	edges: Array<PrismicTypePathTypeEdge>
 	nodes: Array<PrismicTypePathType>
 	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<PrismicTypePathTypeGroupConnection>
 	field: Scalars["String"]
 	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type PrismicTypePathTypeGroupConnectionDistinctArgs = {
+	field: PrismicTypePathTypeFieldsEnum
+}
+
+export type PrismicTypePathTypeGroupConnectionMaxArgs = {
+	field: PrismicTypePathTypeFieldsEnum
+}
+
+export type PrismicTypePathTypeGroupConnectionMinArgs = {
+	field: PrismicTypePathTypeFieldsEnum
+}
+
+export type PrismicTypePathTypeGroupConnectionSumArgs = {
+	field: PrismicTypePathTypeFieldsEnum
+}
+
+export type PrismicTypePathTypeGroupConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: PrismicTypePathTypeFieldsEnum
 }
 
 export type PrismicTypePathTypeSortInput = {
@@ -4753,6 +5309,10 @@ export type Query = {
 	allSiteFunction: SiteFunctionConnection
 	sitePage?: Maybe<SitePage>
 	allSitePage: SitePageConnection
+	sitePlugin?: Maybe<SitePlugin>
+	allSitePlugin: SitePluginConnection
+	siteBuildMetadata?: Maybe<SiteBuildMetadata>
+	allSiteBuildMetadata: SiteBuildMetadataConnection
 	prismicEmbedType?: Maybe<PrismicEmbedType>
 	allPrismicEmbedType: PrismicEmbedTypeConnection
 	prismicTypePathType?: Maybe<PrismicTypePathType>
@@ -4769,10 +5329,6 @@ export type Query = {
 	allPrismicSponsor: PrismicSponsorConnection
 	prismicSponsorsList?: Maybe<PrismicSponsorsList>
 	allPrismicSponsorsList: PrismicSponsorsListConnection
-	sitePlugin?: Maybe<SitePlugin>
-	allSitePlugin: SitePluginConnection
-	siteBuildMetadata?: Maybe<SiteBuildMetadata>
-	allSiteBuildMetadata: SiteBuildMetadataConnection
 }
 
 export type QueryFileArgs = {
@@ -4926,6 +5482,44 @@ export type QuerySitePageArgs = {
 export type QueryAllSitePageArgs = {
 	filter?: Maybe<SitePageFilterInput>
 	sort?: Maybe<SitePageSortInput>
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+}
+
+export type QuerySitePluginArgs = {
+	resolve?: Maybe<StringQueryOperatorInput>
+	name?: Maybe<StringQueryOperatorInput>
+	version?: Maybe<StringQueryOperatorInput>
+	nodeAPIs?: Maybe<StringQueryOperatorInput>
+	browserAPIs?: Maybe<StringQueryOperatorInput>
+	ssrAPIs?: Maybe<StringQueryOperatorInput>
+	pluginFilepath?: Maybe<StringQueryOperatorInput>
+	pluginOptions?: Maybe<SitePluginPluginOptionsFilterInput>
+	packageJson?: Maybe<SitePluginPackageJsonFilterInput>
+	id?: Maybe<StringQueryOperatorInput>
+	parent?: Maybe<NodeFilterInput>
+	children?: Maybe<NodeFilterListInput>
+	internal?: Maybe<InternalFilterInput>
+}
+
+export type QueryAllSitePluginArgs = {
+	filter?: Maybe<SitePluginFilterInput>
+	sort?: Maybe<SitePluginSortInput>
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+}
+
+export type QuerySiteBuildMetadataArgs = {
+	buildTime?: Maybe<DateQueryOperatorInput>
+	id?: Maybe<StringQueryOperatorInput>
+	parent?: Maybe<NodeFilterInput>
+	children?: Maybe<NodeFilterListInput>
+	internal?: Maybe<InternalFilterInput>
+}
+
+export type QueryAllSiteBuildMetadataArgs = {
+	filter?: Maybe<SiteBuildMetadataFilterInput>
+	sort?: Maybe<SiteBuildMetadataSortInput>
 	skip?: Maybe<Scalars["Int"]>
 	limit?: Maybe<Scalars["Int"]>
 }
@@ -5120,44 +5714,6 @@ export type QueryAllPrismicSponsorsListArgs = {
 	limit?: Maybe<Scalars["Int"]>
 }
 
-export type QuerySitePluginArgs = {
-	id?: Maybe<StringQueryOperatorInput>
-	parent?: Maybe<NodeFilterInput>
-	children?: Maybe<NodeFilterListInput>
-	internal?: Maybe<InternalFilterInput>
-	resolve?: Maybe<StringQueryOperatorInput>
-	name?: Maybe<StringQueryOperatorInput>
-	version?: Maybe<StringQueryOperatorInput>
-	pluginOptions?: Maybe<SitePluginPluginOptionsFilterInput>
-	nodeAPIs?: Maybe<StringQueryOperatorInput>
-	browserAPIs?: Maybe<StringQueryOperatorInput>
-	ssrAPIs?: Maybe<StringQueryOperatorInput>
-	pluginFilepath?: Maybe<StringQueryOperatorInput>
-	packageJson?: Maybe<SitePluginPackageJsonFilterInput>
-}
-
-export type QueryAllSitePluginArgs = {
-	filter?: Maybe<SitePluginFilterInput>
-	sort?: Maybe<SitePluginSortInput>
-	skip?: Maybe<Scalars["Int"]>
-	limit?: Maybe<Scalars["Int"]>
-}
-
-export type QuerySiteBuildMetadataArgs = {
-	id?: Maybe<StringQueryOperatorInput>
-	parent?: Maybe<NodeFilterInput>
-	children?: Maybe<NodeFilterListInput>
-	internal?: Maybe<InternalFilterInput>
-	buildTime?: Maybe<DateQueryOperatorInput>
-}
-
-export type QueryAllSiteBuildMetadataArgs = {
-	filter?: Maybe<SiteBuildMetadataFilterInput>
-	sort?: Maybe<SiteBuildMetadataSortInput>
-	skip?: Maybe<Scalars["Int"]>
-	limit?: Maybe<Scalars["Int"]>
-}
-
 export type Site = Node & {
 	buildTime?: Maybe<Scalars["Date"]>
 	siteMetadata?: Maybe<SiteSiteMetadata>
@@ -5180,11 +5736,11 @@ export type SiteBuildTimeArgs = {
 }
 
 export type SiteBuildMetadata = Node & {
+	buildTime?: Maybe<Scalars["Date"]>
 	id: Scalars["ID"]
 	parent?: Maybe<Node>
 	children: Array<Node>
 	internal: Internal
-	buildTime?: Maybe<Scalars["Date"]>
 }
 
 export type SiteBuildMetadataBuildTimeArgs = {
@@ -5235,6 +5791,7 @@ export type SiteBuildMetadataEdge = {
 }
 
 export enum SiteBuildMetadataFieldsEnum {
+	BuildTime = "buildTime",
 	Id = "id",
 	ParentId = "parent___id",
 	ParentParentId = "parent___parent___id",
@@ -5321,15 +5878,14 @@ export enum SiteBuildMetadataFieldsEnum {
 	InternalMediaType = "internal___mediaType",
 	InternalOwner = "internal___owner",
 	InternalType = "internal___type",
-	BuildTime = "buildTime",
 }
 
 export type SiteBuildMetadataFilterInput = {
+	buildTime?: Maybe<DateQueryOperatorInput>
 	id?: Maybe<StringQueryOperatorInput>
 	parent?: Maybe<NodeFilterInput>
 	children?: Maybe<NodeFilterListInput>
 	internal?: Maybe<InternalFilterInput>
-	buildTime?: Maybe<DateQueryOperatorInput>
 }
 
 export type SiteBuildMetadataGroupConnection = {
@@ -5337,8 +5893,35 @@ export type SiteBuildMetadataGroupConnection = {
 	edges: Array<SiteBuildMetadataEdge>
 	nodes: Array<SiteBuildMetadata>
 	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<SiteBuildMetadataGroupConnection>
 	field: Scalars["String"]
 	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type SiteBuildMetadataGroupConnectionDistinctArgs = {
+	field: SiteBuildMetadataFieldsEnum
+}
+
+export type SiteBuildMetadataGroupConnectionMaxArgs = {
+	field: SiteBuildMetadataFieldsEnum
+}
+
+export type SiteBuildMetadataGroupConnectionMinArgs = {
+	field: SiteBuildMetadataFieldsEnum
+}
+
+export type SiteBuildMetadataGroupConnectionSumArgs = {
+	field: SiteBuildMetadataFieldsEnum
+}
+
+export type SiteBuildMetadataGroupConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: SiteBuildMetadataFieldsEnum
 }
 
 export type SiteBuildMetadataSortInput = {
@@ -5679,8 +6262,35 @@ export type SiteFunctionGroupConnection = {
 	edges: Array<SiteFunctionEdge>
 	nodes: Array<SiteFunction>
 	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<SiteFunctionGroupConnection>
 	field: Scalars["String"]
 	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type SiteFunctionGroupConnectionDistinctArgs = {
+	field: SiteFunctionFieldsEnum
+}
+
+export type SiteFunctionGroupConnectionMaxArgs = {
+	field: SiteFunctionFieldsEnum
+}
+
+export type SiteFunctionGroupConnectionMinArgs = {
+	field: SiteFunctionFieldsEnum
+}
+
+export type SiteFunctionGroupConnectionSumArgs = {
+	field: SiteFunctionFieldsEnum
+}
+
+export type SiteFunctionGroupConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: SiteFunctionFieldsEnum
 }
 
 export type SiteFunctionSortInput = {
@@ -5693,8 +6303,35 @@ export type SiteGroupConnection = {
 	edges: Array<SiteEdge>
 	nodes: Array<Site>
 	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<SiteGroupConnection>
 	field: Scalars["String"]
 	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type SiteGroupConnectionDistinctArgs = {
+	field: SiteFieldsEnum
+}
+
+export type SiteGroupConnectionMaxArgs = {
+	field: SiteFieldsEnum
+}
+
+export type SiteGroupConnectionMinArgs = {
+	field: SiteFieldsEnum
+}
+
+export type SiteGroupConnectionSumArgs = {
+	field: SiteFieldsEnum
+}
+
+export type SiteGroupConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: SiteFieldsEnum
 }
 
 export type SitePage = Node & {
@@ -5855,6 +6492,62 @@ export enum SitePageFieldsEnum {
 	InternalType = "internal___type",
 	IsCreatedByStatefulCreatePages = "isCreatedByStatefulCreatePages",
 	ContextUid = "context___uid",
+	PluginCreatorResolve = "pluginCreator___resolve",
+	PluginCreatorName = "pluginCreator___name",
+	PluginCreatorVersion = "pluginCreator___version",
+	PluginCreatorNodeApIs = "pluginCreator___nodeAPIs",
+	PluginCreatorBrowserApIs = "pluginCreator___browserAPIs",
+	PluginCreatorSsrApIs = "pluginCreator___ssrAPIs",
+	PluginCreatorPluginFilepath = "pluginCreator___pluginFilepath",
+	PluginCreatorPluginOptionsOutput = "pluginCreator___pluginOptions___output",
+	PluginCreatorPluginOptionsCreateLinkInHead = "pluginCreator___pluginOptions___createLinkInHead",
+	PluginCreatorPluginOptionsEntryLimit = "pluginCreator___pluginOptions___entryLimit",
+	PluginCreatorPluginOptionsQuery = "pluginCreator___pluginOptions___query",
+	PluginCreatorPluginOptionsName = "pluginCreator___pluginOptions___name",
+	PluginCreatorPluginOptionsShortName = "pluginCreator___pluginOptions___short_name",
+	PluginCreatorPluginOptionsStartUrl = "pluginCreator___pluginOptions___start_url",
+	PluginCreatorPluginOptionsBackgroundColor = "pluginCreator___pluginOptions___background_color",
+	PluginCreatorPluginOptionsThemeColor = "pluginCreator___pluginOptions___theme_color",
+	PluginCreatorPluginOptionsDisplay = "pluginCreator___pluginOptions___display",
+	PluginCreatorPluginOptionsIcon = "pluginCreator___pluginOptions___icon",
+	PluginCreatorPluginOptionsLegacy = "pluginCreator___pluginOptions___legacy",
+	PluginCreatorPluginOptionsThemeColorInHead = "pluginCreator___pluginOptions___theme_color_in_head",
+	PluginCreatorPluginOptionsCacheBustingMode = "pluginCreator___pluginOptions___cache_busting_mode",
+	PluginCreatorPluginOptionsCrossOrigin = "pluginCreator___pluginOptions___crossOrigin",
+	PluginCreatorPluginOptionsIncludeFavicon = "pluginCreator___pluginOptions___include_favicon",
+	PluginCreatorPluginOptionsCacheDigest = "pluginCreator___pluginOptions___cacheDigest",
+	PluginCreatorPluginOptionsRepositoryName = "pluginCreator___pluginOptions___repositoryName",
+	PluginCreatorPluginOptionsAccessToken = "pluginCreator___pluginOptions___accessToken",
+	PluginCreatorPluginOptionsPromptForAccessToken = "pluginCreator___pluginOptions___promptForAccessToken",
+	PluginCreatorPluginOptionsApiEndpoint = "pluginCreator___pluginOptions___apiEndpoint",
+	PluginCreatorPluginOptionsLang = "pluginCreator___pluginOptions___lang",
+	PluginCreatorPluginOptionsImageImgixParamsAuto = "pluginCreator___pluginOptions___imageImgixParams___auto",
+	PluginCreatorPluginOptionsImageImgixParamsFit = "pluginCreator___pluginOptions___imageImgixParams___fit",
+	PluginCreatorPluginOptionsImageImgixParamsQ = "pluginCreator___pluginOptions___imageImgixParams___q",
+	PluginCreatorPluginOptionsImagePlaceholderImgixParamsW = "pluginCreator___pluginOptions___imagePlaceholderImgixParams___w",
+	PluginCreatorPluginOptionsImagePlaceholderImgixParamsBlur = "pluginCreator___pluginOptions___imagePlaceholderImgixParams___blur",
+	PluginCreatorPluginOptionsToolbar = "pluginCreator___pluginOptions___toolbar",
+	PluginCreatorPluginOptionsPath = "pluginCreator___pluginOptions___path",
+	PluginCreatorPluginOptionsPathCheck = "pluginCreator___pluginOptions___pathCheck",
+	PluginCreatorPluginOptionsAllExtensions = "pluginCreator___pluginOptions___allExtensions",
+	PluginCreatorPluginOptionsIsTsx = "pluginCreator___pluginOptions___isTSX",
+	PluginCreatorPluginOptionsJsxPragma = "pluginCreator___pluginOptions___jsxPragma",
+	PluginCreatorPackageJsonName = "pluginCreator___packageJson___name",
+	PluginCreatorPackageJsonDescription = "pluginCreator___packageJson___description",
+	PluginCreatorPackageJsonVersion = "pluginCreator___packageJson___version",
+	PluginCreatorPackageJsonMain = "pluginCreator___packageJson___main",
+	PluginCreatorPackageJsonAuthor = "pluginCreator___packageJson___author",
+	PluginCreatorPackageJsonLicense = "pluginCreator___packageJson___license",
+	PluginCreatorPackageJsonDependencies = "pluginCreator___packageJson___dependencies",
+	PluginCreatorPackageJsonDependenciesName = "pluginCreator___packageJson___dependencies___name",
+	PluginCreatorPackageJsonDependenciesVersion = "pluginCreator___packageJson___dependencies___version",
+	PluginCreatorPackageJsonDevDependencies = "pluginCreator___packageJson___devDependencies",
+	PluginCreatorPackageJsonDevDependenciesName = "pluginCreator___packageJson___devDependencies___name",
+	PluginCreatorPackageJsonDevDependenciesVersion = "pluginCreator___packageJson___devDependencies___version",
+	PluginCreatorPackageJsonPeerDependencies = "pluginCreator___packageJson___peerDependencies",
+	PluginCreatorPackageJsonPeerDependenciesName = "pluginCreator___packageJson___peerDependencies___name",
+	PluginCreatorPackageJsonPeerDependenciesVersion = "pluginCreator___packageJson___peerDependencies___version",
+	PluginCreatorPackageJsonKeywords = "pluginCreator___packageJson___keywords",
 	PluginCreatorId = "pluginCreator___id",
 	PluginCreatorParentId = "pluginCreator___parent___id",
 	PluginCreatorParentParentId = "pluginCreator___parent___parent___id",
@@ -5893,62 +6586,6 @@ export enum SitePageFieldsEnum {
 	PluginCreatorInternalMediaType = "pluginCreator___internal___mediaType",
 	PluginCreatorInternalOwner = "pluginCreator___internal___owner",
 	PluginCreatorInternalType = "pluginCreator___internal___type",
-	PluginCreatorResolve = "pluginCreator___resolve",
-	PluginCreatorName = "pluginCreator___name",
-	PluginCreatorVersion = "pluginCreator___version",
-	PluginCreatorPluginOptionsOutput = "pluginCreator___pluginOptions___output",
-	PluginCreatorPluginOptionsCreateLinkInHead = "pluginCreator___pluginOptions___createLinkInHead",
-	PluginCreatorPluginOptionsEntryLimit = "pluginCreator___pluginOptions___entryLimit",
-	PluginCreatorPluginOptionsQuery = "pluginCreator___pluginOptions___query",
-	PluginCreatorPluginOptionsName = "pluginCreator___pluginOptions___name",
-	PluginCreatorPluginOptionsShortName = "pluginCreator___pluginOptions___short_name",
-	PluginCreatorPluginOptionsStartUrl = "pluginCreator___pluginOptions___start_url",
-	PluginCreatorPluginOptionsBackgroundColor = "pluginCreator___pluginOptions___background_color",
-	PluginCreatorPluginOptionsThemeColor = "pluginCreator___pluginOptions___theme_color",
-	PluginCreatorPluginOptionsDisplay = "pluginCreator___pluginOptions___display",
-	PluginCreatorPluginOptionsIcon = "pluginCreator___pluginOptions___icon",
-	PluginCreatorPluginOptionsLegacy = "pluginCreator___pluginOptions___legacy",
-	PluginCreatorPluginOptionsThemeColorInHead = "pluginCreator___pluginOptions___theme_color_in_head",
-	PluginCreatorPluginOptionsCacheBustingMode = "pluginCreator___pluginOptions___cache_busting_mode",
-	PluginCreatorPluginOptionsCrossOrigin = "pluginCreator___pluginOptions___crossOrigin",
-	PluginCreatorPluginOptionsIncludeFavicon = "pluginCreator___pluginOptions___include_favicon",
-	PluginCreatorPluginOptionsCacheDigest = "pluginCreator___pluginOptions___cacheDigest",
-	PluginCreatorPluginOptionsRepositoryName = "pluginCreator___pluginOptions___repositoryName",
-	PluginCreatorPluginOptionsAccessToken = "pluginCreator___pluginOptions___accessToken",
-	PluginCreatorPluginOptionsPromptForAccessToken = "pluginCreator___pluginOptions___promptForAccessToken",
-	PluginCreatorPluginOptionsApiEndpoint = "pluginCreator___pluginOptions___apiEndpoint",
-	PluginCreatorPluginOptionsLang = "pluginCreator___pluginOptions___lang",
-	PluginCreatorPluginOptionsImageImgixParamsAuto = "pluginCreator___pluginOptions___imageImgixParams___auto",
-	PluginCreatorPluginOptionsImageImgixParamsFit = "pluginCreator___pluginOptions___imageImgixParams___fit",
-	PluginCreatorPluginOptionsImageImgixParamsQ = "pluginCreator___pluginOptions___imageImgixParams___q",
-	PluginCreatorPluginOptionsImagePlaceholderImgixParamsW = "pluginCreator___pluginOptions___imagePlaceholderImgixParams___w",
-	PluginCreatorPluginOptionsImagePlaceholderImgixParamsBlur = "pluginCreator___pluginOptions___imagePlaceholderImgixParams___blur",
-	PluginCreatorPluginOptionsToolbar = "pluginCreator___pluginOptions___toolbar",
-	PluginCreatorPluginOptionsPath = "pluginCreator___pluginOptions___path",
-	PluginCreatorPluginOptionsPathCheck = "pluginCreator___pluginOptions___pathCheck",
-	PluginCreatorPluginOptionsAllExtensions = "pluginCreator___pluginOptions___allExtensions",
-	PluginCreatorPluginOptionsIsTsx = "pluginCreator___pluginOptions___isTSX",
-	PluginCreatorPluginOptionsJsxPragma = "pluginCreator___pluginOptions___jsxPragma",
-	PluginCreatorNodeApIs = "pluginCreator___nodeAPIs",
-	PluginCreatorBrowserApIs = "pluginCreator___browserAPIs",
-	PluginCreatorSsrApIs = "pluginCreator___ssrAPIs",
-	PluginCreatorPluginFilepath = "pluginCreator___pluginFilepath",
-	PluginCreatorPackageJsonName = "pluginCreator___packageJson___name",
-	PluginCreatorPackageJsonDescription = "pluginCreator___packageJson___description",
-	PluginCreatorPackageJsonVersion = "pluginCreator___packageJson___version",
-	PluginCreatorPackageJsonMain = "pluginCreator___packageJson___main",
-	PluginCreatorPackageJsonAuthor = "pluginCreator___packageJson___author",
-	PluginCreatorPackageJsonLicense = "pluginCreator___packageJson___license",
-	PluginCreatorPackageJsonDependencies = "pluginCreator___packageJson___dependencies",
-	PluginCreatorPackageJsonDependenciesName = "pluginCreator___packageJson___dependencies___name",
-	PluginCreatorPackageJsonDependenciesVersion = "pluginCreator___packageJson___dependencies___version",
-	PluginCreatorPackageJsonDevDependencies = "pluginCreator___packageJson___devDependencies",
-	PluginCreatorPackageJsonDevDependenciesName = "pluginCreator___packageJson___devDependencies___name",
-	PluginCreatorPackageJsonDevDependenciesVersion = "pluginCreator___packageJson___devDependencies___version",
-	PluginCreatorPackageJsonPeerDependencies = "pluginCreator___packageJson___peerDependencies",
-	PluginCreatorPackageJsonPeerDependenciesName = "pluginCreator___packageJson___peerDependencies___name",
-	PluginCreatorPackageJsonPeerDependenciesVersion = "pluginCreator___packageJson___peerDependencies___version",
-	PluginCreatorPackageJsonKeywords = "pluginCreator___packageJson___keywords",
 	PluginCreatorId = "pluginCreatorId",
 }
 
@@ -5973,8 +6610,35 @@ export type SitePageGroupConnection = {
 	edges: Array<SitePageEdge>
 	nodes: Array<SitePage>
 	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<SitePageGroupConnection>
 	field: Scalars["String"]
 	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type SitePageGroupConnectionDistinctArgs = {
+	field: SitePageFieldsEnum
+}
+
+export type SitePageGroupConnectionMaxArgs = {
+	field: SitePageFieldsEnum
+}
+
+export type SitePageGroupConnectionMinArgs = {
+	field: SitePageFieldsEnum
+}
+
+export type SitePageGroupConnectionSumArgs = {
+	field: SitePageFieldsEnum
+}
+
+export type SitePageGroupConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: SitePageFieldsEnum
 }
 
 export type SitePageSortInput = {
@@ -5983,19 +6647,19 @@ export type SitePageSortInput = {
 }
 
 export type SitePlugin = Node & {
-	id: Scalars["ID"]
-	parent?: Maybe<Node>
-	children: Array<Node>
-	internal: Internal
 	resolve?: Maybe<Scalars["String"]>
 	name?: Maybe<Scalars["String"]>
 	version?: Maybe<Scalars["String"]>
-	pluginOptions?: Maybe<SitePluginPluginOptions>
 	nodeAPIs?: Maybe<Array<Maybe<Scalars["String"]>>>
 	browserAPIs?: Maybe<Array<Maybe<Scalars["String"]>>>
 	ssrAPIs?: Maybe<Array<Maybe<Scalars["String"]>>>
 	pluginFilepath?: Maybe<Scalars["String"]>
+	pluginOptions?: Maybe<SitePluginPluginOptions>
 	packageJson?: Maybe<SitePluginPackageJson>
+	id: Scalars["ID"]
+	parent?: Maybe<Node>
+	children: Array<Node>
+	internal: Internal
 }
 
 export type SitePluginConnection = {
@@ -6039,6 +6703,62 @@ export type SitePluginEdge = {
 }
 
 export enum SitePluginFieldsEnum {
+	Resolve = "resolve",
+	Name = "name",
+	Version = "version",
+	NodeApIs = "nodeAPIs",
+	BrowserApIs = "browserAPIs",
+	SsrApIs = "ssrAPIs",
+	PluginFilepath = "pluginFilepath",
+	PluginOptionsOutput = "pluginOptions___output",
+	PluginOptionsCreateLinkInHead = "pluginOptions___createLinkInHead",
+	PluginOptionsEntryLimit = "pluginOptions___entryLimit",
+	PluginOptionsQuery = "pluginOptions___query",
+	PluginOptionsName = "pluginOptions___name",
+	PluginOptionsShortName = "pluginOptions___short_name",
+	PluginOptionsStartUrl = "pluginOptions___start_url",
+	PluginOptionsBackgroundColor = "pluginOptions___background_color",
+	PluginOptionsThemeColor = "pluginOptions___theme_color",
+	PluginOptionsDisplay = "pluginOptions___display",
+	PluginOptionsIcon = "pluginOptions___icon",
+	PluginOptionsLegacy = "pluginOptions___legacy",
+	PluginOptionsThemeColorInHead = "pluginOptions___theme_color_in_head",
+	PluginOptionsCacheBustingMode = "pluginOptions___cache_busting_mode",
+	PluginOptionsCrossOrigin = "pluginOptions___crossOrigin",
+	PluginOptionsIncludeFavicon = "pluginOptions___include_favicon",
+	PluginOptionsCacheDigest = "pluginOptions___cacheDigest",
+	PluginOptionsRepositoryName = "pluginOptions___repositoryName",
+	PluginOptionsAccessToken = "pluginOptions___accessToken",
+	PluginOptionsPromptForAccessToken = "pluginOptions___promptForAccessToken",
+	PluginOptionsApiEndpoint = "pluginOptions___apiEndpoint",
+	PluginOptionsLang = "pluginOptions___lang",
+	PluginOptionsImageImgixParamsAuto = "pluginOptions___imageImgixParams___auto",
+	PluginOptionsImageImgixParamsFit = "pluginOptions___imageImgixParams___fit",
+	PluginOptionsImageImgixParamsQ = "pluginOptions___imageImgixParams___q",
+	PluginOptionsImagePlaceholderImgixParamsW = "pluginOptions___imagePlaceholderImgixParams___w",
+	PluginOptionsImagePlaceholderImgixParamsBlur = "pluginOptions___imagePlaceholderImgixParams___blur",
+	PluginOptionsToolbar = "pluginOptions___toolbar",
+	PluginOptionsPath = "pluginOptions___path",
+	PluginOptionsPathCheck = "pluginOptions___pathCheck",
+	PluginOptionsAllExtensions = "pluginOptions___allExtensions",
+	PluginOptionsIsTsx = "pluginOptions___isTSX",
+	PluginOptionsJsxPragma = "pluginOptions___jsxPragma",
+	PackageJsonName = "packageJson___name",
+	PackageJsonDescription = "packageJson___description",
+	PackageJsonVersion = "packageJson___version",
+	PackageJsonMain = "packageJson___main",
+	PackageJsonAuthor = "packageJson___author",
+	PackageJsonLicense = "packageJson___license",
+	PackageJsonDependencies = "packageJson___dependencies",
+	PackageJsonDependenciesName = "packageJson___dependencies___name",
+	PackageJsonDependenciesVersion = "packageJson___dependencies___version",
+	PackageJsonDevDependencies = "packageJson___devDependencies",
+	PackageJsonDevDependenciesName = "packageJson___devDependencies___name",
+	PackageJsonDevDependenciesVersion = "packageJson___devDependencies___version",
+	PackageJsonPeerDependencies = "packageJson___peerDependencies",
+	PackageJsonPeerDependenciesName = "packageJson___peerDependencies___name",
+	PackageJsonPeerDependenciesVersion = "packageJson___peerDependencies___version",
+	PackageJsonKeywords = "packageJson___keywords",
 	Id = "id",
 	ParentId = "parent___id",
 	ParentParentId = "parent___parent___id",
@@ -6125,78 +6845,22 @@ export enum SitePluginFieldsEnum {
 	InternalMediaType = "internal___mediaType",
 	InternalOwner = "internal___owner",
 	InternalType = "internal___type",
-	Resolve = "resolve",
-	Name = "name",
-	Version = "version",
-	PluginOptionsOutput = "pluginOptions___output",
-	PluginOptionsCreateLinkInHead = "pluginOptions___createLinkInHead",
-	PluginOptionsEntryLimit = "pluginOptions___entryLimit",
-	PluginOptionsQuery = "pluginOptions___query",
-	PluginOptionsName = "pluginOptions___name",
-	PluginOptionsShortName = "pluginOptions___short_name",
-	PluginOptionsStartUrl = "pluginOptions___start_url",
-	PluginOptionsBackgroundColor = "pluginOptions___background_color",
-	PluginOptionsThemeColor = "pluginOptions___theme_color",
-	PluginOptionsDisplay = "pluginOptions___display",
-	PluginOptionsIcon = "pluginOptions___icon",
-	PluginOptionsLegacy = "pluginOptions___legacy",
-	PluginOptionsThemeColorInHead = "pluginOptions___theme_color_in_head",
-	PluginOptionsCacheBustingMode = "pluginOptions___cache_busting_mode",
-	PluginOptionsCrossOrigin = "pluginOptions___crossOrigin",
-	PluginOptionsIncludeFavicon = "pluginOptions___include_favicon",
-	PluginOptionsCacheDigest = "pluginOptions___cacheDigest",
-	PluginOptionsRepositoryName = "pluginOptions___repositoryName",
-	PluginOptionsAccessToken = "pluginOptions___accessToken",
-	PluginOptionsPromptForAccessToken = "pluginOptions___promptForAccessToken",
-	PluginOptionsApiEndpoint = "pluginOptions___apiEndpoint",
-	PluginOptionsLang = "pluginOptions___lang",
-	PluginOptionsImageImgixParamsAuto = "pluginOptions___imageImgixParams___auto",
-	PluginOptionsImageImgixParamsFit = "pluginOptions___imageImgixParams___fit",
-	PluginOptionsImageImgixParamsQ = "pluginOptions___imageImgixParams___q",
-	PluginOptionsImagePlaceholderImgixParamsW = "pluginOptions___imagePlaceholderImgixParams___w",
-	PluginOptionsImagePlaceholderImgixParamsBlur = "pluginOptions___imagePlaceholderImgixParams___blur",
-	PluginOptionsToolbar = "pluginOptions___toolbar",
-	PluginOptionsPath = "pluginOptions___path",
-	PluginOptionsPathCheck = "pluginOptions___pathCheck",
-	PluginOptionsAllExtensions = "pluginOptions___allExtensions",
-	PluginOptionsIsTsx = "pluginOptions___isTSX",
-	PluginOptionsJsxPragma = "pluginOptions___jsxPragma",
-	NodeApIs = "nodeAPIs",
-	BrowserApIs = "browserAPIs",
-	SsrApIs = "ssrAPIs",
-	PluginFilepath = "pluginFilepath",
-	PackageJsonName = "packageJson___name",
-	PackageJsonDescription = "packageJson___description",
-	PackageJsonVersion = "packageJson___version",
-	PackageJsonMain = "packageJson___main",
-	PackageJsonAuthor = "packageJson___author",
-	PackageJsonLicense = "packageJson___license",
-	PackageJsonDependencies = "packageJson___dependencies",
-	PackageJsonDependenciesName = "packageJson___dependencies___name",
-	PackageJsonDependenciesVersion = "packageJson___dependencies___version",
-	PackageJsonDevDependencies = "packageJson___devDependencies",
-	PackageJsonDevDependenciesName = "packageJson___devDependencies___name",
-	PackageJsonDevDependenciesVersion = "packageJson___devDependencies___version",
-	PackageJsonPeerDependencies = "packageJson___peerDependencies",
-	PackageJsonPeerDependenciesName = "packageJson___peerDependencies___name",
-	PackageJsonPeerDependenciesVersion = "packageJson___peerDependencies___version",
-	PackageJsonKeywords = "packageJson___keywords",
 }
 
 export type SitePluginFilterInput = {
-	id?: Maybe<StringQueryOperatorInput>
-	parent?: Maybe<NodeFilterInput>
-	children?: Maybe<NodeFilterListInput>
-	internal?: Maybe<InternalFilterInput>
 	resolve?: Maybe<StringQueryOperatorInput>
 	name?: Maybe<StringQueryOperatorInput>
 	version?: Maybe<StringQueryOperatorInput>
-	pluginOptions?: Maybe<SitePluginPluginOptionsFilterInput>
 	nodeAPIs?: Maybe<StringQueryOperatorInput>
 	browserAPIs?: Maybe<StringQueryOperatorInput>
 	ssrAPIs?: Maybe<StringQueryOperatorInput>
 	pluginFilepath?: Maybe<StringQueryOperatorInput>
+	pluginOptions?: Maybe<SitePluginPluginOptionsFilterInput>
 	packageJson?: Maybe<SitePluginPackageJsonFilterInput>
+	id?: Maybe<StringQueryOperatorInput>
+	parent?: Maybe<NodeFilterInput>
+	children?: Maybe<NodeFilterListInput>
+	internal?: Maybe<InternalFilterInput>
 }
 
 export type SitePluginGroupConnection = {
@@ -6204,8 +6868,35 @@ export type SitePluginGroupConnection = {
 	edges: Array<SitePluginEdge>
 	nodes: Array<SitePlugin>
 	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<SitePluginGroupConnection>
 	field: Scalars["String"]
 	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginGroupConnectionDistinctArgs = {
+	field: SitePluginFieldsEnum
+}
+
+export type SitePluginGroupConnectionMaxArgs = {
+	field: SitePluginFieldsEnum
+}
+
+export type SitePluginGroupConnectionMinArgs = {
+	field: SitePluginFieldsEnum
+}
+
+export type SitePluginGroupConnectionSumArgs = {
+	field: SitePluginFieldsEnum
+}
+
+export type SitePluginGroupConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: SitePluginFieldsEnum
 }
 
 export type SitePluginPackageJson = {
@@ -6377,10 +7068,1132 @@ export type SitePluginPluginOptionsSchemas = {
 
 export type SitePluginPluginOptionsSchemasEvent = {
 	Main?: Maybe<SitePluginPluginOptionsSchemasEventMain>
+	Body?: Maybe<SitePluginPluginOptionsSchemasEventBody>
+}
+
+export type SitePluginPluginOptionsSchemasEventBody = {
+	body?: Maybe<SitePluginPluginOptionsSchemasEventBodyBody>
+}
+
+export type SitePluginPluginOptionsSchemasEventBodyBody = {
+	type?: Maybe<Scalars["String"]>
+	fieldset?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfig>
+}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfig = {
+	choices?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoices>
+}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoices = {
+	anchor?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchor>
+	video_hero?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_Hero>
+	two_column_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_Text>
+	introduction?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroduction>
+	image_call_to_action?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_Action>
+	newsletter_form?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_Form>
+	call_to_action?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action>
+	call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_Card>
+	rich_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_Text>
+}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchor = {
+	type?: Maybe<Scalars["String"]>
+	fieldset?: Maybe<Scalars["String"]>
+	description?: Maybe<Scalars["String"]>
+	icon?: Maybe<Scalars["String"]>
+	display?: Maybe<Scalars["String"]>
+	non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchorNon_Repeat>
+}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchorNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchorNon_Repeat =
+	{
+		anchor?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchorNon_RepeatAnchor>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchorNon_RepeatAnchor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchorNon_RepeatAnchorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchorNon_RepeatAnchorConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+		placeholder?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchorNon_RepeatAnchorConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+		placeholder?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchorNon_RepeatAnchorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchorNon_RepeatAnchorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchorNon_RepeatFilterInput =
+	{
+		anchor?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchorNon_RepeatAnchorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_Repeat>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_Repeat =
+	{
+		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatHeading>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_Link>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_Text>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_Link =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_LinkConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_LinkConfig =
+	{
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_LinkConfigFilterInput =
+	{
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_LinkFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_LinkConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_Text =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_TextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_TextConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_TextConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_TextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_TextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatFilterInput =
+	{
+		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatHeadingFilterInput>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_LinkFilterInput>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatButton_TextFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatHeading =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatHeadingConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatHeadingConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatHeadingConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatHeadingFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionNon_RepeatHeadingConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_Card =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_Repeat>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_Repeat =
+	{
+		subheading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheading>
+		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeading>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_Link>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_Text>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatColor>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_Link =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_LinkConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_LinkConfig =
+	{
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_LinkConfigFilterInput =
+	{
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_LinkFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_LinkConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_Text =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_TextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_TextConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_TextConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_TextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_TextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatColor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatColorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatColorConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatColorConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatColorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatColorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatFilterInput =
+	{
+		subheading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingFilterInput>
+		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingFilterInput>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_LinkFilterInput>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_TextFilterInput>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatColorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeading =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheading =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFilterInput =
+	{
+		anchor?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchorFilterInput>
+		video_hero?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroFilterInput>
+		two_column_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextFilterInput>
+		introduction?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionFilterInput>
+		image_call_to_action?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionFilterInput>
+		newsletter_form?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormFilterInput>
+		call_to_action?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionFilterInput>
+		call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardFilterInput>
+		rich_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_Action =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_Repeat>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_Repeat =
+	{
+		image?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImage>
+		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeading>
+		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatText>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_Link>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_Text>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColor>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_Link =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_LinkConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_LinkConfig =
+	{
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_LinkConfigFilterInput =
+	{
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_LinkFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_LinkConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_Text =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_TextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_TextConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_TextConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_TextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_TextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColorConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColorConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatFilterInput =
+	{
+		image?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImageFilterInput>
+		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingFilterInput>
+		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextFilterInput>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_LinkFilterInput>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_TextFilterInput>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeading =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImage =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImageConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImageConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImageConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImageFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImageConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatText =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextConfig =
+	{
+		multi?: Maybe<Scalars["String"]>
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextConfigFilterInput =
+	{
+		multi?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroduction =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_Repeat>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_Repeat =
+	{
+		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatHeading>
+		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatText>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatColor>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatColor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatColorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatColorConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatColorConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatColorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatColorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatFilterInput =
+	{
+		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatHeadingFilterInput>
+		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatTextFilterInput>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatColorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatHeading =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatHeadingConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatHeadingConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatHeadingConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatHeadingFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatHeadingConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatText =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatTextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatTextConfig =
+	{
+		multi?: Maybe<Scalars["String"]>
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatTextConfigFilterInput =
+	{
+		multi?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatTextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionNon_RepeatTextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_Form =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_Repeat>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_Repeat =
+	{
+		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeading>
+		placeholder_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_Text>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatColor>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatColor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatColorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatColorConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatColorConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatColorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatColorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatFilterInput =
+	{
+		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeadingFilterInput>
+		placeholder_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_TextFilterInput>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatColorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeading =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeadingConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeadingConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeadingConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeadingFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatHeadingConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_Text =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_TextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_TextConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+		placeholder?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_TextConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+		placeholder?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_TextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_TextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_Text =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_Repeat>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_Repeat =
+	{
+		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatText>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatButton_Link>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatButton_Text>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatColor>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatButton_Link =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatButton_LinkConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatButton_LinkConfig =
+	{
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatButton_LinkConfigFilterInput =
+	{
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatButton_LinkFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatButton_LinkConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatButton_Text =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatButton_TextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatButton_TextConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatButton_TextConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatButton_TextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatButton_TextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatColor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatColorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatColorConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatColorConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatColorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatColorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatFilterInput =
+	{
+		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatTextFilterInput>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatButton_LinkFilterInput>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatButton_TextFilterInput>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatColorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatText =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatTextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatTextConfig =
+	{
+		multi?: Maybe<Scalars["String"]>
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatTextConfigFilterInput =
+	{
+		multi?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatTextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatTextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_Text =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_Repeat>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_Repeat =
+	{
+		left_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatLeft_Text>
+		right_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatRight_Text>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColor>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColorConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColorConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatFilterInput =
+	{
+		left_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatLeft_TextFilterInput>
+		right_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatRight_TextFilterInput>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatLeft_Text =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatLeft_TextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatLeft_TextConfig =
+	{
+		multi?: Maybe<Scalars["String"]>
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+		placeholder?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatLeft_TextConfigFilterInput =
+	{
+		multi?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+		placeholder?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatLeft_TextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatLeft_TextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatRight_Text =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatRight_TextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatRight_TextConfig =
+	{
+		multi?: Maybe<Scalars["String"]>
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatRight_TextConfigFilterInput =
+	{
+		multi?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatRight_TextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatRight_TextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_Hero =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_Repeat>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_Repeat =
+	{
+		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatText>
+		video_thumbnail?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_Thumbnail>
+		video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatFilterInput =
+	{
+		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatTextFilterInput>
+		video_thumbnail?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_ThumbnailFilterInput>
+		video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatText =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatTextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatTextConfig =
+	{
+		multi?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatTextConfigFilterInput =
+	{
+		multi?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatTextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatTextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_Thumbnail =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_ThumbnailConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_ThumbnailConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_ThumbnailConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_ThumbnailFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_ThumbnailConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigFilterInput = {
+	choices?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyFilterInput = {
+	type?: Maybe<StringQueryOperatorInput>
+	fieldset?: Maybe<StringQueryOperatorInput>
+	config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasEventBodyFilterInput = {
+	body?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyFilterInput>
 }
 
 export type SitePluginPluginOptionsSchemasEventFilterInput = {
 	Main?: Maybe<SitePluginPluginOptionsSchemasEventMainFilterInput>
+	Body?: Maybe<SitePluginPluginOptionsSchemasEventBodyFilterInput>
 }
 
 export type SitePluginPluginOptionsSchemasEventMain = {
@@ -6705,6 +8518,7 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoices = {
 	newsletter_form?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_Form>
 	sponsors?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsors>
 	call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_Card>
+	rich_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_Text>
 }
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesAnchor = {
@@ -7035,6 +8849,7 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterInput =
 		newsletter_form?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormFilterInput>
 		sponsors?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsFilterInput>
 		call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardFilterInput>
+		rich_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterable_Events =
@@ -7575,6 +9390,139 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_Fo
 	{
 		type?: Maybe<StringQueryOperatorInput>
 		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesNewsletter_FormNon_RepeatPlaceholder_TextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_Text = {
+	type?: Maybe<Scalars["String"]>
+	fieldset?: Maybe<Scalars["String"]>
+	description?: Maybe<Scalars["String"]>
+	icon?: Maybe<Scalars["String"]>
+	display?: Maybe<Scalars["String"]>
+	non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_Repeat>
+}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_Repeat =
+	{
+		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatText>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatButton_Link>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatButton_Text>
+		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatColor>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatButton_Link =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatButton_LinkConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatButton_LinkConfig =
+	{
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatButton_LinkConfigFilterInput =
+	{
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatButton_LinkFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatButton_LinkConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatButton_Text =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatButton_TextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatButton_TextConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatButton_TextConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatButton_TextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatButton_TextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatColor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatColorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatColorConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatColorConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatColorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatColorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatFilterInput =
+	{
+		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatTextFilterInput>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatButton_LinkFilterInput>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatButton_TextFilterInput>
+		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatColorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatText =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatTextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatTextConfig =
+	{
+		multi?: Maybe<Scalars["String"]>
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatTextConfigFilterInput =
+	{
+		multi?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatTextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextNon_RepeatTextConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsors = {
@@ -8998,6 +10946,79 @@ export type StringQueryOperatorInput = {
 	glob?: Maybe<Scalars["String"]>
 }
 
+export type EventAnchorFragment = {
+	primary?: Maybe<{ anchor?: Maybe<string> }>
+}
+
+export type EventCallToActionFragment = {
+	primary?: Maybe<{
+		button_text?: Maybe<string>
+		heading?: Maybe<{ text?: Maybe<string> }>
+		button_link?: Maybe<{ url?: Maybe<string> }>
+	}>
+}
+
+export type EventCallToActionCardFragment = {
+	primary?: Maybe<{
+		button_text?: Maybe<string>
+		color?: Maybe<string>
+		subheading?: Maybe<{ text?: Maybe<string> }>
+		heading?: Maybe<{ text?: Maybe<string> }>
+		button_link?: Maybe<{ url?: Maybe<string> }>
+	}>
+}
+
+export type EventImageCallToActionFragment = {
+	primary?: Maybe<{
+		button_text?: Maybe<string>
+		color?: Maybe<string>
+		image?: Maybe<{ url?: Maybe<string>; alt?: Maybe<string> }>
+		heading?: Maybe<{ text?: Maybe<string> }>
+		text?: Maybe<{ html?: Maybe<string> }>
+		button_link?: Maybe<{ url?: Maybe<string> }>
+	}>
+}
+
+export type EventIntroductionFragment = {
+	primary?: Maybe<{
+		color?: Maybe<string>
+		heading?: Maybe<{ text?: Maybe<string> }>
+		text?: Maybe<{ html?: Maybe<string> }>
+	}>
+}
+
+export type EventNewsletterFormFragment = {
+	primary?: Maybe<{
+		placeholder_text?: Maybe<string>
+		color?: Maybe<string>
+		heading?: Maybe<{ text?: Maybe<string> }>
+	}>
+}
+
+export type EventRichTextFragment = {
+	primary?: Maybe<{
+		button_text?: Maybe<string>
+		color?: Maybe<string>
+		text?: Maybe<{ html?: Maybe<string> }>
+		button_link?: Maybe<{ url?: Maybe<string> }>
+	}>
+}
+
+export type EventTwoColumnTextFragment = {
+	primary?: Maybe<{
+		color?: Maybe<string>
+		left_text?: Maybe<{ html?: Maybe<string> }>
+		right_text?: Maybe<{ html?: Maybe<string> }>
+	}>
+}
+
+export type EventVideoHeroFragment = {
+	primary?: Maybe<{
+		text?: Maybe<{ text?: Maybe<string> }>
+		video_thumbnail?: Maybe<{ alt?: Maybe<string>; url?: Maybe<string> }>
+	}>
+}
+
 export type PrimaryNavigationQueryVariables = Exact<{ [key: string]: never }>
 
 export type PrimaryNavigationQuery = {
@@ -9110,6 +11131,15 @@ export type NewsletterFormFragment = {
 	}>
 }
 
+export type RichTextFragment = {
+	primary?: Maybe<{
+		button_text?: Maybe<string>
+		color?: Maybe<string>
+		text?: Maybe<{ html?: Maybe<string> }>
+		button_link?: Maybe<{ url?: Maybe<string> }>
+	}>
+}
+
 export type SponsorFragment = {
 	data?: Maybe<{
 		image?: Maybe<{ alt?: Maybe<string>; url?: Maybe<string> }>
@@ -9175,6 +11205,54 @@ export type VideoHeroFragment = {
 	}>
 }
 
+export type EventTemplateQueryVariables = Exact<{
+	uid: Scalars["String"]
+}>
+
+export type EventTemplateQuery = {
+	prismicEvent?: Maybe<{
+		_previewable: string
+		uid: string
+		url?: Maybe<string>
+		data?: Maybe<{
+			title?: Maybe<{ text?: Maybe<string> }>
+			body?: Maybe<
+				Array<
+					Maybe<
+						| ({
+								__typename: "PrismicEventDataBodyAnchor"
+						  } & EventAnchorFragment)
+						| ({
+								__typename: "PrismicEventDataBodyCallToAction"
+						  } & EventCallToActionFragment)
+						| ({
+								__typename: "PrismicEventDataBodyCallToActionCard"
+						  } & EventCallToActionCardFragment)
+						| ({
+								__typename: "PrismicEventDataBodyImageCallToAction"
+						  } & EventImageCallToActionFragment)
+						| ({
+								__typename: "PrismicEventDataBodyIntroduction"
+						  } & EventIntroductionFragment)
+						| ({
+								__typename: "PrismicEventDataBodyNewsletterForm"
+						  } & EventNewsletterFormFragment)
+						| ({
+								__typename: "PrismicEventDataBodyRichText"
+						  } & EventRichTextFragment)
+						| ({
+								__typename: "PrismicEventDataBodyTwoColumnText"
+						  } & EventTwoColumnTextFragment)
+						| ({
+								__typename: "PrismicEventDataBodyVideoHero"
+						  } & EventVideoHeroFragment)
+					>
+				>
+			>
+		}>
+	}>
+}
+
 export type PageTemplateQueryVariables = Exact<{
 	uid: Scalars["String"]
 }>
@@ -9213,6 +11291,7 @@ export type PageTemplateQuery = {
 						| ({
 								__typename: "PrismicPageDataBodyNewsletterForm"
 						  } & NewsletterFormFragment)
+						| ({ __typename: "PrismicPageDataBodyRichText" } & RichTextFragment)
 						| ({ __typename: "PrismicPageDataBodySponsors" } & SponsorsFragment)
 						| ({
 								__typename: "PrismicPageDataBodyTwoColumnText"

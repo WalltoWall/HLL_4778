@@ -11,6 +11,7 @@ import { FilterControls } from "./FilterControls"
 import type { Event } from "./FilterableEvents"
 import type { EventsListProps } from "./MobileEvents"
 import { getIllustrationUrl } from "./getIllustrationUrl"
+import { Link } from "../../components/Link"
 
 interface DesktopIllustrationProps {
 	activeEvent: Event
@@ -22,7 +23,9 @@ const DesktopIllustration = ({ activeEvent }: DesktopIllustrationProps) => {
 	const illustrationUrl = getIllustrationUrl(activeEvent.illustration)
 
 	return (
-		<div
+		<Link
+			href={activeEvent.href}
+			aria-label={`Go to ${activeEvent.title} details page.`}
 			className={clsx(
 				"col-start-2 row-start-2",
 				"sticky top-0",
@@ -42,7 +45,7 @@ const DesktopIllustration = ({ activeEvent }: DesktopIllustrationProps) => {
 					loading="eager"
 				/>
 			</div>
-		</div>
+		</Link>
 	)
 }
 

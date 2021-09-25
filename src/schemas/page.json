@@ -50,7 +50,7 @@
       "type": "Slices",
       "fieldset": "Slice zone",
       "config": {
-        "labels": {},
+        "labels": null,
         "choices": {
           "anchor": {
             "type": "Slice",
@@ -442,6 +442,77 @@
                   ],
                   "default_value": "Blue",
                   "label": "Color"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "rich_text": {
+            "type": "Slice",
+            "fieldset": "Rich Text",
+            "description": "Rich text with optional button",
+            "icon": "format_color_text",
+            "display": "list",
+            "non-repeat": {
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,heading2,heading4,heading5,strong,em,hyperlink",
+                  "allowTargetBlank": true,
+                  "label": "Text"
+                }
+              },
+              "button_link": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Button Link",
+                  "select": null
+                }
+              },
+              "button_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Button Text"
+                }
+              },
+              "color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Blue",
+                    "Red",
+                    "Orange",
+                    "Yellow",
+                    "Green",
+                    "Purple"
+                  ],
+                  "default_value": "Blue",
+                  "label": "Color"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "video": {
+            "type": "Slice",
+            "fieldset": "Video",
+            "description": "Full width video",
+            "icon": "ondemand_video",
+            "display": "list",
+            "non-repeat": {
+              "thumbnail": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Thumbnail"
+                }
+              },
+              "video": {
+                "type": "Embed",
+                "config": {
+                  "label": "Video"
                 }
               }
             },

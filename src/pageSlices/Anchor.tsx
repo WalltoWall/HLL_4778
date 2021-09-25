@@ -9,14 +9,14 @@ export const sliceType = "PrismicPageDataBodyAnchor"
 
 const Anchor = ({
 	id,
-	adjustForOverhang,
-}: ReturnType<typeof mapDataToProps>) => {
+}: // adjustForOverhang,
+ReturnType<typeof mapDataToProps>) => {
 	return (
 		<div
 			id={id}
 			className={clsx(
-				"relative",
-				adjustForOverhang && "-top-40 md:-top-48 lg:-top-64"
+				"relative"
+				// adjustForOverhang && "-top-40 md:-top-48 lg:-top-64"
 			)}
 			aria-hidden
 		/>

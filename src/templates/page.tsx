@@ -7,17 +7,19 @@ import { Layout } from "../components/Layout"
 
 import type { PageTemplateQuery } from "../gqlTypes.gen"
 
-import * as GradientText from "../slices/GradientText"
-import * as VideoHero from "../slices/VideoHero"
-import * as Introduction from "../slices/Introduction"
-import * as FilterableEvents from "../slices/FilterableEvents"
-import * as CallToActionCard from "../slices/CallToActionCard"
-import * as TwoColumnText from "../slices/TwoColumnText"
-import * as ImageCallToAction from "../slices/ImageCallToAction"
-import * as CallToAction from "../slices/CallToAction"
-import * as NewsletterForm from "../slices/NewsletterForm"
-import * as Sponsors from "../slices/Sponsors"
-import * as Anchor from "../slices/Anchor"
+import * as GradientText from "../pageSlices/GradientText"
+import * as VideoHero from "../pageSlices/VideoHero"
+import * as Introduction from "../pageSlices/Introduction"
+import * as FilterableEvents from "../pageSlices/FilterableEvents"
+import * as CallToActionCard from "../pageSlices/CallToActionCard"
+import * as TwoColumnText from "../pageSlices/TwoColumnText"
+import * as ImageCallToAction from "../pageSlices/ImageCallToAction"
+import * as CallToAction from "../pageSlices/CallToAction"
+import * as NewsletterForm from "../pageSlices/NewsletterForm"
+import * as Sponsors from "../pageSlices/Sponsors"
+import * as Anchor from "../pageSlices/Anchor"
+import * as RichText from "../pageSlices/RichText"
+
 import {
 	mapDataToContextFactory,
 	mapDataToPropsFactory,
@@ -52,6 +54,7 @@ const sliceMap: SliceMap = {
 	NewsletterForm,
 	Sponsors,
 	Anchor,
+	RichText,
 }
 
 const map = mapFactory(sliceMap)
@@ -61,8 +64,15 @@ const mapDataToContext = mapDataToContextFactory(sliceMap)
 const PageTemplate = ({ data }: PageProps<PageTemplateQuery>) => {
 	const page = data.prismicPage
 
+	const sliceList = page?.data?.body ?? []
+	const lastSlice = sliceList[sliceList.length - 1]
+
 	return (
-		<Layout>
+		<Layout
+			lastOverhangs={
+				lastSlice?.__typename === "PrismicPageDataBodyNewsletterForm"
+			}
+		>
 			<SEO
 				metaTitle={page?.data?.meta_title}
 				metaDescription={page?.data?.meta_description}
@@ -75,7 +85,7 @@ const PageTemplate = ({ data }: PageProps<PageTemplateQuery>) => {
 				map={map}
 				mapDataToProps={mapDataToProps}
 				mapDataToContext={mapDataToContext}
-				list={page?.data?.body ?? []}
+				list={sliceList}
 				default={fallbackSlice}
 			/>
 		</Layout>
@@ -106,6 +116,7 @@ export const pageTemplateQuery = graphql`
 					...NewsletterForm
 					...Sponsors
 					...Anchor
+					...RichText
 				}
 			}
 			uid

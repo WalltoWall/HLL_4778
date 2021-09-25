@@ -15,12 +15,16 @@ const CallToAction = ({
 	buttonHref,
 	buttonText,
 	nextSharesBg,
+	nextOverhangs,
+	previousOverhangs,
 }: ReturnType<typeof mapDataToProps>) => {
 	return (
 		<BoundedBox
 			tag="section"
 			className="bg-beige-92"
 			nextSharesBg={nextSharesBg}
+			nextOverhangs={nextOverhangs}
+			previousOverhangs={previousOverhangs}
 		>
 			<div
 				className={clsx(
@@ -54,12 +58,15 @@ const CallToAction = ({
 export function mapDataToProps({
 	data,
 	nextContext,
+	previousContext,
 }: MapDataToPropsCtx<CallToActionFragment>) {
 	return {
 		heading: data.primary?.heading?.text,
 		buttonHref: data.primary?.button_link?.url,
 		buttonText: data.primary?.button_text,
 		nextSharesBg: nextContext?.backgroundColor === "beige",
+		previousOverhangs: previousContext?.overhangsPrevious,
+		nextOverhangs: nextContext?.overhangsNext,
 	}
 }
 

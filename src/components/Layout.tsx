@@ -7,25 +7,28 @@ import { MobileMenuProvider } from "./Header/MobileMenuProvider"
 
 interface LayoutProps {
 	children: React.ReactNode
+	lastOverhangs?: boolean
 }
 
-const LayoutNodes = React.memo(({ children }: LayoutProps) => {
-	return (
-		<div className="relative">
-			<Header />
-			<main className="relative">{children}</main>
-			<Footer />
-		</div>
-	)
-})
+const LayoutNodes = React.memo(
+	({ children, lastOverhangs = false }: LayoutProps) => {
+		return (
+			<div className="relative">
+				<Header />
+				<main className="relative">{children}</main>
+				<Footer lastOverhangs={lastOverhangs} />
+			</div>
+		)
+	}
+)
 
 LayoutNodes.displayName = "LayoutNodes"
 
-export const Layout = ({ children }: LayoutProps) => {
+export const Layout = ({ children, lastOverhangs }: LayoutProps) => {
 	return (
 		<MediaQueryProvider>
 			<MobileMenuProvider>
-				<LayoutNodes>{children}</LayoutNodes>
+				<LayoutNodes lastOverhangs={lastOverhangs}>{children}</LayoutNodes>
 			</MobileMenuProvider>
 		</MediaQueryProvider>
 	)

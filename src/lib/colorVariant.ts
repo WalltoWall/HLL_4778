@@ -7,6 +7,7 @@ export type ColorVariant =
 	| "green"
 	| "purple"
 	| "gray"
+	| "orange"
 
 interface ColorVariantStyles {
 	bg: string
@@ -38,10 +39,17 @@ const colorVariantMap: Record<ColorVariant, ColorVariantStyles> = {
 		borderColor: "border-beige-92",
 		placeholderColor: "placeholder-beige-92/60",
 	},
+	orange: {
+		bg: "bg-orange-55",
+		textColor: "text-black",
+		buttonColor: "yellow",
+		borderColor: "border-black",
+		placeholderColor: "placeholder-black/60",
+	},
 	yellow: {
 		bg: "bg-yellow-50",
 		textColor: "text-black",
-		buttonColor: "blue",
+		buttonColor: "yellow",
 		borderColor: "border-black",
 		placeholderColor: "placeholder-black/60",
 	},
@@ -62,7 +70,7 @@ const colorVariantMap: Record<ColorVariant, ColorVariantStyles> = {
 }
 
 export function getColorVariantStyles(color: ColorVariant) {
-	return colorVariantMap[color]
+	return colorVariantMap[color] ?? colorVariantMap.blue
 }
 
 export function getColorVariant(selectField?: string): ColorVariant {
