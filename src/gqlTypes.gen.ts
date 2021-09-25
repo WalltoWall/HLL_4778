@@ -2330,6 +2330,7 @@ export type PrismicEventDataBodySlicesType =
 	| PrismicEventDataBodyNewsletterForm
 	| PrismicEventDataBodyRichText
 	| PrismicEventDataBodyTwoColumnText
+	| PrismicEventDataBodyVideo
 	| PrismicEventDataBodyVideoHero
 
 export type PrismicEventDataBodyTwoColumnText = PrismicSliceType & {
@@ -2343,6 +2344,13 @@ export type PrismicEventDataBodyTwoColumnTextPrimary = {
 	color?: Maybe<Scalars["String"]>
 	left_text?: Maybe<PrismicStructuredTextType>
 	right_text?: Maybe<PrismicStructuredTextType>
+}
+
+export type PrismicEventDataBodyVideo = PrismicSliceType & {
+	primary?: Maybe<PrismicEventDataBodyVideoPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
 }
 
 export type PrismicEventDataBodyVideoHero = PrismicSliceType & {
@@ -2410,6 +2418,77 @@ export type PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageTypeFluidArgs
 	}
 
 export type PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageTypeGatsbyImageDataArgs =
+	{
+		layout?: Maybe<GatsbyImageLayout>
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		aspectRatio?: Maybe<Scalars["Float"]>
+		outputPixelDensities?: Maybe<Array<Maybe<Scalars["Float"]>>>
+		breakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		sizes?: Maybe<Scalars["String"]>
+		backgroundColor?: Maybe<Scalars["String"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+		placeholder?: Maybe<ImgixPlaceholder>
+		widthTolerance?: Maybe<Scalars["Float"]>
+		srcSetMinWidth?: Maybe<Scalars["Int"]>
+		srcSetMaxWidth?: Maybe<Scalars["Int"]>
+	}
+
+export type PrismicEventDataBodyVideoPrimary = {
+	thumbnail?: Maybe<PrismicEventDataBodyVideoPrimaryThumbnailImageType>
+	video?: Maybe<PrismicEmbedType>
+}
+
+export type PrismicEventDataBodyVideoPrimaryThumbnailImageType = {
+	alt?: Maybe<Scalars["String"]>
+	copyright?: Maybe<Scalars["String"]>
+	dimensions?: Maybe<PrismicImageDimensionsType>
+	/**
+	 * A plain imgix URL with the URL and params applied.
+	 */
+	url?: Maybe<Scalars["String"]>
+	/**
+	 * Should be used to generate fixed-width images (i.e. the size of the image
+	 * doesn't change when the size of the browser changes, and are "fixed").
+	 * Returns data compatible with gatsby-image. Instead of accessing this data
+	 * directly, the GatsbySourceImgixFixed fragment should be used. See the
+	 * project's README for more information.
+	 */
+	fixed?: Maybe<ImgixFixed>
+	/**
+	 * Should be used to generate fluid-width images (i.e. images that change when
+	 * the size of the browser changes). Returns data compatible with
+	 * gatsby-image. Instead of accessing this data directly, the
+	 * GatsbySourceImgixFluid fragment should be used. See the project's README
+	 * for more information.
+	 */
+	fluid?: Maybe<ImgixFluid>
+	gatsbyImageData?: Maybe<Scalars["JSON"]>
+	localFile?: Maybe<File>
+}
+
+export type PrismicEventDataBodyVideoPrimaryThumbnailImageTypeUrlArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicEventDataBodyVideoPrimaryThumbnailImageTypeFixedArgs = {
+	width?: Maybe<Scalars["Int"]>
+	height?: Maybe<Scalars["Int"]>
+	quality?: Maybe<Scalars["Int"]>
+	imgixParams?: Maybe<ImgixParamsInput>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicEventDataBodyVideoPrimaryThumbnailImageTypeFluidArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+	maxWidth?: Maybe<Scalars["Int"]>
+	maxHeight?: Maybe<Scalars["Int"]>
+	srcSetBreakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicEventDataBodyVideoPrimaryThumbnailImageTypeGatsbyImageDataArgs =
 	{
 		layout?: Maybe<GatsbyImageLayout>
 		width?: Maybe<Scalars["Int"]>
@@ -3310,6 +3389,7 @@ export type PrismicPageDataBodySlicesType =
 	| PrismicPageDataBodyRichText
 	| PrismicPageDataBodySponsors
 	| PrismicPageDataBodyTwoColumnText
+	| PrismicPageDataBodyVideo
 	| PrismicPageDataBodyVideoHero
 
 export type PrismicPageDataBodySponsors = PrismicSliceType & {
@@ -3336,6 +3416,13 @@ export type PrismicPageDataBodyTwoColumnTextPrimary = {
 	color?: Maybe<Scalars["String"]>
 	left_text?: Maybe<PrismicStructuredTextType>
 	right_text?: Maybe<PrismicStructuredTextType>
+}
+
+export type PrismicPageDataBodyVideo = PrismicSliceType & {
+	primary?: Maybe<PrismicPageDataBodyVideoPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
 }
 
 export type PrismicPageDataBodyVideoHero = PrismicSliceType & {
@@ -3403,6 +3490,77 @@ export type PrismicPageDataBodyVideoHeroPrimaryVideoThumbnailImageTypeFluidArgs 
 	}
 
 export type PrismicPageDataBodyVideoHeroPrimaryVideoThumbnailImageTypeGatsbyImageDataArgs =
+	{
+		layout?: Maybe<GatsbyImageLayout>
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		aspectRatio?: Maybe<Scalars["Float"]>
+		outputPixelDensities?: Maybe<Array<Maybe<Scalars["Float"]>>>
+		breakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		sizes?: Maybe<Scalars["String"]>
+		backgroundColor?: Maybe<Scalars["String"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+		placeholder?: Maybe<ImgixPlaceholder>
+		widthTolerance?: Maybe<Scalars["Float"]>
+		srcSetMinWidth?: Maybe<Scalars["Int"]>
+		srcSetMaxWidth?: Maybe<Scalars["Int"]>
+	}
+
+export type PrismicPageDataBodyVideoPrimary = {
+	thumbnail?: Maybe<PrismicPageDataBodyVideoPrimaryThumbnailImageType>
+	video?: Maybe<PrismicEmbedType>
+}
+
+export type PrismicPageDataBodyVideoPrimaryThumbnailImageType = {
+	alt?: Maybe<Scalars["String"]>
+	copyright?: Maybe<Scalars["String"]>
+	dimensions?: Maybe<PrismicImageDimensionsType>
+	/**
+	 * A plain imgix URL with the URL and params applied.
+	 */
+	url?: Maybe<Scalars["String"]>
+	/**
+	 * Should be used to generate fixed-width images (i.e. the size of the image
+	 * doesn't change when the size of the browser changes, and are "fixed").
+	 * Returns data compatible with gatsby-image. Instead of accessing this data
+	 * directly, the GatsbySourceImgixFixed fragment should be used. See the
+	 * project's README for more information.
+	 */
+	fixed?: Maybe<ImgixFixed>
+	/**
+	 * Should be used to generate fluid-width images (i.e. images that change when
+	 * the size of the browser changes). Returns data compatible with
+	 * gatsby-image. Instead of accessing this data directly, the
+	 * GatsbySourceImgixFluid fragment should be used. See the project's README
+	 * for more information.
+	 */
+	fluid?: Maybe<ImgixFluid>
+	gatsbyImageData?: Maybe<Scalars["JSON"]>
+	localFile?: Maybe<File>
+}
+
+export type PrismicPageDataBodyVideoPrimaryThumbnailImageTypeUrlArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicPageDataBodyVideoPrimaryThumbnailImageTypeFixedArgs = {
+	width?: Maybe<Scalars["Int"]>
+	height?: Maybe<Scalars["Int"]>
+	quality?: Maybe<Scalars["Int"]>
+	imgixParams?: Maybe<ImgixParamsInput>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicPageDataBodyVideoPrimaryThumbnailImageTypeFluidArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+	maxWidth?: Maybe<Scalars["Int"]>
+	maxHeight?: Maybe<Scalars["Int"]>
+	srcSetBreakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicPageDataBodyVideoPrimaryThumbnailImageTypeGatsbyImageDataArgs =
 	{
 		layout?: Maybe<GatsbyImageLayout>
 		width?: Maybe<Scalars["Int"]>
@@ -7095,6 +7253,7 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoices = {
 	call_to_action?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action>
 	call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_Card>
 	rich_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_Text>
+	video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo>
 }
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchor = {
@@ -7423,6 +7582,7 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFilterInput 
 		call_to_action?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionFilterInput>
 		call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardFilterInput>
 		rich_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextFilterInput>
+		video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_Action =
@@ -8075,6 +8235,81 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_T
 		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatRight_TextConfigFilterInput>
 	}
 
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo = {
+	type?: Maybe<Scalars["String"]>
+	fieldset?: Maybe<Scalars["String"]>
+	description?: Maybe<Scalars["String"]>
+	icon?: Maybe<Scalars["String"]>
+	display?: Maybe<Scalars["String"]>
+	non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_Repeat>
+}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_Repeat =
+	{
+		thumbnail?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatThumbnail>
+		video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideo>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatFilterInput =
+	{
+		thumbnail?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatThumbnailFilterInput>
+		video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideoFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatThumbnail =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatThumbnailConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatThumbnailConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatThumbnailConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatThumbnailFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatThumbnailConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideo =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideoConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideoConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideoConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideoFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideoConfigFilterInput>
+	}
+
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_Hero =
 	{
 		type?: Maybe<Scalars["String"]>
@@ -8519,6 +8754,7 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoices = {
 	sponsors?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsors>
 	call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_Card>
 	rich_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_Text>
+	video?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo>
 }
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesAnchor = {
@@ -8850,6 +9086,7 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterInput =
 		sponsors?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsFilterInput>
 		call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardFilterInput>
 		rich_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextFilterInput>
+		video?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterable_Events =
@@ -9744,6 +9981,81 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_Te
 	{
 		type?: Maybe<StringQueryOperatorInput>
 		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatRight_TextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo = {
+	type?: Maybe<Scalars["String"]>
+	fieldset?: Maybe<Scalars["String"]>
+	description?: Maybe<Scalars["String"]>
+	icon?: Maybe<Scalars["String"]>
+	display?: Maybe<Scalars["String"]>
+	non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_Repeat>
+}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_Repeat =
+	{
+		thumbnail?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatThumbnail>
+		video?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideo>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatFilterInput =
+	{
+		thumbnail?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatThumbnailFilterInput>
+		video?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideoFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatThumbnail =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatThumbnailConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatThumbnailConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatThumbnailConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatThumbnailFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatThumbnailConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideo =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideoConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideoConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideoConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideoFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideoConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_Hero =
@@ -11198,6 +11510,12 @@ export type TwoColumnTextFragment = {
 	}>
 }
 
+export type VideoFragment = {
+	primary?: Maybe<{
+		thumbnail?: Maybe<{ alt?: Maybe<string>; url?: Maybe<string> }>
+	}>
+}
+
 export type VideoHeroFragment = {
 	primary?: Maybe<{
 		text?: Maybe<{ text?: Maybe<string> }>
@@ -11243,6 +11561,7 @@ export type EventTemplateQuery = {
 						| ({
 								__typename: "PrismicEventDataBodyTwoColumnText"
 						  } & EventTwoColumnTextFragment)
+						| { __typename: "PrismicEventDataBodyVideo" }
 						| ({
 								__typename: "PrismicEventDataBodyVideoHero"
 						  } & EventVideoHeroFragment)
@@ -11296,6 +11615,7 @@ export type PageTemplateQuery = {
 						| ({
 								__typename: "PrismicPageDataBodyTwoColumnText"
 						  } & TwoColumnTextFragment)
+						| { __typename: "PrismicPageDataBodyVideo" }
 						| ({
 								__typename: "PrismicPageDataBodyVideoHero"
 						  } & VideoHeroFragment)

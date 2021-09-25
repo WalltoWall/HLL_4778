@@ -139,6 +139,7 @@
                     "Blue",
                     "Red",
                     "Yellow",
+                    "Orange",
                     "Green",
                     "Purple"
                   ],
@@ -178,6 +179,7 @@
                     "Blue",
                     "Red",
                     "Yellow",
+                    "Orange",
                     "Green",
                     "Purple"
                   ],
@@ -239,6 +241,7 @@
                     "Blue",
                     "Red",
                     "Yellow",
+                    "Orange",
                     "Green",
                     "Purple"
                   ],
@@ -277,6 +280,7 @@
                     "Blue",
                     "Red",
                     "Yellow",
+                    "Orange",
                     "Green",
                     "Purple"
                   ],
@@ -360,6 +364,7 @@
                     "Blue",
                     "Red",
                     "Yellow",
+                    "Orange",
                     "Green",
                     "Purple"
                   ],
@@ -440,6 +445,95 @@
               }
             },
             "repeat": {}
+          },
+          "featured_people": {
+            "type": "Slice",
+            "fieldset": "Featured People",
+            "description": "Feature people with photo and bios",
+            "icon": "account_circle",
+            "display": "list",
+            "non-repeat": {
+              "color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Blue",
+                    "Red",
+                    "Yellow",
+                    "Orange",
+                    "Green",
+                    "Purple"
+                  ],
+                  "default_value": "Blue",
+                  "label": "Color"
+                }
+              }
+            },
+            "repeat": {
+              "headshot": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Headshot"
+                }
+              },
+              "name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Name"
+                }
+              },
+              "title1": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading4",
+                  "label": "Title"
+                }
+              },
+              "pronouns": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading5",
+                  "label": "Pronouns"
+                }
+              },
+              "bio": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em",
+                  "allowTargetBlank": true,
+                  "label": "Bio"
+                }
+              },
+              "instagram_handle": {
+                "type": "Text",
+                "config": {
+                  "label": "Instagram Handle"
+                }
+              },
+              "instagram_profile_url": {
+                "type": "Link",
+                "config": {
+                  "label": "Instagram Profile URL",
+                  "select": null
+                }
+              },
+              "website_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Website Label"
+                }
+              },
+              "website_url": {
+                "type": "Link",
+                "config": {
+                  "label": "Website URL",
+                  "select": null
+                }
+              }
+            }
           }
         }
       }
