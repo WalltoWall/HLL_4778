@@ -63,7 +63,7 @@ const VideoHero = ({
 						<Image
 							src={videoThumbnailUrl}
 							alt={videoThumbnailAlt ?? ""}
-							className="object-cover object-center w-full h-full"
+							className="object-cover object-center w-full h-full brightness-[.65]"
 						/>
 					)}
 				</div>
