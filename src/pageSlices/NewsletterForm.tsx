@@ -56,10 +56,9 @@ const NewsletterForm = ({
 	heading,
 	placeholderText,
 	color,
-	withOverhang = false,
 }: ReturnType<typeof mapDataToProps>) => {
 	const [submissionState, setSubmissionState] =
-		React.useState<FormState>("submitting")
+		React.useState<FormState>("unsubmitted")
 
 	async function submitToNetlify(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault()
@@ -85,17 +84,13 @@ const NewsletterForm = ({
 	const variantStyles = getColorVariantStyles(formStateVariant.color ?? color)
 
 	return (
-		<BoundedBox
-			tag="section"
-			className="bg-beige-92"
-			nextSharesBg={withOverhang}
-		>
+		<BoundedBox tag="section" className="h-0">
 			<Card
 				className={clsx(
 					variantStyles.bg,
 					"space-y-18 md:space-y-32 lg:space-y-45",
 					"transition duration-250",
-					withOverhang && "-mb-21 md:-mb-39 lg:-mb-54"
+					"translate-y-[-50%]"
 				)}
 			>
 				{heading && (
@@ -159,7 +154,7 @@ const NewsletterForm = ({
 
 export function mapDataToProps({
 	data,
-	context,
+	nextType,
 }: MapDataToPropsCtx<
 	NewsletterFormFragment,
 	ReturnType<typeof mapDataToContext>
@@ -168,16 +163,17 @@ export function mapDataToProps({
 		heading: data.primary?.heading?.text,
 		placeholderText: data.primary?.placeholder_text,
 		color: getColorVariant(data.primary?.color),
-		withOverhang: context?.nextIsFooter,
+		overhangsPrevious: true,
+		overhangsNext: !nextType,
 	}
 }
 
-export function mapDataToContext({
-	nextType,
-}: MapDataToContextCtx<NewsletterFormFragment>) {
+export function mapDataToContext(
+	_ctx: MapDataToContextCtx<NewsletterFormFragment>
+) {
 	return {
-		backgroundColor: "beige" as ColorVariant,
-		nextIsFooter: nextType === undefined,
+		backgroundColor: Symbol("never"),
+		overhangsNext: true,
 	}
 }
 

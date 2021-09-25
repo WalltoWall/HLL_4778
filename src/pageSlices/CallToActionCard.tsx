@@ -22,18 +22,13 @@ const CallToActionCard = ({
 	const variantStyles = getColorVariantStyles(color)
 
 	return (
-		<BoundedBox
-			tag="section"
-			width="base"
-			nextSharesBg={true}
-			className="relative h-0 pt-0 sm:pt-0 md:pt-0 lg:pt-0"
-		>
+		<BoundedBox tag="section" width="base" className="h-0">
 			<Card
 				className={clsx(
 					"isolate",
 					"flex flex-col items-center text-center",
-					variantStyles.bg,
-					"translate-y-[-50%]"
+					"translate-y-[-50%]",
+					variantStyles.bg
 				)}
 			>
 				{subheading && (
@@ -77,7 +72,10 @@ const CallToActionCard = ({
 
 export function mapDataToProps({
 	data,
-}: MapDataToPropsCtx<CallToActionCardFragment>) {
+}: MapDataToPropsCtx<
+	CallToActionCardFragment,
+	ReturnType<typeof mapDataToContext>
+>) {
 	return {
 		subheading: data.primary?.subheading?.text,
 		heading: data.primary?.heading?.text,
@@ -90,7 +88,11 @@ export function mapDataToProps({
 export function mapDataToContext(
 	_ctx: MapDataToContextCtx<CallToActionCardFragment>
 ) {
-	return { backgroundColor: Symbol("never"), overhangs: true }
+	return {
+		backgroundColor: Symbol("never"),
+		overhangsPrevious: true,
+		overhangsNext: true,
+	}
 }
 
 export const gqlFragment = graphql`

@@ -19,9 +19,7 @@ const buttonVariants = variantFnFactory({
 			blue: clsx("bg-blue-31 text-black", "hover:border-blue-31"),
 		},
 	},
-	defaultVariants: {
-		color: "yellow",
-	},
+	defaultVariants: {},
 })
 export type ButtonVariants = GetVariants<typeof buttonVariants>
 

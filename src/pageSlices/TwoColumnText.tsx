@@ -9,27 +9,26 @@ import { getColorVariant, getColorVariantStyles } from "../lib/colorVariant"
 
 import { HTMLContent } from "../components/HTMLContent"
 import { BoundedBox } from "../components/BoundedBox"
-import { sliceType as CallToActionCardSliceType } from "./CallToActionCard"
 
 export const sliceType = "PrismicPageDataBodyTwoColumnText"
 
 const TwoColumnText = ({
 	leftHTML,
 	rightHTML,
-	nextSharesBg,
-	prevOverhangs = false,
 	color,
+	nextSharesBg,
+	nextOverhangs,
+	previousOverhangs,
 }: ReturnType<typeof mapDataToProps>) => {
 	const variantStyles = getColorVariantStyles(color)
 
 	return (
 		<BoundedBox
-			className={clsx(
-				variantStyles.bg,
-				prevOverhangs && "pt-40 md:pt-48 lg:pt-80"
-			)}
-			nextSharesBg={nextSharesBg}
+			className={variantStyles.bg}
 			width="base"
+			nextSharesBg={nextSharesBg}
+			nextOverhangs={nextOverhangs}
+			previousOverhangs={previousOverhangs}
 		>
 			<div
 				className={clsx(
@@ -49,16 +48,15 @@ const TwoColumnText = ({
 export function mapDataToProps({
 	data,
 	nextContext,
-	previousType,
+	previousContext,
 }: MapDataToPropsCtx<TwoColumnTextFragment>) {
-	const prevOverhangs = previousType === CallToActionCardSliceType
-
 	return {
 		leftHTML: undefIfEmpty(data.primary?.left_text?.html),
 		rightHTML: undefIfEmpty(data.primary?.right_text?.html),
 		color: getColorVariant(data.primary?.color),
 		nextSharesBg: nextContext?.backgroundColor === "blue",
-		prevOverhangs,
+		previousOverhangs: previousContext?.overhangsPrevious,
+		nextOverhangs: nextContext?.overhangsNext,
 	}
 }
 

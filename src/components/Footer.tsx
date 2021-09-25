@@ -13,14 +13,22 @@ import { SocialNavigation } from "./SocialNavigation"
 
 import * as styles from "./Footer.module.css"
 
-export const Footer = () => {
+interface FooterProps {
+	lastOverhangs?: boolean
+}
+
+export const Footer = ({ lastOverhangs = false }: FooterProps) => {
 	const settings = usePrismicSettings()
 
 	return (
 		<BoundedBox
 			tag="footer"
-			className="bg-gray-13 text-beige-92"
-			variant="footer"
+			className={clsx(
+				"bg-gray-13 text-beige-92",
+				lastOverhangs && "pt-43 md:pt-58 lg:pt-99",
+				lastOverhangs && "-mt-16 sm:-mt-20 md:-mt-24 lg:-mt-36",
+				"!pb-8"
+			)}
 		>
 			<div
 				className={clsx(

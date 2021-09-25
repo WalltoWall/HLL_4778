@@ -30,7 +30,8 @@ export const sliceType = "PrismicPageDataBodyFilterableEvents"
 
 const FilterableEvents = ({
 	events = [],
-	nextOverhangs = false,
+	nextOverhangs,
+	previousOverhangs,
 }: ReturnType<typeof mapDataToProps>) => {
 	const [activeFilter, setActiveFilter] = React.useState<
 		EventType | undefined
@@ -68,9 +69,10 @@ const FilterableEvents = ({
 			ref={containerRef}
 			className={clsx(
 				"relative transition duration-300",
-				activeColorVariant.bg,
-				nextOverhangs && "pb-40 md:pb-48 lg:pb-64"
+				activeColorVariant.bg
 			)}
+			nextOverhangs={nextOverhangs}
+			previousOverhangs={previousOverhangs}
 		>
 			<MobileEvents
 				events={filteredEvents}
@@ -89,7 +91,6 @@ const FilterableEvents = ({
 				activeFilter={activeFilter}
 				clearFilters={clearFilters}
 				filterEvents={filterEvents}
-				className={clsx()}
 			/>
 		</BoundedBox>
 	)
@@ -98,6 +99,7 @@ const FilterableEvents = ({
 export function mapDataToProps({
 	data,
 	nextContext,
+	previousContext,
 }: MapDataToPropsCtx<FilterableEventsFragment>) {
 	return {
 		events:
@@ -115,7 +117,8 @@ export function mapDataToProps({
 					href: item?.event?.url,
 				}
 			}) ?? [],
-		nextOverhangs: nextContext?.overhangs ?? false,
+		previousOverhangs: previousContext?.overhangsPrevious,
+		nextOverhangs: nextContext?.overhangsNext,
 	}
 }
 
