@@ -36,7 +36,10 @@ const FeaturedPeople = ({
 			<BoundedBox className={variantStyles.bg} nextSharesBg>
 				<div className="space-y-12">
 					<div
-						className={clsx("text-center space-y-4", variantStyles.textColor)}
+						className={clsx(
+							"text-center space-y-4 md:space-y-5 lg:space-y-6",
+							variantStyles.textColor
+						)}
 					>
 						{subheading && (
 							<h4
@@ -51,7 +54,7 @@ const FeaturedPeople = ({
 						)}
 
 						{heading && (
-							<h4 className={clsx("font-serif text-42 lg:text-62")}>
+							<h4 className={clsx("font-serif text-42 md:text-52 lg:text-62")}>
 								{heading}
 							</h4>
 						)}

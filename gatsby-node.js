@@ -142,3 +142,30 @@ exports.createPages = async (gatsbyContext) => {
 		}
 	}
 }
+
+exports.createResolvers = async ({ createResolvers }) => {
+	const resolvers = {
+		PrismicSubmissionType: {
+			submissions: {
+				type: ["PrismicVideoSubmission"],
+				resolve: (source, args, context, _info) => {
+					return context.nodeModel.runQuery({
+						query: {
+							filter: {
+								data: {
+									type: {
+										uid: { eq: source.uid },
+									},
+								},
+							},
+						},
+						type: "PrismicVideoSubmission",
+						firstOnly: false,
+					})
+				},
+			},
+		},
+	}
+
+	createResolvers(resolvers)
+}

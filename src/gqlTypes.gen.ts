@@ -1673,6 +1673,8 @@ export type PrismicAllDocumentTypes =
 	| PrismicSettings
 	| PrismicSponsor
 	| PrismicSponsorsList
+	| PrismicSubmissionType
+	| PrismicVideoSubmission
 
 export type PrismicAlternateLanguageType = {
 	id?: Maybe<Scalars["ID"]>
@@ -2212,6 +2214,7 @@ export type PrismicEventDataBodySlicesType =
 	| PrismicEventDataBodyRichText
 	| PrismicEventDataBodyTwoColumnText
 	| PrismicEventDataBodyVideo
+	| PrismicEventDataBodyVideoGallery
 	| PrismicEventDataBodyVideoHero
 
 export type PrismicEventDataBodyTwoColumnText = PrismicSliceType & {
@@ -2232,6 +2235,21 @@ export type PrismicEventDataBodyVideo = PrismicSliceType & {
 	id: Scalars["ID"]
 	slice_type: Scalars["String"]
 	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyVideoGallery = PrismicSliceType & {
+	primary?: Maybe<PrismicEventDataBodyVideoGalleryPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyVideoGalleryPrimary = {
+	color?: Maybe<Scalars["String"]>
+	heading?: Maybe<PrismicStructuredTextType>
+	subheading1?: Maybe<PrismicStructuredTextType>
+	text?: Maybe<PrismicStructuredTextType>
+	video_submission_type?: Maybe<PrismicLinkType>
 }
 
 export type PrismicEventDataBodyVideoHero = PrismicSliceType & {
@@ -3354,6 +3372,7 @@ export type PrismicPageDataBodySlicesType =
 	| PrismicPageDataBodySponsors
 	| PrismicPageDataBodyTwoColumnText
 	| PrismicPageDataBodyVideo
+	| PrismicPageDataBodyVideoGallery
 	| PrismicPageDataBodyVideoHero
 
 export type PrismicPageDataBodySponsors = PrismicSliceType & {
@@ -3387,6 +3406,21 @@ export type PrismicPageDataBodyVideo = PrismicSliceType & {
 	id: Scalars["ID"]
 	slice_type: Scalars["String"]
 	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicPageDataBodyVideoGallery = PrismicSliceType & {
+	primary?: Maybe<PrismicPageDataBodyVideoGalleryPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicPageDataBodyVideoGalleryPrimary = {
+	color?: Maybe<Scalars["String"]>
+	heading?: Maybe<PrismicStructuredTextType>
+	subheading1?: Maybe<PrismicStructuredTextType>
+	text?: Maybe<PrismicStructuredTextType>
+	video_submission_type?: Maybe<PrismicLinkType>
 }
 
 export type PrismicPageDataBodyVideoHero = PrismicSliceType & {
@@ -3544,6 +3578,7 @@ export type PrismicPageDataType = {
 	meta_title?: Maybe<Scalars["String"]>
 	redirect_is_permanent?: Maybe<Scalars["Boolean"]>
 	redirect_to?: Maybe<PrismicLinkType>
+	subheading?: Maybe<PrismicStructuredTextType>
 	title?: Maybe<PrismicStructuredTextType>
 }
 
@@ -3552,6 +3587,7 @@ export type PrismicPageDataTypeFilterInput = {
 	meta_title?: Maybe<StringQueryOperatorInput>
 	redirect_is_permanent?: Maybe<BooleanQueryOperatorInput>
 	redirect_to?: Maybe<PrismicLinkTypeFilterInput>
+	subheading?: Maybe<PrismicStructuredTextTypeFilterInput>
 	title?: Maybe<PrismicStructuredTextTypeFilterInput>
 }
 
@@ -3611,6 +3647,9 @@ export enum PrismicPageFieldsEnum {
 	DataRedirectToLocalFileId = "data___redirect_to___localFile___id",
 	DataRedirectToLocalFileChildren = "data___redirect_to___localFile___children",
 	DataRedirectToRaw = "data___redirect_to___raw",
+	DataSubheadingText = "data___subheading___text",
+	DataSubheadingHtml = "data___subheading___html",
+	DataSubheadingRaw = "data___subheading___raw",
 	DataTitleText = "data___title___text",
 	DataTitleHtml = "data___title___html",
 	DataTitleRaw = "data___title___raw",
@@ -5220,6 +5259,259 @@ export type PrismicStructuredTextTypeFilterInput = {
 	raw?: Maybe<JsonQueryOperatorInput>
 }
 
+export type PrismicSubmissionType = Node & {
+	uid: Scalars["String"]
+	data?: Maybe<PrismicSubmissionTypeDataType>
+	dataRaw: Scalars["JSON"]
+	prismicId: Scalars["ID"]
+	alternate_languages: Array<PrismicAlternateLanguageType>
+	first_publication_date: Scalars["Date"]
+	href: Scalars["String"]
+	lang: Scalars["String"]
+	last_publication_date: Scalars["Date"]
+	tags: Array<Scalars["String"]>
+	type: Scalars["String"]
+	url?: Maybe<Scalars["String"]>
+	_previewable: Scalars["ID"]
+	id: Scalars["ID"]
+	parent?: Maybe<Node>
+	children: Array<Node>
+	internal: Internal
+	submissions?: Maybe<Array<Maybe<PrismicVideoSubmission>>>
+}
+
+export type PrismicSubmissionTypeFirst_Publication_DateArgs = {
+	formatString?: Maybe<Scalars["String"]>
+	fromNow?: Maybe<Scalars["Boolean"]>
+	difference?: Maybe<Scalars["String"]>
+	locale?: Maybe<Scalars["String"]>
+}
+
+export type PrismicSubmissionTypeLast_Publication_DateArgs = {
+	formatString?: Maybe<Scalars["String"]>
+	fromNow?: Maybe<Scalars["Boolean"]>
+	difference?: Maybe<Scalars["String"]>
+	locale?: Maybe<Scalars["String"]>
+}
+
+export type PrismicSubmissionTypeConnection = {
+	totalCount: Scalars["Int"]
+	edges: Array<PrismicSubmissionTypeEdge>
+	nodes: Array<PrismicSubmissionType>
+	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<PrismicSubmissionTypeGroupConnection>
+}
+
+export type PrismicSubmissionTypeConnectionDistinctArgs = {
+	field: PrismicSubmissionTypeFieldsEnum
+}
+
+export type PrismicSubmissionTypeConnectionMaxArgs = {
+	field: PrismicSubmissionTypeFieldsEnum
+}
+
+export type PrismicSubmissionTypeConnectionMinArgs = {
+	field: PrismicSubmissionTypeFieldsEnum
+}
+
+export type PrismicSubmissionTypeConnectionSumArgs = {
+	field: PrismicSubmissionTypeFieldsEnum
+}
+
+export type PrismicSubmissionTypeConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: PrismicSubmissionTypeFieldsEnum
+}
+
+export type PrismicSubmissionTypeDataType = {
+	name?: Maybe<PrismicStructuredTextType>
+}
+
+export type PrismicSubmissionTypeDataTypeFilterInput = {
+	name?: Maybe<PrismicStructuredTextTypeFilterInput>
+}
+
+export type PrismicSubmissionTypeEdge = {
+	next?: Maybe<PrismicSubmissionType>
+	node: PrismicSubmissionType
+	previous?: Maybe<PrismicSubmissionType>
+}
+
+export enum PrismicSubmissionTypeFieldsEnum {
+	Uid = "uid",
+	DataNameText = "data___name___text",
+	DataNameHtml = "data___name___html",
+	DataNameRaw = "data___name___raw",
+	DataRaw = "dataRaw",
+	PrismicId = "prismicId",
+	AlternateLanguages = "alternate_languages",
+	AlternateLanguagesId = "alternate_languages___id",
+	AlternateLanguagesUid = "alternate_languages___uid",
+	AlternateLanguagesLang = "alternate_languages___lang",
+	AlternateLanguagesType = "alternate_languages___type",
+	AlternateLanguagesRaw = "alternate_languages___raw",
+	FirstPublicationDate = "first_publication_date",
+	Href = "href",
+	Lang = "lang",
+	LastPublicationDate = "last_publication_date",
+	Tags = "tags",
+	Type = "type",
+	Url = "url",
+	Previewable = "_previewable",
+	Id = "id",
+	ParentId = "parent___id",
+	ParentParentId = "parent___parent___id",
+	ParentParentParentId = "parent___parent___parent___id",
+	ParentParentParentChildren = "parent___parent___parent___children",
+	ParentParentChildren = "parent___parent___children",
+	ParentParentChildrenId = "parent___parent___children___id",
+	ParentParentChildrenChildren = "parent___parent___children___children",
+	ParentParentInternalContent = "parent___parent___internal___content",
+	ParentParentInternalContentDigest = "parent___parent___internal___contentDigest",
+	ParentParentInternalDescription = "parent___parent___internal___description",
+	ParentParentInternalFieldOwners = "parent___parent___internal___fieldOwners",
+	ParentParentInternalIgnoreType = "parent___parent___internal___ignoreType",
+	ParentParentInternalMediaType = "parent___parent___internal___mediaType",
+	ParentParentInternalOwner = "parent___parent___internal___owner",
+	ParentParentInternalType = "parent___parent___internal___type",
+	ParentChildren = "parent___children",
+	ParentChildrenId = "parent___children___id",
+	ParentChildrenParentId = "parent___children___parent___id",
+	ParentChildrenParentChildren = "parent___children___parent___children",
+	ParentChildrenChildren = "parent___children___children",
+	ParentChildrenChildrenId = "parent___children___children___id",
+	ParentChildrenChildrenChildren = "parent___children___children___children",
+	ParentChildrenInternalContent = "parent___children___internal___content",
+	ParentChildrenInternalContentDigest = "parent___children___internal___contentDigest",
+	ParentChildrenInternalDescription = "parent___children___internal___description",
+	ParentChildrenInternalFieldOwners = "parent___children___internal___fieldOwners",
+	ParentChildrenInternalIgnoreType = "parent___children___internal___ignoreType",
+	ParentChildrenInternalMediaType = "parent___children___internal___mediaType",
+	ParentChildrenInternalOwner = "parent___children___internal___owner",
+	ParentChildrenInternalType = "parent___children___internal___type",
+	ParentInternalContent = "parent___internal___content",
+	ParentInternalContentDigest = "parent___internal___contentDigest",
+	ParentInternalDescription = "parent___internal___description",
+	ParentInternalFieldOwners = "parent___internal___fieldOwners",
+	ParentInternalIgnoreType = "parent___internal___ignoreType",
+	ParentInternalMediaType = "parent___internal___mediaType",
+	ParentInternalOwner = "parent___internal___owner",
+	ParentInternalType = "parent___internal___type",
+	Children = "children",
+	ChildrenId = "children___id",
+	ChildrenParentId = "children___parent___id",
+	ChildrenParentParentId = "children___parent___parent___id",
+	ChildrenParentParentChildren = "children___parent___parent___children",
+	ChildrenParentChildren = "children___parent___children",
+	ChildrenParentChildrenId = "children___parent___children___id",
+	ChildrenParentChildrenChildren = "children___parent___children___children",
+	ChildrenParentInternalContent = "children___parent___internal___content",
+	ChildrenParentInternalContentDigest = "children___parent___internal___contentDigest",
+	ChildrenParentInternalDescription = "children___parent___internal___description",
+	ChildrenParentInternalFieldOwners = "children___parent___internal___fieldOwners",
+	ChildrenParentInternalIgnoreType = "children___parent___internal___ignoreType",
+	ChildrenParentInternalMediaType = "children___parent___internal___mediaType",
+	ChildrenParentInternalOwner = "children___parent___internal___owner",
+	ChildrenParentInternalType = "children___parent___internal___type",
+	ChildrenChildren = "children___children",
+	ChildrenChildrenId = "children___children___id",
+	ChildrenChildrenParentId = "children___children___parent___id",
+	ChildrenChildrenParentChildren = "children___children___parent___children",
+	ChildrenChildrenChildren = "children___children___children",
+	ChildrenChildrenChildrenId = "children___children___children___id",
+	ChildrenChildrenChildrenChildren = "children___children___children___children",
+	ChildrenChildrenInternalContent = "children___children___internal___content",
+	ChildrenChildrenInternalContentDigest = "children___children___internal___contentDigest",
+	ChildrenChildrenInternalDescription = "children___children___internal___description",
+	ChildrenChildrenInternalFieldOwners = "children___children___internal___fieldOwners",
+	ChildrenChildrenInternalIgnoreType = "children___children___internal___ignoreType",
+	ChildrenChildrenInternalMediaType = "children___children___internal___mediaType",
+	ChildrenChildrenInternalOwner = "children___children___internal___owner",
+	ChildrenChildrenInternalType = "children___children___internal___type",
+	ChildrenInternalContent = "children___internal___content",
+	ChildrenInternalContentDigest = "children___internal___contentDigest",
+	ChildrenInternalDescription = "children___internal___description",
+	ChildrenInternalFieldOwners = "children___internal___fieldOwners",
+	ChildrenInternalIgnoreType = "children___internal___ignoreType",
+	ChildrenInternalMediaType = "children___internal___mediaType",
+	ChildrenInternalOwner = "children___internal___owner",
+	ChildrenInternalType = "children___internal___type",
+	InternalContent = "internal___content",
+	InternalContentDigest = "internal___contentDigest",
+	InternalDescription = "internal___description",
+	InternalFieldOwners = "internal___fieldOwners",
+	InternalIgnoreType = "internal___ignoreType",
+	InternalMediaType = "internal___mediaType",
+	InternalOwner = "internal___owner",
+	InternalType = "internal___type",
+}
+
+export type PrismicSubmissionTypeFilterInput = {
+	uid?: Maybe<StringQueryOperatorInput>
+	data?: Maybe<PrismicSubmissionTypeDataTypeFilterInput>
+	dataRaw?: Maybe<JsonQueryOperatorInput>
+	prismicId?: Maybe<IdQueryOperatorInput>
+	alternate_languages?: Maybe<PrismicAlternateLanguageTypeFilterListInput>
+	first_publication_date?: Maybe<DateQueryOperatorInput>
+	href?: Maybe<StringQueryOperatorInput>
+	lang?: Maybe<StringQueryOperatorInput>
+	last_publication_date?: Maybe<DateQueryOperatorInput>
+	tags?: Maybe<StringQueryOperatorInput>
+	type?: Maybe<StringQueryOperatorInput>
+	url?: Maybe<StringQueryOperatorInput>
+	_previewable?: Maybe<IdQueryOperatorInput>
+	id?: Maybe<StringQueryOperatorInput>
+	parent?: Maybe<NodeFilterInput>
+	children?: Maybe<NodeFilterListInput>
+	internal?: Maybe<InternalFilterInput>
+}
+
+export type PrismicSubmissionTypeGroupConnection = {
+	totalCount: Scalars["Int"]
+	edges: Array<PrismicSubmissionTypeEdge>
+	nodes: Array<PrismicSubmissionType>
+	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<PrismicSubmissionTypeGroupConnection>
+	field: Scalars["String"]
+	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type PrismicSubmissionTypeGroupConnectionDistinctArgs = {
+	field: PrismicSubmissionTypeFieldsEnum
+}
+
+export type PrismicSubmissionTypeGroupConnectionMaxArgs = {
+	field: PrismicSubmissionTypeFieldsEnum
+}
+
+export type PrismicSubmissionTypeGroupConnectionMinArgs = {
+	field: PrismicSubmissionTypeFieldsEnum
+}
+
+export type PrismicSubmissionTypeGroupConnectionSumArgs = {
+	field: PrismicSubmissionTypeFieldsEnum
+}
+
+export type PrismicSubmissionTypeGroupConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: PrismicSubmissionTypeFieldsEnum
+}
+
+export type PrismicSubmissionTypeSortInput = {
+	fields?: Maybe<Array<Maybe<PrismicSubmissionTypeFieldsEnum>>>
+	order?: Maybe<Array<Maybe<SortOrderEnum>>>
+}
+
 export type PrismicTypePathType = Node & {
 	path: Array<Scalars["String"]>
 	type: Scalars["String"]
@@ -5410,6 +5702,465 @@ export type PrismicTypePathTypeSortInput = {
 	order?: Maybe<Array<Maybe<SortOrderEnum>>>
 }
 
+export type PrismicVideoSubmission = Node & {
+	uid: Scalars["String"]
+	data?: Maybe<PrismicVideoSubmissionDataType>
+	dataRaw: Scalars["JSON"]
+	prismicId: Scalars["ID"]
+	alternate_languages: Array<PrismicAlternateLanguageType>
+	first_publication_date: Scalars["Date"]
+	href: Scalars["String"]
+	lang: Scalars["String"]
+	last_publication_date: Scalars["Date"]
+	tags: Array<Scalars["String"]>
+	type: Scalars["String"]
+	url?: Maybe<Scalars["String"]>
+	_previewable: Scalars["ID"]
+	id: Scalars["ID"]
+	parent?: Maybe<Node>
+	children: Array<Node>
+	internal: Internal
+}
+
+export type PrismicVideoSubmissionFirst_Publication_DateArgs = {
+	formatString?: Maybe<Scalars["String"]>
+	fromNow?: Maybe<Scalars["Boolean"]>
+	difference?: Maybe<Scalars["String"]>
+	locale?: Maybe<Scalars["String"]>
+}
+
+export type PrismicVideoSubmissionLast_Publication_DateArgs = {
+	formatString?: Maybe<Scalars["String"]>
+	fromNow?: Maybe<Scalars["Boolean"]>
+	difference?: Maybe<Scalars["String"]>
+	locale?: Maybe<Scalars["String"]>
+}
+
+export type PrismicVideoSubmissionConnection = {
+	totalCount: Scalars["Int"]
+	edges: Array<PrismicVideoSubmissionEdge>
+	nodes: Array<PrismicVideoSubmission>
+	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<PrismicVideoSubmissionGroupConnection>
+}
+
+export type PrismicVideoSubmissionConnectionDistinctArgs = {
+	field: PrismicVideoSubmissionFieldsEnum
+}
+
+export type PrismicVideoSubmissionConnectionMaxArgs = {
+	field: PrismicVideoSubmissionFieldsEnum
+}
+
+export type PrismicVideoSubmissionConnectionMinArgs = {
+	field: PrismicVideoSubmissionFieldsEnum
+}
+
+export type PrismicVideoSubmissionConnectionSumArgs = {
+	field: PrismicVideoSubmissionFieldsEnum
+}
+
+export type PrismicVideoSubmissionConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: PrismicVideoSubmissionFieldsEnum
+}
+
+export type PrismicVideoSubmissionDataType = {
+	description?: Maybe<PrismicStructuredTextType>
+	name?: Maybe<PrismicStructuredTextType>
+	subtitle?: Maybe<PrismicStructuredTextType>
+	type?: Maybe<PrismicLinkType>
+	video?: Maybe<PrismicEmbedType>
+	video_thumbnail?: Maybe<PrismicVideoSubmissionDataVideoThumbnailImageType>
+	votable?: Maybe<Scalars["Boolean"]>
+}
+
+export type PrismicVideoSubmissionDataTypeFilterInput = {
+	description?: Maybe<PrismicStructuredTextTypeFilterInput>
+	name?: Maybe<PrismicStructuredTextTypeFilterInput>
+	subtitle?: Maybe<PrismicStructuredTextTypeFilterInput>
+	type?: Maybe<PrismicLinkTypeFilterInput>
+	video?: Maybe<PrismicEmbedTypeFilterInput>
+	video_thumbnail?: Maybe<PrismicVideoSubmissionDataVideoThumbnailImageTypeFilterInput>
+	votable?: Maybe<BooleanQueryOperatorInput>
+}
+
+export type PrismicVideoSubmissionDataVideoThumbnailImageType = {
+	alt?: Maybe<Scalars["String"]>
+	copyright?: Maybe<Scalars["String"]>
+	dimensions?: Maybe<PrismicImageDimensionsType>
+	/** A plain imgix URL with the URL and params applied. */
+	url?: Maybe<Scalars["String"]>
+	/**
+	 * Should be used to generate fixed-width images (i.e. the size of the image
+	 * doesn't change when the size of the browser changes, and are "fixed").
+	 * Returns data compatible with gatsby-image. Instead of accessing this data
+	 * directly, the GatsbySourceImgixFixed fragment should be used. See the
+	 * project's README for more information.
+	 */
+	fixed?: Maybe<ImgixFixed>
+	/**
+	 * Should be used to generate fluid-width images (i.e. images that change when
+	 * the size of the browser changes). Returns data compatible with
+	 * gatsby-image. Instead of accessing this data directly, the
+	 * GatsbySourceImgixFluid fragment should be used. See the project's README
+	 * for more information.
+	 */
+	fluid?: Maybe<ImgixFluid>
+	gatsbyImageData?: Maybe<Scalars["JSON"]>
+	localFile?: Maybe<File>
+}
+
+export type PrismicVideoSubmissionDataVideoThumbnailImageTypeUrlArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicVideoSubmissionDataVideoThumbnailImageTypeFixedArgs = {
+	width?: Maybe<Scalars["Int"]>
+	height?: Maybe<Scalars["Int"]>
+	quality?: Maybe<Scalars["Int"]>
+	imgixParams?: Maybe<ImgixParamsInput>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicVideoSubmissionDataVideoThumbnailImageTypeFluidArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+	maxWidth?: Maybe<Scalars["Int"]>
+	maxHeight?: Maybe<Scalars["Int"]>
+	srcSetBreakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicVideoSubmissionDataVideoThumbnailImageTypeGatsbyImageDataArgs =
+	{
+		layout?: Maybe<GatsbyImageLayout>
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		aspectRatio?: Maybe<Scalars["Float"]>
+		outputPixelDensities?: Maybe<Array<Maybe<Scalars["Float"]>>>
+		breakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		sizes?: Maybe<Scalars["String"]>
+		backgroundColor?: Maybe<Scalars["String"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+		placeholder?: Maybe<ImgixPlaceholder>
+		widthTolerance?: Maybe<Scalars["Float"]>
+		srcSetMinWidth?: Maybe<Scalars["Int"]>
+		srcSetMaxWidth?: Maybe<Scalars["Int"]>
+	}
+
+export type PrismicVideoSubmissionDataVideoThumbnailImageTypeFilterInput = {
+	alt?: Maybe<StringQueryOperatorInput>
+	copyright?: Maybe<StringQueryOperatorInput>
+	dimensions?: Maybe<PrismicImageDimensionsTypeFilterInput>
+	url?: Maybe<StringQueryOperatorInput>
+	fixed?: Maybe<ImgixFixedFilterInput>
+	fluid?: Maybe<ImgixFluidFilterInput>
+	gatsbyImageData?: Maybe<JsonQueryOperatorInput>
+	localFile?: Maybe<FileFilterInput>
+}
+
+export type PrismicVideoSubmissionEdge = {
+	next?: Maybe<PrismicVideoSubmission>
+	node: PrismicVideoSubmission
+	previous?: Maybe<PrismicVideoSubmission>
+}
+
+export enum PrismicVideoSubmissionFieldsEnum {
+	Uid = "uid",
+	DataDescriptionText = "data___description___text",
+	DataDescriptionHtml = "data___description___html",
+	DataDescriptionRaw = "data___description___raw",
+	DataNameText = "data___name___text",
+	DataNameHtml = "data___name___html",
+	DataNameRaw = "data___name___raw",
+	DataSubtitleText = "data___subtitle___text",
+	DataSubtitleHtml = "data___subtitle___html",
+	DataSubtitleRaw = "data___subtitle___raw",
+	DataTypeLinkType = "data___type___link_type",
+	DataTypeIsBroken = "data___type___isBroken",
+	DataTypeUrl = "data___type___url",
+	DataTypeTarget = "data___type___target",
+	DataTypeSize = "data___type___size",
+	DataTypeId = "data___type___id",
+	DataTypeType = "data___type___type",
+	DataTypeTags = "data___type___tags",
+	DataTypeLang = "data___type___lang",
+	DataTypeSlug = "data___type___slug",
+	DataTypeUid = "data___type___uid",
+	DataTypeLocalFileSourceInstanceName = "data___type___localFile___sourceInstanceName",
+	DataTypeLocalFileAbsolutePath = "data___type___localFile___absolutePath",
+	DataTypeLocalFileRelativePath = "data___type___localFile___relativePath",
+	DataTypeLocalFileExtension = "data___type___localFile___extension",
+	DataTypeLocalFileSize = "data___type___localFile___size",
+	DataTypeLocalFilePrettySize = "data___type___localFile___prettySize",
+	DataTypeLocalFileModifiedTime = "data___type___localFile___modifiedTime",
+	DataTypeLocalFileAccessTime = "data___type___localFile___accessTime",
+	DataTypeLocalFileChangeTime = "data___type___localFile___changeTime",
+	DataTypeLocalFileBirthTime = "data___type___localFile___birthTime",
+	DataTypeLocalFileRoot = "data___type___localFile___root",
+	DataTypeLocalFileDir = "data___type___localFile___dir",
+	DataTypeLocalFileBase = "data___type___localFile___base",
+	DataTypeLocalFileExt = "data___type___localFile___ext",
+	DataTypeLocalFileName = "data___type___localFile___name",
+	DataTypeLocalFileRelativeDirectory = "data___type___localFile___relativeDirectory",
+	DataTypeLocalFileDev = "data___type___localFile___dev",
+	DataTypeLocalFileMode = "data___type___localFile___mode",
+	DataTypeLocalFileNlink = "data___type___localFile___nlink",
+	DataTypeLocalFileUid = "data___type___localFile___uid",
+	DataTypeLocalFileGid = "data___type___localFile___gid",
+	DataTypeLocalFileRdev = "data___type___localFile___rdev",
+	DataTypeLocalFileIno = "data___type___localFile___ino",
+	DataTypeLocalFileAtimeMs = "data___type___localFile___atimeMs",
+	DataTypeLocalFileMtimeMs = "data___type___localFile___mtimeMs",
+	DataTypeLocalFileCtimeMs = "data___type___localFile___ctimeMs",
+	DataTypeLocalFileAtime = "data___type___localFile___atime",
+	DataTypeLocalFileMtime = "data___type___localFile___mtime",
+	DataTypeLocalFileCtime = "data___type___localFile___ctime",
+	DataTypeLocalFileBirthtime = "data___type___localFile___birthtime",
+	DataTypeLocalFileBirthtimeMs = "data___type___localFile___birthtimeMs",
+	DataTypeLocalFileId = "data___type___localFile___id",
+	DataTypeLocalFileChildren = "data___type___localFile___children",
+	DataTypeRaw = "data___type___raw",
+	DataVideoId = "data___video___id",
+	DataVideoParentId = "data___video___parent___id",
+	DataVideoParentChildren = "data___video___parent___children",
+	DataVideoChildren = "data___video___children",
+	DataVideoChildrenId = "data___video___children___id",
+	DataVideoChildrenChildren = "data___video___children___children",
+	DataVideoInternalContent = "data___video___internal___content",
+	DataVideoInternalContentDigest = "data___video___internal___contentDigest",
+	DataVideoInternalDescription = "data___video___internal___description",
+	DataVideoInternalFieldOwners = "data___video___internal___fieldOwners",
+	DataVideoInternalIgnoreType = "data___video___internal___ignoreType",
+	DataVideoInternalMediaType = "data___video___internal___mediaType",
+	DataVideoInternalOwner = "data___video___internal___owner",
+	DataVideoInternalType = "data___video___internal___type",
+	DataVideoThumbnailAlt = "data___video_thumbnail___alt",
+	DataVideoThumbnailCopyright = "data___video_thumbnail___copyright",
+	DataVideoThumbnailDimensionsWidth = "data___video_thumbnail___dimensions___width",
+	DataVideoThumbnailDimensionsHeight = "data___video_thumbnail___dimensions___height",
+	DataVideoThumbnailUrl = "data___video_thumbnail___url",
+	DataVideoThumbnailFixedBase64 = "data___video_thumbnail___fixed___base64",
+	DataVideoThumbnailFixedSrc = "data___video_thumbnail___fixed___src",
+	DataVideoThumbnailFixedSrcSet = "data___video_thumbnail___fixed___srcSet",
+	DataVideoThumbnailFixedSrcWebp = "data___video_thumbnail___fixed___srcWebp",
+	DataVideoThumbnailFixedSrcSetWebp = "data___video_thumbnail___fixed___srcSetWebp",
+	DataVideoThumbnailFixedSizes = "data___video_thumbnail___fixed___sizes",
+	DataVideoThumbnailFixedWidth = "data___video_thumbnail___fixed___width",
+	DataVideoThumbnailFixedHeight = "data___video_thumbnail___fixed___height",
+	DataVideoThumbnailFluidBase64 = "data___video_thumbnail___fluid___base64",
+	DataVideoThumbnailFluidSrc = "data___video_thumbnail___fluid___src",
+	DataVideoThumbnailFluidSrcSet = "data___video_thumbnail___fluid___srcSet",
+	DataVideoThumbnailFluidSrcWebp = "data___video_thumbnail___fluid___srcWebp",
+	DataVideoThumbnailFluidSrcSetWebp = "data___video_thumbnail___fluid___srcSetWebp",
+	DataVideoThumbnailFluidSizes = "data___video_thumbnail___fluid___sizes",
+	DataVideoThumbnailFluidAspectRatio = "data___video_thumbnail___fluid___aspectRatio",
+	DataVideoThumbnailGatsbyImageData = "data___video_thumbnail___gatsbyImageData",
+	DataVideoThumbnailLocalFileSourceInstanceName = "data___video_thumbnail___localFile___sourceInstanceName",
+	DataVideoThumbnailLocalFileAbsolutePath = "data___video_thumbnail___localFile___absolutePath",
+	DataVideoThumbnailLocalFileRelativePath = "data___video_thumbnail___localFile___relativePath",
+	DataVideoThumbnailLocalFileExtension = "data___video_thumbnail___localFile___extension",
+	DataVideoThumbnailLocalFileSize = "data___video_thumbnail___localFile___size",
+	DataVideoThumbnailLocalFilePrettySize = "data___video_thumbnail___localFile___prettySize",
+	DataVideoThumbnailLocalFileModifiedTime = "data___video_thumbnail___localFile___modifiedTime",
+	DataVideoThumbnailLocalFileAccessTime = "data___video_thumbnail___localFile___accessTime",
+	DataVideoThumbnailLocalFileChangeTime = "data___video_thumbnail___localFile___changeTime",
+	DataVideoThumbnailLocalFileBirthTime = "data___video_thumbnail___localFile___birthTime",
+	DataVideoThumbnailLocalFileRoot = "data___video_thumbnail___localFile___root",
+	DataVideoThumbnailLocalFileDir = "data___video_thumbnail___localFile___dir",
+	DataVideoThumbnailLocalFileBase = "data___video_thumbnail___localFile___base",
+	DataVideoThumbnailLocalFileExt = "data___video_thumbnail___localFile___ext",
+	DataVideoThumbnailLocalFileName = "data___video_thumbnail___localFile___name",
+	DataVideoThumbnailLocalFileRelativeDirectory = "data___video_thumbnail___localFile___relativeDirectory",
+	DataVideoThumbnailLocalFileDev = "data___video_thumbnail___localFile___dev",
+	DataVideoThumbnailLocalFileMode = "data___video_thumbnail___localFile___mode",
+	DataVideoThumbnailLocalFileNlink = "data___video_thumbnail___localFile___nlink",
+	DataVideoThumbnailLocalFileUid = "data___video_thumbnail___localFile___uid",
+	DataVideoThumbnailLocalFileGid = "data___video_thumbnail___localFile___gid",
+	DataVideoThumbnailLocalFileRdev = "data___video_thumbnail___localFile___rdev",
+	DataVideoThumbnailLocalFileIno = "data___video_thumbnail___localFile___ino",
+	DataVideoThumbnailLocalFileAtimeMs = "data___video_thumbnail___localFile___atimeMs",
+	DataVideoThumbnailLocalFileMtimeMs = "data___video_thumbnail___localFile___mtimeMs",
+	DataVideoThumbnailLocalFileCtimeMs = "data___video_thumbnail___localFile___ctimeMs",
+	DataVideoThumbnailLocalFileAtime = "data___video_thumbnail___localFile___atime",
+	DataVideoThumbnailLocalFileMtime = "data___video_thumbnail___localFile___mtime",
+	DataVideoThumbnailLocalFileCtime = "data___video_thumbnail___localFile___ctime",
+	DataVideoThumbnailLocalFileBirthtime = "data___video_thumbnail___localFile___birthtime",
+	DataVideoThumbnailLocalFileBirthtimeMs = "data___video_thumbnail___localFile___birthtimeMs",
+	DataVideoThumbnailLocalFileId = "data___video_thumbnail___localFile___id",
+	DataVideoThumbnailLocalFileChildren = "data___video_thumbnail___localFile___children",
+	DataVotable = "data___votable",
+	DataRaw = "dataRaw",
+	PrismicId = "prismicId",
+	AlternateLanguages = "alternate_languages",
+	AlternateLanguagesId = "alternate_languages___id",
+	AlternateLanguagesUid = "alternate_languages___uid",
+	AlternateLanguagesLang = "alternate_languages___lang",
+	AlternateLanguagesType = "alternate_languages___type",
+	AlternateLanguagesRaw = "alternate_languages___raw",
+	FirstPublicationDate = "first_publication_date",
+	Href = "href",
+	Lang = "lang",
+	LastPublicationDate = "last_publication_date",
+	Tags = "tags",
+	Type = "type",
+	Url = "url",
+	Previewable = "_previewable",
+	Id = "id",
+	ParentId = "parent___id",
+	ParentParentId = "parent___parent___id",
+	ParentParentParentId = "parent___parent___parent___id",
+	ParentParentParentChildren = "parent___parent___parent___children",
+	ParentParentChildren = "parent___parent___children",
+	ParentParentChildrenId = "parent___parent___children___id",
+	ParentParentChildrenChildren = "parent___parent___children___children",
+	ParentParentInternalContent = "parent___parent___internal___content",
+	ParentParentInternalContentDigest = "parent___parent___internal___contentDigest",
+	ParentParentInternalDescription = "parent___parent___internal___description",
+	ParentParentInternalFieldOwners = "parent___parent___internal___fieldOwners",
+	ParentParentInternalIgnoreType = "parent___parent___internal___ignoreType",
+	ParentParentInternalMediaType = "parent___parent___internal___mediaType",
+	ParentParentInternalOwner = "parent___parent___internal___owner",
+	ParentParentInternalType = "parent___parent___internal___type",
+	ParentChildren = "parent___children",
+	ParentChildrenId = "parent___children___id",
+	ParentChildrenParentId = "parent___children___parent___id",
+	ParentChildrenParentChildren = "parent___children___parent___children",
+	ParentChildrenChildren = "parent___children___children",
+	ParentChildrenChildrenId = "parent___children___children___id",
+	ParentChildrenChildrenChildren = "parent___children___children___children",
+	ParentChildrenInternalContent = "parent___children___internal___content",
+	ParentChildrenInternalContentDigest = "parent___children___internal___contentDigest",
+	ParentChildrenInternalDescription = "parent___children___internal___description",
+	ParentChildrenInternalFieldOwners = "parent___children___internal___fieldOwners",
+	ParentChildrenInternalIgnoreType = "parent___children___internal___ignoreType",
+	ParentChildrenInternalMediaType = "parent___children___internal___mediaType",
+	ParentChildrenInternalOwner = "parent___children___internal___owner",
+	ParentChildrenInternalType = "parent___children___internal___type",
+	ParentInternalContent = "parent___internal___content",
+	ParentInternalContentDigest = "parent___internal___contentDigest",
+	ParentInternalDescription = "parent___internal___description",
+	ParentInternalFieldOwners = "parent___internal___fieldOwners",
+	ParentInternalIgnoreType = "parent___internal___ignoreType",
+	ParentInternalMediaType = "parent___internal___mediaType",
+	ParentInternalOwner = "parent___internal___owner",
+	ParentInternalType = "parent___internal___type",
+	Children = "children",
+	ChildrenId = "children___id",
+	ChildrenParentId = "children___parent___id",
+	ChildrenParentParentId = "children___parent___parent___id",
+	ChildrenParentParentChildren = "children___parent___parent___children",
+	ChildrenParentChildren = "children___parent___children",
+	ChildrenParentChildrenId = "children___parent___children___id",
+	ChildrenParentChildrenChildren = "children___parent___children___children",
+	ChildrenParentInternalContent = "children___parent___internal___content",
+	ChildrenParentInternalContentDigest = "children___parent___internal___contentDigest",
+	ChildrenParentInternalDescription = "children___parent___internal___description",
+	ChildrenParentInternalFieldOwners = "children___parent___internal___fieldOwners",
+	ChildrenParentInternalIgnoreType = "children___parent___internal___ignoreType",
+	ChildrenParentInternalMediaType = "children___parent___internal___mediaType",
+	ChildrenParentInternalOwner = "children___parent___internal___owner",
+	ChildrenParentInternalType = "children___parent___internal___type",
+	ChildrenChildren = "children___children",
+	ChildrenChildrenId = "children___children___id",
+	ChildrenChildrenParentId = "children___children___parent___id",
+	ChildrenChildrenParentChildren = "children___children___parent___children",
+	ChildrenChildrenChildren = "children___children___children",
+	ChildrenChildrenChildrenId = "children___children___children___id",
+	ChildrenChildrenChildrenChildren = "children___children___children___children",
+	ChildrenChildrenInternalContent = "children___children___internal___content",
+	ChildrenChildrenInternalContentDigest = "children___children___internal___contentDigest",
+	ChildrenChildrenInternalDescription = "children___children___internal___description",
+	ChildrenChildrenInternalFieldOwners = "children___children___internal___fieldOwners",
+	ChildrenChildrenInternalIgnoreType = "children___children___internal___ignoreType",
+	ChildrenChildrenInternalMediaType = "children___children___internal___mediaType",
+	ChildrenChildrenInternalOwner = "children___children___internal___owner",
+	ChildrenChildrenInternalType = "children___children___internal___type",
+	ChildrenInternalContent = "children___internal___content",
+	ChildrenInternalContentDigest = "children___internal___contentDigest",
+	ChildrenInternalDescription = "children___internal___description",
+	ChildrenInternalFieldOwners = "children___internal___fieldOwners",
+	ChildrenInternalIgnoreType = "children___internal___ignoreType",
+	ChildrenInternalMediaType = "children___internal___mediaType",
+	ChildrenInternalOwner = "children___internal___owner",
+	ChildrenInternalType = "children___internal___type",
+	InternalContent = "internal___content",
+	InternalContentDigest = "internal___contentDigest",
+	InternalDescription = "internal___description",
+	InternalFieldOwners = "internal___fieldOwners",
+	InternalIgnoreType = "internal___ignoreType",
+	InternalMediaType = "internal___mediaType",
+	InternalOwner = "internal___owner",
+	InternalType = "internal___type",
+}
+
+export type PrismicVideoSubmissionFilterInput = {
+	uid?: Maybe<StringQueryOperatorInput>
+	data?: Maybe<PrismicVideoSubmissionDataTypeFilterInput>
+	dataRaw?: Maybe<JsonQueryOperatorInput>
+	prismicId?: Maybe<IdQueryOperatorInput>
+	alternate_languages?: Maybe<PrismicAlternateLanguageTypeFilterListInput>
+	first_publication_date?: Maybe<DateQueryOperatorInput>
+	href?: Maybe<StringQueryOperatorInput>
+	lang?: Maybe<StringQueryOperatorInput>
+	last_publication_date?: Maybe<DateQueryOperatorInput>
+	tags?: Maybe<StringQueryOperatorInput>
+	type?: Maybe<StringQueryOperatorInput>
+	url?: Maybe<StringQueryOperatorInput>
+	_previewable?: Maybe<IdQueryOperatorInput>
+	id?: Maybe<StringQueryOperatorInput>
+	parent?: Maybe<NodeFilterInput>
+	children?: Maybe<NodeFilterListInput>
+	internal?: Maybe<InternalFilterInput>
+}
+
+export type PrismicVideoSubmissionGroupConnection = {
+	totalCount: Scalars["Int"]
+	edges: Array<PrismicVideoSubmissionEdge>
+	nodes: Array<PrismicVideoSubmission>
+	pageInfo: PageInfo
+	distinct: Array<Scalars["String"]>
+	max?: Maybe<Scalars["Float"]>
+	min?: Maybe<Scalars["Float"]>
+	sum?: Maybe<Scalars["Float"]>
+	group: Array<PrismicVideoSubmissionGroupConnection>
+	field: Scalars["String"]
+	fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type PrismicVideoSubmissionGroupConnectionDistinctArgs = {
+	field: PrismicVideoSubmissionFieldsEnum
+}
+
+export type PrismicVideoSubmissionGroupConnectionMaxArgs = {
+	field: PrismicVideoSubmissionFieldsEnum
+}
+
+export type PrismicVideoSubmissionGroupConnectionMinArgs = {
+	field: PrismicVideoSubmissionFieldsEnum
+}
+
+export type PrismicVideoSubmissionGroupConnectionSumArgs = {
+	field: PrismicVideoSubmissionFieldsEnum
+}
+
+export type PrismicVideoSubmissionGroupConnectionGroupArgs = {
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+	field: PrismicVideoSubmissionFieldsEnum
+}
+
+export type PrismicVideoSubmissionSortInput = {
+	fields?: Maybe<Array<Maybe<PrismicVideoSubmissionFieldsEnum>>>
+	order?: Maybe<Array<Maybe<SortOrderEnum>>>
+}
+
 export type Query = {
 	file?: Maybe<File>
 	allFile: FileConnection
@@ -5441,6 +6192,10 @@ export type Query = {
 	allPrismicSponsor: PrismicSponsorConnection
 	prismicSponsorsList?: Maybe<PrismicSponsorsList>
 	allPrismicSponsorsList: PrismicSponsorsListConnection
+	prismicSubmissionType?: Maybe<PrismicSubmissionType>
+	allPrismicSubmissionType: PrismicSubmissionTypeConnection
+	prismicVideoSubmission?: Maybe<PrismicVideoSubmission>
+	allPrismicVideoSubmission: PrismicVideoSubmissionConnection
 }
 
 export type QueryFileArgs = {
@@ -5822,6 +6577,60 @@ export type QueryPrismicSponsorsListArgs = {
 export type QueryAllPrismicSponsorsListArgs = {
 	filter?: Maybe<PrismicSponsorsListFilterInput>
 	sort?: Maybe<PrismicSponsorsListSortInput>
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+}
+
+export type QueryPrismicSubmissionTypeArgs = {
+	uid?: Maybe<StringQueryOperatorInput>
+	data?: Maybe<PrismicSubmissionTypeDataTypeFilterInput>
+	dataRaw?: Maybe<JsonQueryOperatorInput>
+	prismicId?: Maybe<IdQueryOperatorInput>
+	alternate_languages?: Maybe<PrismicAlternateLanguageTypeFilterListInput>
+	first_publication_date?: Maybe<DateQueryOperatorInput>
+	href?: Maybe<StringQueryOperatorInput>
+	lang?: Maybe<StringQueryOperatorInput>
+	last_publication_date?: Maybe<DateQueryOperatorInput>
+	tags?: Maybe<StringQueryOperatorInput>
+	type?: Maybe<StringQueryOperatorInput>
+	url?: Maybe<StringQueryOperatorInput>
+	_previewable?: Maybe<IdQueryOperatorInput>
+	id?: Maybe<StringQueryOperatorInput>
+	parent?: Maybe<NodeFilterInput>
+	children?: Maybe<NodeFilterListInput>
+	internal?: Maybe<InternalFilterInput>
+}
+
+export type QueryAllPrismicSubmissionTypeArgs = {
+	filter?: Maybe<PrismicSubmissionTypeFilterInput>
+	sort?: Maybe<PrismicSubmissionTypeSortInput>
+	skip?: Maybe<Scalars["Int"]>
+	limit?: Maybe<Scalars["Int"]>
+}
+
+export type QueryPrismicVideoSubmissionArgs = {
+	uid?: Maybe<StringQueryOperatorInput>
+	data?: Maybe<PrismicVideoSubmissionDataTypeFilterInput>
+	dataRaw?: Maybe<JsonQueryOperatorInput>
+	prismicId?: Maybe<IdQueryOperatorInput>
+	alternate_languages?: Maybe<PrismicAlternateLanguageTypeFilterListInput>
+	first_publication_date?: Maybe<DateQueryOperatorInput>
+	href?: Maybe<StringQueryOperatorInput>
+	lang?: Maybe<StringQueryOperatorInput>
+	last_publication_date?: Maybe<DateQueryOperatorInput>
+	tags?: Maybe<StringQueryOperatorInput>
+	type?: Maybe<StringQueryOperatorInput>
+	url?: Maybe<StringQueryOperatorInput>
+	_previewable?: Maybe<IdQueryOperatorInput>
+	id?: Maybe<StringQueryOperatorInput>
+	parent?: Maybe<NodeFilterInput>
+	children?: Maybe<NodeFilterListInput>
+	internal?: Maybe<InternalFilterInput>
+}
+
+export type QueryAllPrismicVideoSubmissionArgs = {
+	filter?: Maybe<PrismicVideoSubmissionFilterInput>
+	sort?: Maybe<PrismicVideoSubmissionSortInput>
 	skip?: Maybe<Scalars["Int"]>
 	limit?: Maybe<Scalars["Int"]>
 }
@@ -7176,6 +7985,8 @@ export type SitePluginPluginOptionsSchemas = {
 	settings?: Maybe<SitePluginPluginOptionsSchemasSettings>
 	sponsor?: Maybe<SitePluginPluginOptionsSchemasSponsor>
 	sponsors_list?: Maybe<SitePluginPluginOptionsSchemasSponsors_List>
+	submission_type?: Maybe<SitePluginPluginOptionsSchemasSubmission_Type>
+	video_submission?: Maybe<SitePluginPluginOptionsSchemasVideo_Submission>
 }
 
 export type SitePluginPluginOptionsSchemasEvent = {
@@ -7209,6 +8020,7 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoices = {
 	rich_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_Text>
 	video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo>
 	featured_people?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_People>
+	video_gallery?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_Gallery>
 }
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchor = {
@@ -7883,6 +8695,7 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFilterInput 
 		rich_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextFilterInput>
 		video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoFilterInput>
 		featured_people?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleFilterInput>
+		video_gallery?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_Action =
@@ -8610,6 +9423,170 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_Rep
 		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideoConfigFilterInput>
 	}
 
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_Gallery =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_Repeat>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_Repeat =
+	{
+		subheading1?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1>
+		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeading>
+		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatText>
+		video_submission_type?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_Type>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatColor>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatColor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatColorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatColorConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatColorConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatColorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatColorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatFilterInput =
+	{
+		subheading1?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1FilterInput>
+		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingFilterInput>
+		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatTextFilterInput>
+		video_submission_type?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_TypeFilterInput>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatColorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeading =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1 =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1Config>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1Config =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1ConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1FilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1ConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatText =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatTextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatTextConfig =
+	{
+		multi?: Maybe<Scalars["String"]>
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatTextConfigFilterInput =
+	{
+		multi?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatTextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatTextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_Type =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_TypeConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_TypeConfig =
+	{
+		select?: Maybe<Scalars["String"]>
+		customtypes?: Maybe<Array<Maybe<Scalars["String"]>>>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_TypeConfigFilterInput =
+	{
+		select?: Maybe<StringQueryOperatorInput>
+		customtypes?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_TypeFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_TypeConfigFilterInput>
+	}
+
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_Hero =
 	{
 		type?: Maybe<Scalars["String"]>
@@ -8880,6 +9857,8 @@ export type SitePluginPluginOptionsSchemasFilterInput = {
 	settings?: Maybe<SitePluginPluginOptionsSchemasSettingsFilterInput>
 	sponsor?: Maybe<SitePluginPluginOptionsSchemasSponsorFilterInput>
 	sponsors_list?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListFilterInput>
+	submission_type?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeFilterInput>
+	video_submission?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionFilterInput>
 }
 
 export type SitePluginPluginOptionsSchemasNavigation = {
@@ -9028,6 +10007,7 @@ export type SitePluginPluginOptionsSchemasPage = {
 }
 
 export type SitePluginPluginOptionsSchemasPageBody = {
+	subheading?: Maybe<SitePluginPluginOptionsSchemasPageBodySubheading>
 	body?: Maybe<SitePluginPluginOptionsSchemasPageBodyBody>
 }
 
@@ -9056,6 +10036,7 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoices = {
 	rich_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_Text>
 	video?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo>
 	featured_people?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_People>
+	video_gallery?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_Gallery>
 }
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesAnchor = {
@@ -9733,6 +10714,7 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterInput =
 		rich_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextFilterInput>
 		video?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoFilterInput>
 		featured_people?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleFilterInput>
+		video_gallery?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterable_Events =
@@ -10704,6 +11686,170 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_Repe
 		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideoConfigFilterInput>
 	}
 
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_Gallery =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_Repeat>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_Repeat =
+	{
+		subheading1?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1>
+		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeading>
+		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatText>
+		video_submission_type?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_Type>
+		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatColor>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatColor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatColorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatColorConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatColorConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatColorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatColorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatFilterInput =
+	{
+		subheading1?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1FilterInput>
+		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingFilterInput>
+		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatTextFilterInput>
+		video_submission_type?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_TypeFilterInput>
+		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatColorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeading =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1 =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1Config>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1Config =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1ConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1FilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1ConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatText =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatTextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatTextConfig =
+	{
+		multi?: Maybe<Scalars["String"]>
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatTextConfigFilterInput =
+	{
+		multi?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatTextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatTextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_Type =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_TypeConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_TypeConfig =
+	{
+		select?: Maybe<Scalars["String"]>
+		customtypes?: Maybe<Array<Maybe<Scalars["String"]>>>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_TypeConfigFilterInput =
+	{
+		select?: Maybe<StringQueryOperatorInput>
+		customtypes?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_TypeFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_TypeConfigFilterInput>
+	}
+
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_Hero =
 	{
 		type?: Maybe<Scalars["String"]>
@@ -10817,7 +11963,29 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyFilterInput = {
 }
 
 export type SitePluginPluginOptionsSchemasPageBodyFilterInput = {
+	subheading?: Maybe<SitePluginPluginOptionsSchemasPageBodySubheadingFilterInput>
 	body?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasPageBodySubheading = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasPageBodySubheadingConfig>
+}
+
+export type SitePluginPluginOptionsSchemasPageBodySubheadingConfig = {
+	single?: Maybe<Scalars["String"]>
+	label?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasPageBodySubheadingConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodySubheadingFilterInput = {
+	type?: Maybe<StringQueryOperatorInput>
+	config?: Maybe<SitePluginPluginOptionsSchemasPageBodySubheadingConfigFilterInput>
 }
 
 export type SitePluginPluginOptionsSchemasPageFilterInput = {
@@ -11866,6 +13034,272 @@ export type SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsFil
 		config?: Maybe<SitePluginPluginOptionsSchemasSponsors_ListMainVisionary_SponsorsConfigFilterInput>
 	}
 
+export type SitePluginPluginOptionsSchemasSubmission_Type = {
+	Main?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMain>
+}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeFilterInput = {
+	Main?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMain = {
+	name?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainName>
+	uid?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainUid>
+}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainFilterInput = {
+	name?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainNameFilterInput>
+	uid?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainUidFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainName = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainNameConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainNameConfig = {
+	single?: Maybe<Scalars["String"]>
+	label?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainNameConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainNameFilterInput = {
+	type?: Maybe<StringQueryOperatorInput>
+	config?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainNameConfigFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainUid = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainUidConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainUidConfig = {
+	label?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainUidConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainUidFilterInput = {
+	type?: Maybe<StringQueryOperatorInput>
+	config?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainUidConfigFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_Submission = {
+	Main?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMain>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionFilterInput = {
+	Main?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMain = {
+	name?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainName>
+	uid?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainUid>
+	type?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainType>
+	video?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo>
+	video_thumbnail?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_Thumbnail>
+	subtitle?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainSubtitle>
+	description?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainDescription>
+	votable?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVotable>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainDescription = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainDescriptionConfig>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainDescriptionConfig =
+	{
+		multi?: Maybe<Scalars["String"]>
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainDescriptionConfigFilterInput =
+	{
+		multi?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainDescriptionFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainDescriptionConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainFilterInput = {
+	name?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainNameFilterInput>
+	uid?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainUidFilterInput>
+	type?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainTypeFilterInput>
+	video?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideoFilterInput>
+	video_thumbnail?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_ThumbnailFilterInput>
+	subtitle?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainSubtitleFilterInput>
+	description?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainDescriptionFilterInput>
+	votable?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVotableFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainName = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainNameConfig>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainNameConfig = {
+	single?: Maybe<Scalars["String"]>
+	label?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainNameConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainNameFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainNameConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainSubtitle = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainSubtitleConfig>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainSubtitleConfig = {
+	multi?: Maybe<Scalars["String"]>
+	allowTargetBlank?: Maybe<Scalars["Boolean"]>
+	label?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainSubtitleConfigFilterInput =
+	{
+		multi?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainSubtitleFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainSubtitleConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainType = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainTypeConfig>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainTypeConfig = {
+	select?: Maybe<Scalars["String"]>
+	customtypes?: Maybe<Array<Maybe<Scalars["String"]>>>
+	label?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainTypeConfigFilterInput =
+	{
+		select?: Maybe<StringQueryOperatorInput>
+		customtypes?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainTypeFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainTypeConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainUid = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainUidConfig>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainUidConfig = {
+	label?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainUidConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainUidFilterInput = {
+	type?: Maybe<StringQueryOperatorInput>
+	config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainUidConfigFilterInput>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideoConfig>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideoConfig = {
+	label?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideoConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideoFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideoConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_Thumbnail =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_ThumbnailConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_ThumbnailConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_ThumbnailConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_ThumbnailFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_ThumbnailConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVotable = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVotableConfig>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVotableConfig = {
+	default_value?: Maybe<Scalars["Boolean"]>
+	label?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVotableConfigFilterInput =
+	{
+		default_value?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVotableFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVotableConfigFilterInput>
+	}
+
 export type SitePluginSortInput = {
 	fields?: Maybe<Array<Maybe<SitePluginFieldsEnum>>>
 	order?: Maybe<Array<Maybe<SortOrderEnum>>>
@@ -11939,7 +13373,9 @@ export type EventFeaturedPeopleFragment = {
 				website_label?: Maybe<string>
 				name?: Maybe<{ text?: Maybe<string> }>
 				title1?: Maybe<{ text?: Maybe<string> }>
+				pronouns?: Maybe<{ text?: Maybe<string> }>
 				bio?: Maybe<{ html?: Maybe<string> }>
+				headshot?: Maybe<{ url?: Maybe<string>; alt?: Maybe<string> }>
 				instagram_profile_url?: Maybe<{ url?: Maybe<string> }>
 				website_url?: Maybe<{ url?: Maybe<string> }>
 			}>
@@ -11994,6 +13430,15 @@ export type EventTwoColumnTextFragment = {
 export type EventVideoFragment = {
 	primary?: Maybe<{
 		thumbnail?: Maybe<{ alt?: Maybe<string>; url?: Maybe<string> }>
+	}>
+}
+
+export type EventVideoGalleryFragment = {
+	primary?: Maybe<{
+		color?: Maybe<string>
+		subheading1?: Maybe<{ text?: Maybe<string> }>
+		heading?: Maybe<{ text?: Maybe<string> }>
+		text?: Maybe<{ html?: Maybe<string> }>
 	}>
 }
 
@@ -12212,6 +13657,36 @@ export type VideoFragment = {
 	}>
 }
 
+export type VideoGalleryFragment = {
+	primary?: Maybe<{
+		color?: Maybe<string>
+		subheading1?: Maybe<{ text?: Maybe<string> }>
+		heading?: Maybe<{ text?: Maybe<string> }>
+		text?: Maybe<{ html?: Maybe<string> }>
+		video_submission_type?: Maybe<{
+			document?: Maybe<{
+				id: string
+				submissions?: Maybe<
+					Array<
+						Maybe<{
+							data?: Maybe<{
+								votable?: Maybe<boolean>
+								name?: Maybe<{ text?: Maybe<string> }>
+								description?: Maybe<{ html?: Maybe<string> }>
+								subtitle?: Maybe<{ text?: Maybe<string> }>
+								video_thumbnail?: Maybe<{
+									url?: Maybe<string>
+									alt?: Maybe<string>
+								}>
+							}>
+						}>
+					>
+				>
+			}>
+		}>
+	}>
+}
+
 export type VideoHeroFragment = {
 	primary?: Maybe<{
 		text?: Maybe<{ text?: Maybe<string> }>
@@ -12261,6 +13736,9 @@ export type EventTemplateQuery = {
 								__typename: "PrismicEventDataBodyTwoColumnText"
 						  } & EventTwoColumnTextFragment)
 						| ({ __typename: "PrismicEventDataBodyVideo" } & EventVideoFragment)
+						| ({
+								__typename: "PrismicEventDataBodyVideoGallery"
+						  } & EventVideoGalleryFragment)
 						| ({
 								__typename: "PrismicEventDataBodyVideoHero"
 						  } & EventVideoHeroFragment)
@@ -12318,6 +13796,9 @@ export type PageTemplateQuery = {
 								__typename: "PrismicPageDataBodyTwoColumnText"
 						  } & TwoColumnTextFragment)
 						| ({ __typename: "PrismicPageDataBodyVideo" } & VideoFragment)
+						| ({
+								__typename: "PrismicPageDataBodyVideoGallery"
+						  } & VideoGalleryFragment)
 						| ({
 								__typename: "PrismicPageDataBodyVideoHero"
 						  } & VideoHeroFragment)

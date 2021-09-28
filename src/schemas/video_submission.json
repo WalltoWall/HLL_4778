@@ -1,0 +1,62 @@
+{
+	"Main": {
+		"name": {
+			"type": "StructuredText",
+			"config": {
+				"single": "heading2",
+				"label": "Name"
+			}
+		},
+		"uid": {
+			"type": "UID",
+			"config": {
+				"label": "UID"
+			}
+		},
+		"type": {
+			"type": "Link",
+			"config": {
+				"select": "document",
+				"customtypes": ["submission_type"],
+				"label": "Type"
+			}
+		},
+		"video": {
+			"type": "Embed",
+			"config": {
+				"label": "Video"
+			}
+		},
+		"video_thumbnail": {
+			"type": "Image",
+			"config": {
+				"constraint": {},
+				"thumbnails": [],
+				"label": "Video Thumbnail"
+			}
+		},
+		"subtitle": {
+			"type": "StructuredText",
+			"config": {
+				"multi": "paragraph,hyperlink",
+				"allowTargetBlank": true,
+				"label": "Subtitle"
+			}
+		},
+		"description": {
+			"type": "StructuredText",
+			"config": {
+				"multi": "paragraph,strong,em,hyperlink",
+				"allowTargetBlank": true,
+				"label": "Description"
+			}
+		},
+		"votable": {
+			"type": "Boolean",
+			"config": {
+				"default_value": true,
+				"label": "Votable"
+			}
+		}
+	}
+}
