@@ -3,15 +3,17 @@ import clsx from "clsx"
 
 export const variants = {
 	base: "py-16 sm:py-20 md:py-24 lg:py-36",
+	bio: "pt-16 sm:pt-20 md:pt-24 lg:pt-36 sm:pb-9 md:pb-13 lg:pb-18",
 	header: "py-6 md:py-7 lg:py-8",
 }
 
 export const maxWidthVariants = {
 	base: "max-w-[1200px]",
+	lg: "max-w-[1650px]",
 	wide: "max-w-[2000px]",
 }
 
-interface Props extends React.ComponentPropsWithoutRef<"div"> {
+export interface BoundedBoxProps extends React.ComponentPropsWithoutRef<"div"> {
 	tag?: keyof JSX.IntrinsicElements
 	variant?: keyof typeof variants
 	width?: keyof typeof maxWidthVariants
@@ -20,7 +22,7 @@ interface Props extends React.ComponentPropsWithoutRef<"div"> {
 	nextOverhangs?: boolean
 }
 
-export const BoundedBox = React.forwardRef<HTMLElement, Props>(
+export const BoundedBox = React.forwardRef<HTMLElement, BoundedBoxProps>(
 	(
 		{
 			tag: Comp = "div",

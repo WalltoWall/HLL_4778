@@ -20,6 +20,7 @@ import * as Sponsors from "../pageSlices/Sponsors"
 import * as Anchor from "../pageSlices/Anchor"
 import * as RichText from "../pageSlices/RichText"
 import * as Video from "../pageSlices/Video"
+import * as FeaturedPeople from "../pageSlices/FeaturedPeople"
 
 import {
 	mapDataToContextFactory,
@@ -57,6 +58,7 @@ const sliceMap: SliceMap = {
 	Anchor,
 	RichText,
 	Video,
+	FeaturedPeople,
 }
 
 const map = mapFactory(sliceMap)
@@ -120,6 +122,7 @@ export const pageTemplateQuery = graphql`
 					...Anchor
 					...RichText
 					...Video
+					...FeaturedPeople
 				}
 			}
 			uid

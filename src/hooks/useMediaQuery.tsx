@@ -3,10 +3,12 @@ import { useMedia } from "use-media"
 
 interface MediaContextValue {
 	isDesktop: boolean
+	isTablet: boolean
 }
 
 const MediaContext = React.createContext<MediaContextValue>({
 	isDesktop: false,
+	isTablet: false,
 })
 
 interface Props {
@@ -15,8 +17,12 @@ interface Props {
 
 export const MediaQueryProvider = ({ children }: Props) => {
 	const isDesktop = useMedia({ minWidth: "1024px" })
+	const isTablet = useMedia({ minWidth: "768px" })
 
-	const value = React.useMemo(() => ({ isDesktop }), [isDesktop])
+	const value = React.useMemo(
+		() => ({ isDesktop, isTablet }),
+		[isDesktop, isTablet]
+	)
 
 	return <MediaContext.Provider value={value}>{children}</MediaContext.Provider>
 }
@@ -25,4 +31,10 @@ export function useIsDesktop() {
 	const val = React.useContext(MediaContext)
 
 	return val.isDesktop
+}
+
+export function useIsTablet() {
+	const val = React.useContext(MediaContext)
+
+	return val.isTablet
 }
