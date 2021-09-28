@@ -13439,6 +13439,30 @@ export type EventVideoGalleryFragment = {
 		subheading1?: Maybe<{ text?: Maybe<string> }>
 		heading?: Maybe<{ text?: Maybe<string> }>
 		text?: Maybe<{ html?: Maybe<string> }>
+		video_submission_type?: Maybe<{
+			document?: Maybe<{
+				_previewable: string
+				submissions?: Maybe<
+					Array<
+						Maybe<{
+							_previewable: string
+							url?: Maybe<string>
+							uid: string
+							data?: Maybe<{
+								votable?: Maybe<boolean>
+								name?: Maybe<{ text?: Maybe<string> }>
+								description?: Maybe<{ html?: Maybe<string> }>
+								subtitle?: Maybe<{ text?: Maybe<string> }>
+								video_thumbnail?: Maybe<{
+									url?: Maybe<string>
+									alt?: Maybe<string>
+								}>
+							}>
+						}>
+					>
+				>
+			}>
+		}>
 	}>
 }
 
@@ -13665,10 +13689,13 @@ export type VideoGalleryFragment = {
 		text?: Maybe<{ html?: Maybe<string> }>
 		video_submission_type?: Maybe<{
 			document?: Maybe<{
-				id: string
+				_previewable: string
 				submissions?: Maybe<
 					Array<
 						Maybe<{
+							_previewable: string
+							url?: Maybe<string>
+							uid: string
 							data?: Maybe<{
 								votable?: Maybe<boolean>
 								name?: Maybe<{ text?: Maybe<string> }>

@@ -11,25 +11,31 @@ import type { VideoGalleryFragment } from "../../gqlTypes.gen"
 
 import { BoundedBox } from "../../components/BoundedBox"
 import { getColorVariant, getColorVariantStyles } from "../../lib/colorVariant"
+import { HTMLContent } from "../../components/HTMLContent"
+import { Video } from "./Video"
 
 export const sliceType = "PrismicPageDataBodyVideoGallery"
+
+type VideoGalleryProps = ReturnType<typeof mapDataToProps>
+export type TVideo = VideoGalleryProps["videos"][number]
 
 const VideoGallery = ({
 	subheading,
 	heading,
+	textHTML,
 	color,
 	videos,
 	nextOverhangs,
 	nextSharesBg,
 	previousOverhangs,
-}: ReturnType<typeof mapDataToProps>) => {
+}: VideoGalleryProps) => {
 	const variantStyles = getColorVariantStyles(color)
-
-	console.log(videos)
+	const tempVideos = new Array(30).fill(videos[0])
 
 	return (
 		<BoundedBox
 			tag="section"
+			width="lg"
 			className={variantStyles.bg}
 			nextSharesBg={nextSharesBg}
 			nextOverhangs={nextOverhangs}
@@ -37,7 +43,7 @@ const VideoGallery = ({
 		>
 			<div
 				className={clsx(
-					"text-center space-y-4 md:space-y-5 lg:space-y-6",
+					"text-center grid gap-y-4 md:gap-y-5 lg:gap-y-6",
 					variantStyles.textColor
 				)}
 			>
@@ -58,6 +64,30 @@ const VideoGallery = ({
 						{heading}
 					</h4>
 				)}
+
+				{textHTML && (
+					<HTMLContent
+						html={textHTML}
+						className="max-w-xl mx-auto mt-4 md:mt-6 lg:mt-8"
+					/>
+				)}
+			</div>
+
+			<div
+				className={clsx(
+					"grid grid-cols-3",
+					"gap-[1px] md:gap-3 lg:gap-5",
+					"mt-12 md:mt-15 lg:mt-18",
+					"-mx-5 md:-mx-8 lg:mx-0"
+				)}
+			>
+				{tempVideos.map((video, idx) => (
+					<Video
+						key={`videoGallery-${idx}`}
+						video={video}
+						variantStyles={variantStyles}
+					/>
+				))}
 			</div>
 		</BoundedBox>
 	)
@@ -83,6 +113,8 @@ export function mapDataToProps({
 					videoThumbnailURL: submission?.data?.video_thumbnail?.url,
 					videoThumbnailAlt: submission?.data?.video_thumbnail?.alt,
 					votable: submission?.data?.votable ?? false,
+					uid: submission?.uid,
+					href: submission?.url,
 				})
 			) ?? [],
 
@@ -116,8 +148,11 @@ export const gqlFragment = graphql`
 			video_submission_type {
 				document {
 					... on PrismicSubmissionType {
-						id
+						_previewable
 						submissions {
+							_previewable
+							url
+							uid
 							data {
 								name {
 									text

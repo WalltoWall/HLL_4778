@@ -9,6 +9,7 @@ const Line = ({
 	...props
 }: React.ComponentPropsWithoutRef<typeof m.div>) => (
 	<m.div
+		initial={false}
 		className={clsx("bg-beige-92 w-[30px] h-[3px] rounded-full", className)}
 		{...props}
 	/>
@@ -16,14 +17,17 @@ const Line = ({
 
 interface Props extends React.ComponentPropsWithoutRef<"button"> {
 	isOpen: boolean
+	withAnimation?: boolean
 }
 
 export const MenuButton = React.forwardRef<HTMLButtonElement, Props>(
-	({ className, children, isOpen, ...props }, ref) => {
+	({ className, children, isOpen, withAnimation, ...props }, ref) => {
 		const topLineControls = useAnimation()
 		const bottomLineControls = useAnimation()
 
 		React.useEffect(() => {
+			if (!withAnimation) return
+
 			async function asyncEffect() {
 				if (isOpen) {
 					await Promise.all([
@@ -55,8 +59,20 @@ export const MenuButton = React.forwardRef<HTMLButtonElement, Props>(
 				className={clsx("grid gap-y-[10px]", "focus:ring", className)}
 				{...props}
 			>
-				<Line animate={topLineControls} />
-				<Line animate={bottomLineControls} />
+				<Line
+					animate={
+						withAnimation
+							? topLineControls
+							: { y: isOpen ? 6 : 0, rotate: isOpen ? -45 : 0 }
+					}
+				/>
+				<Line
+					animate={
+						withAnimation
+							? bottomLineControls
+							: { y: isOpen ? -6 : 0, rotate: isOpen ? 45 : 0 }
+					}
+				/>
 
 				{children}
 			</UnstyledButton>
