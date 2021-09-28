@@ -17,6 +17,7 @@ import * as NewsletterForm from "../eventSlices/NewsletterForm"
 import * as VideoHero from "../eventSlices/VideoHero"
 import * as RichText from "../eventSlices/RichText"
 import * as Video from "../eventSlices/Video"
+import * as FeaturedPeople from "../eventSlices/FeaturedPeople"
 
 import {
 	mapDataToContextFactory,
@@ -39,6 +40,7 @@ const sliceMap: SliceMap = {
 	VideoHero,
 	RichText,
 	Video,
+	FeaturedPeople,
 }
 
 const map = mapFactory(sliceMap)
@@ -93,6 +95,7 @@ export const eventTemplateQuery = graphql`
 					...EventVideoHero
 					...EventRichText
 					...EventVideo
+					...EventFeaturedPeople
 				}
 			}
 			uid

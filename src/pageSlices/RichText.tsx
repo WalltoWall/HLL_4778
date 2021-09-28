@@ -27,7 +27,7 @@ const RichText = ({
 	return (
 		<BoundedBox
 			tag="section"
-			className={clsx(variantStyles.bg)}
+			className={variantStyles.bg}
 			nextSharesBg={nextSharesBg}
 			nextOverhangs={nextOverhangs}
 			previousOverhangs={previousOverhangs}

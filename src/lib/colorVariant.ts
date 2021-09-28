@@ -9,7 +9,7 @@ export type ColorVariant =
 	| "gray"
 	| "orange"
 
-interface ColorVariantStyles {
+export interface ColorVariantStyles {
 	bg: string
 	textColor: string
 	buttonColor: ButtonVariants["color"]
@@ -49,7 +49,7 @@ const colorVariantMap: Record<ColorVariant, ColorVariantStyles> = {
 	yellow: {
 		bg: "bg-yellow-50",
 		textColor: "text-black",
-		buttonColor: "yellow",
+		buttonColor: "black",
 		borderColor: "border-black",
 		placeholderColor: "placeholder-black/60",
 	},

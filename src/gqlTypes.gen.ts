@@ -8,9 +8,7 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
 	[SubKey in K]: Maybe<T[SubKey]>
 }
-/**
- * All built-in and custom scalars, mapped to their actual values
- */
+/** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
 	ID: string
 	String: string
@@ -77,13 +75,9 @@ export type Directory = Node & {
 	atime: Scalars["Date"]
 	mtime: Scalars["Date"]
 	ctime: Scalars["Date"]
-	/**
-	 * @deprecated Use `birthTime` instead
-	 */
+	/** @deprecated Use `birthTime` instead */
 	birthtime?: Maybe<Scalars["Date"]>
-	/**
-	 * @deprecated Use `birthTime` instead
-	 */
+	/** @deprecated Use `birthTime` instead */
 	birthtimeMs?: Maybe<Scalars["Float"]>
 	id: Scalars["ID"]
 	parent?: Maybe<Node>
@@ -409,13 +403,9 @@ export type File = Node & {
 	atime: Scalars["Date"]
 	mtime: Scalars["Date"]
 	ctime: Scalars["Date"]
-	/**
-	 * @deprecated Use `birthTime` instead
-	 */
+	/** @deprecated Use `birthTime` instead */
 	birthtime?: Maybe<Scalars["Date"]>
-	/**
-	 * @deprecated Use `birthTime` instead
-	 */
+	/** @deprecated Use `birthTime` instead */
 	birthtimeMs?: Maybe<Scalars["Float"]>
 	id: Scalars["ID"]
 	parent?: Maybe<Node>
@@ -798,169 +788,117 @@ export type ImgixParamsInput = {
 	 * docs](https://docs.imgix.com/apis/url/blending/blend-align).
 	 */
 	blendAlign?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `blendAlign`.
-	 */
+	/** Alias for `blendAlign`. */
 	blendalign?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `blendAlign`.
-	 */
+	/** Alias for `blendAlign`. */
 	ba?: Maybe<Scalars["String"]>
 	/**
 	 * Changes the alpha of the blend image. Default: `100`. [See
 	 * docs](https://docs.imgix.com/apis/url/blending/blend-alpha).
 	 */
 	blendAlpha?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `blendAlpha`.
-	 */
+	/** Alias for `blendAlpha`. */
 	blendalpha?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `blendAlpha`.
-	 */
+	/** Alias for `blendAlpha`. */
 	balph?: Maybe<Scalars["Int"]>
 	/**
 	 * Specifies a color to use when applying the blend. [See
 	 * docs](https://docs.imgix.com/apis/url/blending/blend-color).
 	 */
 	blendColor?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `blendColor`.
-	 */
+	/** Alias for `blendColor`. */
 	blendcolor?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `blendColor`.
-	 */
+	/** Alias for `blendColor`. */
 	blendClr?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `blendColor`.
-	 */
+	/** Alias for `blendColor`. */
 	blendclr?: Maybe<Scalars["String"]>
 	/**
 	 * Specifies the type of crop for blend images. [See
 	 * docs](https://docs.imgix.com/apis/url/blending/blend-crop).
 	 */
 	blendCrop?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `blendCrop`.
-	 */
+	/** Alias for `blendCrop`. */
 	blendcrop?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `blendCrop`.
-	 */
+	/** Alias for `blendCrop`. */
 	bc?: Maybe<Scalars["String"]>
 	/**
 	 * Specifies the fit mode for blend images. Default: `clip`. [See
 	 * docs](https://docs.imgix.com/apis/url/blending/blend-fit).
 	 */
 	blendFit?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `blendFit`.
-	 */
+	/** Alias for `blendFit`. */
 	blendfit?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `blendFit`.
-	 */
+	/** Alias for `blendFit`. */
 	bf?: Maybe<Scalars["String"]>
 	/**
 	 * Adjusts the height of the blend image. [See
 	 * docs](https://docs.imgix.com/apis/url/blending/blend-h).
 	 */
 	blendH?: Maybe<Scalars["Float"]>
-	/**
-	 * Alias for `blendH`.
-	 */
+	/** Alias for `blendH`. */
 	blendh?: Maybe<Scalars["Float"]>
-	/**
-	 * Alias for `blendH`.
-	 */
+	/** Alias for `blendH`. */
 	bh?: Maybe<Scalars["Float"]>
 	/**
 	 * Sets the blend mode for a blend image. Default: `overlay`. [See
 	 * docs](https://docs.imgix.com/apis/url/blending/blend-mode).
 	 */
 	blendMode?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `blendMode`.
-	 */
+	/** Alias for `blendMode`. */
 	blendmode?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `blendMode`.
-	 */
+	/** Alias for `blendMode`. */
 	bm?: Maybe<Scalars["String"]>
 	/**
 	 * Applies padding to the blend image. Default: `0`. [See
 	 * docs](https://docs.imgix.com/apis/url/blending/blend-pad).
 	 */
 	blendPad?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `blendPad`.
-	 */
+	/** Alias for `blendPad`. */
 	blendpad?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `blendPad`.
-	 */
+	/** Alias for `blendPad`. */
 	bp?: Maybe<Scalars["Int"]>
 	/**
 	 * Adjusts the size of the blend image. [See
 	 * docs](https://docs.imgix.com/apis/url/blending/blend-size).
 	 */
 	blendSize?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `blendSize`.
-	 */
+	/** Alias for `blendSize`. */
 	blendsize?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `blendSize`.
-	 */
+	/** Alias for `blendSize`. */
 	bs?: Maybe<Scalars["String"]>
 	/**
 	 * Adjusts the width of the blend image. [See
 	 * docs](https://docs.imgix.com/apis/url/blending/blend-w).
 	 */
 	blendW?: Maybe<Scalars["Float"]>
-	/**
-	 * Alias for `blendW`.
-	 */
+	/** Alias for `blendW`. */
 	blendw?: Maybe<Scalars["Float"]>
-	/**
-	 * Alias for `blendW`.
-	 */
+	/** Alias for `blendW`. */
 	bw?: Maybe<Scalars["Float"]>
 	/**
 	 * Adjusts the x-offset of the blend image relative to its parent. Default:
 	 * `0`. [See docs](https://docs.imgix.com/apis/url/blending/blend-x).
 	 */
 	blendX?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `blendX`.
-	 */
+	/** Alias for `blendX`. */
 	blendx?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `blendX`.
-	 */
+	/** Alias for `blendX`. */
 	bx?: Maybe<Scalars["Int"]>
 	/**
 	 * Adjusts the y-offset of the blend image relative to its parent. Default:
 	 * `0`. [See docs](https://docs.imgix.com/apis/url/blending/blend-y).
 	 */
 	blendY?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `blendY`.
-	 */
+	/** Alias for `blendY`. */
 	blendy?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `blendY`.
-	 */
+	/** Alias for `blendY`. */
 	by?: Maybe<Scalars["Int"]>
 	/**
 	 * Specifies the location of the blend image. [See
 	 * docs](https://docs.imgix.com/apis/url/blending/blend).
 	 */
 	blend?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `blend`.
-	 */
+	/** Alias for `blend`. */
 	b?: Maybe<Scalars["String"]>
 	/**
 	 * Applies a gaussian blur to an image. Default: `0`. [See
@@ -1104,9 +1042,7 @@ export type ImgixParamsInput = {
 	 * docs](https://docs.imgix.com/apis/url/fill/fill-color).
 	 */
 	fillColor?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `fillColor`.
-	 */
+	/** Alias for `fillColor`. */
 	fillcolor?: Maybe<Scalars["String"]>
 	/**
 	 * Determines how to fill in additional space created by the fit setting. [See
@@ -1118,9 +1054,7 @@ export type ImgixParamsInput = {
 	 * Default: `clip`. [See docs](https://docs.imgix.com/apis/url/size/fit).
 	 */
 	fit?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `fit`.
-	 */
+	/** Alias for `fit`. */
 	f?: Maybe<Scalars["String"]>
 	/**
 	 * Flips an image on a specified axis. [See
@@ -1158,22 +1092,16 @@ export type ImgixParamsInput = {
 	 * docs](https://docs.imgix.com/apis/url/adjustment/gam).
 	 */
 	gam?: Maybe<Scalars["Int"]>
-	/**
-	 * Sets grid colors for the transparency checkerboard grid.
-	 */
+	/** Sets grid colors for the transparency checkerboard grid. */
 	gridColors?: Maybe<Scalars["String"]>
-	/**
-	 * Sets grid size for the transparency checkerboard grid.
-	 */
+	/** Sets grid size for the transparency checkerboard grid. */
 	gridSize?: Maybe<Scalars["Int"]>
 	/**
 	 * Adjusts the height of the output image. [See
 	 * docs](https://docs.imgix.com/apis/url/size/h).
 	 */
 	h?: Maybe<Scalars["Float"]>
-	/**
-	 * Alias for `h`.
-	 */
+	/** Alias for `h`. */
 	height?: Maybe<Scalars["Float"]>
 	/**
 	 * Adjusts the highlights of the source image. Default: `0`. [See
@@ -1195,9 +1123,7 @@ export type ImgixParamsInput = {
 	 * docs](https://docs.imgix.com/apis/url/adjustment/invert).
 	 */
 	invert?: Maybe<Scalars["Boolean"]>
-	/**
-	 * Alias for `invert`.
-	 */
+	/** Alias for `invert`. */
 	inv?: Maybe<Scalars["Boolean"]>
 	/**
 	 * Specifies that the output image should be a lossless variant. Default:
@@ -1209,78 +1135,54 @@ export type ImgixParamsInput = {
 	 * docs](https://docs.imgix.com/apis/url/watermark/mark-align).
 	 */
 	markAlign?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `markAlign`.
-	 */
+	/** Alias for `markAlign`. */
 	ma?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `markAlign`.
-	 */
+	/** Alias for `markAlign`. */
 	markalign?: Maybe<Scalars["String"]>
 	/**
 	 * Changes the alpha of the watermark image. Default: `100`. [See
 	 * docs](https://docs.imgix.com/apis/url/watermark/mark-alpha).
 	 */
 	markAlpha?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `markAlpha`.
-	 */
+	/** Alias for `markAlpha`. */
 	markalpha?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `markAlpha`.
-	 */
+	/** Alias for `markAlpha`. */
 	malph?: Maybe<Scalars["Int"]>
 	/**
 	 * Changes base URL of the watermark image. [See
 	 * docs](https://docs.imgix.com/apis/url/watermark/mark-base).
 	 */
 	markBase?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `markBase`.
-	 */
+	/** Alias for `markBase`. */
 	mb?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `markBase`.
-	 */
+	/** Alias for `markBase`. */
 	markbase?: Maybe<Scalars["String"]>
 	/**
 	 * Specifies the fit mode for watermark images. Default: `clip`. [See
 	 * docs](https://docs.imgix.com/apis/url/watermark/mark-fit).
 	 */
 	markFit?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `markFit`.
-	 */
+	/** Alias for `markFit`. */
 	mf?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `markFit`.
-	 */
+	/** Alias for `markFit`. */
 	markfit?: Maybe<Scalars["String"]>
 	/**
 	 * Adjusts the height of the watermark image. [See
 	 * docs](https://docs.imgix.com/apis/url/watermark/mark-h).
 	 */
 	markH?: Maybe<Scalars["Float"]>
-	/**
-	 * Alias for `markH`.
-	 */
+	/** Alias for `markH`. */
 	mh?: Maybe<Scalars["Float"]>
-	/**
-	 * Alias for `markH`.
-	 */
+	/** Alias for `markH`. */
 	markh?: Maybe<Scalars["Float"]>
 	/**
 	 * Applies padding to the watermark image. Default: `5`. [See
 	 * docs](https://docs.imgix.com/apis/url/watermark/mark-pad).
 	 */
 	markPad?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `markPad`.
-	 */
+	/** Alias for `markPad`. */
 	mp?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `markPad`.
-	 */
+	/** Alias for `markPad`. */
 	markpad?: Maybe<Scalars["Int"]>
 	/**
 	 * Rotates a watermark or tiled watermarks by a specified number of degrees.
@@ -1292,83 +1194,59 @@ export type ImgixParamsInput = {
 	 * docs](https://docs.imgix.com/apis/url/watermark/mark-scale).
 	 */
 	markScale?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `markScale`.
-	 */
+	/** Alias for `markScale`. */
 	ms?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `markScale`.
-	 */
+	/** Alias for `markScale`. */
 	markscale?: Maybe<Scalars["Int"]>
 	/**
 	 * Adds tiled watermark. [See
 	 * docs](https://docs.imgix.com/apis/url/watermark/mark-tile).
 	 */
 	markTile?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `markTile`.
-	 */
+	/** Alias for `markTile`. */
 	mtile?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `markTile`.
-	 */
+	/** Alias for `markTile`. */
 	marktile?: Maybe<Scalars["String"]>
 	/**
 	 * Adjusts the width of the watermark image. [See
 	 * docs](https://docs.imgix.com/apis/url/watermark/mark-w).
 	 */
 	markW?: Maybe<Scalars["Float"]>
-	/**
-	 * Alias for `markW`.
-	 */
+	/** Alias for `markW`. */
 	mw?: Maybe<Scalars["Float"]>
-	/**
-	 * Alias for `markW`.
-	 */
+	/** Alias for `markW`. */
 	markw?: Maybe<Scalars["Float"]>
 	/**
 	 * Adjusts the x-offset of the watermark image relative to its parent. [See
 	 * docs](https://docs.imgix.com/apis/url/watermark/mark-x).
 	 */
 	markX?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `markX`.
-	 */
+	/** Alias for `markX`. */
 	mx?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `markX`.
-	 */
+	/** Alias for `markX`. */
 	markx?: Maybe<Scalars["Int"]>
 	/**
 	 * Adjusts the y-offset of the watermark image relative to its parent. [See
 	 * docs](https://docs.imgix.com/apis/url/watermark/mark-y).
 	 */
 	markY?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `markY`.
-	 */
+	/** Alias for `markY`. */
 	my?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `markY`.
-	 */
+	/** Alias for `markY`. */
 	marky?: Maybe<Scalars["Int"]>
 	/**
 	 * Specifies the location of the watermark image. [See
 	 * docs](https://docs.imgix.com/apis/url/watermark/mark).
 	 */
 	mark?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `mark`.
-	 */
+	/** Alias for `mark`. */
 	m?: Maybe<Scalars["String"]>
 	/**
 	 * Colors the background of the transparent mask area of images. Default:
 	 * `fff`. [See docs](https://docs.imgix.com/apis/url/mask/mask-bg).
 	 */
 	maskBg?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `maskBg`.
-	 */
+	/** Alias for `maskBg`. */
 	maskbg?: Maybe<Scalars["String"]>
 	/**
 	 * Defines the type of mask and specifies the URL if that type is selected.
@@ -1380,45 +1258,35 @@ export type ImgixParamsInput = {
 	 * docs](https://docs.imgix.com/apis/url/size/max-height).
 	 */
 	maxH?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `maxH`.
-	 */
+	/** Alias for `maxH`. */
 	maxHeight?: Maybe<Scalars["Int"]>
 	/**
 	 * Specifies the maximum width of the output image in pixels. [See
 	 * docs](https://docs.imgix.com/apis/url/size/max-width).
 	 */
 	maxW?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `maxW`.
-	 */
+	/** Alias for `maxW`. */
 	maxWidth?: Maybe<Scalars["Int"]>
 	/**
 	 * Specifies the minimum height of the output image in pixels. [See
 	 * docs](https://docs.imgix.com/apis/url/size/min-height).
 	 */
 	minH?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `minH`.
-	 */
+	/** Alias for `minH`. */
 	minHeight?: Maybe<Scalars["Int"]>
 	/**
 	 * Specifies the minimum width of the output image in pixels. [See
 	 * docs](https://docs.imgix.com/apis/url/size/min-width).
 	 */
 	minW?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `minW`.
-	 */
+	/** Alias for `minW`. */
 	minWidth?: Maybe<Scalars["Int"]>
 	/**
 	 * Applies a monochrome effect to the source image. [See
 	 * docs](https://docs.imgix.com/apis/url/stylize/monochrome).
 	 */
 	monochrome?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `monochrome`.
-	 */
+	/** Alias for `monochrome`. */
 	mono?: Maybe<Scalars["String"]>
 	/**
 	 * Reduces the noise in an image. Default: `20`. [See
@@ -1435,9 +1303,7 @@ export type ImgixParamsInput = {
 	 * docs](https://docs.imgix.com/apis/url/rotation/orient).
 	 */
 	orient?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `orient`.
-	 */
+	/** Alias for `orient`. */
 	or?: Maybe<Scalars["Int"]>
 	/**
 	 * Sets bottom padding of an image. [See
@@ -1479,9 +1345,7 @@ export type ImgixParamsInput = {
 	 * docs](https://docs.imgix.com/apis/url/pdf/pdf-annotation).
 	 */
 	pdfAnnotation?: Maybe<Scalars["Boolean"]>
-	/**
-	 * Alias for `pdfAnnotation`.
-	 */
+	/** Alias for `pdfAnnotation`. */
 	annotation?: Maybe<Scalars["Boolean"]>
 	/**
 	 * Specifies a CSS prefix for all classes in palette-extraction. Default:
@@ -1538,118 +1402,84 @@ export type ImgixParamsInput = {
 	 * docs](https://docs.imgix.com/apis/url/trim/trim-color).
 	 */
 	trimColor?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `trimColor`.
-	 */
+	/** Alias for `trimColor`. */
 	trimcolor?: Maybe<Scalars["String"]>
 	/**
 	 * Specifies the mean difference on a trim operation. Default: `11`. [See
 	 * docs](https://docs.imgix.com/apis/url/trim/trim-md).
 	 */
 	trimMd?: Maybe<Scalars["Float"]>
-	/**
-	 * Alias for `trimMd`.
-	 */
+	/** Alias for `trimMd`. */
 	trimmd?: Maybe<Scalars["Float"]>
 	/**
 	 * Pads the area of the source image before trimming. Default: `0`. [See
 	 * docs](https://docs.imgix.com/apis/url/trim/trim-pad).
 	 */
 	trimPad?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `trimPad`.
-	 */
+	/** Alias for `trimPad`. */
 	trimpad?: Maybe<Scalars["Int"]>
 	/**
 	 * Specifies the standard deviation on a trim operation. Default: `10`. [See
 	 * docs](https://docs.imgix.com/apis/url/trim/trim-sd).
 	 */
 	trimSd?: Maybe<Scalars["Float"]>
-	/**
-	 * Alias for `trimSd`.
-	 */
+	/** Alias for `trimSd`. */
 	trimsd?: Maybe<Scalars["Float"]>
 	/**
 	 * Specifies the tolerance on a trim operation. Default: `0`. [See
 	 * docs](https://docs.imgix.com/apis/url/trim/trim-tol).
 	 */
 	trimTol?: Maybe<Scalars["Float"]>
-	/**
-	 * Alias for `trimTol`.
-	 */
+	/** Alias for `trimTol`. */
 	trimtol?: Maybe<Scalars["Float"]>
-	/**
-	 * Trims the source image. [See docs](https://docs.imgix.com/apis/url/trim/trim).
-	 */
+	/** Trims the source image. [See docs](https://docs.imgix.com/apis/url/trim/trim). */
 	trim?: Maybe<Scalars["String"]>
 	/**
 	 * Sets the vertical and horizontal alignment of rendered text relative to the
 	 * base image. [See docs](https://docs.imgix.com/apis/url/text/txt-align).
 	 */
 	txtAlign?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `txtAlign`.
-	 */
+	/** Alias for `txtAlign`. */
 	txtalign?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `txtAlign`.
-	 */
+	/** Alias for `txtAlign`. */
 	ta?: Maybe<Scalars["String"]>
 	/**
 	 * Sets the clipping properties of rendered text. Default: `end`. [See
 	 * docs](https://docs.imgix.com/apis/url/text/txt-clip).
 	 */
 	txtClip?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `txtClip`.
-	 */
+	/** Alias for `txtClip`. */
 	txtclip?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `txtClip`.
-	 */
+	/** Alias for `txtClip`. */
 	tcl?: Maybe<Scalars["String"]>
 	/**
 	 * Specifies the color of rendered text. [See
 	 * docs](https://docs.imgix.com/apis/url/text/txt-color).
 	 */
 	txtColor?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `txtColor`.
-	 */
+	/** Alias for `txtColor`. */
 	txtcolor?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `txtColor`.
-	 */
+	/** Alias for `txtColor`. */
 	txtClr?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `txtColor`.
-	 */
+	/** Alias for `txtColor`. */
 	txtclr?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `txtColor`.
-	 */
+	/** Alias for `txtColor`. */
 	tc?: Maybe<Scalars["String"]>
 	/**
 	 * Specifies the fit approach for rendered text. [See
 	 * docs](https://docs.imgix.com/apis/url/text/txt-fit).
 	 */
 	txtFit?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `txtFit`.
-	 */
+	/** Alias for `txtFit`. */
 	txtfit?: Maybe<Scalars["String"]>
 	/**
 	 * Selects a font for rendered text. [See
 	 * docs](https://docs.imgix.com/apis/url/text/txt-font).
 	 */
 	txtFont?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `txtFont`.
-	 */
+	/** Alias for `txtFont`. */
 	tf?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `txtFont`.
-	 */
+	/** Alias for `txtFont`. */
 	txtfont?: Maybe<Scalars["String"]>
 	/**
 	 * Sets the leading (line spacing) for rendered text. Only works on the
@@ -1657,48 +1487,34 @@ export type ImgixParamsInput = {
 	 * docs](https://docs.imgix.com/apis/url/typesetting/txt-lead).
 	 */
 	txtLead?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `txtLead`.
-	 */
+	/** Alias for `txtLead`. */
 	txtlead?: Maybe<Scalars["Int"]>
 	/**
 	 * Controls the level of ligature substitution. [See
 	 * docs](https://docs.imgix.com/apis/url/text/txt-lig).
 	 */
 	txtLig?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `txtLig`.
-	 */
+	/** Alias for `txtLig`. */
 	txtlig?: Maybe<Scalars["Int"]>
 	/**
 	 * Specifies a text outline color. Default: `fff`. [See
 	 * docs](https://docs.imgix.com/apis/url/text/txt-line-color).
 	 */
 	txtLineColor?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `txtLineColor`.
-	 */
+	/** Alias for `txtLineColor`. */
 	txtlinecolor?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `txtLineColor`.
-	 */
+	/** Alias for `txtLineColor`. */
 	txtLineClr?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `txtLineColor`.
-	 */
+	/** Alias for `txtLineColor`. */
 	txtlineclr?: Maybe<Scalars["String"]>
 	/**
 	 * Outlines the rendered text with a specified color. Default: `0`. [See
 	 * docs](https://docs.imgix.com/apis/url/text/txt-line).
 	 */
 	txtLine?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `txtLine`.
-	 */
+	/** Alias for `txtLine`. */
 	txtline?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `txtLine`.
-	 */
+	/** Alias for `txtLine`. */
 	tl?: Maybe<Scalars["Int"]>
 	/**
 	 * Specifies the padding (in device-independent pixels) between a textbox and
@@ -1706,39 +1522,27 @@ export type ImgixParamsInput = {
 	 * docs](https://docs.imgix.com/apis/url/text/txt-pad).
 	 */
 	txtPad?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `txtPad`.
-	 */
+	/** Alias for `txtPad`. */
 	txtpad?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `txtPad`.
-	 */
+	/** Alias for `txtPad`. */
 	tp?: Maybe<Scalars["Int"]>
 	/**
 	 * Applies a shadow to rendered text. Default: `0`. [See
 	 * docs](https://docs.imgix.com/apis/url/text/txt-shad).
 	 */
 	txtShad?: Maybe<Scalars["Float"]>
-	/**
-	 * Alias for `txtShad`.
-	 */
+	/** Alias for `txtShad`. */
 	txtshad?: Maybe<Scalars["Float"]>
-	/**
-	 * Alias for `txtShad`.
-	 */
+	/** Alias for `txtShad`. */
 	tsh?: Maybe<Scalars["Float"]>
 	/**
 	 * Sets the font size of rendered text. Default: `12`. [See
 	 * docs](https://docs.imgix.com/apis/url/text/txt-size).
 	 */
 	txtSize?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `txtSize`.
-	 */
+	/** Alias for `txtSize`. */
 	tsz?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `txtSize`.
-	 */
+	/** Alias for `txtSize`. */
 	txtsize?: Maybe<Scalars["Int"]>
 	/**
 	 * Sets the tracking (letter spacing) for rendered text. Only works on the
@@ -1746,30 +1550,20 @@ export type ImgixParamsInput = {
 	 * docs](https://docs.imgix.com/apis/url/typesetting/txt-track).
 	 */
 	txtTrack?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `txtTrack`.
-	 */
+	/** Alias for `txtTrack`. */
 	txttrack?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `txtTrack`.
-	 */
+	/** Alias for `txtTrack`. */
 	tt?: Maybe<Scalars["Int"]>
 	/**
 	 * Sets the width of rendered text. [See
 	 * docs](https://docs.imgix.com/apis/url/text/txt-width).
 	 */
 	txtWidth?: Maybe<Scalars["Int"]>
-	/**
-	 * Alias for `txtWidth`.
-	 */
+	/** Alias for `txtWidth`. */
 	txtwidth?: Maybe<Scalars["Int"]>
-	/**
-	 * Sets the text string to render. [See docs](https://docs.imgix.com/apis/url/text/txt).
-	 */
+	/** Sets the text string to render. [See docs](https://docs.imgix.com/apis/url/text/txt). */
 	txt?: Maybe<Scalars["String"]>
-	/**
-	 * Alias for `txt`.
-	 */
+	/** Alias for `txt`. */
 	t?: Maybe<Scalars["String"]>
 	/**
 	 * Sharpens the source image using an unsharp mask. Default: `0`. [See
@@ -1791,9 +1585,7 @@ export type ImgixParamsInput = {
 	 * docs](https://docs.imgix.com/apis/url/size/w).
 	 */
 	w?: Maybe<Scalars["Float"]>
-	/**
-	 * Alias for `w`.
-	 */
+	/** Alias for `w`. */
 	width?: Maybe<Scalars["Float"]>
 }
 
@@ -1845,9 +1637,7 @@ export type JsonQueryOperatorInput = {
 	glob?: Maybe<Scalars["JSON"]>
 }
 
-/**
- * Node Interface
- */
+/** Node Interface */
 export type Node = {
 	id: Scalars["ID"]
 	parent?: Maybe<Node>
@@ -2196,6 +1986,98 @@ export type PrismicEventDataBodyCallToActionPrimary = {
 	heading?: Maybe<PrismicStructuredTextType>
 }
 
+export type PrismicEventDataBodyFeaturedPeople = PrismicSliceType & {
+	items?: Maybe<Array<Maybe<PrismicEventDataBodyFeaturedPeopleItem>>>
+	primary?: Maybe<PrismicEventDataBodyFeaturedPeoplePrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyFeaturedPeopleItem = {
+	bio?: Maybe<PrismicStructuredTextType>
+	headshot?: Maybe<PrismicEventDataBodyFeaturedPeopleItemsHeadshotImageType>
+	instagram_handle?: Maybe<Scalars["String"]>
+	instagram_profile_url?: Maybe<PrismicLinkType>
+	name?: Maybe<PrismicStructuredTextType>
+	pronouns?: Maybe<PrismicStructuredTextType>
+	title1?: Maybe<PrismicStructuredTextType>
+	website_label?: Maybe<Scalars["String"]>
+	website_url?: Maybe<PrismicLinkType>
+}
+
+export type PrismicEventDataBodyFeaturedPeopleItemsHeadshotImageType = {
+	alt?: Maybe<Scalars["String"]>
+	copyright?: Maybe<Scalars["String"]>
+	dimensions?: Maybe<PrismicImageDimensionsType>
+	/** A plain imgix URL with the URL and params applied. */
+	url?: Maybe<Scalars["String"]>
+	/**
+	 * Should be used to generate fixed-width images (i.e. the size of the image
+	 * doesn't change when the size of the browser changes, and are "fixed").
+	 * Returns data compatible with gatsby-image. Instead of accessing this data
+	 * directly, the GatsbySourceImgixFixed fragment should be used. See the
+	 * project's README for more information.
+	 */
+	fixed?: Maybe<ImgixFixed>
+	/**
+	 * Should be used to generate fluid-width images (i.e. images that change when
+	 * the size of the browser changes). Returns data compatible with
+	 * gatsby-image. Instead of accessing this data directly, the
+	 * GatsbySourceImgixFluid fragment should be used. See the project's README
+	 * for more information.
+	 */
+	fluid?: Maybe<ImgixFluid>
+	gatsbyImageData?: Maybe<Scalars["JSON"]>
+	localFile?: Maybe<File>
+}
+
+export type PrismicEventDataBodyFeaturedPeopleItemsHeadshotImageTypeUrlArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicEventDataBodyFeaturedPeopleItemsHeadshotImageTypeFixedArgs =
+	{
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		quality?: Maybe<Scalars["Int"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+	}
+
+export type PrismicEventDataBodyFeaturedPeopleItemsHeadshotImageTypeFluidArgs =
+	{
+		imgixParams?: Maybe<ImgixParamsInput>
+		maxWidth?: Maybe<Scalars["Int"]>
+		maxHeight?: Maybe<Scalars["Int"]>
+		srcSetBreakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+	}
+
+export type PrismicEventDataBodyFeaturedPeopleItemsHeadshotImageTypeGatsbyImageDataArgs =
+	{
+		layout?: Maybe<GatsbyImageLayout>
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		aspectRatio?: Maybe<Scalars["Float"]>
+		outputPixelDensities?: Maybe<Array<Maybe<Scalars["Float"]>>>
+		breakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		sizes?: Maybe<Scalars["String"]>
+		backgroundColor?: Maybe<Scalars["String"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+		placeholder?: Maybe<ImgixPlaceholder>
+		widthTolerance?: Maybe<Scalars["Float"]>
+		srcSetMinWidth?: Maybe<Scalars["Int"]>
+		srcSetMaxWidth?: Maybe<Scalars["Int"]>
+	}
+
+export type PrismicEventDataBodyFeaturedPeoplePrimary = {
+	color?: Maybe<Scalars["String"]>
+	heading?: Maybe<PrismicStructuredTextType>
+	subheading?: Maybe<PrismicStructuredTextType>
+}
+
 export type PrismicEventDataBodyImageCallToAction = PrismicSliceType & {
 	primary?: Maybe<PrismicEventDataBodyImageCallToActionPrimary>
 	id: Scalars["ID"]
@@ -2216,9 +2098,7 @@ export type PrismicEventDataBodyImageCallToActionPrimaryImageImageType = {
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
-	/**
-	 * A plain imgix URL with the URL and params applied.
-	 */
+	/** A plain imgix URL with the URL and params applied. */
 	url?: Maybe<Scalars["String"]>
 	/**
 	 * Should be used to generate fixed-width images (i.e. the size of the image
@@ -2325,6 +2205,7 @@ export type PrismicEventDataBodySlicesType =
 	| PrismicEventDataBodyAnchor
 	| PrismicEventDataBodyCallToAction
 	| PrismicEventDataBodyCallToActionCard
+	| PrismicEventDataBodyFeaturedPeople
 	| PrismicEventDataBodyImageCallToAction
 	| PrismicEventDataBodyIntroduction
 	| PrismicEventDataBodyNewsletterForm
@@ -2370,9 +2251,7 @@ export type PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageType = {
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
-	/**
-	 * A plain imgix URL with the URL and params applied.
-	 */
+	/** A plain imgix URL with the URL and params applied. */
 	url?: Maybe<Scalars["String"]>
 	/**
 	 * Should be used to generate fixed-width images (i.e. the size of the image
@@ -2444,9 +2323,7 @@ export type PrismicEventDataBodyVideoPrimaryThumbnailImageType = {
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
-	/**
-	 * A plain imgix URL with the URL and params applied.
-	 */
+	/** A plain imgix URL with the URL and params applied. */
 	url?: Maybe<Scalars["String"]>
 	/**
 	 * Should be used to generate fixed-width images (i.e. the size of the image
@@ -2731,9 +2608,7 @@ export type PrismicImageThumbnailType = {
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
-	/**
-	 * A plain imgix URL with the URL and params applied.
-	 */
+	/** A plain imgix URL with the URL and params applied. */
 	url?: Maybe<Scalars["String"]>
 	/**
 	 * Should be used to generate fixed-width images (i.e. the size of the image
@@ -3230,6 +3105,96 @@ export type PrismicPageDataBodyCallToActionPrimary = {
 	heading?: Maybe<PrismicStructuredTextType>
 }
 
+export type PrismicPageDataBodyFeaturedPeople = PrismicSliceType & {
+	items?: Maybe<Array<Maybe<PrismicPageDataBodyFeaturedPeopleItem>>>
+	primary?: Maybe<PrismicPageDataBodyFeaturedPeoplePrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicPageDataBodyFeaturedPeopleItem = {
+	bio?: Maybe<PrismicStructuredTextType>
+	headshot?: Maybe<PrismicPageDataBodyFeaturedPeopleItemsHeadshotImageType>
+	instagram_handle?: Maybe<Scalars["String"]>
+	instagram_profile_url?: Maybe<PrismicLinkType>
+	name?: Maybe<PrismicStructuredTextType>
+	pronouns?: Maybe<PrismicStructuredTextType>
+	title1?: Maybe<PrismicStructuredTextType>
+	website_label?: Maybe<Scalars["String"]>
+	website_url?: Maybe<PrismicLinkType>
+}
+
+export type PrismicPageDataBodyFeaturedPeopleItemsHeadshotImageType = {
+	alt?: Maybe<Scalars["String"]>
+	copyright?: Maybe<Scalars["String"]>
+	dimensions?: Maybe<PrismicImageDimensionsType>
+	/** A plain imgix URL with the URL and params applied. */
+	url?: Maybe<Scalars["String"]>
+	/**
+	 * Should be used to generate fixed-width images (i.e. the size of the image
+	 * doesn't change when the size of the browser changes, and are "fixed").
+	 * Returns data compatible with gatsby-image. Instead of accessing this data
+	 * directly, the GatsbySourceImgixFixed fragment should be used. See the
+	 * project's README for more information.
+	 */
+	fixed?: Maybe<ImgixFixed>
+	/**
+	 * Should be used to generate fluid-width images (i.e. images that change when
+	 * the size of the browser changes). Returns data compatible with
+	 * gatsby-image. Instead of accessing this data directly, the
+	 * GatsbySourceImgixFluid fragment should be used. See the project's README
+	 * for more information.
+	 */
+	fluid?: Maybe<ImgixFluid>
+	gatsbyImageData?: Maybe<Scalars["JSON"]>
+	localFile?: Maybe<File>
+}
+
+export type PrismicPageDataBodyFeaturedPeopleItemsHeadshotImageTypeUrlArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicPageDataBodyFeaturedPeopleItemsHeadshotImageTypeFixedArgs = {
+	width?: Maybe<Scalars["Int"]>
+	height?: Maybe<Scalars["Int"]>
+	quality?: Maybe<Scalars["Int"]>
+	imgixParams?: Maybe<ImgixParamsInput>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicPageDataBodyFeaturedPeopleItemsHeadshotImageTypeFluidArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+	maxWidth?: Maybe<Scalars["Int"]>
+	maxHeight?: Maybe<Scalars["Int"]>
+	srcSetBreakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicPageDataBodyFeaturedPeopleItemsHeadshotImageTypeGatsbyImageDataArgs =
+	{
+		layout?: Maybe<GatsbyImageLayout>
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		aspectRatio?: Maybe<Scalars["Float"]>
+		outputPixelDensities?: Maybe<Array<Maybe<Scalars["Float"]>>>
+		breakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		sizes?: Maybe<Scalars["String"]>
+		backgroundColor?: Maybe<Scalars["String"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+		placeholder?: Maybe<ImgixPlaceholder>
+		widthTolerance?: Maybe<Scalars["Float"]>
+		srcSetMinWidth?: Maybe<Scalars["Int"]>
+		srcSetMaxWidth?: Maybe<Scalars["Int"]>
+	}
+
+export type PrismicPageDataBodyFeaturedPeoplePrimary = {
+	color?: Maybe<Scalars["String"]>
+	heading?: Maybe<PrismicStructuredTextType>
+	subheading?: Maybe<PrismicStructuredTextType>
+}
+
 export type PrismicPageDataBodyFilterableEvents = PrismicSliceType & {
 	items?: Maybe<Array<Maybe<PrismicPageDataBodyFilterableEventsItem>>>
 	id: Scalars["ID"]
@@ -3273,9 +3238,7 @@ export type PrismicPageDataBodyImageCallToActionPrimaryImageImageType = {
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
-	/**
-	 * A plain imgix URL with the URL and params applied.
-	 */
+	/** A plain imgix URL with the URL and params applied. */
 	url?: Maybe<Scalars["String"]>
 	/**
 	 * Should be used to generate fixed-width images (i.e. the size of the image
@@ -3381,6 +3344,7 @@ export type PrismicPageDataBodySlicesType =
 	| PrismicPageDataBodyAnchor
 	| PrismicPageDataBodyCallToAction
 	| PrismicPageDataBodyCallToActionCard
+	| PrismicPageDataBodyFeaturedPeople
 	| PrismicPageDataBodyFilterableEvents
 	| PrismicPageDataBodyGradientText
 	| PrismicPageDataBodyImageCallToAction
@@ -3442,9 +3406,7 @@ export type PrismicPageDataBodyVideoHeroPrimaryVideoThumbnailImageType = {
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
-	/**
-	 * A plain imgix URL with the URL and params applied.
-	 */
+	/** A plain imgix URL with the URL and params applied. */
 	url?: Maybe<Scalars["String"]>
 	/**
 	 * Should be used to generate fixed-width images (i.e. the size of the image
@@ -3516,9 +3478,7 @@ export type PrismicPageDataBodyVideoPrimaryThumbnailImageType = {
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
-	/**
-	 * A plain imgix URL with the URL and params applied.
-	 */
+	/** A plain imgix URL with the URL and params applied. */
 	url?: Maybe<Scalars["String"]>
 	/**
 	 * Should be used to generate fixed-width images (i.e. the size of the image
@@ -3890,9 +3850,7 @@ export type PrismicSettingsDataOpenGraphImageImageType = {
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
-	/**
-	 * A plain imgix URL with the URL and params applied.
-	 */
+	/** A plain imgix URL with the URL and params applied. */
 	url?: Maybe<Scalars["String"]>
 	/**
 	 * Should be used to generate fixed-width images (i.e. the size of the image
@@ -3982,9 +3940,7 @@ export type PrismicSettingsDataTwitterCardImageImageType = {
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
-	/**
-	 * A plain imgix URL with the URL and params applied.
-	 */
+	/** A plain imgix URL with the URL and params applied. */
 	url?: Maybe<Scalars["String"]>
 	/**
 	 * Should be used to generate fixed-width images (i.e. the size of the image
@@ -4461,9 +4417,7 @@ export type PrismicSponsorDataImageImageType = {
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
-	/**
-	 * A plain imgix URL with the URL and params applied.
-	 */
+	/** A plain imgix URL with the URL and params applied. */
 	url?: Maybe<Scalars["String"]>
 	/**
 	 * Should be used to generate fixed-width images (i.e. the size of the image
@@ -6676,7 +6630,6 @@ export enum SitePageFieldsEnum {
 	PluginCreatorPluginOptionsCacheDigest = "pluginCreator___pluginOptions___cacheDigest",
 	PluginCreatorPluginOptionsRepositoryName = "pluginCreator___pluginOptions___repositoryName",
 	PluginCreatorPluginOptionsAccessToken = "pluginCreator___pluginOptions___accessToken",
-	PluginCreatorPluginOptionsPromptForAccessToken = "pluginCreator___pluginOptions___promptForAccessToken",
 	PluginCreatorPluginOptionsApiEndpoint = "pluginCreator___pluginOptions___apiEndpoint",
 	PluginCreatorPluginOptionsLang = "pluginCreator___pluginOptions___lang",
 	PluginCreatorPluginOptionsImageImgixParamsAuto = "pluginCreator___pluginOptions___imageImgixParams___auto",
@@ -6684,6 +6637,7 @@ export enum SitePageFieldsEnum {
 	PluginCreatorPluginOptionsImageImgixParamsQ = "pluginCreator___pluginOptions___imageImgixParams___q",
 	PluginCreatorPluginOptionsImagePlaceholderImgixParamsW = "pluginCreator___pluginOptions___imagePlaceholderImgixParams___w",
 	PluginCreatorPluginOptionsImagePlaceholderImgixParamsBlur = "pluginCreator___pluginOptions___imagePlaceholderImgixParams___blur",
+	PluginCreatorPluginOptionsPromptForAccessToken = "pluginCreator___pluginOptions___promptForAccessToken",
 	PluginCreatorPluginOptionsToolbar = "pluginCreator___pluginOptions___toolbar",
 	PluginCreatorPluginOptionsPath = "pluginCreator___pluginOptions___path",
 	PluginCreatorPluginOptionsPathCheck = "pluginCreator___pluginOptions___pathCheck",
@@ -6887,7 +6841,6 @@ export enum SitePluginFieldsEnum {
 	PluginOptionsCacheDigest = "pluginOptions___cacheDigest",
 	PluginOptionsRepositoryName = "pluginOptions___repositoryName",
 	PluginOptionsAccessToken = "pluginOptions___accessToken",
-	PluginOptionsPromptForAccessToken = "pluginOptions___promptForAccessToken",
 	PluginOptionsApiEndpoint = "pluginOptions___apiEndpoint",
 	PluginOptionsLang = "pluginOptions___lang",
 	PluginOptionsImageImgixParamsAuto = "pluginOptions___imageImgixParams___auto",
@@ -6895,6 +6848,7 @@ export enum SitePluginFieldsEnum {
 	PluginOptionsImageImgixParamsQ = "pluginOptions___imageImgixParams___q",
 	PluginOptionsImagePlaceholderImgixParamsW = "pluginOptions___imagePlaceholderImgixParams___w",
 	PluginOptionsImagePlaceholderImgixParamsBlur = "pluginOptions___imagePlaceholderImgixParams___blur",
+	PluginOptionsPromptForAccessToken = "pluginOptions___promptForAccessToken",
 	PluginOptionsToolbar = "pluginOptions___toolbar",
 	PluginOptionsPath = "pluginOptions___path",
 	PluginOptionsPathCheck = "pluginOptions___pathCheck",
@@ -7145,18 +7099,18 @@ export type SitePluginPluginOptions = {
 	cacheDigest?: Maybe<Scalars["String"]>
 	repositoryName?: Maybe<Scalars["String"]>
 	accessToken?: Maybe<Scalars["String"]>
-	promptForAccessToken?: Maybe<Scalars["Boolean"]>
+	schemas?: Maybe<SitePluginPluginOptionsSchemas>
 	apiEndpoint?: Maybe<Scalars["String"]>
 	lang?: Maybe<Scalars["String"]>
 	imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParams>
 	imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParams>
+	promptForAccessToken?: Maybe<Scalars["Boolean"]>
 	toolbar?: Maybe<Scalars["String"]>
 	path?: Maybe<Scalars["String"]>
 	pathCheck?: Maybe<Scalars["Boolean"]>
 	allExtensions?: Maybe<Scalars["Boolean"]>
 	isTSX?: Maybe<Scalars["Boolean"]>
 	jsxPragma?: Maybe<Scalars["String"]>
-	schemas?: Maybe<SitePluginPluginOptionsSchemas>
 }
 
 export type SitePluginPluginOptionsFilterInput = {
@@ -7179,18 +7133,18 @@ export type SitePluginPluginOptionsFilterInput = {
 	cacheDigest?: Maybe<StringQueryOperatorInput>
 	repositoryName?: Maybe<StringQueryOperatorInput>
 	accessToken?: Maybe<StringQueryOperatorInput>
-	promptForAccessToken?: Maybe<BooleanQueryOperatorInput>
+	schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>
 	apiEndpoint?: Maybe<StringQueryOperatorInput>
 	lang?: Maybe<StringQueryOperatorInput>
 	imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParamsFilterInput>
 	imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParamsFilterInput>
+	promptForAccessToken?: Maybe<BooleanQueryOperatorInput>
 	toolbar?: Maybe<StringQueryOperatorInput>
 	path?: Maybe<StringQueryOperatorInput>
 	pathCheck?: Maybe<BooleanQueryOperatorInput>
 	allExtensions?: Maybe<BooleanQueryOperatorInput>
 	isTSX?: Maybe<BooleanQueryOperatorInput>
 	jsxPragma?: Maybe<StringQueryOperatorInput>
-	schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>
 }
 
 export type SitePluginPluginOptionsImageImgixParams = {
@@ -7254,6 +7208,7 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoices = {
 	call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_Card>
 	rich_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_Text>
 	video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo>
+	featured_people?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_People>
 }
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchor = {
@@ -7571,6 +7526,350 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Acti
 		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfigFilterInput>
 	}
 
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_People =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_Repeat>
+		repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeat>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatFilterInput>
+		repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_Repeat =
+	{
+		subheading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatSubheading>
+		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatHeading>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatColor>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatColor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatColorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatColorConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatColorConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatColorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatColorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatFilterInput =
+	{
+		subheading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatSubheadingFilterInput>
+		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatHeadingFilterInput>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatColorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatHeading =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatHeadingConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatHeadingConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatHeadingConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatHeadingFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatHeadingConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatSubheading =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatSubheadingConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatSubheadingConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatSubheadingConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatSubheadingFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleNon_RepeatSubheadingConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeat =
+	{
+		headshot?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatHeadshot>
+		name?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatName>
+		title1?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatTitle1>
+		pronouns?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatPronouns>
+		bio?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatBio>
+		instagram_handle?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Handle>
+		instagram_profile_url?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Profile_Url>
+		website_label?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_Label>
+		website_url?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_Url>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatBio =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatBioConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatBioConfig =
+	{
+		multi?: Maybe<Scalars["String"]>
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatBioConfigFilterInput =
+	{
+		multi?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatBioFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatBioConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatFilterInput =
+	{
+		headshot?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatHeadshotFilterInput>
+		name?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatNameFilterInput>
+		title1?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatTitle1FilterInput>
+		pronouns?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatPronounsFilterInput>
+		bio?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatBioFilterInput>
+		instagram_handle?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_HandleFilterInput>
+		instagram_profile_url?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Profile_UrlFilterInput>
+		website_label?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_LabelFilterInput>
+		website_url?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_UrlFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatHeadshot =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatHeadshotConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatHeadshotConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatHeadshotConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatHeadshotFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatHeadshotConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Handle =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_HandleConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_HandleConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_HandleConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_HandleFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_HandleConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Profile_Url =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Profile_UrlConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Profile_UrlConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Profile_UrlConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Profile_UrlFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Profile_UrlConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatName =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatNameConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatNameConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatNameConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatNameFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatNameConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatPronouns =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatPronounsConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatPronounsConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatPronounsConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatPronounsFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatPronounsConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatTitle1 =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatTitle1Config>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatTitle1Config =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatTitle1ConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatTitle1FilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatTitle1ConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_Label =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_LabelConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_LabelConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_LabelConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_LabelFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_LabelConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_Url =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_UrlConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_UrlConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_UrlConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_UrlFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_UrlConfigFilterInput>
+	}
+
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFilterInput =
 	{
 		anchor?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchorFilterInput>
@@ -7583,6 +7882,7 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFilterInput 
 		call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardFilterInput>
 		rich_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextFilterInput>
 		video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoFilterInput>
+		featured_people?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_Action =
@@ -8755,6 +9055,7 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoices = {
 	call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_Card>
 	rich_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_Text>
 	video?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo>
+	featured_people?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_People>
 }
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesAnchor = {
@@ -9072,6 +9373,350 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Actio
 		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfigFilterInput>
 	}
 
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_People =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_Repeat>
+		repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeat>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatFilterInput>
+		repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_Repeat =
+	{
+		subheading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatSubheading>
+		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatHeading>
+		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatColor>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatColor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatColorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatColorConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatColorConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatColorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatColorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatFilterInput =
+	{
+		subheading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatSubheadingFilterInput>
+		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatHeadingFilterInput>
+		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatColorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatHeading =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatHeadingConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatHeadingConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatHeadingConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatHeadingFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatHeadingConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatSubheading =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatSubheadingConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatSubheadingConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatSubheadingConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatSubheadingFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleNon_RepeatSubheadingConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeat =
+	{
+		headshot?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatHeadshot>
+		name?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatName>
+		title1?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatTitle1>
+		pronouns?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatPronouns>
+		bio?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatBio>
+		instagram_handle?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Handle>
+		instagram_profile_url?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Profile_Url>
+		website_label?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_Label>
+		website_url?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_Url>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatBio =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatBioConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatBioConfig =
+	{
+		multi?: Maybe<Scalars["String"]>
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatBioConfigFilterInput =
+	{
+		multi?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatBioFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatBioConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatFilterInput =
+	{
+		headshot?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatHeadshotFilterInput>
+		name?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatNameFilterInput>
+		title1?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatTitle1FilterInput>
+		pronouns?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatPronounsFilterInput>
+		bio?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatBioFilterInput>
+		instagram_handle?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_HandleFilterInput>
+		instagram_profile_url?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Profile_UrlFilterInput>
+		website_label?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_LabelFilterInput>
+		website_url?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_UrlFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatHeadshot =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatHeadshotConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatHeadshotConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatHeadshotConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatHeadshotFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatHeadshotConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Handle =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_HandleConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_HandleConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_HandleConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_HandleFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_HandleConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Profile_Url =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Profile_UrlConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Profile_UrlConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Profile_UrlConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Profile_UrlFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatInstagram_Profile_UrlConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatName =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatNameConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatNameConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatNameConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatNameFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatNameConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatPronouns =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatPronounsConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatPronounsConfig =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatPronounsConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatPronounsFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatPronounsConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatTitle1 =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatTitle1Config>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatTitle1Config =
+	{
+		single?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatTitle1ConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatTitle1FilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatTitle1ConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_Label =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_LabelConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_LabelConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_LabelConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_LabelFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_LabelConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_Url =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_UrlConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_UrlConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_UrlConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_UrlFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleRepeatWebsite_UrlConfigFilterInput>
+	}
+
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterInput =
 	{
 		anchor?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesAnchorFilterInput>
@@ -9087,6 +9732,7 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterInput =
 		call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardFilterInput>
 		rich_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesRich_TextFilterInput>
 		video?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoFilterInput>
+		featured_people?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterable_Events =
@@ -11280,6 +11926,27 @@ export type EventCallToActionCardFragment = {
 	}>
 }
 
+export type EventFeaturedPeopleFragment = {
+	primary?: Maybe<{
+		color?: Maybe<string>
+		subheading?: Maybe<{ text?: Maybe<string> }>
+		heading?: Maybe<{ text?: Maybe<string> }>
+	}>
+	items?: Maybe<
+		Array<
+			Maybe<{
+				instagram_handle?: Maybe<string>
+				website_label?: Maybe<string>
+				name?: Maybe<{ text?: Maybe<string> }>
+				title1?: Maybe<{ text?: Maybe<string> }>
+				bio?: Maybe<{ html?: Maybe<string> }>
+				instagram_profile_url?: Maybe<{ url?: Maybe<string> }>
+				website_url?: Maybe<{ url?: Maybe<string> }>
+			}>
+		>
+	>
+}
+
 export type EventImageCallToActionFragment = {
 	primary?: Maybe<{
 		button_text?: Maybe<string>
@@ -11321,6 +11988,12 @@ export type EventTwoColumnTextFragment = {
 		color?: Maybe<string>
 		left_text?: Maybe<{ html?: Maybe<string> }>
 		right_text?: Maybe<{ html?: Maybe<string> }>
+	}>
+}
+
+export type EventVideoFragment = {
+	primary?: Maybe<{
+		thumbnail?: Maybe<{ alt?: Maybe<string>; url?: Maybe<string> }>
 	}>
 }
 
@@ -11387,6 +12060,29 @@ export type CallToActionCardFragment = {
 		heading?: Maybe<{ text?: Maybe<string> }>
 		button_link?: Maybe<{ url?: Maybe<string> }>
 	}>
+}
+
+export type FeaturedPeopleFragment = {
+	primary?: Maybe<{
+		color?: Maybe<string>
+		subheading?: Maybe<{ text?: Maybe<string> }>
+		heading?: Maybe<{ text?: Maybe<string> }>
+	}>
+	items?: Maybe<
+		Array<
+			Maybe<{
+				instagram_handle?: Maybe<string>
+				website_label?: Maybe<string>
+				name?: Maybe<{ text?: Maybe<string> }>
+				title1?: Maybe<{ text?: Maybe<string> }>
+				pronouns?: Maybe<{ text?: Maybe<string> }>
+				bio?: Maybe<{ html?: Maybe<string> }>
+				headshot?: Maybe<{ url?: Maybe<string>; alt?: Maybe<string> }>
+				instagram_profile_url?: Maybe<{ url?: Maybe<string> }>
+				website_url?: Maybe<{ url?: Maybe<string> }>
+			}>
+		>
+	>
 }
 
 export type FilterableEventsFragment = {
@@ -11547,6 +12243,9 @@ export type EventTemplateQuery = {
 								__typename: "PrismicEventDataBodyCallToActionCard"
 						  } & EventCallToActionCardFragment)
 						| ({
+								__typename: "PrismicEventDataBodyFeaturedPeople"
+						  } & EventFeaturedPeopleFragment)
+						| ({
 								__typename: "PrismicEventDataBodyImageCallToAction"
 						  } & EventImageCallToActionFragment)
 						| ({
@@ -11561,7 +12260,7 @@ export type EventTemplateQuery = {
 						| ({
 								__typename: "PrismicEventDataBodyTwoColumnText"
 						  } & EventTwoColumnTextFragment)
-						| { __typename: "PrismicEventDataBodyVideo" }
+						| ({ __typename: "PrismicEventDataBodyVideo" } & EventVideoFragment)
 						| ({
 								__typename: "PrismicEventDataBodyVideoHero"
 						  } & EventVideoHeroFragment)
@@ -11596,6 +12295,9 @@ export type PageTemplateQuery = {
 								__typename: "PrismicPageDataBodyCallToActionCard"
 						  } & CallToActionCardFragment)
 						| ({
+								__typename: "PrismicPageDataBodyFeaturedPeople"
+						  } & FeaturedPeopleFragment)
+						| ({
 								__typename: "PrismicPageDataBodyFilterableEvents"
 						  } & FilterableEventsFragment)
 						| ({
@@ -11615,7 +12317,7 @@ export type PageTemplateQuery = {
 						| ({
 								__typename: "PrismicPageDataBodyTwoColumnText"
 						  } & TwoColumnTextFragment)
-						| { __typename: "PrismicPageDataBodyVideo" }
+						| ({ __typename: "PrismicPageDataBodyVideo" } & VideoFragment)
 						| ({
 								__typename: "PrismicPageDataBodyVideoHero"
 						  } & VideoHeroFragment)
