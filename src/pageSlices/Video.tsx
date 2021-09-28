@@ -3,11 +3,11 @@ import { graphql } from "gatsby"
 import clsx from "clsx"
 
 import { Image } from "../components/Image"
+import { PlayIcon } from "../components/PlayIcon"
+import { UnstyledButton } from "../components/UnstyledButton"
 
 import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
 import type { VideoFragment } from "../gqlTypes.gen"
-
-import { PlayIcon } from "../components/PlayIcon"
 
 export const sliceType = "PrismicPageDataBodyVideo"
 
@@ -27,7 +27,7 @@ const VideoHero = ({
 				)}
 			</div>
 
-			<button
+			<UnstyledButton
 				className={clsx(
 					"absolute left-[50%] top-[50%] translate-y-[-50%] translate-x-[-50%]",
 					"w-19 h-24",
@@ -36,7 +36,7 @@ const VideoHero = ({
 				)}
 			>
 				<PlayIcon />
-			</button>
+			</UnstyledButton>
 		</section>
 	)
 }
