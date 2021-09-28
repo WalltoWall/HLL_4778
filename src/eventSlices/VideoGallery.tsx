@@ -25,8 +25,11 @@ export const gqlFragment = graphql`
 			video_submission_type {
 				document {
 					... on PrismicSubmissionType {
-						id
+						_previewable
 						submissions {
+							_previewable
+							url
+							uid
 							data {
 								name {
 									text
