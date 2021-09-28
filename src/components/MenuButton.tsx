@@ -2,6 +2,8 @@ import * as React from "react"
 import clsx from "clsx"
 import { m, useAnimation } from "framer-motion"
 
+import { UnstyledButton } from "./UnstyledButton"
+
 const Line = ({
 	className,
 	...props
@@ -48,7 +50,7 @@ export const MenuButton = React.forwardRef<HTMLButtonElement, Props>(
 		}, [isOpen])
 
 		return (
-			<button
+			<UnstyledButton
 				ref={ref}
 				className={clsx("grid gap-y-[10px]", "focus:ring", className)}
 				{...props}
@@ -57,7 +59,7 @@ export const MenuButton = React.forwardRef<HTMLButtonElement, Props>(
 				<Line animate={bottomLineControls} />
 
 				{children}
-			</button>
+			</UnstyledButton>
 		)
 	}
 )

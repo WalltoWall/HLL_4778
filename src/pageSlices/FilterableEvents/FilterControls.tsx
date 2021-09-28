@@ -2,7 +2,8 @@ import * as React from "react"
 import clsx from "clsx"
 import { AnimateSharedLayout, m } from "framer-motion"
 
-import type { EventType, FilterableEventsVariant } from "./FilterableEvents"
+import type { EventType } from "./FilterableEvents"
+import type { FilterableEventsVariant } from "./getFilterableEventsVariant"
 
 interface FilterButtonProps extends React.ComponentPropsWithoutRef<"button"> {
 	isActive: boolean
