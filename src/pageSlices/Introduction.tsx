@@ -34,7 +34,7 @@ const introductionVariants: Record<ColorVariant, IntroductionVariant> = {
 
 const Introduction = ({
 	textHTML,
-	heading,
+	heading = "",
 	color,
 	nextSharesBg = false,
 }: ReturnType<typeof mapDataToProps>) => {
@@ -47,7 +47,7 @@ const Introduction = ({
 			className={clsx(variantStyles.bg, "!pb-20")}
 			nextSharesBg={nextSharesBg}
 		>
-			<div className="max-w-[280px] md:max-w-[320px] lg:max-w-sm space-y-5 md:space-y-8 lg:space-y-12">
+			<div className="max-w-[560px] space-y-5 md:space-y-8 lg:space-y-12">
 				{heading && (
 					<div className="relative">
 						<div
@@ -55,8 +55,9 @@ const Introduction = ({
 							className={clsx(
 								"absolute",
 								"-left-5 md:-left-8 lg:-left-15",
-								"right-0 -top-2",
-								"h-full",
+								"right-0",
+								"-top-5 lg:-top-8",
+								"bottom-2 lg:bottom-3",
 								variant.headingBg
 							)}
 						/>
