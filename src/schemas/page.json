@@ -115,10 +115,10 @@
                   "label": "Video Thumbnail"
                 }
               },
-              "video": {
-                "type": "Embed",
+              "video_url": {
+                "type": "Text",
                 "config": {
-                  "label": "Video"
+                  "label": "Video URL"
                 }
               }
             },
@@ -522,10 +522,10 @@
                   "label": "Thumbnail"
                 }
               },
-              "video": {
-                "type": "Embed",
+              "video_url": {
+                "type": "Text",
                 "config": {
-                  "label": "Video"
+                  "label": "Video URL"
                 }
               }
             },
@@ -658,7 +658,7 @@
               "text": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, strong, em, hyperlink",
+                  "multi": "paragraph,strong,em,hyperlink",
                   "allowTargetBlank": true,
                   "label": "Text"
                 }

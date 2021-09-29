@@ -12,6 +12,7 @@ export const gqlFragment = graphql`
 				alt
 				url
 			}
+			video_url
 		}
 	}
 `

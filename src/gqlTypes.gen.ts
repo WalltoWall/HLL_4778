@@ -2261,8 +2261,8 @@ export type PrismicEventDataBodyVideoHero = PrismicSliceType & {
 
 export type PrismicEventDataBodyVideoHeroPrimary = {
 	text?: Maybe<PrismicStructuredTextType>
-	video?: Maybe<PrismicEmbedType>
 	video_thumbnail?: Maybe<PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageType>
+	video_url?: Maybe<Scalars["String"]>
 }
 
 export type PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageType = {
@@ -2334,7 +2334,7 @@ export type PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageTypeGatsbyIma
 
 export type PrismicEventDataBodyVideoPrimary = {
 	thumbnail?: Maybe<PrismicEventDataBodyVideoPrimaryThumbnailImageType>
-	video?: Maybe<PrismicEmbedType>
+	video_url?: Maybe<Scalars["String"]>
 }
 
 export type PrismicEventDataBodyVideoPrimaryThumbnailImageType = {
@@ -3432,8 +3432,8 @@ export type PrismicPageDataBodyVideoHero = PrismicSliceType & {
 
 export type PrismicPageDataBodyVideoHeroPrimary = {
 	text?: Maybe<PrismicStructuredTextType>
-	video?: Maybe<PrismicEmbedType>
 	video_thumbnail?: Maybe<PrismicPageDataBodyVideoHeroPrimaryVideoThumbnailImageType>
+	video_url?: Maybe<Scalars["String"]>
 }
 
 export type PrismicPageDataBodyVideoHeroPrimaryVideoThumbnailImageType = {
@@ -3505,7 +3505,7 @@ export type PrismicPageDataBodyVideoHeroPrimaryVideoThumbnailImageTypeGatsbyImag
 
 export type PrismicPageDataBodyVideoPrimary = {
 	thumbnail?: Maybe<PrismicPageDataBodyVideoPrimaryThumbnailImageType>
-	video?: Maybe<PrismicEmbedType>
+	video_url?: Maybe<Scalars["String"]>
 }
 
 export type PrismicPageDataBodyVideoPrimaryThumbnailImageType = {
@@ -5775,8 +5775,8 @@ export type PrismicVideoSubmissionDataType = {
 	name?: Maybe<PrismicStructuredTextType>
 	subtitle?: Maybe<PrismicStructuredTextType>
 	type?: Maybe<PrismicLinkType>
-	video?: Maybe<PrismicEmbedType>
 	video_thumbnail?: Maybe<PrismicVideoSubmissionDataVideoThumbnailImageType>
+	video_url?: Maybe<Scalars["String"]>
 	votable?: Maybe<Scalars["Boolean"]>
 }
 
@@ -5785,8 +5785,8 @@ export type PrismicVideoSubmissionDataTypeFilterInput = {
 	name?: Maybe<PrismicStructuredTextTypeFilterInput>
 	subtitle?: Maybe<PrismicStructuredTextTypeFilterInput>
 	type?: Maybe<PrismicLinkTypeFilterInput>
-	video?: Maybe<PrismicEmbedTypeFilterInput>
 	video_thumbnail?: Maybe<PrismicVideoSubmissionDataVideoThumbnailImageTypeFilterInput>
+	video_url?: Maybe<StringQueryOperatorInput>
 	votable?: Maybe<BooleanQueryOperatorInput>
 }
 
@@ -5927,20 +5927,6 @@ export enum PrismicVideoSubmissionFieldsEnum {
 	DataTypeLocalFileId = "data___type___localFile___id",
 	DataTypeLocalFileChildren = "data___type___localFile___children",
 	DataTypeRaw = "data___type___raw",
-	DataVideoId = "data___video___id",
-	DataVideoParentId = "data___video___parent___id",
-	DataVideoParentChildren = "data___video___parent___children",
-	DataVideoChildren = "data___video___children",
-	DataVideoChildrenId = "data___video___children___id",
-	DataVideoChildrenChildren = "data___video___children___children",
-	DataVideoInternalContent = "data___video___internal___content",
-	DataVideoInternalContentDigest = "data___video___internal___contentDigest",
-	DataVideoInternalDescription = "data___video___internal___description",
-	DataVideoInternalFieldOwners = "data___video___internal___fieldOwners",
-	DataVideoInternalIgnoreType = "data___video___internal___ignoreType",
-	DataVideoInternalMediaType = "data___video___internal___mediaType",
-	DataVideoInternalOwner = "data___video___internal___owner",
-	DataVideoInternalType = "data___video___internal___type",
 	DataVideoThumbnailAlt = "data___video_thumbnail___alt",
 	DataVideoThumbnailCopyright = "data___video_thumbnail___copyright",
 	DataVideoThumbnailDimensionsWidth = "data___video_thumbnail___dimensions___width",
@@ -5995,6 +5981,7 @@ export enum PrismicVideoSubmissionFieldsEnum {
 	DataVideoThumbnailLocalFileBirthtimeMs = "data___video_thumbnail___localFile___birthtimeMs",
 	DataVideoThumbnailLocalFileId = "data___video_thumbnail___localFile___id",
 	DataVideoThumbnailLocalFileChildren = "data___video_thumbnail___localFile___children",
+	DataVideoUrl = "data___video_url",
 	DataVotable = "data___votable",
 	DataRaw = "dataRaw",
 	PrismicId = "prismicId",
@@ -7439,6 +7426,7 @@ export enum SitePageFieldsEnum {
 	PluginCreatorPluginOptionsCacheDigest = "pluginCreator___pluginOptions___cacheDigest",
 	PluginCreatorPluginOptionsRepositoryName = "pluginCreator___pluginOptions___repositoryName",
 	PluginCreatorPluginOptionsAccessToken = "pluginCreator___pluginOptions___accessToken",
+	PluginCreatorPluginOptionsPromptForAccessToken = "pluginCreator___pluginOptions___promptForAccessToken",
 	PluginCreatorPluginOptionsApiEndpoint = "pluginCreator___pluginOptions___apiEndpoint",
 	PluginCreatorPluginOptionsLang = "pluginCreator___pluginOptions___lang",
 	PluginCreatorPluginOptionsImageImgixParamsAuto = "pluginCreator___pluginOptions___imageImgixParams___auto",
@@ -7446,7 +7434,6 @@ export enum SitePageFieldsEnum {
 	PluginCreatorPluginOptionsImageImgixParamsQ = "pluginCreator___pluginOptions___imageImgixParams___q",
 	PluginCreatorPluginOptionsImagePlaceholderImgixParamsW = "pluginCreator___pluginOptions___imagePlaceholderImgixParams___w",
 	PluginCreatorPluginOptionsImagePlaceholderImgixParamsBlur = "pluginCreator___pluginOptions___imagePlaceholderImgixParams___blur",
-	PluginCreatorPluginOptionsPromptForAccessToken = "pluginCreator___pluginOptions___promptForAccessToken",
 	PluginCreatorPluginOptionsToolbar = "pluginCreator___pluginOptions___toolbar",
 	PluginCreatorPluginOptionsPath = "pluginCreator___pluginOptions___path",
 	PluginCreatorPluginOptionsPathCheck = "pluginCreator___pluginOptions___pathCheck",
@@ -7650,6 +7637,7 @@ export enum SitePluginFieldsEnum {
 	PluginOptionsCacheDigest = "pluginOptions___cacheDigest",
 	PluginOptionsRepositoryName = "pluginOptions___repositoryName",
 	PluginOptionsAccessToken = "pluginOptions___accessToken",
+	PluginOptionsPromptForAccessToken = "pluginOptions___promptForAccessToken",
 	PluginOptionsApiEndpoint = "pluginOptions___apiEndpoint",
 	PluginOptionsLang = "pluginOptions___lang",
 	PluginOptionsImageImgixParamsAuto = "pluginOptions___imageImgixParams___auto",
@@ -7657,7 +7645,6 @@ export enum SitePluginFieldsEnum {
 	PluginOptionsImageImgixParamsQ = "pluginOptions___imageImgixParams___q",
 	PluginOptionsImagePlaceholderImgixParamsW = "pluginOptions___imagePlaceholderImgixParams___w",
 	PluginOptionsImagePlaceholderImgixParamsBlur = "pluginOptions___imagePlaceholderImgixParams___blur",
-	PluginOptionsPromptForAccessToken = "pluginOptions___promptForAccessToken",
 	PluginOptionsToolbar = "pluginOptions___toolbar",
 	PluginOptionsPath = "pluginOptions___path",
 	PluginOptionsPathCheck = "pluginOptions___pathCheck",
@@ -7908,18 +7895,18 @@ export type SitePluginPluginOptions = {
 	cacheDigest?: Maybe<Scalars["String"]>
 	repositoryName?: Maybe<Scalars["String"]>
 	accessToken?: Maybe<Scalars["String"]>
-	schemas?: Maybe<SitePluginPluginOptionsSchemas>
+	promptForAccessToken?: Maybe<Scalars["Boolean"]>
 	apiEndpoint?: Maybe<Scalars["String"]>
 	lang?: Maybe<Scalars["String"]>
 	imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParams>
 	imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParams>
-	promptForAccessToken?: Maybe<Scalars["Boolean"]>
 	toolbar?: Maybe<Scalars["String"]>
 	path?: Maybe<Scalars["String"]>
 	pathCheck?: Maybe<Scalars["Boolean"]>
 	allExtensions?: Maybe<Scalars["Boolean"]>
 	isTSX?: Maybe<Scalars["Boolean"]>
 	jsxPragma?: Maybe<Scalars["String"]>
+	schemas?: Maybe<SitePluginPluginOptionsSchemas>
 }
 
 export type SitePluginPluginOptionsFilterInput = {
@@ -7942,18 +7929,18 @@ export type SitePluginPluginOptionsFilterInput = {
 	cacheDigest?: Maybe<StringQueryOperatorInput>
 	repositoryName?: Maybe<StringQueryOperatorInput>
 	accessToken?: Maybe<StringQueryOperatorInput>
-	schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>
+	promptForAccessToken?: Maybe<BooleanQueryOperatorInput>
 	apiEndpoint?: Maybe<StringQueryOperatorInput>
 	lang?: Maybe<StringQueryOperatorInput>
 	imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParamsFilterInput>
 	imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParamsFilterInput>
-	promptForAccessToken?: Maybe<BooleanQueryOperatorInput>
 	toolbar?: Maybe<StringQueryOperatorInput>
 	path?: Maybe<StringQueryOperatorInput>
 	pathCheck?: Maybe<BooleanQueryOperatorInput>
 	allExtensions?: Maybe<BooleanQueryOperatorInput>
 	isTSX?: Maybe<BooleanQueryOperatorInput>
 	jsxPragma?: Maybe<StringQueryOperatorInput>
+	schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>
 }
 
 export type SitePluginPluginOptionsImageImgixParams = {
@@ -9370,13 +9357,13 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoFilterI
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_Repeat =
 	{
 		thumbnail?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatThumbnail>
-		video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideo>
+		video_url?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideo_Url>
 	}
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatFilterInput =
 	{
 		thumbnail?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatThumbnailFilterInput>
-		video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideoFilterInput>
+		video_url?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideo_UrlFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatThumbnail =
@@ -9401,26 +9388,26 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_Rep
 		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatThumbnailConfigFilterInput>
 	}
 
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideo =
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideo_Url =
 	{
 		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideoConfig>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideo_UrlConfig>
 	}
 
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideoConfig =
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideo_UrlConfig =
 	{
 		label?: Maybe<Scalars["String"]>
 	}
 
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideoConfigFilterInput =
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideo_UrlConfigFilterInput =
 	{
 		label?: Maybe<StringQueryOperatorInput>
 	}
 
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideoFilterInput =
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideo_UrlFilterInput =
 	{
 		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideoConfigFilterInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoNon_RepeatVideo_UrlConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_Gallery =
@@ -9611,14 +9598,14 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNo
 	{
 		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatText>
 		video_thumbnail?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_Thumbnail>
-		video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo>
+		video_url?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_Url>
 	}
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatFilterInput =
 	{
 		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatTextFilterInput>
 		video_thumbnail?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_ThumbnailFilterInput>
-		video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoFilterInput>
+		video_url?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_UrlFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatText =
@@ -9645,28 +9632,6 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNo
 		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatTextConfigFilterInput>
 	}
 
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo =
-	{
-		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoConfig>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoConfig =
-	{
-		label?: Maybe<Scalars["String"]>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoConfigFilterInput =
-	{
-		label?: Maybe<StringQueryOperatorInput>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoFilterInput =
-	{
-		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoConfigFilterInput>
-	}
-
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_Thumbnail =
 	{
 		type?: Maybe<Scalars["String"]>
@@ -9687,6 +9652,28 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNo
 	{
 		type?: Maybe<StringQueryOperatorInput>
 		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_ThumbnailConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_Url =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_UrlConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_UrlConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_UrlConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_UrlFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_UrlConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigFilterInput = {
@@ -11633,13 +11620,13 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoFilterIn
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_Repeat =
 	{
 		thumbnail?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatThumbnail>
-		video?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideo>
+		video_url?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideo_Url>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatFilterInput =
 	{
 		thumbnail?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatThumbnailFilterInput>
-		video?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideoFilterInput>
+		video_url?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideo_UrlFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatThumbnail =
@@ -11664,26 +11651,26 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_Repe
 		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatThumbnailConfigFilterInput>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideo =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideo_Url =
 	{
 		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideoConfig>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideo_UrlConfig>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideoConfig =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideo_UrlConfig =
 	{
 		label?: Maybe<Scalars["String"]>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideoConfigFilterInput =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideo_UrlConfigFilterInput =
 	{
 		label?: Maybe<StringQueryOperatorInput>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideoFilterInput =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideo_UrlFilterInput =
 	{
 		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideoConfigFilterInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoNon_RepeatVideo_UrlConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_Gallery =
@@ -11874,14 +11861,14 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon
 	{
 		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatText>
 		video_thumbnail?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_Thumbnail>
-		video?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo>
+		video_url?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_Url>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatFilterInput =
 	{
 		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatTextFilterInput>
 		video_thumbnail?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_ThumbnailFilterInput>
-		video?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoFilterInput>
+		video_url?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_UrlFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatText =
@@ -11908,28 +11895,6 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon
 		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatTextConfigFilterInput>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo =
-	{
-		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoConfig>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoConfig =
-	{
-		label?: Maybe<Scalars["String"]>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoConfigFilterInput =
-	{
-		label?: Maybe<StringQueryOperatorInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoFilterInput =
-	{
-		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideoConfigFilterInput>
-	}
-
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_Thumbnail =
 	{
 		type?: Maybe<Scalars["String"]>
@@ -11950,6 +11915,28 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon
 	{
 		type?: Maybe<StringQueryOperatorInput>
 		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_ThumbnailConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_Url =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_UrlConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_UrlConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_UrlConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_UrlFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_HeroNon_RepeatVideo_UrlConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigFilterInput = {
@@ -13104,7 +13091,7 @@ export type SitePluginPluginOptionsSchemasVideo_SubmissionMain = {
 	name?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainName>
 	uid?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainUid>
 	type?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainType>
-	video?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo>
+	video_url?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_Url>
 	video_thumbnail?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_Thumbnail>
 	subtitle?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainSubtitle>
 	description?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainDescription>
@@ -13140,7 +13127,7 @@ export type SitePluginPluginOptionsSchemasVideo_SubmissionMainFilterInput = {
 	name?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainNameFilterInput>
 	uid?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainUidFilterInput>
 	type?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainTypeFilterInput>
-	video?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideoFilterInput>
+	video_url?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_UrlFilterInput>
 	video_thumbnail?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_ThumbnailFilterInput>
 	subtitle?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainSubtitleFilterInput>
 	description?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainDescriptionFilterInput>
@@ -13236,26 +13223,6 @@ export type SitePluginPluginOptionsSchemasVideo_SubmissionMainUidFilterInput = {
 	config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainUidConfigFilterInput>
 }
 
-export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo = {
-	type?: Maybe<Scalars["String"]>
-	config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideoConfig>
-}
-
-export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideoConfig = {
-	label?: Maybe<Scalars["String"]>
-}
-
-export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideoConfigFilterInput =
-	{
-		label?: Maybe<StringQueryOperatorInput>
-	}
-
-export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideoFilterInput =
-	{
-		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideoConfigFilterInput>
-	}
-
 export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_Thumbnail =
 	{
 		type?: Maybe<Scalars["String"]>
@@ -13276,6 +13243,27 @@ export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_ThumbnailFil
 	{
 		type?: Maybe<StringQueryOperatorInput>
 		config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_ThumbnailConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_Url = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_UrlConfig>
+}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_UrlConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_UrlConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_UrlFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_UrlConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVotable = {
@@ -13429,6 +13417,7 @@ export type EventTwoColumnTextFragment = {
 
 export type EventVideoFragment = {
 	primary?: Maybe<{
+		video_url?: Maybe<string>
 		thumbnail?: Maybe<{ alt?: Maybe<string>; url?: Maybe<string> }>
 	}>
 }
@@ -13449,6 +13438,7 @@ export type EventVideoGalleryFragment = {
 							url?: Maybe<string>
 							uid: string
 							data?: Maybe<{
+								video_url?: Maybe<string>
 								votable?: Maybe<boolean>
 								name?: Maybe<{ text?: Maybe<string> }>
 								description?: Maybe<{ html?: Maybe<string> }>
@@ -13468,6 +13458,7 @@ export type EventVideoGalleryFragment = {
 
 export type EventVideoHeroFragment = {
 	primary?: Maybe<{
+		video_url?: Maybe<string>
 		text?: Maybe<{ text?: Maybe<string> }>
 		video_thumbnail?: Maybe<{ alt?: Maybe<string>; url?: Maybe<string> }>
 	}>
@@ -13677,6 +13668,7 @@ export type TwoColumnTextFragment = {
 
 export type VideoFragment = {
 	primary?: Maybe<{
+		video_url?: Maybe<string>
 		thumbnail?: Maybe<{ alt?: Maybe<string>; url?: Maybe<string> }>
 	}>
 }
@@ -13697,6 +13689,7 @@ export type VideoGalleryFragment = {
 							url?: Maybe<string>
 							uid: string
 							data?: Maybe<{
+								video_url?: Maybe<string>
 								votable?: Maybe<boolean>
 								name?: Maybe<{ text?: Maybe<string> }>
 								description?: Maybe<{ html?: Maybe<string> }>
@@ -13716,6 +13709,7 @@ export type VideoGalleryFragment = {
 
 export type VideoHeroFragment = {
 	primary?: Maybe<{
+		video_url?: Maybe<string>
 		text?: Maybe<{ text?: Maybe<string> }>
 		video_thumbnail?: Maybe<{ alt?: Maybe<string>; url?: Maybe<string> }>
 	}>
