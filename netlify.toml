@@ -4,3 +4,8 @@ publish = "public/"
 
 [[plugins]]
 package = "@netlify/plugin-gatsby"
+
+[context.production.environment]
+GATSBY_PRISMIC_ACCESS_TOKEN = "MC5ZVC10VWhJQUFDc0FQSTE3.VO-_vQEt77-9F--_ve-_vTQY77-977-9fCl977-9Dgdt77-977-9Ye-_vSPvv71UAe-_ve-_vRke77-9"
+GATSBY_PRISMIC_REPOSITORY_NAME = "honolulu-pride"
+AWS_LAMBDA_JS_RUNTIME= "nodejs14.x"
