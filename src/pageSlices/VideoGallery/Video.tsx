@@ -15,6 +15,19 @@ import type { TVideo } from "./VideoGallery"
 import type { ColorVariantStyles } from "../../lib/colorVariant"
 
 const VideoPopup = ({ variantStyles, video }: VideoProps) => {
+	const [hasVideoStarted, setHasVideoStarted] = React.useState(false)
+	const videoRef = React.useRef<HTMLVideoElement>(null)
+
+	async function toggleVideo() {
+		if (!videoRef.current) return
+		if (!hasVideoStarted) {
+			setHasVideoStarted(true)
+			await videoRef.current.play()
+		} else {
+			videoRef.current.pause()
+		}
+	}
+
 	return (
 		<>
 			<Dialog.Overlay className="fixed inset-0 bg-gray-13/70">
@@ -39,31 +52,54 @@ const VideoPopup = ({ variantStyles, video }: VideoProps) => {
 					variantStyles.textColor
 				)}
 			>
-				{video.videoThumbnailURL && (
-					<div
-						className={clsx(
-							"relative",
-							"-mx-5 md:-mx-7 lg:-mx-10",
-							"-mt-6 md:-mt-10 lg:-mt-13"
+				<div
+					className={clsx(
+						"relative",
+						"-mx-5 md:-mx-7 lg:-mx-10",
+						"-mt-6 md:-mt-10 lg:-mt-13",
+						"group"
+					)}
+				>
+					<div className="aspect-w-16 aspect-h-9">
+						{video.videoURL && (
+							<video
+								ref={videoRef}
+								className={clsx(
+									"absolute object-cover w-full h-full",
+									!hasVideoStarted && "hidden"
+								)}
+								loop
+								controls
+								controlsList="nodownload noremoteplayback"
+								disablePictureInPicture
+							>
+								<source type="video/mp4" src={video.videoURL} />
+							</video>
 						)}
-					>
-						<div className="aspect-w-16 aspect-h-9">
+
+						{!hasVideoStarted && video.videoThumbnailURL && (
 							<Image
 								src={video.videoThumbnailURL}
 								alt={video.videoThumbnailAlt ?? ""}
-								className="absolute object-cover w-full h-full"
+								className={clsx("absolute object-cover w-full h-full")}
 							/>
-						</div>
+						)}
+					</div>
 
+					{video.videoURL && (
 						<UnstyledButton
 							className={clsx(
-								"absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+								"absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]",
+								"transition duration-200"
 							)}
+							onClick={toggleVideo}
 						>
-							<PlayIcon className="w-9 h-9 md:w-14 md:h-14 lg:w-19 lg:h-19" />
+							{!hasVideoStarted && (
+								<PlayIcon className="w-9 h-9 md:w-14 md:h-14 lg:w-19 lg:h-19" />
+							)}
 						</UnstyledButton>
-					</div>
-				)}
+					)}
+				</div>
 
 				<div className="mt-6 md:mt-10 lg:mt-13">
 					<div

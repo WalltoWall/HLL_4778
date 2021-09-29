@@ -44,6 +44,7 @@ export const gqlFragment = graphql`
 									url
 									alt
 								}
+								video_url
 								votable
 							}
 						}

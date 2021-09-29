@@ -21,10 +21,10 @@
 				"label": "Type"
 			}
 		},
-		"video": {
-			"type": "Embed",
+		"video_url": {
+			"type": "Text",
 			"config": {
-				"label": "Video"
+				"label": "Video URL"
 			}
 		},
 		"video_thumbnail": {

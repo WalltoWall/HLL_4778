@@ -19,6 +19,7 @@ const VideoHero = ({
 	text,
 	videoThumbnailAlt,
 	videoThumbnailUrl,
+	videoUrl,
 }: ReturnType<typeof mapDataToProps>) => {
 	const { isOpen: isMobileMenuOpen } = useMobileMenu()
 	const videoRef = React.useRef<HTMLVideoElement | null>(null)
@@ -68,22 +69,24 @@ const VideoHero = ({
 					)}
 				</div>
 
-				<video
-					ref={mergeRefs([videoRef, observerRef])}
-					className={clsx(
-						"absolute inset-0",
-						"object-cover object-center",
-						"w-full h-full",
-						"pointer-events-none",
-						"brightness-[.65]"
-					)}
-					autoPlay={!shouldReduceMotion}
-					loop
-					muted
-					playsInline
-				>
-					<source type="video/mp4" src="/fpo-hero.mp4" />
-				</video>
+				{videoUrl && (
+					<video
+						ref={mergeRefs([videoRef, observerRef])}
+						className={clsx(
+							"absolute inset-0",
+							"object-cover object-center",
+							"w-full h-full",
+							"pointer-events-none",
+							"brightness-[.65]"
+						)}
+						autoPlay={!shouldReduceMotion}
+						loop
+						muted
+						playsInline
+					>
+						<source type="video/mp4" src={videoUrl} />
+					</video>
+				)}
 
 				{text && (
 					<h1
@@ -124,6 +127,7 @@ export function mapDataToProps({ data }: MapDataToPropsCtx<VideoHeroFragment>) {
 		text: data.primary?.text?.text,
 		videoThumbnailUrl: data.primary?.video_thumbnail?.url,
 		videoThumbnailAlt: data.primary?.video_thumbnail?.alt,
+		videoUrl: data.primary?.video_url,
 	}
 }
 
@@ -141,6 +145,7 @@ export const gqlFragment = graphql`
 				alt
 				url
 			}
+			video_url
 		}
 	}
 `

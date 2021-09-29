@@ -30,7 +30,6 @@ const VideoGallery = ({
 	previousOverhangs,
 }: VideoGalleryProps) => {
 	const variantStyles = getColorVariantStyles(color)
-	const tempVideos = new Array(30).fill(videos[0])
 
 	return (
 		<BoundedBox
@@ -81,7 +80,7 @@ const VideoGallery = ({
 					"-mx-5 md:-mx-8 lg:mx-0"
 				)}
 			>
-				{tempVideos.map((video, idx) => (
+				{videos.map((video, idx) => (
 					<Video
 						key={`videoGallery-${idx}`}
 						video={video}
@@ -112,6 +111,7 @@ export function mapDataToProps({
 					subtitle: submission?.data?.subtitle?.text,
 					videoThumbnailURL: submission?.data?.video_thumbnail?.url,
 					videoThumbnailAlt: submission?.data?.video_thumbnail?.alt,
+					videoURL: submission?.data?.video_url,
 					votable: submission?.data?.votable ?? false,
 					uid: submission?.uid,
 					href: submission?.url,
@@ -167,6 +167,7 @@ export const gqlFragment = graphql`
 									url
 									alt
 								}
+								video_url
 								votable
 							}
 						}

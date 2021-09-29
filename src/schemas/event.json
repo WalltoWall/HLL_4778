@@ -90,10 +90,10 @@
 									"label": "Video Thumbnail"
 								}
 							},
-							"video": {
-								"type": "Embed",
+							"video_url": {
+								"type": "Text",
 								"config": {
-									"label": "Video"
+									"label": "Video URL"
 								}
 							}
 						},
@@ -428,10 +428,10 @@
 									"label": "Thumbnail"
 								}
 							},
-							"video": {
-								"type": "Embed",
+							"video_url": {
+								"type": "Text",
 								"config": {
-									"label": "Video"
+									"label": "Video URL"
 								}
 							}
 						},
