@@ -1,9 +1,10 @@
 import * as React from "react"
-import { MediaQueryProvider } from "../hooks/useMediaQuery"
 
 import { Footer } from "./Footer"
 import { Header } from "./Header"
 import { MobileMenuProvider } from "./Header/MobileMenuProvider"
+import { MediaQueryProvider } from "../hooks/useMediaQuery"
+import { UserProvider } from "../hooks/useUser"
 
 interface LayoutProps {
 	children: React.ReactNode
@@ -21,14 +22,15 @@ const LayoutNodes = React.memo(
 		)
 	}
 )
-
 LayoutNodes.displayName = "LayoutNodes"
 
 export const Layout = ({ children, lastOverhangs }: LayoutProps) => {
 	return (
 		<MediaQueryProvider>
 			<MobileMenuProvider>
-				<LayoutNodes lastOverhangs={lastOverhangs}>{children}</LayoutNodes>
+				<UserProvider>
+					<LayoutNodes lastOverhangs={lastOverhangs}>{children}</LayoutNodes>
+				</UserProvider>
 			</MobileMenuProvider>
 		</MediaQueryProvider>
 	)

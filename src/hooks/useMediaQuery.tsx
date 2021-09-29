@@ -15,7 +15,7 @@ interface Props {
 	children: React.ReactNode
 }
 
-export const MediaQueryProvider = ({ children }: Props) => {
+export const MediaQueryProvider = React.memo(({ children }: Props) => {
 	const isDesktop = useMedia({ minWidth: "1024px" })
 	const isTablet = useMedia({ minWidth: "768px" })
 
@@ -25,7 +25,8 @@ export const MediaQueryProvider = ({ children }: Props) => {
 	)
 
 	return <MediaContext.Provider value={value}>{children}</MediaContext.Provider>
-}
+})
+MediaQueryProvider.displayName = "MediaQueryProvider"
 
 export function useIsDesktop() {
 	const val = React.useContext(MediaContext)
