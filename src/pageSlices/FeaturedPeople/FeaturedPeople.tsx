@@ -34,7 +34,10 @@ const FeaturedPeople = ({
 	return (
 		<section>
 			<BoundedBox
-				className={variantStyles.bg}
+				className={clsx(
+					variantStyles.bg,
+					nextOverhangs && "!pb-40 !-mb-16 md:!pb-0 md:!-mb-0"
+				)}
 				nextSharesBg
 				previousOverhangs={previousOverhangs}
 			>
