@@ -62,6 +62,12 @@
         "label": "Twitter Username",
         "placeholder": "@example_account"
       }
+    },
+    "footer_logo_url": {
+      "type": "Text",
+      "config": {
+        "label": "Footer Logo URL"
+      }
     }
   },
   "Redirects": {

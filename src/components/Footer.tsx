@@ -37,7 +37,10 @@ export const Footer = ({ lastOverhangs = false }: FooterProps) => {
 					"lg:grid-cols-[1fr,auto] lg:gap-y-12"
 				)}
 			>
-				<Link href="/" className="block w-30 md:w-45 lg:w-63">
+				<Link
+					href={settings.footerLogoUrl}
+					className="block w-30 md:w-45 lg:w-63"
+				>
 					<Image
 						src={hllLogoUrl}
 						alt="Hawaii LGBT Legacy Foundation"
