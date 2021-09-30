@@ -22,6 +22,7 @@ import * as RichText from "../pageSlices/RichText"
 import * as Video from "../pageSlices/Video"
 import * as FeaturedPeople from "../pageSlices/FeaturedPeople"
 import * as VideoGallery from "../pageSlices/VideoGallery"
+import * as TextAndVideo from "../pageSlices/TextAndVideo"
 
 import {
 	mapDataToContextFactory,
@@ -32,18 +33,6 @@ import {
 	getSliceKey,
 	getSliceType,
 } from "../lib/mapToComponents"
-
-export type MapDataToPropsCtx<
-	TData,
-	TCtx extends Record<string, unknown> = Record<string, unknown>
-> = TCtxWithContext<keyof typeof map, typeof map, TData, unknown, TCtx>
-
-export type MapDataToContextCtx<TData> = TCtx<
-	keyof typeof map,
-	typeof map,
-	TData,
-	unknown
->
 
 const sliceMap: SliceMap = {
 	VideoHero,
@@ -61,7 +50,20 @@ const sliceMap: SliceMap = {
 	Video,
 	FeaturedPeople,
 	VideoGallery,
+	TextAndVideo,
 }
+
+export type MapDataToPropsCtx<
+	TData,
+	TCtx extends Record<string, unknown> = Record<string, unknown>
+> = TCtxWithContext<keyof typeof map, typeof map, TData, unknown, TCtx>
+
+export type MapDataToContextCtx<TData> = TCtx<
+	keyof typeof map,
+	typeof map,
+	TData,
+	unknown
+>
 
 const map = mapFactory(sliceMap)
 const mapDataToProps = mapDataToPropsFactory(sliceMap)
@@ -126,6 +128,7 @@ export const pageTemplateQuery = graphql`
 					...Video
 					...FeaturedPeople
 					...VideoGallery
+					...TextAndVideo
 				}
 			}
 			uid

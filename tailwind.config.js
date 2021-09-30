@@ -56,7 +56,7 @@ module.exports = {
 			gray: { 13: "#241F20", 23: "#3f3738" },
 			beige: { 92: "#F7F2E2" },
 
-			red: { 45: "#CC0000", 50: "#FF0000" },
+			red: { 45: "#C83228" },
 			orange: { 55: "#EB5A32" },
 			yellow: { 50: "#FFAB00" },
 			green: { 27: "#6D8E00" },

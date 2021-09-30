@@ -2212,10 +2212,93 @@ export type PrismicEventDataBodySlicesType =
 	| PrismicEventDataBodyIntroduction
 	| PrismicEventDataBodyNewsletterForm
 	| PrismicEventDataBodyRichText
+	| PrismicEventDataBodyTextAndVideo
 	| PrismicEventDataBodyTwoColumnText
 	| PrismicEventDataBodyVideo
 	| PrismicEventDataBodyVideoGallery
 	| PrismicEventDataBodyVideoHero
+
+export type PrismicEventDataBodyTextAndVideo = PrismicSliceType & {
+	primary?: Maybe<PrismicEventDataBodyTextAndVideoPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyTextAndVideoPrimary = {
+	color?: Maybe<Scalars["String"]>
+	text?: Maybe<PrismicStructuredTextType>
+	thumbnail_side?: Maybe<Scalars["String"]>
+	video_thumbnail?: Maybe<PrismicEventDataBodyTextAndVideoPrimaryVideoThumbnailImageType>
+	video_url?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyTextAndVideoPrimaryVideoThumbnailImageType = {
+	alt?: Maybe<Scalars["String"]>
+	copyright?: Maybe<Scalars["String"]>
+	dimensions?: Maybe<PrismicImageDimensionsType>
+	/** A plain imgix URL with the URL and params applied. */
+	url?: Maybe<Scalars["String"]>
+	/**
+	 * Should be used to generate fixed-width images (i.e. the size of the image
+	 * doesn't change when the size of the browser changes, and are "fixed").
+	 * Returns data compatible with gatsby-image. Instead of accessing this data
+	 * directly, the GatsbySourceImgixFixed fragment should be used. See the
+	 * project's README for more information.
+	 */
+	fixed?: Maybe<ImgixFixed>
+	/**
+	 * Should be used to generate fluid-width images (i.e. images that change when
+	 * the size of the browser changes). Returns data compatible with
+	 * gatsby-image. Instead of accessing this data directly, the
+	 * GatsbySourceImgixFluid fragment should be used. See the project's README
+	 * for more information.
+	 */
+	fluid?: Maybe<ImgixFluid>
+	gatsbyImageData?: Maybe<Scalars["JSON"]>
+	localFile?: Maybe<File>
+}
+
+export type PrismicEventDataBodyTextAndVideoPrimaryVideoThumbnailImageTypeUrlArgs =
+	{
+		imgixParams?: Maybe<ImgixParamsInput>
+	}
+
+export type PrismicEventDataBodyTextAndVideoPrimaryVideoThumbnailImageTypeFixedArgs =
+	{
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		quality?: Maybe<Scalars["Int"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+	}
+
+export type PrismicEventDataBodyTextAndVideoPrimaryVideoThumbnailImageTypeFluidArgs =
+	{
+		imgixParams?: Maybe<ImgixParamsInput>
+		maxWidth?: Maybe<Scalars["Int"]>
+		maxHeight?: Maybe<Scalars["Int"]>
+		srcSetBreakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+	}
+
+export type PrismicEventDataBodyTextAndVideoPrimaryVideoThumbnailImageTypeGatsbyImageDataArgs =
+	{
+		layout?: Maybe<GatsbyImageLayout>
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		aspectRatio?: Maybe<Scalars["Float"]>
+		outputPixelDensities?: Maybe<Array<Maybe<Scalars["Float"]>>>
+		breakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		sizes?: Maybe<Scalars["String"]>
+		backgroundColor?: Maybe<Scalars["String"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+		placeholder?: Maybe<ImgixPlaceholder>
+		widthTolerance?: Maybe<Scalars["Float"]>
+		srcSetMinWidth?: Maybe<Scalars["Int"]>
+		srcSetMaxWidth?: Maybe<Scalars["Int"]>
+	}
 
 export type PrismicEventDataBodyTwoColumnText = PrismicSliceType & {
 	primary?: Maybe<PrismicEventDataBodyTwoColumnTextPrimary>
@@ -3370,6 +3453,7 @@ export type PrismicPageDataBodySlicesType =
 	| PrismicPageDataBodyNewsletterForm
 	| PrismicPageDataBodyRichText
 	| PrismicPageDataBodySponsors
+	| PrismicPageDataBodyTextAndVideo
 	| PrismicPageDataBodyTwoColumnText
 	| PrismicPageDataBodyVideo
 	| PrismicPageDataBodyVideoGallery
@@ -3387,6 +3471,88 @@ export type PrismicPageDataBodySponsorsPrimary = {
 	sponsor_list?: Maybe<PrismicLinkType>
 	subheading?: Maybe<PrismicStructuredTextType>
 }
+
+export type PrismicPageDataBodyTextAndVideo = PrismicSliceType & {
+	primary?: Maybe<PrismicPageDataBodyTextAndVideoPrimary>
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicPageDataBodyTextAndVideoPrimary = {
+	color?: Maybe<Scalars["String"]>
+	text?: Maybe<PrismicStructuredTextType>
+	thumbnail_side?: Maybe<Scalars["String"]>
+	video_thumbnail?: Maybe<PrismicPageDataBodyTextAndVideoPrimaryVideoThumbnailImageType>
+	video_url?: Maybe<Scalars["String"]>
+}
+
+export type PrismicPageDataBodyTextAndVideoPrimaryVideoThumbnailImageType = {
+	alt?: Maybe<Scalars["String"]>
+	copyright?: Maybe<Scalars["String"]>
+	dimensions?: Maybe<PrismicImageDimensionsType>
+	/** A plain imgix URL with the URL and params applied. */
+	url?: Maybe<Scalars["String"]>
+	/**
+	 * Should be used to generate fixed-width images (i.e. the size of the image
+	 * doesn't change when the size of the browser changes, and are "fixed").
+	 * Returns data compatible with gatsby-image. Instead of accessing this data
+	 * directly, the GatsbySourceImgixFixed fragment should be used. See the
+	 * project's README for more information.
+	 */
+	fixed?: Maybe<ImgixFixed>
+	/**
+	 * Should be used to generate fluid-width images (i.e. images that change when
+	 * the size of the browser changes). Returns data compatible with
+	 * gatsby-image. Instead of accessing this data directly, the
+	 * GatsbySourceImgixFluid fragment should be used. See the project's README
+	 * for more information.
+	 */
+	fluid?: Maybe<ImgixFluid>
+	gatsbyImageData?: Maybe<Scalars["JSON"]>
+	localFile?: Maybe<File>
+}
+
+export type PrismicPageDataBodyTextAndVideoPrimaryVideoThumbnailImageTypeUrlArgs =
+	{
+		imgixParams?: Maybe<ImgixParamsInput>
+	}
+
+export type PrismicPageDataBodyTextAndVideoPrimaryVideoThumbnailImageTypeFixedArgs =
+	{
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		quality?: Maybe<Scalars["Int"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+	}
+
+export type PrismicPageDataBodyTextAndVideoPrimaryVideoThumbnailImageTypeFluidArgs =
+	{
+		imgixParams?: Maybe<ImgixParamsInput>
+		maxWidth?: Maybe<Scalars["Int"]>
+		maxHeight?: Maybe<Scalars["Int"]>
+		srcSetBreakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+	}
+
+export type PrismicPageDataBodyTextAndVideoPrimaryVideoThumbnailImageTypeGatsbyImageDataArgs =
+	{
+		layout?: Maybe<GatsbyImageLayout>
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		aspectRatio?: Maybe<Scalars["Float"]>
+		outputPixelDensities?: Maybe<Array<Maybe<Scalars["Float"]>>>
+		breakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		sizes?: Maybe<Scalars["String"]>
+		backgroundColor?: Maybe<Scalars["String"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+		placeholder?: Maybe<ImgixPlaceholder>
+		widthTolerance?: Maybe<Scalars["Float"]>
+		srcSetMinWidth?: Maybe<Scalars["Int"]>
+		srcSetMaxWidth?: Maybe<Scalars["Int"]>
+	}
 
 export type PrismicPageDataBodyTwoColumnText = PrismicSliceType & {
 	primary?: Maybe<PrismicPageDataBodyTwoColumnTextPrimary>
@@ -6323,14 +6489,14 @@ export type QuerySitePageArgs = {
 	internalComponentName?: Maybe<StringQueryOperatorInput>
 	componentChunkName?: Maybe<StringQueryOperatorInput>
 	matchPath?: Maybe<StringQueryOperatorInput>
-	isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>
-	pluginCreator?: Maybe<SitePluginFilterInput>
-	pluginCreatorId?: Maybe<StringQueryOperatorInput>
 	id?: Maybe<StringQueryOperatorInput>
 	parent?: Maybe<NodeFilterInput>
 	children?: Maybe<NodeFilterListInput>
 	internal?: Maybe<InternalFilterInput>
+	isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>
 	context?: Maybe<SitePageContextFilterInput>
+	pluginCreator?: Maybe<SitePluginFilterInput>
+	pluginCreatorId?: Maybe<StringQueryOperatorInput>
 }
 
 export type QueryAllSitePageArgs = {
@@ -7248,14 +7414,14 @@ export type SitePage = Node & {
 	internalComponentName: Scalars["String"]
 	componentChunkName: Scalars["String"]
 	matchPath?: Maybe<Scalars["String"]>
-	isCreatedByStatefulCreatePages?: Maybe<Scalars["Boolean"]>
-	pluginCreator?: Maybe<SitePlugin>
-	pluginCreatorId?: Maybe<Scalars["String"]>
 	id: Scalars["ID"]
 	parent?: Maybe<Node>
 	children: Array<Node>
 	internal: Internal
+	isCreatedByStatefulCreatePages?: Maybe<Scalars["Boolean"]>
 	context?: Maybe<SitePageContext>
+	pluginCreator?: Maybe<SitePlugin>
+	pluginCreatorId?: Maybe<Scalars["String"]>
 }
 
 export type SitePageConnection = {
@@ -7312,7 +7478,94 @@ export enum SitePageFieldsEnum {
 	InternalComponentName = "internalComponentName",
 	ComponentChunkName = "componentChunkName",
 	MatchPath = "matchPath",
+	Id = "id",
+	ParentId = "parent___id",
+	ParentParentId = "parent___parent___id",
+	ParentParentParentId = "parent___parent___parent___id",
+	ParentParentParentChildren = "parent___parent___parent___children",
+	ParentParentChildren = "parent___parent___children",
+	ParentParentChildrenId = "parent___parent___children___id",
+	ParentParentChildrenChildren = "parent___parent___children___children",
+	ParentParentInternalContent = "parent___parent___internal___content",
+	ParentParentInternalContentDigest = "parent___parent___internal___contentDigest",
+	ParentParentInternalDescription = "parent___parent___internal___description",
+	ParentParentInternalFieldOwners = "parent___parent___internal___fieldOwners",
+	ParentParentInternalIgnoreType = "parent___parent___internal___ignoreType",
+	ParentParentInternalMediaType = "parent___parent___internal___mediaType",
+	ParentParentInternalOwner = "parent___parent___internal___owner",
+	ParentParentInternalType = "parent___parent___internal___type",
+	ParentChildren = "parent___children",
+	ParentChildrenId = "parent___children___id",
+	ParentChildrenParentId = "parent___children___parent___id",
+	ParentChildrenParentChildren = "parent___children___parent___children",
+	ParentChildrenChildren = "parent___children___children",
+	ParentChildrenChildrenId = "parent___children___children___id",
+	ParentChildrenChildrenChildren = "parent___children___children___children",
+	ParentChildrenInternalContent = "parent___children___internal___content",
+	ParentChildrenInternalContentDigest = "parent___children___internal___contentDigest",
+	ParentChildrenInternalDescription = "parent___children___internal___description",
+	ParentChildrenInternalFieldOwners = "parent___children___internal___fieldOwners",
+	ParentChildrenInternalIgnoreType = "parent___children___internal___ignoreType",
+	ParentChildrenInternalMediaType = "parent___children___internal___mediaType",
+	ParentChildrenInternalOwner = "parent___children___internal___owner",
+	ParentChildrenInternalType = "parent___children___internal___type",
+	ParentInternalContent = "parent___internal___content",
+	ParentInternalContentDigest = "parent___internal___contentDigest",
+	ParentInternalDescription = "parent___internal___description",
+	ParentInternalFieldOwners = "parent___internal___fieldOwners",
+	ParentInternalIgnoreType = "parent___internal___ignoreType",
+	ParentInternalMediaType = "parent___internal___mediaType",
+	ParentInternalOwner = "parent___internal___owner",
+	ParentInternalType = "parent___internal___type",
+	Children = "children",
+	ChildrenId = "children___id",
+	ChildrenParentId = "children___parent___id",
+	ChildrenParentParentId = "children___parent___parent___id",
+	ChildrenParentParentChildren = "children___parent___parent___children",
+	ChildrenParentChildren = "children___parent___children",
+	ChildrenParentChildrenId = "children___parent___children___id",
+	ChildrenParentChildrenChildren = "children___parent___children___children",
+	ChildrenParentInternalContent = "children___parent___internal___content",
+	ChildrenParentInternalContentDigest = "children___parent___internal___contentDigest",
+	ChildrenParentInternalDescription = "children___parent___internal___description",
+	ChildrenParentInternalFieldOwners = "children___parent___internal___fieldOwners",
+	ChildrenParentInternalIgnoreType = "children___parent___internal___ignoreType",
+	ChildrenParentInternalMediaType = "children___parent___internal___mediaType",
+	ChildrenParentInternalOwner = "children___parent___internal___owner",
+	ChildrenParentInternalType = "children___parent___internal___type",
+	ChildrenChildren = "children___children",
+	ChildrenChildrenId = "children___children___id",
+	ChildrenChildrenParentId = "children___children___parent___id",
+	ChildrenChildrenParentChildren = "children___children___parent___children",
+	ChildrenChildrenChildren = "children___children___children",
+	ChildrenChildrenChildrenId = "children___children___children___id",
+	ChildrenChildrenChildrenChildren = "children___children___children___children",
+	ChildrenChildrenInternalContent = "children___children___internal___content",
+	ChildrenChildrenInternalContentDigest = "children___children___internal___contentDigest",
+	ChildrenChildrenInternalDescription = "children___children___internal___description",
+	ChildrenChildrenInternalFieldOwners = "children___children___internal___fieldOwners",
+	ChildrenChildrenInternalIgnoreType = "children___children___internal___ignoreType",
+	ChildrenChildrenInternalMediaType = "children___children___internal___mediaType",
+	ChildrenChildrenInternalOwner = "children___children___internal___owner",
+	ChildrenChildrenInternalType = "children___children___internal___type",
+	ChildrenInternalContent = "children___internal___content",
+	ChildrenInternalContentDigest = "children___internal___contentDigest",
+	ChildrenInternalDescription = "children___internal___description",
+	ChildrenInternalFieldOwners = "children___internal___fieldOwners",
+	ChildrenInternalIgnoreType = "children___internal___ignoreType",
+	ChildrenInternalMediaType = "children___internal___mediaType",
+	ChildrenInternalOwner = "children___internal___owner",
+	ChildrenInternalType = "children___internal___type",
+	InternalContent = "internal___content",
+	InternalContentDigest = "internal___contentDigest",
+	InternalDescription = "internal___description",
+	InternalFieldOwners = "internal___fieldOwners",
+	InternalIgnoreType = "internal___ignoreType",
+	InternalMediaType = "internal___mediaType",
+	InternalOwner = "internal___owner",
+	InternalType = "internal___type",
 	IsCreatedByStatefulCreatePages = "isCreatedByStatefulCreatePages",
+	ContextUid = "context___uid",
 	PluginCreatorResolve = "pluginCreator___resolve",
 	PluginCreatorName = "pluginCreator___name",
 	PluginCreatorVersion = "pluginCreator___version",
@@ -7408,93 +7661,6 @@ export enum SitePageFieldsEnum {
 	PluginCreatorInternalOwner = "pluginCreator___internal___owner",
 	PluginCreatorInternalType = "pluginCreator___internal___type",
 	PluginCreatorId = "pluginCreatorId",
-	Id = "id",
-	ParentId = "parent___id",
-	ParentParentId = "parent___parent___id",
-	ParentParentParentId = "parent___parent___parent___id",
-	ParentParentParentChildren = "parent___parent___parent___children",
-	ParentParentChildren = "parent___parent___children",
-	ParentParentChildrenId = "parent___parent___children___id",
-	ParentParentChildrenChildren = "parent___parent___children___children",
-	ParentParentInternalContent = "parent___parent___internal___content",
-	ParentParentInternalContentDigest = "parent___parent___internal___contentDigest",
-	ParentParentInternalDescription = "parent___parent___internal___description",
-	ParentParentInternalFieldOwners = "parent___parent___internal___fieldOwners",
-	ParentParentInternalIgnoreType = "parent___parent___internal___ignoreType",
-	ParentParentInternalMediaType = "parent___parent___internal___mediaType",
-	ParentParentInternalOwner = "parent___parent___internal___owner",
-	ParentParentInternalType = "parent___parent___internal___type",
-	ParentChildren = "parent___children",
-	ParentChildrenId = "parent___children___id",
-	ParentChildrenParentId = "parent___children___parent___id",
-	ParentChildrenParentChildren = "parent___children___parent___children",
-	ParentChildrenChildren = "parent___children___children",
-	ParentChildrenChildrenId = "parent___children___children___id",
-	ParentChildrenChildrenChildren = "parent___children___children___children",
-	ParentChildrenInternalContent = "parent___children___internal___content",
-	ParentChildrenInternalContentDigest = "parent___children___internal___contentDigest",
-	ParentChildrenInternalDescription = "parent___children___internal___description",
-	ParentChildrenInternalFieldOwners = "parent___children___internal___fieldOwners",
-	ParentChildrenInternalIgnoreType = "parent___children___internal___ignoreType",
-	ParentChildrenInternalMediaType = "parent___children___internal___mediaType",
-	ParentChildrenInternalOwner = "parent___children___internal___owner",
-	ParentChildrenInternalType = "parent___children___internal___type",
-	ParentInternalContent = "parent___internal___content",
-	ParentInternalContentDigest = "parent___internal___contentDigest",
-	ParentInternalDescription = "parent___internal___description",
-	ParentInternalFieldOwners = "parent___internal___fieldOwners",
-	ParentInternalIgnoreType = "parent___internal___ignoreType",
-	ParentInternalMediaType = "parent___internal___mediaType",
-	ParentInternalOwner = "parent___internal___owner",
-	ParentInternalType = "parent___internal___type",
-	Children = "children",
-	ChildrenId = "children___id",
-	ChildrenParentId = "children___parent___id",
-	ChildrenParentParentId = "children___parent___parent___id",
-	ChildrenParentParentChildren = "children___parent___parent___children",
-	ChildrenParentChildren = "children___parent___children",
-	ChildrenParentChildrenId = "children___parent___children___id",
-	ChildrenParentChildrenChildren = "children___parent___children___children",
-	ChildrenParentInternalContent = "children___parent___internal___content",
-	ChildrenParentInternalContentDigest = "children___parent___internal___contentDigest",
-	ChildrenParentInternalDescription = "children___parent___internal___description",
-	ChildrenParentInternalFieldOwners = "children___parent___internal___fieldOwners",
-	ChildrenParentInternalIgnoreType = "children___parent___internal___ignoreType",
-	ChildrenParentInternalMediaType = "children___parent___internal___mediaType",
-	ChildrenParentInternalOwner = "children___parent___internal___owner",
-	ChildrenParentInternalType = "children___parent___internal___type",
-	ChildrenChildren = "children___children",
-	ChildrenChildrenId = "children___children___id",
-	ChildrenChildrenParentId = "children___children___parent___id",
-	ChildrenChildrenParentChildren = "children___children___parent___children",
-	ChildrenChildrenChildren = "children___children___children",
-	ChildrenChildrenChildrenId = "children___children___children___id",
-	ChildrenChildrenChildrenChildren = "children___children___children___children",
-	ChildrenChildrenInternalContent = "children___children___internal___content",
-	ChildrenChildrenInternalContentDigest = "children___children___internal___contentDigest",
-	ChildrenChildrenInternalDescription = "children___children___internal___description",
-	ChildrenChildrenInternalFieldOwners = "children___children___internal___fieldOwners",
-	ChildrenChildrenInternalIgnoreType = "children___children___internal___ignoreType",
-	ChildrenChildrenInternalMediaType = "children___children___internal___mediaType",
-	ChildrenChildrenInternalOwner = "children___children___internal___owner",
-	ChildrenChildrenInternalType = "children___children___internal___type",
-	ChildrenInternalContent = "children___internal___content",
-	ChildrenInternalContentDigest = "children___internal___contentDigest",
-	ChildrenInternalDescription = "children___internal___description",
-	ChildrenInternalFieldOwners = "children___internal___fieldOwners",
-	ChildrenInternalIgnoreType = "children___internal___ignoreType",
-	ChildrenInternalMediaType = "children___internal___mediaType",
-	ChildrenInternalOwner = "children___internal___owner",
-	ChildrenInternalType = "children___internal___type",
-	InternalContent = "internal___content",
-	InternalContentDigest = "internal___contentDigest",
-	InternalDescription = "internal___description",
-	InternalFieldOwners = "internal___fieldOwners",
-	InternalIgnoreType = "internal___ignoreType",
-	InternalMediaType = "internal___mediaType",
-	InternalOwner = "internal___owner",
-	InternalType = "internal___type",
-	ContextUid = "context___uid",
 }
 
 export type SitePageFilterInput = {
@@ -7503,14 +7669,14 @@ export type SitePageFilterInput = {
 	internalComponentName?: Maybe<StringQueryOperatorInput>
 	componentChunkName?: Maybe<StringQueryOperatorInput>
 	matchPath?: Maybe<StringQueryOperatorInput>
-	isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>
-	pluginCreator?: Maybe<SitePluginFilterInput>
-	pluginCreatorId?: Maybe<StringQueryOperatorInput>
 	id?: Maybe<StringQueryOperatorInput>
 	parent?: Maybe<NodeFilterInput>
 	children?: Maybe<NodeFilterListInput>
 	internal?: Maybe<InternalFilterInput>
+	isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>
 	context?: Maybe<SitePageContextFilterInput>
+	pluginCreator?: Maybe<SitePluginFilterInput>
+	pluginCreatorId?: Maybe<StringQueryOperatorInput>
 }
 
 export type SitePageGroupConnection = {
@@ -8008,6 +8174,7 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoices = {
 	video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo>
 	featured_people?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_People>
 	video_gallery?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_Gallery>
+	text_and_video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_Video>
 }
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchor = {
@@ -8683,6 +8850,7 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFilterInput 
 		video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoFilterInput>
 		featured_people?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleFilterInput>
 		video_gallery?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryFilterInput>
+		text_and_video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_Action =
@@ -9219,6 +9387,166 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon
 	{
 		type?: Maybe<StringQueryOperatorInput>
 		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextNon_RepeatTextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_Video =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_Repeat>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_Repeat =
+	{
+		video_thumbnail?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_Thumbnail>
+		thumbnail_side?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatThumbnail_Side>
+		video_url?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_Url>
+		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatText>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatColor>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatColor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatColorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatColorConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatColorConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatColorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatColorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatFilterInput =
+	{
+		video_thumbnail?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_ThumbnailFilterInput>
+		thumbnail_side?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatThumbnail_SideFilterInput>
+		video_url?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_UrlFilterInput>
+		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatTextFilterInput>
+		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatColorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatText =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatTextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatTextConfig =
+	{
+		multi?: Maybe<Scalars["String"]>
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatTextConfigFilterInput =
+	{
+		multi?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatTextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatTextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatThumbnail_Side =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatThumbnail_SideConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatThumbnail_SideConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatThumbnail_SideConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatThumbnail_SideFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatThumbnail_SideConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_Thumbnail =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_ThumbnailConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_ThumbnailConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_ThumbnailConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_ThumbnailFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_ThumbnailConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_Url =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_UrlConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_UrlConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_UrlConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_UrlFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_UrlConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_Text =
@@ -10024,6 +10352,7 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoices = {
 	video?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo>
 	featured_people?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_People>
 	video_gallery?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_Gallery>
+	text_and_video?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_Video>
 }
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesAnchor = {
@@ -10702,6 +11031,7 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterInput =
 		video?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideoFilterInput>
 		featured_people?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_PeopleFilterInput>
 		video_gallery?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryFilterInput>
+		text_and_video?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFilterable_Events =
@@ -11482,6 +11812,166 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_R
 	{
 		type?: Maybe<StringQueryOperatorInput>
 		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesSponsorsNon_RepeatSubheadingConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_Video =
+	{
+		type?: Maybe<Scalars["String"]>
+		fieldset?: Maybe<Scalars["String"]>
+		description?: Maybe<Scalars["String"]>
+		icon?: Maybe<Scalars["String"]>
+		display?: Maybe<Scalars["String"]>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_Repeat>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		fieldset?: Maybe<StringQueryOperatorInput>
+		description?: Maybe<StringQueryOperatorInput>
+		icon?: Maybe<StringQueryOperatorInput>
+		display?: Maybe<StringQueryOperatorInput>
+		non_repeat?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_Repeat =
+	{
+		video_thumbnail?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_Thumbnail>
+		thumbnail_side?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatThumbnail_Side>
+		video_url?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_Url>
+		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatText>
+		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatColor>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatColor =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatColorConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatColorConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatColorConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatColorFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatColorConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatFilterInput =
+	{
+		video_thumbnail?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_ThumbnailFilterInput>
+		thumbnail_side?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatThumbnail_SideFilterInput>
+		video_url?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_UrlFilterInput>
+		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatTextFilterInput>
+		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatColorFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatText =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatTextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatTextConfig =
+	{
+		multi?: Maybe<Scalars["String"]>
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatTextConfigFilterInput =
+	{
+		multi?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatTextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatTextConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatThumbnail_Side =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatThumbnail_SideConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatThumbnail_SideConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatThumbnail_SideConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatThumbnail_SideFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatThumbnail_SideConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_Thumbnail =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_ThumbnailConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_ThumbnailConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_ThumbnailConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_ThumbnailFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_ThumbnailConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_Url =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_UrlConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_UrlConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_UrlConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_UrlFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesText_And_VideoNon_RepeatVideo_UrlConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_Text =
@@ -13407,6 +13897,16 @@ export type EventRichTextFragment = {
 	}>
 }
 
+export type EventTextAndVideoFragment = {
+	primary?: Maybe<{
+		thumbnail_side?: Maybe<string>
+		video_url?: Maybe<string>
+		color?: Maybe<string>
+		video_thumbnail?: Maybe<{ url?: Maybe<string>; alt?: Maybe<string> }>
+		text?: Maybe<{ html?: Maybe<string> }>
+	}>
+}
+
 export type EventTwoColumnTextFragment = {
 	primary?: Maybe<{
 		color?: Maybe<string>
@@ -13429,6 +13929,7 @@ export type EventVideoGalleryFragment = {
 		heading?: Maybe<{ text?: Maybe<string> }>
 		text?: Maybe<{ html?: Maybe<string> }>
 		video_submission_type?: Maybe<{
+			uid?: Maybe<string>
 			document?: Maybe<{
 				_previewable: string
 				submissions?: Maybe<
@@ -13658,6 +14159,16 @@ export type SponsorsFragment = {
 	}>
 }
 
+export type TextAndVideoFragment = {
+	primary?: Maybe<{
+		thumbnail_side?: Maybe<string>
+		video_url?: Maybe<string>
+		color?: Maybe<string>
+		video_thumbnail?: Maybe<{ url?: Maybe<string>; alt?: Maybe<string> }>
+		text?: Maybe<{ html?: Maybe<string> }>
+	}>
+}
+
 export type TwoColumnTextFragment = {
 	primary?: Maybe<{
 		color?: Maybe<string>
@@ -13755,6 +14266,9 @@ export type EventTemplateQuery = {
 								__typename: "PrismicEventDataBodyRichText"
 						  } & EventRichTextFragment)
 						| ({
+								__typename: "PrismicEventDataBodyTextAndVideo"
+						  } & EventTextAndVideoFragment)
+						| ({
 								__typename: "PrismicEventDataBodyTwoColumnText"
 						  } & EventTwoColumnTextFragment)
 						| ({ __typename: "PrismicEventDataBodyVideo" } & EventVideoFragment)
@@ -13814,6 +14328,9 @@ export type PageTemplateQuery = {
 						  } & NewsletterFormFragment)
 						| ({ __typename: "PrismicPageDataBodyRichText" } & RichTextFragment)
 						| ({ __typename: "PrismicPageDataBodySponsors" } & SponsorsFragment)
+						| ({
+								__typename: "PrismicPageDataBodyTextAndVideo"
+						  } & TextAndVideoFragment)
 						| ({
 								__typename: "PrismicPageDataBodyTwoColumnText"
 						  } & TwoColumnTextFragment)
