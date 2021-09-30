@@ -1978,8 +1978,7 @@ export type PrismicEventDataBodyCallToActionCardPrimary = {
 	button_link?: Maybe<PrismicLinkType>
 	button_text?: Maybe<Scalars["String"]>
 	color?: Maybe<Scalars["String"]>
-	heading?: Maybe<PrismicStructuredTextType>
-	subheading?: Maybe<PrismicStructuredTextType>
+	text?: Maybe<PrismicStructuredTextType>
 }
 
 export type PrismicEventDataBodyCallToActionPrimary = {
@@ -2091,7 +2090,6 @@ export type PrismicEventDataBodyImageCallToActionPrimary = {
 	button_link?: Maybe<PrismicLinkType>
 	button_text?: Maybe<Scalars["String"]>
 	color?: Maybe<Scalars["String"]>
-	heading?: Maybe<PrismicStructuredTextType>
 	image?: Maybe<PrismicEventDataBodyImageCallToActionPrimaryImageImageType>
 	text?: Maybe<PrismicStructuredTextType>
 }
@@ -2329,8 +2327,6 @@ export type PrismicEventDataBodyVideoGallery = PrismicSliceType & {
 
 export type PrismicEventDataBodyVideoGalleryPrimary = {
 	color?: Maybe<Scalars["String"]>
-	heading?: Maybe<PrismicStructuredTextType>
-	subheading1?: Maybe<PrismicStructuredTextType>
 	text?: Maybe<PrismicStructuredTextType>
 	video_submission_type?: Maybe<PrismicLinkType>
 }
@@ -3196,8 +3192,7 @@ export type PrismicPageDataBodyCallToActionCardPrimary = {
 	button_link?: Maybe<PrismicLinkType>
 	button_text?: Maybe<Scalars["String"]>
 	color?: Maybe<Scalars["String"]>
-	heading?: Maybe<PrismicStructuredTextType>
-	subheading?: Maybe<PrismicStructuredTextType>
+	text?: Maybe<PrismicStructuredTextType>
 }
 
 export type PrismicPageDataBodyCallToActionPrimary = {
@@ -3330,7 +3325,6 @@ export type PrismicPageDataBodyImageCallToActionPrimary = {
 	button_link?: Maybe<PrismicLinkType>
 	button_text?: Maybe<Scalars["String"]>
 	color?: Maybe<Scalars["String"]>
-	heading?: Maybe<PrismicStructuredTextType>
 	image?: Maybe<PrismicPageDataBodyImageCallToActionPrimaryImageImageType>
 	text?: Maybe<PrismicStructuredTextType>
 }
@@ -3583,8 +3577,6 @@ export type PrismicPageDataBodyVideoGallery = PrismicSliceType & {
 
 export type PrismicPageDataBodyVideoGalleryPrimary = {
 	color?: Maybe<Scalars["String"]>
-	heading?: Maybe<PrismicStructuredTextType>
-	subheading1?: Maybe<PrismicStructuredTextType>
 	text?: Maybe<PrismicStructuredTextType>
 	video_submission_type?: Maybe<PrismicLinkType>
 }
@@ -6489,14 +6481,14 @@ export type QuerySitePageArgs = {
 	internalComponentName?: Maybe<StringQueryOperatorInput>
 	componentChunkName?: Maybe<StringQueryOperatorInput>
 	matchPath?: Maybe<StringQueryOperatorInput>
+	isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>
+	pluginCreator?: Maybe<SitePluginFilterInput>
+	pluginCreatorId?: Maybe<StringQueryOperatorInput>
 	id?: Maybe<StringQueryOperatorInput>
 	parent?: Maybe<NodeFilterInput>
 	children?: Maybe<NodeFilterListInput>
 	internal?: Maybe<InternalFilterInput>
-	isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>
 	context?: Maybe<SitePageContextFilterInput>
-	pluginCreator?: Maybe<SitePluginFilterInput>
-	pluginCreatorId?: Maybe<StringQueryOperatorInput>
 }
 
 export type QueryAllSitePageArgs = {
@@ -7414,14 +7406,14 @@ export type SitePage = Node & {
 	internalComponentName: Scalars["String"]
 	componentChunkName: Scalars["String"]
 	matchPath?: Maybe<Scalars["String"]>
+	isCreatedByStatefulCreatePages?: Maybe<Scalars["Boolean"]>
+	pluginCreator?: Maybe<SitePlugin>
+	pluginCreatorId?: Maybe<Scalars["String"]>
 	id: Scalars["ID"]
 	parent?: Maybe<Node>
 	children: Array<Node>
 	internal: Internal
-	isCreatedByStatefulCreatePages?: Maybe<Scalars["Boolean"]>
 	context?: Maybe<SitePageContext>
-	pluginCreator?: Maybe<SitePlugin>
-	pluginCreatorId?: Maybe<Scalars["String"]>
 }
 
 export type SitePageConnection = {
@@ -7478,94 +7470,7 @@ export enum SitePageFieldsEnum {
 	InternalComponentName = "internalComponentName",
 	ComponentChunkName = "componentChunkName",
 	MatchPath = "matchPath",
-	Id = "id",
-	ParentId = "parent___id",
-	ParentParentId = "parent___parent___id",
-	ParentParentParentId = "parent___parent___parent___id",
-	ParentParentParentChildren = "parent___parent___parent___children",
-	ParentParentChildren = "parent___parent___children",
-	ParentParentChildrenId = "parent___parent___children___id",
-	ParentParentChildrenChildren = "parent___parent___children___children",
-	ParentParentInternalContent = "parent___parent___internal___content",
-	ParentParentInternalContentDigest = "parent___parent___internal___contentDigest",
-	ParentParentInternalDescription = "parent___parent___internal___description",
-	ParentParentInternalFieldOwners = "parent___parent___internal___fieldOwners",
-	ParentParentInternalIgnoreType = "parent___parent___internal___ignoreType",
-	ParentParentInternalMediaType = "parent___parent___internal___mediaType",
-	ParentParentInternalOwner = "parent___parent___internal___owner",
-	ParentParentInternalType = "parent___parent___internal___type",
-	ParentChildren = "parent___children",
-	ParentChildrenId = "parent___children___id",
-	ParentChildrenParentId = "parent___children___parent___id",
-	ParentChildrenParentChildren = "parent___children___parent___children",
-	ParentChildrenChildren = "parent___children___children",
-	ParentChildrenChildrenId = "parent___children___children___id",
-	ParentChildrenChildrenChildren = "parent___children___children___children",
-	ParentChildrenInternalContent = "parent___children___internal___content",
-	ParentChildrenInternalContentDigest = "parent___children___internal___contentDigest",
-	ParentChildrenInternalDescription = "parent___children___internal___description",
-	ParentChildrenInternalFieldOwners = "parent___children___internal___fieldOwners",
-	ParentChildrenInternalIgnoreType = "parent___children___internal___ignoreType",
-	ParentChildrenInternalMediaType = "parent___children___internal___mediaType",
-	ParentChildrenInternalOwner = "parent___children___internal___owner",
-	ParentChildrenInternalType = "parent___children___internal___type",
-	ParentInternalContent = "parent___internal___content",
-	ParentInternalContentDigest = "parent___internal___contentDigest",
-	ParentInternalDescription = "parent___internal___description",
-	ParentInternalFieldOwners = "parent___internal___fieldOwners",
-	ParentInternalIgnoreType = "parent___internal___ignoreType",
-	ParentInternalMediaType = "parent___internal___mediaType",
-	ParentInternalOwner = "parent___internal___owner",
-	ParentInternalType = "parent___internal___type",
-	Children = "children",
-	ChildrenId = "children___id",
-	ChildrenParentId = "children___parent___id",
-	ChildrenParentParentId = "children___parent___parent___id",
-	ChildrenParentParentChildren = "children___parent___parent___children",
-	ChildrenParentChildren = "children___parent___children",
-	ChildrenParentChildrenId = "children___parent___children___id",
-	ChildrenParentChildrenChildren = "children___parent___children___children",
-	ChildrenParentInternalContent = "children___parent___internal___content",
-	ChildrenParentInternalContentDigest = "children___parent___internal___contentDigest",
-	ChildrenParentInternalDescription = "children___parent___internal___description",
-	ChildrenParentInternalFieldOwners = "children___parent___internal___fieldOwners",
-	ChildrenParentInternalIgnoreType = "children___parent___internal___ignoreType",
-	ChildrenParentInternalMediaType = "children___parent___internal___mediaType",
-	ChildrenParentInternalOwner = "children___parent___internal___owner",
-	ChildrenParentInternalType = "children___parent___internal___type",
-	ChildrenChildren = "children___children",
-	ChildrenChildrenId = "children___children___id",
-	ChildrenChildrenParentId = "children___children___parent___id",
-	ChildrenChildrenParentChildren = "children___children___parent___children",
-	ChildrenChildrenChildren = "children___children___children",
-	ChildrenChildrenChildrenId = "children___children___children___id",
-	ChildrenChildrenChildrenChildren = "children___children___children___children",
-	ChildrenChildrenInternalContent = "children___children___internal___content",
-	ChildrenChildrenInternalContentDigest = "children___children___internal___contentDigest",
-	ChildrenChildrenInternalDescription = "children___children___internal___description",
-	ChildrenChildrenInternalFieldOwners = "children___children___internal___fieldOwners",
-	ChildrenChildrenInternalIgnoreType = "children___children___internal___ignoreType",
-	ChildrenChildrenInternalMediaType = "children___children___internal___mediaType",
-	ChildrenChildrenInternalOwner = "children___children___internal___owner",
-	ChildrenChildrenInternalType = "children___children___internal___type",
-	ChildrenInternalContent = "children___internal___content",
-	ChildrenInternalContentDigest = "children___internal___contentDigest",
-	ChildrenInternalDescription = "children___internal___description",
-	ChildrenInternalFieldOwners = "children___internal___fieldOwners",
-	ChildrenInternalIgnoreType = "children___internal___ignoreType",
-	ChildrenInternalMediaType = "children___internal___mediaType",
-	ChildrenInternalOwner = "children___internal___owner",
-	ChildrenInternalType = "children___internal___type",
-	InternalContent = "internal___content",
-	InternalContentDigest = "internal___contentDigest",
-	InternalDescription = "internal___description",
-	InternalFieldOwners = "internal___fieldOwners",
-	InternalIgnoreType = "internal___ignoreType",
-	InternalMediaType = "internal___mediaType",
-	InternalOwner = "internal___owner",
-	InternalType = "internal___type",
 	IsCreatedByStatefulCreatePages = "isCreatedByStatefulCreatePages",
-	ContextUid = "context___uid",
 	PluginCreatorResolve = "pluginCreator___resolve",
 	PluginCreatorName = "pluginCreator___name",
 	PluginCreatorVersion = "pluginCreator___version",
@@ -7661,6 +7566,93 @@ export enum SitePageFieldsEnum {
 	PluginCreatorInternalOwner = "pluginCreator___internal___owner",
 	PluginCreatorInternalType = "pluginCreator___internal___type",
 	PluginCreatorId = "pluginCreatorId",
+	Id = "id",
+	ParentId = "parent___id",
+	ParentParentId = "parent___parent___id",
+	ParentParentParentId = "parent___parent___parent___id",
+	ParentParentParentChildren = "parent___parent___parent___children",
+	ParentParentChildren = "parent___parent___children",
+	ParentParentChildrenId = "parent___parent___children___id",
+	ParentParentChildrenChildren = "parent___parent___children___children",
+	ParentParentInternalContent = "parent___parent___internal___content",
+	ParentParentInternalContentDigest = "parent___parent___internal___contentDigest",
+	ParentParentInternalDescription = "parent___parent___internal___description",
+	ParentParentInternalFieldOwners = "parent___parent___internal___fieldOwners",
+	ParentParentInternalIgnoreType = "parent___parent___internal___ignoreType",
+	ParentParentInternalMediaType = "parent___parent___internal___mediaType",
+	ParentParentInternalOwner = "parent___parent___internal___owner",
+	ParentParentInternalType = "parent___parent___internal___type",
+	ParentChildren = "parent___children",
+	ParentChildrenId = "parent___children___id",
+	ParentChildrenParentId = "parent___children___parent___id",
+	ParentChildrenParentChildren = "parent___children___parent___children",
+	ParentChildrenChildren = "parent___children___children",
+	ParentChildrenChildrenId = "parent___children___children___id",
+	ParentChildrenChildrenChildren = "parent___children___children___children",
+	ParentChildrenInternalContent = "parent___children___internal___content",
+	ParentChildrenInternalContentDigest = "parent___children___internal___contentDigest",
+	ParentChildrenInternalDescription = "parent___children___internal___description",
+	ParentChildrenInternalFieldOwners = "parent___children___internal___fieldOwners",
+	ParentChildrenInternalIgnoreType = "parent___children___internal___ignoreType",
+	ParentChildrenInternalMediaType = "parent___children___internal___mediaType",
+	ParentChildrenInternalOwner = "parent___children___internal___owner",
+	ParentChildrenInternalType = "parent___children___internal___type",
+	ParentInternalContent = "parent___internal___content",
+	ParentInternalContentDigest = "parent___internal___contentDigest",
+	ParentInternalDescription = "parent___internal___description",
+	ParentInternalFieldOwners = "parent___internal___fieldOwners",
+	ParentInternalIgnoreType = "parent___internal___ignoreType",
+	ParentInternalMediaType = "parent___internal___mediaType",
+	ParentInternalOwner = "parent___internal___owner",
+	ParentInternalType = "parent___internal___type",
+	Children = "children",
+	ChildrenId = "children___id",
+	ChildrenParentId = "children___parent___id",
+	ChildrenParentParentId = "children___parent___parent___id",
+	ChildrenParentParentChildren = "children___parent___parent___children",
+	ChildrenParentChildren = "children___parent___children",
+	ChildrenParentChildrenId = "children___parent___children___id",
+	ChildrenParentChildrenChildren = "children___parent___children___children",
+	ChildrenParentInternalContent = "children___parent___internal___content",
+	ChildrenParentInternalContentDigest = "children___parent___internal___contentDigest",
+	ChildrenParentInternalDescription = "children___parent___internal___description",
+	ChildrenParentInternalFieldOwners = "children___parent___internal___fieldOwners",
+	ChildrenParentInternalIgnoreType = "children___parent___internal___ignoreType",
+	ChildrenParentInternalMediaType = "children___parent___internal___mediaType",
+	ChildrenParentInternalOwner = "children___parent___internal___owner",
+	ChildrenParentInternalType = "children___parent___internal___type",
+	ChildrenChildren = "children___children",
+	ChildrenChildrenId = "children___children___id",
+	ChildrenChildrenParentId = "children___children___parent___id",
+	ChildrenChildrenParentChildren = "children___children___parent___children",
+	ChildrenChildrenChildren = "children___children___children",
+	ChildrenChildrenChildrenId = "children___children___children___id",
+	ChildrenChildrenChildrenChildren = "children___children___children___children",
+	ChildrenChildrenInternalContent = "children___children___internal___content",
+	ChildrenChildrenInternalContentDigest = "children___children___internal___contentDigest",
+	ChildrenChildrenInternalDescription = "children___children___internal___description",
+	ChildrenChildrenInternalFieldOwners = "children___children___internal___fieldOwners",
+	ChildrenChildrenInternalIgnoreType = "children___children___internal___ignoreType",
+	ChildrenChildrenInternalMediaType = "children___children___internal___mediaType",
+	ChildrenChildrenInternalOwner = "children___children___internal___owner",
+	ChildrenChildrenInternalType = "children___children___internal___type",
+	ChildrenInternalContent = "children___internal___content",
+	ChildrenInternalContentDigest = "children___internal___contentDigest",
+	ChildrenInternalDescription = "children___internal___description",
+	ChildrenInternalFieldOwners = "children___internal___fieldOwners",
+	ChildrenInternalIgnoreType = "children___internal___ignoreType",
+	ChildrenInternalMediaType = "children___internal___mediaType",
+	ChildrenInternalOwner = "children___internal___owner",
+	ChildrenInternalType = "children___internal___type",
+	InternalContent = "internal___content",
+	InternalContentDigest = "internal___contentDigest",
+	InternalDescription = "internal___description",
+	InternalFieldOwners = "internal___fieldOwners",
+	InternalIgnoreType = "internal___ignoreType",
+	InternalMediaType = "internal___mediaType",
+	InternalOwner = "internal___owner",
+	InternalType = "internal___type",
+	ContextUid = "context___uid",
 }
 
 export type SitePageFilterInput = {
@@ -7669,14 +7661,14 @@ export type SitePageFilterInput = {
 	internalComponentName?: Maybe<StringQueryOperatorInput>
 	componentChunkName?: Maybe<StringQueryOperatorInput>
 	matchPath?: Maybe<StringQueryOperatorInput>
+	isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>
+	pluginCreator?: Maybe<SitePluginFilterInput>
+	pluginCreatorId?: Maybe<StringQueryOperatorInput>
 	id?: Maybe<StringQueryOperatorInput>
 	parent?: Maybe<NodeFilterInput>
 	children?: Maybe<NodeFilterListInput>
 	internal?: Maybe<InternalFilterInput>
-	isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>
 	context?: Maybe<SitePageContextFilterInput>
-	pluginCreator?: Maybe<SitePluginFilterInput>
-	pluginCreatorId?: Maybe<StringQueryOperatorInput>
 }
 
 export type SitePageGroupConnection = {
@@ -8164,17 +8156,17 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfig = {
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoices = {
 	anchor?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchor>
 	video_hero?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_Hero>
-	two_column_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_Text>
 	introduction?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroduction>
-	image_call_to_action?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_Action>
 	newsletter_form?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_Form>
 	call_to_action?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action>
-	call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_Card>
-	rich_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_Text>
 	video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo>
 	featured_people?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_People>
-	video_gallery?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_Gallery>
 	text_and_video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_Video>
+	video_gallery?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_Gallery>
+	rich_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_Text>
+	call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_Card>
+	image_call_to_action?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_Action>
+	two_column_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_Text>
 }
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchor = {
@@ -8356,8 +8348,7 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Acti
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_Repeat =
 	{
-		subheading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheading>
-		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeading>
+		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatText>
 		button_link?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_Link>
 		button_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_Text>
 		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatColor>
@@ -8437,59 +8428,36 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Acti
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatFilterInput =
 	{
-		subheading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingFilterInput>
-		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingFilterInput>
+		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatTextFilterInput>
 		button_link?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_LinkFilterInput>
 		button_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_TextFilterInput>
 		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatColorFilterInput>
 	}
 
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeading =
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatText =
 	{
 		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingConfig>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatTextConfig>
 	}
 
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingConfig =
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatTextConfig =
 	{
-		single?: Maybe<Scalars["String"]>
+		multi?: Maybe<Scalars["String"]>
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
 		label?: Maybe<Scalars["String"]>
 	}
 
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingConfigFilterInput =
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatTextConfigFilterInput =
 	{
-		single?: Maybe<StringQueryOperatorInput>
+		multi?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
 		label?: Maybe<StringQueryOperatorInput>
 	}
 
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingFilterInput =
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatTextFilterInput =
 	{
 		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingConfigFilterInput>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheading =
-	{
-		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfig>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfig =
-	{
-		single?: Maybe<Scalars["String"]>
-		label?: Maybe<Scalars["String"]>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfigFilterInput =
-	{
-		single?: Maybe<StringQueryOperatorInput>
-		label?: Maybe<StringQueryOperatorInput>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingFilterInput =
-	{
-		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfigFilterInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatTextConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_People =
@@ -8840,17 +8808,17 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFilterInput 
 	{
 		anchor?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesAnchorFilterInput>
 		video_hero?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_HeroFilterInput>
-		two_column_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextFilterInput>
 		introduction?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesIntroductionFilterInput>
-		image_call_to_action?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionFilterInput>
 		newsletter_form?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesNewsletter_FormFilterInput>
 		call_to_action?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_ActionFilterInput>
-		call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardFilterInput>
-		rich_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextFilterInput>
 		video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideoFilterInput>
 		featured_people?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesFeatured_PeopleFilterInput>
-		video_gallery?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryFilterInput>
 		text_and_video?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesText_And_VideoFilterInput>
+		video_gallery?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryFilterInput>
+		rich_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesRich_TextFilterInput>
+		call_to_action_card?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesCall_To_Action_CardFilterInput>
+		image_call_to_action?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionFilterInput>
+		two_column_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_Action =
@@ -8876,7 +8844,6 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_T
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_Repeat =
 	{
 		image?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImage>
-		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeading>
 		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatText>
 		button_link?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_Link>
 		button_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_Text>
@@ -8958,35 +8925,10 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_T
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatFilterInput =
 	{
 		image?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImageFilterInput>
-		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingFilterInput>
 		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextFilterInput>
 		button_link?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_LinkFilterInput>
 		button_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_TextFilterInput>
 		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColorFilterInput>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeading =
-	{
-		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingConfig>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingConfig =
-	{
-		single?: Maybe<Scalars["String"]>
-		label?: Maybe<Scalars["String"]>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingConfigFilterInput =
-	{
-		single?: Maybe<StringQueryOperatorInput>
-		label?: Maybe<StringQueryOperatorInput>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingFilterInput =
-	{
-		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImage =
@@ -9760,8 +9702,6 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_Galler
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_Repeat =
 	{
-		subheading1?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1>
-		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeading>
 		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatText>
 		video_submission_type?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_Type>
 		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatColor>
@@ -9795,59 +9735,9 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_Galler
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatFilterInput =
 	{
-		subheading1?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1FilterInput>
-		heading?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingFilterInput>
 		text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatTextFilterInput>
 		video_submission_type?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_TypeFilterInput>
 		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatColorFilterInput>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeading =
-	{
-		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingConfig>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingConfig =
-	{
-		single?: Maybe<Scalars["String"]>
-		label?: Maybe<Scalars["String"]>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingConfigFilterInput =
-	{
-		single?: Maybe<StringQueryOperatorInput>
-		label?: Maybe<StringQueryOperatorInput>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingFilterInput =
-	{
-		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingConfigFilterInput>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1 =
-	{
-		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1Config>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1Config =
-	{
-		single?: Maybe<Scalars["String"]>
-		label?: Maybe<Scalars["String"]>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1ConfigFilterInput =
-	{
-		single?: Maybe<StringQueryOperatorInput>
-		label?: Maybe<StringQueryOperatorInput>
-	}
-
-export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1FilterInput =
-	{
-		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1ConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesVideo_GalleryNon_RepeatText =
@@ -10534,8 +10424,7 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Actio
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_Repeat =
 	{
-		subheading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheading>
-		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeading>
+		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatText>
 		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_Link>
 		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_Text>
 		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatColor>
@@ -10615,59 +10504,36 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Actio
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatFilterInput =
 	{
-		subheading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingFilterInput>
-		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingFilterInput>
+		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatTextFilterInput>
 		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_LinkFilterInput>
 		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatButton_TextFilterInput>
 		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatColorFilterInput>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeading =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatText =
 	{
 		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingConfig>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatTextConfig>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingConfig =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatTextConfig =
 	{
-		single?: Maybe<Scalars["String"]>
+		multi?: Maybe<Scalars["String"]>
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
 		label?: Maybe<Scalars["String"]>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingConfigFilterInput =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatTextConfigFilterInput =
 	{
-		single?: Maybe<StringQueryOperatorInput>
+		multi?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
 		label?: Maybe<StringQueryOperatorInput>
 	}
 
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingFilterInput =
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatTextFilterInput =
 	{
 		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatHeadingConfigFilterInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheading =
-	{
-		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfig>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfig =
-	{
-		single?: Maybe<Scalars["String"]>
-		label?: Maybe<Scalars["String"]>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfigFilterInput =
-	{
-		single?: Maybe<StringQueryOperatorInput>
-		label?: Maybe<StringQueryOperatorInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingFilterInput =
-	{
-		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatSubheadingConfigFilterInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesCall_To_Action_CardNon_RepeatTextConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesFeatured_People =
@@ -11195,7 +11061,6 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_Repeat =
 	{
 		image?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImage>
-		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeading>
 		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatText>
 		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_Link>
 		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_Text>
@@ -11277,35 +11142,10 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatFilterInput =
 	{
 		image?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImageFilterInput>
-		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingFilterInput>
 		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatTextFilterInput>
 		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_LinkFilterInput>
 		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatButton_TextFilterInput>
 		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatColorFilterInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeading =
-	{
-		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingConfig>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingConfig =
-	{
-		single?: Maybe<Scalars["String"]>
-		label?: Maybe<Scalars["String"]>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingConfigFilterInput =
-	{
-		single?: Maybe<StringQueryOperatorInput>
-		label?: Maybe<StringQueryOperatorInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingFilterInput =
-	{
-		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatHeadingConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesImage_Call_To_ActionNon_RepeatImage =
@@ -12185,8 +12025,6 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_Gallery
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_Repeat =
 	{
-		subheading1?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1>
-		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeading>
 		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatText>
 		video_submission_type?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_Type>
 		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatColor>
@@ -12220,59 +12058,9 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_Gallery
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatFilterInput =
 	{
-		subheading1?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1FilterInput>
-		heading?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingFilterInput>
 		text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatTextFilterInput>
 		video_submission_type?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatVideo_Submission_TypeFilterInput>
 		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatColorFilterInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeading =
-	{
-		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingConfig>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingConfig =
-	{
-		single?: Maybe<Scalars["String"]>
-		label?: Maybe<Scalars["String"]>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingConfigFilterInput =
-	{
-		single?: Maybe<StringQueryOperatorInput>
-		label?: Maybe<StringQueryOperatorInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingFilterInput =
-	{
-		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatHeadingConfigFilterInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1 =
-	{
-		type?: Maybe<Scalars["String"]>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1Config>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1Config =
-	{
-		single?: Maybe<Scalars["String"]>
-		label?: Maybe<Scalars["String"]>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1ConfigFilterInput =
-	{
-		single?: Maybe<StringQueryOperatorInput>
-		label?: Maybe<StringQueryOperatorInput>
-	}
-
-export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1FilterInput =
-	{
-		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatSubheading1ConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesVideo_GalleryNon_RepeatText =
@@ -13832,8 +13620,7 @@ export type EventCallToActionCardFragment = {
 	primary?: Maybe<{
 		button_text?: Maybe<string>
 		color?: Maybe<string>
-		subheading?: Maybe<{ text?: Maybe<string> }>
-		heading?: Maybe<{ text?: Maybe<string> }>
+		text?: Maybe<{ html?: Maybe<string> }>
 		button_link?: Maybe<{ url?: Maybe<string> }>
 	}>
 }
@@ -13866,7 +13653,6 @@ export type EventImageCallToActionFragment = {
 		button_text?: Maybe<string>
 		color?: Maybe<string>
 		image?: Maybe<{ url?: Maybe<string>; alt?: Maybe<string> }>
-		heading?: Maybe<{ text?: Maybe<string> }>
 		text?: Maybe<{ html?: Maybe<string> }>
 		button_link?: Maybe<{ url?: Maybe<string> }>
 	}>
@@ -13925,8 +13711,6 @@ export type EventVideoFragment = {
 export type EventVideoGalleryFragment = {
 	primary?: Maybe<{
 		color?: Maybe<string>
-		subheading1?: Maybe<{ text?: Maybe<string> }>
-		heading?: Maybe<{ text?: Maybe<string> }>
 		text?: Maybe<{ html?: Maybe<string> }>
 		video_submission_type?: Maybe<{
 			uid?: Maybe<string>
@@ -14017,8 +13801,7 @@ export type CallToActionCardFragment = {
 	primary?: Maybe<{
 		button_text?: Maybe<string>
 		color?: Maybe<string>
-		subheading?: Maybe<{ text?: Maybe<string> }>
-		heading?: Maybe<{ text?: Maybe<string> }>
+		text?: Maybe<{ html?: Maybe<string> }>
 		button_link?: Maybe<{ url?: Maybe<string> }>
 	}>
 }
@@ -14078,7 +13861,6 @@ export type ImageCallToActionFragment = {
 		button_text?: Maybe<string>
 		color?: Maybe<string>
 		image?: Maybe<{ url?: Maybe<string>; alt?: Maybe<string> }>
-		heading?: Maybe<{ text?: Maybe<string> }>
 		text?: Maybe<{ html?: Maybe<string> }>
 		button_link?: Maybe<{ url?: Maybe<string> }>
 	}>
@@ -14187,8 +13969,6 @@ export type VideoFragment = {
 export type VideoGalleryFragment = {
 	primary?: Maybe<{
 		color?: Maybe<string>
-		subheading1?: Maybe<{ text?: Maybe<string> }>
-		heading?: Maybe<{ text?: Maybe<string> }>
 		text?: Maybe<{ html?: Maybe<string> }>
 		video_submission_type?: Maybe<{
 			uid?: Maybe<string>

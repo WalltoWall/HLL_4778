@@ -28,7 +28,7 @@ const CallToActionCard = ({
 				className={clsx(
 					"isolate",
 					"grid justify-items-center",
-					"gap-y-12",
+					"gap-y-8 md:gap-y-9 lg:gap-y-12",
 					"translate-y-[-50%]",
 					variantStyles.bg,
 					variantStyles.textColor
