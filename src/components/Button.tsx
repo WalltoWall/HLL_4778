@@ -18,8 +18,8 @@ const buttonVariants = variantFnFactory({
 			yellow: clsx("bg-yellow-50 text-gray-13", "hover:border-yellow-50"),
 			blue: clsx("bg-blue-31 text-gray-13", "hover:border-blue-31"),
 			black: clsx(
-				"bg-black text-beige-92",
-				"hover:border-black hover:text-gray-13"
+				"bg-gray-13 text-beige-92",
+				"hover:border-gray-13 hover:text-gray-13"
 			),
 		},
 	},

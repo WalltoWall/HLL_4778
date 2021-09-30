@@ -59,7 +59,7 @@ const VideoHero = ({
 			)}
 		>
 			<div className="flex flex-col justify-center h-full px-8 2xl:h-[800px]">
-				<div className="absolute inset-0 bg-black pointer-events-none">
+				<div className="absolute inset-0 pointer-events-none bg-gray-13">
 					{videoThumbnailUrl && (
 						<Image
 							src={videoThumbnailUrl}
