@@ -9,12 +9,13 @@ import { ButtonLink } from "../components/Button"
 import { BoundedBox } from "../components/BoundedBox"
 import { Card } from "../components/Card"
 import { getColorVariant, getColorVariantStyles } from "../lib/colorVariant"
+import { undefIfEmpty } from "@walltowall/helpers"
+import { HTMLContent } from "../components/HTMLContent"
 
 export const sliceType = "PrismicPageDataBodyCallToActionCard"
 
 const CallToActionCard = ({
-	subheading,
-	heading,
+	textHTML,
 	buttonHref,
 	buttonText,
 	color,
@@ -26,38 +27,15 @@ const CallToActionCard = ({
 			<Card
 				className={clsx(
 					"isolate",
-					"flex flex-col items-center text-center",
+					"grid justify-items-center",
+					"gap-y-12",
 					"translate-y-[-50%]",
-					variantStyles.bg
+					variantStyles.bg,
+					variantStyles.textColor
 				)}
 			>
-				{subheading && (
-					<h2
-						className={clsx(
-							"font-sansExt",
-							"tracking-caps",
-							variantStyles.textColor,
-							"text-12 md:text-16 lg:text-22",
-							"leading-1",
-							"mb-3 md:mb-4 lg:mb-6"
-						)}
-					>
-						{subheading}
-					</h2>
-				)}
-
-				{heading && (
-					<h2
-						className={clsx(
-							"font-serif",
-							variantStyles.textColor,
-							"text-42 md:text-52 lg:text-62",
-							"leading-1",
-							"mb-8 md:mb-10 lg:mb-12"
-						)}
-					>
-						{heading}
-					</h2>
+				{textHTML && (
+					<HTMLContent html={textHTML} className="text-center" variant="lg" />
 				)}
 
 				{buttonHref && buttonText && (
@@ -77,8 +55,7 @@ export function mapDataToProps({
 	ReturnType<typeof mapDataToContext>
 >) {
 	return {
-		subheading: data.primary?.subheading?.text,
-		heading: data.primary?.heading?.text,
+		textHTML: undefIfEmpty(data.primary?.text?.html),
 		buttonHref: data.primary?.button_link?.url,
 		buttonText: data.primary?.button_text,
 		color: getColorVariant(data.primary?.color),
@@ -98,11 +75,8 @@ export function mapDataToContext(
 export const gqlFragment = graphql`
 	fragment CallToActionCard on PrismicPageDataBodyCallToActionCard {
 		primary {
-			subheading {
-				text
-			}
-			heading {
-				text
+			text {
+				html
 			}
 			button_link {
 				url

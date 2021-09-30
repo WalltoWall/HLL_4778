@@ -16,7 +16,6 @@ export const sliceType = "PrismicPageDataBodyImageCallToAction"
 const ImageCallToAction = ({
 	imageUrl,
 	imageAlt,
-	heading,
 	textHTML,
 	buttonHref,
 	buttonText,
@@ -51,20 +50,13 @@ const ImageCallToAction = ({
 				)}
 
 				<div className="flex flex-col space-y-8">
-					<div className="text-center space-y-7 md:text-left lg:space-y-9">
-						{heading && (
-							<h2
-								className={clsx(
-									"font-serif leading-1_15",
-									"text-32 md:text-42 lg:text-52"
-								)}
-							>
-								{heading}
-							</h2>
-						)}
-
-						{textHTML && <HTMLContent html={textHTML} />}
-					</div>
+					{textHTML && (
+						<HTMLContent
+							html={textHTML}
+							className="text-center md:text-left"
+							variant="md"
+						/>
+					)}
 
 					{buttonHref && buttonText && (
 						<ButtonLink
@@ -87,7 +79,6 @@ export function mapDataToProps({
 	return {
 		imageUrl: data.primary?.image?.url,
 		imageAlt: data.primary?.image?.alt,
-		heading: data.primary?.heading?.text,
 		textHTML: data.primary?.text?.html,
 		buttonHref: data.primary?.button_link?.url,
 		buttonText: data.primary?.button_text,
@@ -109,9 +100,6 @@ export const gqlFragment = graphql`
 			image {
 				url
 				alt
-			}
-			heading {
-				text
 			}
 			text {
 				html

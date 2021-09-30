@@ -39,7 +39,10 @@ const RichText = ({
 					variantStyles.textColor
 				)}
 			>
-				{textHTML && <HTMLContent html={textHTML} className="max-w-[600px]" />}
+				{textHTML && (
+					<HTMLContent html={textHTML} className="max-w-3xl" variant="lg" />
+				)}
+
 				{buttonHref && buttonText && (
 					<ButtonLink href={buttonHref} color={variantStyles.buttonColor}>
 						{buttonText}

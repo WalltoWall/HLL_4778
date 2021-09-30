@@ -20,8 +20,6 @@ type VideoGalleryProps = ReturnType<typeof mapDataToProps>
 export type TVideo = VideoGalleryProps["videos"][number]
 
 const VideoGallery = ({
-	subheading,
-	heading,
 	textHTML,
 	color,
 	videos,
@@ -40,37 +38,16 @@ const VideoGallery = ({
 			nextOverhangs={nextOverhangs}
 			previousOverhangs={previousOverhangs}
 		>
-			<div
-				className={clsx(
-					"text-center grid gap-y-4 md:gap-y-5 lg:gap-y-6",
-					variantStyles.textColor
-				)}
-			>
-				{subheading && (
-					<h4
-						className={clsx(
-							"font-bold uppercase font-sansExt",
-							"text-12 md:text-16 lg:text-22",
-							"tracking-caps"
-						)}
-					>
-						{subheading}
-					</h4>
-				)}
-
-				{heading && (
-					<h4 className={clsx("font-serif text-42 md:text-52 lg:text-62")}>
-						{heading}
-					</h4>
-				)}
-
-				{textHTML && (
-					<HTMLContent
-						html={textHTML}
-						className="max-w-xl mx-auto mt-4 md:mt-6 lg:mt-8"
-					/>
-				)}
-			</div>
+			{textHTML && (
+				<HTMLContent
+					html={textHTML}
+					className={clsx(
+						variantStyles.textColor,
+						"text-center max-w-xl mx-auto mt-4 md:mt-6 lg:mt-8"
+					)}
+					variant="lg"
+				/>
+			)}
 
 			<div
 				className={clsx(
@@ -101,8 +78,6 @@ export function mapDataToProps({
 	const color = getColorVariant(data.primary?.color)
 
 	return {
-		heading: data.primary?.heading?.text,
-		subheading: data.primary?.subheading1?.text,
 		textHTML: undefIfEmpty(data.primary?.text?.html),
 		color,
 
@@ -139,12 +114,6 @@ export function mapDataToContext({
 export const gqlFragment = graphql`
 	fragment VideoGallery on PrismicPageDataBodyVideoGallery {
 		primary {
-			subheading1 {
-				text
-			}
-			heading {
-				text
-			}
 			text {
 				html
 			}

@@ -90,7 +90,7 @@ const VideoPopup = ({ variantStyles, video }: VideoProps) => {
 					</div>
 
 					{video.descriptionHTML && (
-						<HTMLContent html={video.descriptionHTML} />
+						<HTMLContent html={video.descriptionHTML} className="max-w-lg" />
 					)}
 				</div>
 			</Dialog.Content>
