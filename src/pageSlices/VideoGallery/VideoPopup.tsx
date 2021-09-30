@@ -55,7 +55,7 @@ export const VideoPopup = ({ variantStyles, video }: VideoProps) => {
 				<div className="mt-6 md:mt-10 lg:mt-13">
 					<div
 						className={clsx(
-							"grid grid-cols-2 gap-x-2",
+							"grid grid-cols-[1fr,auto] gap-x-8",
 							"items-start",
 							"mb-6 md:mb-8 lg:mb-10"
 						)}
