@@ -8,26 +8,13 @@ import { VisuallyHidden } from "../../components/VisuallyHidden"
 import { UnstyledButton } from "../../components/UnstyledButton"
 import { HTMLContent } from "../../components/HTMLContent"
 import { MenuButton } from "../../components/MenuButton"
-import { PlayIcon } from "../../components/PlayIcon"
 import { VoteButton } from "./VoteButton"
+import { StartableVideo } from "../../components/StartableVideo"
 
 import type { TVideo } from "./VideoGallery"
 import type { ColorVariantStyles } from "../../lib/colorVariant"
 
 const VideoPopup = ({ variantStyles, video }: VideoProps) => {
-	const [hasVideoStarted, setHasVideoStarted] = React.useState(false)
-	const videoRef = React.useRef<HTMLVideoElement>(null)
-
-	async function toggleVideo() {
-		if (!videoRef.current) return
-		if (!hasVideoStarted) {
-			setHasVideoStarted(true)
-			await videoRef.current.play()
-		} else {
-			videoRef.current.pause()
-		}
-	}
-
 	return (
 		<>
 			<Dialog.Overlay className="fixed inset-0 bg-gray-13/70">
@@ -60,45 +47,13 @@ const VideoPopup = ({ variantStyles, video }: VideoProps) => {
 						"group"
 					)}
 				>
-					<div className="aspect-w-16 aspect-h-9">
-						{video.videoURL && (
-							<video
-								ref={videoRef}
-								className={clsx(
-									"absolute object-cover w-full h-full",
-									!hasVideoStarted && "hidden"
-								)}
-								loop
-								controls
-								controlsList="nodownload noremoteplayback"
-								disablePictureInPicture
-							>
-								<source type="video/mp4" src={video.videoURL} />
-							</video>
-						)}
-
-						{!hasVideoStarted && video.videoThumbnailURL && (
-							<Image
-								src={video.videoThumbnailURL}
-								alt={video.videoThumbnailAlt ?? ""}
-								className={clsx("absolute object-cover w-full h-full")}
-							/>
-						)}
-					</div>
-
-					{video.videoURL && (
-						<UnstyledButton
-							className={clsx(
-								"absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]",
-								"transition duration-200"
-							)}
-							onClick={toggleVideo}
-						>
-							{!hasVideoStarted && (
-								<PlayIcon className="w-9 h-9 md:w-14 md:h-14 lg:w-19 lg:h-19" />
-							)}
-						</UnstyledButton>
-					)}
+					<StartableVideo
+						className="aspect-w-16 aspect-h-9"
+						videoThumbnailURL={video.videoThumbnailURL}
+						videoThumbnailAlt={video.videoThumbnailAlt}
+						videoURL={video.videoURL}
+						filledPlayIcon
+					/>
 				</div>
 
 				<div className="mt-6 md:mt-10 lg:mt-13">

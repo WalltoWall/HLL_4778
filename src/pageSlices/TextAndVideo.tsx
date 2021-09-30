@@ -4,21 +4,23 @@ import { graphql } from "gatsby"
 import { undefIfEmpty } from "@walltowall/helpers"
 
 import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
-import type { RichTextFragment } from "../gqlTypes.gen"
+import type { TextAndVideoFragment } from "../gqlTypes.gen"
 import { getColorVariant, getColorVariantStyles } from "../lib/colorVariant"
 
 import { HTMLContent } from "../components/HTMLContent"
 import { BoundedBox } from "../components/BoundedBox"
-import { ButtonLink } from "../components/Button"
+import { StartableVideo } from "../components/StartableVideo"
 
-export const sliceType = "PrismicPageDataBodyRichText"
+export const sliceType = "PrismicPageDataBodyTextAndVideo"
 
-const RichText = ({
+const TextAndVideo = ({
 	textHTML,
-	buttonHref,
-	buttonText,
-	nextSharesBg,
 	color,
+	thumbnailSide = "left",
+	videoThumbnailAlt,
+	videoThumbnailURL,
+	videoURL,
+	nextSharesBg,
 	nextOverhangs,
 	previousOverhangs,
 }: ReturnType<typeof mapDataToProps>) => {
@@ -32,19 +34,14 @@ const RichText = ({
 			nextOverhangs={nextOverhangs}
 			previousOverhangs={previousOverhangs}
 		>
-			<div
-				className={clsx(
-					"flex flex-col items-center space-y-12",
-					"text-center",
-					variantStyles.textColor
-				)}
-			>
-				{textHTML && <HTMLContent html={textHTML} className="max-w-[600px]" />}
-				{buttonHref && buttonText && (
-					<ButtonLink href={buttonHref} color={variantStyles.buttonColor}>
-						{buttonText}
-					</ButtonLink>
-				)}
+			<div className="-mx-5 md:-mx-8">
+				<StartableVideo
+					className="aspect-w-16 aspect-h-9"
+					videoThumbnailURL={videoThumbnailURL}
+					videoThumbnailAlt={videoThumbnailAlt}
+					videoURL={videoURL}
+					filledPlayIcon
+				/>
 			</div>
 		</BoundedBox>
 	)
@@ -54,15 +51,18 @@ export function mapDataToProps({
 	data,
 	nextContext,
 	previousContext,
-}: MapDataToPropsCtx<RichTextFragment>) {
-	const color = getColorVariant(data.primary?.color)
-
+}: MapDataToPropsCtx<TextAndVideoFragment>) {
 	return {
+		color: getColorVariant(data.primary?.color),
 		textHTML: undefIfEmpty(data.primary?.text?.html),
-		buttonHref: data.primary?.button_link?.url,
-		buttonText: data.primary?.button_text,
-		color,
-		nextSharesBg: nextContext?.backgroundColor === color,
+		videoThumbnailURL: data.primary?.video_thumbnail?.url,
+		videoThumbnailAlt: data.primary?.video_thumbnail?.alt,
+		thumbnailSide: data.primary?.thumbnail_side?.toLowerCase() as
+			| "left"
+			| "right",
+		videoURL: data.primary?.video_url,
+
+		nextSharesBg: nextContext?.backgroundColor === "blue",
 		previousOverhangs: previousContext?.overhangsPrevious,
 		nextOverhangs: nextContext?.overhangsNext,
 	}
@@ -70,25 +70,27 @@ export function mapDataToProps({
 
 export function mapDataToContext({
 	data,
-}: MapDataToContextCtx<RichTextFragment>) {
+}: MapDataToContextCtx<TextAndVideoFragment>) {
 	return {
 		backgroundColor: getColorVariant(data.primary?.color),
 	}
 }
 
 export const gqlFragment = graphql`
-	fragment RichText on PrismicPageDataBodyRichText {
+	fragment TextAndVideo on PrismicPageDataBodyTextAndVideo {
 		primary {
+			video_thumbnail {
+				url
+				alt
+			}
+			thumbnail_side
+			video_url
 			text {
 				html
 			}
-			button_link {
-				url
-			}
-			button_text
 			color
 		}
 	}
 `
 
-export default RichText
+export default TextAndVideo
