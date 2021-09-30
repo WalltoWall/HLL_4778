@@ -24,28 +24,28 @@
 	& h2 {
 		@apply text-28 md:text-32 lg:text-36
 		leading-1
-		mt-6 
-		mb-8;
+		mt-4 lg:mt-6 
+		mb-6 lg:mb-8;
 	}
 
 	& h4 {
 		@apply text-16 md:text-18 lg:text-22
 		leading-1_2 
-		mt-6 first:mt-0
-		mb-8 last:mb-0;
+		mt-4 lg:mt-6 
+		mb-6 lg:mb-8;
 	}
 
 	& h5 {
-		@apply text-14 md:text-15 lg:text-16
+		@apply text-15 md:text-16 lg:text-18
 		leading-1_5 
-		mt-6 
-		mb-5;
+		mt-4 lg:mt-6 
+		mb-3 lg:mb-5;
 	}
 
 	& p {
-		@apply text-14 md:text-16 lg:text-18
+		@apply text-15 md:text-16 lg:text-18
 		leading-1_3
-		mb-9;
+		mb-7 lg:mb-9;
 	}
 }
 
@@ -53,28 +53,28 @@
 	& h2 {
 		@apply text-32 md:text-42 lg:text-52
 		leading-1
-		mt-6 	
-		mb-9;
+		mt-4 lg:mt-6 	
+		mb-7 lg:mb-9;
 	}
 
 	& h4 {
 		@apply text-18 md:text-22 lg:text-24
 		leading-1_2 
-		mt-6 
-		mb-9;
+		mt-4 lg:mt-6 
+		mb-7 lg:mb-9;
 	}
 
 	& h5 {
 		@apply text-16 lg:text-18
 		leading-1_5 
-		mt-6 
-		mb-6;
+		mt-4 lg:mt-6 
+		mb-4 lg:mb-6;
 	}
 
 	& p {
 		@apply text-16 lg:text-18
 		leading-1_3
-		mb-10;
+		mb-8 lg:mb-10;
 	}
 }
 
@@ -82,27 +82,27 @@
 	& h2 {
 		@apply text-42 md:text-52 lg:text-62	
 		leading-1_15
-		mt-6  
-		mb-12;
+		mt-4 lg:mt-6  
+		mb-10 lg:mb-12;
 	}
 
 	& h4 {
 		@apply text-18 md:text-24 lg:text-28
 		leading-1_2 
-		mt-6 
-		mb-9;
+		mt-4 lg:mt-6 
+		mb-7 lg:mb-9;
 	}
 
 	& h5 {
 		@apply text-16 md:text-18 lg:text-22
 		leading-1_5
-		mt-6 
-		mb-6;
+		mt-4 lg:mt-6 
+		mb-4 lg:mb-6;
 	}
 
 	& p {
 		@apply text-16 md:text-18 lg:text-22
 		leading-1_3
-		mb-10;
+		mb-8 lg:mb-10;
 	}
 }
