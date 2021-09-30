@@ -13,6 +13,10 @@ import { BoundedBox } from "../../components/BoundedBox"
 import { getColorVariant, getColorVariantStyles } from "../../lib/colorVariant"
 import { HTMLContent } from "../../components/HTMLContent"
 import { Video } from "./Video"
+import {
+	resolvePrevContext,
+	resolveNextContext,
+} from "../../lib/mapToComponents"
 
 export const sliceType = "PrismicPageDataBodyVideoGallery"
 
@@ -75,7 +79,10 @@ export function mapDataToProps({
 	previousContext,
 }: MapDataToPropsCtx<VideoGalleryFragment>) {
 	const submissionType = data.primary?.video_submission_type?.uid
+
 	const color = getColorVariant(data.primary?.color)
+	const prevCtx = resolvePrevContext(previousContext)
+	const nextCtx = resolveNextContext(nextContext)
 
 	return {
 		textHTML: undefIfEmpty(data.primary?.text?.html),
@@ -98,8 +105,8 @@ export function mapDataToProps({
 			) ?? [],
 
 		nextSharesBg: nextContext?.backgroundColor === color,
-		previousOverhangs: previousContext?.overhangsPrevious,
-		nextOverhangs: nextContext?.overhangsNext,
+		previousOverhangs: prevCtx?.overhangsNext,
+		nextOverhangs: nextCtx?.overhangsPrevious,
 	}
 }
 

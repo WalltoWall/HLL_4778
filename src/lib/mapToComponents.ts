@@ -88,3 +88,11 @@ export const fallbackSlice: MapToComponentsProps["default"] = (data) => {
 
 	return null
 }
+
+export function resolveNextContext(ctx: any) {
+	return ctx?.nextCtx ?? ctx
+}
+
+export function resolvePrevContext(ctx: any) {
+	return ctx?.prevCtx ?? ctx
+}

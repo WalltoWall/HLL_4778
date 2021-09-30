@@ -14,6 +14,10 @@ import { getColorVariant, getColorVariantStyles } from "../../lib/colorVariant"
 
 import { MobilePeople } from "./MobilePeople"
 import { DesktopPeople } from "./DesktopPeople"
+import {
+	resolvePrevContext,
+	resolveNextContext,
+} from "../../lib/mapToComponents"
 
 export const sliceType = "PrismicPageDataBodyFeaturedPeople"
 
@@ -88,14 +92,13 @@ export function mapDataToProps({
 	previousContext,
 }: MapDataToPropsCtx<FeaturedPeopleFragment>) {
 	const color = getColorVariant(data.primary?.color)
+	const prevCtx = resolvePrevContext(previousContext)
+	const nextCtx = resolveNextContext(nextContext)
 
 	return {
 		subheading: data.primary?.subheading?.text,
 		heading: data.primary?.heading?.text,
 		color,
-		nextSharesBg: nextContext?.backgroundColor === color,
-		previousOverhangs: previousContext?.overhangsPrevious,
-		nextOverhangs: nextContext?.overhangsNext,
 		people:
 			data.items?.map((item) => ({
 				name: item?.name?.text,
@@ -109,6 +112,10 @@ export function mapDataToProps({
 				imageURL: item?.headshot?.url,
 				imageAlt: item?.headshot?.alt,
 			})) ?? [],
+
+		nextSharesBg: nextContext?.backgroundColor === color,
+		previousOverhangs: prevCtx?.overhangsNext,
+		nextOverhangs: nextCtx?.overhangsPrevious,
 	}
 }
 

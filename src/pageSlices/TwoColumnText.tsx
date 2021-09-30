@@ -9,6 +9,7 @@ import { getColorVariant, getColorVariantStyles } from "../lib/colorVariant"
 
 import { HTMLContent } from "../components/HTMLContent"
 import { BoundedBox } from "../components/BoundedBox"
+import { resolveNextContext, resolvePrevContext } from "../lib/mapToComponents"
 
 export const sliceType = "PrismicPageDataBodyTwoColumnText"
 
@@ -51,14 +52,17 @@ export function mapDataToProps({
 	previousContext,
 }: MapDataToPropsCtx<TwoColumnTextFragment>) {
 	const color = getColorVariant(data.primary?.color)
+	const prevCtx = resolvePrevContext(previousContext)
+	const nextCtx = resolveNextContext(nextContext)
 
 	return {
 		leftHTML: undefIfEmpty(data.primary?.left_text?.html),
 		rightHTML: undefIfEmpty(data.primary?.right_text?.html),
 		color,
+
 		nextSharesBg: nextContext?.backgroundColor === color,
-		previousOverhangs: previousContext?.overhangsPrevious,
-		nextOverhangs: nextContext?.overhangsNext,
+		previousOverhangs: prevCtx?.overhangsNext,
+		nextOverhangs: nextCtx?.overhangsPrevious,
 	}
 }
 

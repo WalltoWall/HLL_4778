@@ -10,6 +10,7 @@ import { getColorVariant, getColorVariantStyles } from "../lib/colorVariant"
 import { HTMLContent } from "../components/HTMLContent"
 import { BoundedBox } from "../components/BoundedBox"
 import { StartableVideo } from "../components/StartableVideo"
+import { resolvePrevContext, resolveNextContext } from "../lib/mapToComponents"
 
 export const sliceType = "PrismicPageDataBodyTextAndVideo"
 
@@ -83,6 +84,8 @@ export function mapDataToProps({
 	previousContext,
 }: MapDataToPropsCtx<TextAndVideoFragment>) {
 	const color = getColorVariant(data.primary?.color)
+	const prevCtx = resolvePrevContext(previousContext)
+	const nextCtx = resolveNextContext(nextContext)
 
 	return {
 		color,
@@ -95,8 +98,8 @@ export function mapDataToProps({
 		videoURL: data.primary?.video_url,
 
 		nextSharesBg: nextContext?.backgroundColor === color,
-		previousOverhangs: previousContext?.overhangsPrevious,
-		nextOverhangs: nextContext?.overhangsNext,
+		previousOverhangs: prevCtx?.overhangsNext,
+		nextOverhangs: nextCtx?.overhangsPrevious,
 	}
 }
 

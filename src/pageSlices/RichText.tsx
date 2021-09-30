@@ -66,8 +66,8 @@ export function mapDataToProps({
 		buttonText: data.primary?.button_text,
 		color,
 		nextSharesBg: nextContext?.backgroundColor === color,
-		previousOverhangs: previousContext?.overhangsPrevious,
-		nextOverhangs: nextContext?.overhangsNext,
+		previousOverhangs: previousContext?.overhangsNext,
+		nextOverhangs: nextContext?.overhangsPrevious,
 	}
 }
 
