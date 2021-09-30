@@ -23,6 +23,7 @@ export const gqlFragment = graphql`
 			}
 			color
 			video_submission_type {
+				uid
 				document {
 					... on PrismicSubmissionType {
 						_previewable
