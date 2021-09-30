@@ -66,7 +66,13 @@ export const DesktopSlider = ({
 		loop: true,
 		slidesPerView: 3,
 		centered: true,
-		spacing: 60,
+		spacing: 30,
+
+		breakpoints: {
+			"(min-width: 1024px)": {
+				spacing: 60,
+			},
+		},
 
 		slideChanged: (slider) => {
 			const nextPerson = people[slider.details().relativeSlide]
@@ -83,11 +89,7 @@ export const DesktopSlider = ({
 			<div className="relative px-10">
 				<ul ref={sliderRef} className="keen-slider">
 					{people.map((person, idx) => (
-						<DesktopPerson
-							key={`desktopPerson-${idx}`}
-							person={person}
-							isActive={person === activePerson}
-						/>
+						<DesktopPerson key={`desktopPerson-${idx}`} person={person} />
 					))}
 				</ul>
 
