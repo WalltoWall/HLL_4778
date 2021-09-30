@@ -49,7 +49,7 @@ export const StartableVideo = ({
 				/>
 			)}
 
-			{!hasVideoStarted && (
+			{!hasVideoStarted && videoURL && (
 				<UnstyledButton
 					className={clsx(
 						"absolute inset-0",
