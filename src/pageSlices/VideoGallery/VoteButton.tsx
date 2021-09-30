@@ -8,17 +8,21 @@ import { useVoteMutation } from "../../hooks/useVoteMutation"
 
 import type { VideoProps } from "./Video"
 
-export const VoteButton = ({ video, variantStyles }: VideoProps) => {
+export const VoteButton = ({ video }: VideoProps) => {
 	const { user, voteForVideo } = useUser()
 	const { voteMutation, isLoading } = useVoteMutation()
 
 	const userHasVoted = video.uid ? user?.votedVideos.includes(video.uid) : false
 
 	async function sendVote() {
-		if (!user?.id || !video.uid) return
+		if (!user?.id || !video.uid || !video.submissionType) return
 		if (userHasVoted) return
 
-		const success = await voteMutation({ userId: user.id, videoUid: video.uid })
+		const success = await voteMutation({
+			userId: user.id,
+			videoUid: video.uid,
+			videoSubmissionType: video.submissionType,
+		})
 
 		// We'll handle UI states with isError and isLoading.
 		if (success) {

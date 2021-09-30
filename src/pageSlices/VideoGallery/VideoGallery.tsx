@@ -97,6 +97,8 @@ export function mapDataToProps({
 	nextContext,
 	previousContext,
 }: MapDataToPropsCtx<VideoGalleryFragment>) {
+	const submissionType = data.primary?.video_submission_type?.uid
+
 	return {
 		heading: data.primary?.heading?.text,
 		subheading: data.primary?.subheading1?.text,
@@ -115,6 +117,7 @@ export function mapDataToProps({
 					votable: submission?.data?.votable ?? false,
 					uid: submission?.uid,
 					href: submission?.url,
+					submissionType,
 				})
 			) ?? [],
 
@@ -146,6 +149,7 @@ export const gqlFragment = graphql`
 			}
 			color
 			video_submission_type {
+				uid
 				document {
 					... on PrismicSubmissionType {
 						_previewable

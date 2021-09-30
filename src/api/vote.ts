@@ -4,6 +4,7 @@ import { FirebaseVideo } from "../firebase/FirebaseVideo"
 
 const VoteRequestBody = z.object({
 	videoUid: z.string(),
+	videoSubmissionType: z.string(),
 	userId: z.string(),
 })
 export type VoteRequestBody = z.infer<typeof VoteRequestBody>
@@ -25,9 +26,16 @@ export default async function handler(
 
 	const body = parseResult.data
 
-	let video = await FirebaseVideo.findMaybeOne(body.videoUid)
+	let video = await FirebaseVideo.findMaybeOne(
+		body.videoUid,
+		body.videoSubmissionType
+	)
 	if (!video) {
-		video = new FirebaseVideo({ uid: body.videoUid, votes: 0 })
+		video = new FirebaseVideo({
+			uid: body.videoUid,
+			votes: 0,
+			submissionType: body.videoSubmissionType,
+		})
 	}
 
 	video.votes = video.votes + 1
