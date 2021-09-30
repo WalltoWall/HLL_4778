@@ -80,11 +80,13 @@ export function mapDataToProps({
 	nextContext,
 	previousContext,
 }: MapDataToPropsCtx<FeaturedPeopleFragment>) {
+	const color = getColorVariant(data.primary?.color)
+
 	return {
 		subheading: data.primary?.subheading?.text,
 		heading: data.primary?.heading?.text,
-		color: getColorVariant(data.primary?.color),
-		nextSharesBg: nextContext?.backgroundColor === "blue",
+		color,
+		nextSharesBg: nextContext?.backgroundColor === color,
 		previousOverhangs: previousContext?.overhangsPrevious,
 		nextOverhangs: nextContext?.overhangsNext,
 		people:
