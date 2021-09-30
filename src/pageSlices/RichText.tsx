@@ -41,7 +41,7 @@ const RichText = ({
 				)}
 			>
 				{textHTML && (
-					<HTMLContent html={textHTML} className="max-w-3xl" variant="lg" />
+					<HTMLContent html={textHTML} className="max-w-2xl" variant="lg" />
 				)}
 
 				{buttonHref && buttonText && (
