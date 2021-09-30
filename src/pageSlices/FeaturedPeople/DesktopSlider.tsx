@@ -4,37 +4,12 @@ import { useKeenSlider } from "keen-slider/react"
 
 import { DesktopPerson } from "./DesktopPerson"
 import { BoundedBox } from "../../components/BoundedBox"
-import { ArrowIcon } from "../../components/ArrowIcon"
-import { VisuallyHidden } from "../../components/VisuallyHidden"
-import { UnstyledButton } from "../../components/UnstyledButton"
+import { ArrowButton } from "../../components/ArrowButton"
 
 import type { Person } from "./FeaturedPeople"
 import type { ColorVariantStyles } from "../../lib/colorVariant"
 
 import "keen-slider/keen-slider.min.css"
-
-interface ArrowButtonProps extends React.ComponentPropsWithoutRef<"button"> {
-	label: string
-}
-
-const ArrowButton = ({ className, label, ...props }: ArrowButtonProps) => {
-	return (
-		<UnstyledButton
-			className={clsx(
-				"w-13 h-13 lg:w-16 lg:h-16",
-				"absolute top-[35%] translate-y-[-50%]",
-				className,
-				"hover:text-purple-57 focus:text-purple-57",
-				"transition"
-			)}
-			withRing={false}
-			{...props}
-		>
-			<VisuallyHidden>{label}</VisuallyHidden>
-			<ArrowIcon className="w-full h-full" />
-		</UnstyledButton>
-	)
-}
 
 const Gradient = ({
 	className,
@@ -98,12 +73,12 @@ export const DesktopSlider = ({
 				<Gradient aria-hidden className="right-10 bg-gradient-to-l" />
 
 				<ArrowButton
-					className="rotate-180 left-3"
+					className="rotate-180 left-3 absolute top-[35%] translate-y-[-50%]"
 					label="Previous person"
 					onClick={() => slider.prev()}
 				/>
 				<ArrowButton
-					className="right-3"
+					className="right-3 absolute top-[35%] translate-y-[-50%]"
 					label="Next person"
 					onClick={() => slider.next()}
 				/>
