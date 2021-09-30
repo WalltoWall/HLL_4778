@@ -63,15 +63,7 @@ const ImageCallToAction = ({
 							</h2>
 						)}
 
-						{textHTML && (
-							<HTMLContent
-								html={textHTML}
-								className={clsx(
-									"max-w-[45ch] mx-auto w-full",
-									"md:mr-auto md:ml-0"
-								)}
-							/>
-						)}
+						{textHTML && <HTMLContent html={textHTML} />}
 					</div>
 
 					{buttonHref && buttonText && (

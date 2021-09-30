@@ -25,6 +25,7 @@ const TextAndVideo = ({
 	previousOverhangs,
 }: ReturnType<typeof mapDataToProps>) => {
 	const variantStyles = getColorVariantStyles(color)
+	const isImageOnRight = thumbnailSide === "right"
 
 	return (
 		<BoundedBox
@@ -34,8 +35,21 @@ const TextAndVideo = ({
 			nextOverhangs={nextOverhangs}
 			previousOverhangs={previousOverhangs}
 		>
-			<div className="grid gap-y-10">
-				<div className="-mx-5 md:-mx-8">
+			<div
+				className={clsx(
+					"grid grid-flow-col-dense",
+					"gap-y-10 md:gap-y-0",
+					"md:grid-cols-2 md:items-center",
+					"md:gap-x-10 lg:gap-x-18 xl:gap-x-25"
+				)}
+			>
+				<div
+					className={clsx(
+						"-mx-5",
+						"md:mx-0",
+						isImageOnRight && "md:col-start-2"
+					)}
+				>
 					<StartableVideo
 						className="aspect-w-16 aspect-h-9"
 						videoThumbnailURL={videoThumbnailURL}
@@ -45,7 +59,18 @@ const TextAndVideo = ({
 					/>
 				</div>
 
-				{textHTML && <HTMLContent html={textHTML} className="text-center" />}
+				{textHTML && (
+					<HTMLContent
+						html={textHTML}
+						className={clsx(
+							"text-center",
+							"max-w-xl",
+							isImageOnRight
+								? "md:col-start-1 md:text-right md:ml-auto"
+								: "md:text-left md:mr-auto"
+						)}
+					/>
+				)}
 			</div>
 		</BoundedBox>
 	)
