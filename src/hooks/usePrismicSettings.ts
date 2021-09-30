@@ -32,6 +32,7 @@ export function usePrismicSettings() {
 					open_graph_image {
 						url
 					}
+					footer_logo_url
 				}
 			}
 		}
@@ -54,6 +55,7 @@ export function usePrismicSettings() {
 			twitterCardImageUrl: data?.twitter_card_image?.url,
 			twitterUsername: data?.twitter_username,
 			openGraphImageUrl: data?.open_graph_image?.url,
+			footerLogoUrl: data?.footer_logo_url,
 		}
 	}, [])
 }
