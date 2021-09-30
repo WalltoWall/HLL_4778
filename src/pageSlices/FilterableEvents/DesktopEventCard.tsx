@@ -15,17 +15,18 @@ export const DesktopEventCard = ({
 	const { ref } = useUpdateEventInView({
 		updateEvent: updateActiveEvent,
 		event,
-		threshold: 0.33,
+		threshold: 1,
 	})
 
 	return (
-		<div className="h-screen col-start-1" ref={ref}>
+		<div className="h-screen col-start-1">
 			<EventDescription
 				activeVariant={activeVariant}
 				date={event.date}
 				descriptionHTML={event.descriptionHTML}
 				title={event.title}
 				href={event.href}
+				ref={ref}
 			/>
 		</div>
 	)
