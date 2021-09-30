@@ -37,9 +37,9 @@ const TextAndVideo = ({
 		>
 			<div
 				className={clsx(
-					"grid grid-flow-col-dense",
+					"grid",
 					"gap-y-10 md:gap-y-0",
-					"md:grid-cols-2 md:items-center",
+					"md:grid-cols-2 md:items-center md:grid-flow-col-dense",
 					"md:gap-x-10 lg:gap-x-18 xl:gap-x-25"
 				)}
 			>
