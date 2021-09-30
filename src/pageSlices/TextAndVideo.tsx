@@ -63,6 +63,7 @@ const TextAndVideo = ({
 					<HTMLContent
 						html={textHTML}
 						className={clsx(
+							variantStyles.textColor,
 							"text-center",
 							"max-w-xl",
 							isImageOnRight

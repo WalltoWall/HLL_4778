@@ -16,9 +16,6 @@ export const gqlFragment = graphql`
 				url
 				alt
 			}
-			heading {
-				text
-			}
 			text {
 				html
 			}

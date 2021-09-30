@@ -33,7 +33,7 @@ export const EventDescription = ({
 				<p
 					className={clsx(
 						"tracking-caps uppercase font-sansExt",
-						"text-12 md:text-13 lg:text-16",
+						"text-16 lg:text-18",
 						"leading-1_5",
 						"transition duration-300",
 						activeVariant.textColor
@@ -47,8 +47,8 @@ export const EventDescription = ({
 						<h4
 							className={clsx(
 								"font-serif",
-								"text-32 md:text-36 lg:text-42",
-								"leading-1_15",
+								"text-32 md:text-42 lg:text-52",
+								"leading-1",
 								activeVariant.textColor,
 								"transition duration-300"
 							)}
@@ -62,6 +62,7 @@ export const EventDescription = ({
 			{descriptionHTML && (
 				<HTMLContent
 					html={descriptionHTML}
+					variant="md"
 					className={clsx(
 						"transition duration-300 max-w-sm",
 						activeVariant.textColor

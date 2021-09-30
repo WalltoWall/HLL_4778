@@ -12,12 +12,6 @@ export const sliceType = "PrismicEventDataBodyVideoGallery"
 export const gqlFragment = graphql`
 	fragment EventVideoGallery on PrismicEventDataBodyVideoGallery {
 		primary {
-			subheading1 {
-				text
-			}
-			heading {
-				text
-			}
 			text {
 				html
 			}

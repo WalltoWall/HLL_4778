@@ -33,7 +33,11 @@ const FeaturedPeople = ({
 
 	return (
 		<section>
-			<BoundedBox className={variantStyles.bg} nextSharesBg>
+			<BoundedBox
+				className={variantStyles.bg}
+				nextSharesBg
+				previousOverhangs={previousOverhangs}
+			>
 				<div className="space-y-12">
 					<div
 						className={clsx(

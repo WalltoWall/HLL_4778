@@ -108,48 +108,6 @@
             },
             "repeat": {}
           },
-          "two_column_text": {
-            "type": "Slice",
-            "fieldset": "Two Column Text",
-            "description": "Two columns of rich text",
-            "icon": "text_fields",
-            "display": "list",
-            "non-repeat": {
-              "left_text": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph,heading2,heading5,hyperlink,image",
-                  "allowTargetBlank": true,
-                  "label": "Left Text",
-                  "placeholder": "(This text shows first on mobile)"
-                }
-              },
-              "right_text": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph,heading2,heading5,hyperlink",
-                  "allowTargetBlank": true,
-                  "label": "Right Text"
-                }
-              },
-              "color": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "Blue",
-                    "Red",
-                    "Yellow",
-                    "Orange",
-                    "Green",
-                    "Purple"
-                  ],
-                  "default_value": "Blue",
-                  "label": "Color"
-                }
-              }
-            },
-            "repeat": {}
-          },
           "introduction": {
             "type": "Slice",
             "fieldset": "Introduction",
@@ -170,68 +128,6 @@
                   "multi": "paragraph,strong,em,hyperlink",
                   "allowTargetBlank": true,
                   "label": "Text"
-                }
-              },
-              "color": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "Blue",
-                    "Red",
-                    "Yellow",
-                    "Orange",
-                    "Green",
-                    "Purple"
-                  ],
-                  "default_value": "Blue",
-                  "label": "Color"
-                }
-              }
-            },
-            "repeat": {}
-          },
-          "image_call_to_action": {
-            "type": "Slice",
-            "fieldset": "Image Call to Action",
-            "description": "Call to action with image and buttons",
-            "icon": "call",
-            "display": "list",
-            "non-repeat": {
-              "image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "Image"
-                }
-              },
-              "heading": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading2",
-                  "label": "Heading"
-                }
-              },
-              "text": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph,heading3,hyperlink",
-                  "allowTargetBlank": true,
-                  "label": "Text"
-                }
-              },
-              "button_link": {
-                "type": "Link",
-                "config": {
-                  "allowTargetBlank": true,
-                  "label": "Button Link",
-                  "select": null
-                }
-              },
-              "button_text": {
-                "type": "Text",
-                "config": {
-                  "label": "Button Text"
                 }
               },
               "color": {
@@ -317,106 +213,6 @@
                 "type": "Text",
                 "config": {
                   "label": "Button Text"
-                }
-              }
-            },
-            "repeat": {}
-          },
-          "call_to_action_card": {
-            "type": "Slice",
-            "fieldset": "Call to Action Card",
-            "description": "Heading and button block with card layout",
-            "icon": "credit_card",
-            "display": "list",
-            "non-repeat": {
-              "subheading": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading4",
-                  "label": "Subheading"
-                }
-              },
-              "heading": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading2",
-                  "label": "Heading"
-                }
-              },
-              "button_link": {
-                "type": "Link",
-                "config": {
-                  "allowTargetBlank": true,
-                  "label": "Button Link",
-                  "select": null
-                }
-              },
-              "button_text": {
-                "type": "Text",
-                "config": {
-                  "label": "Button Text"
-                }
-              },
-              "color": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "Blue",
-                    "Red",
-                    "Yellow",
-                    "Orange",
-                    "Green",
-                    "Purple"
-                  ],
-                  "default_value": "Blue",
-                  "label": "Color"
-                }
-              }
-            },
-            "repeat": {}
-          },
-          "rich_text": {
-            "type": "Slice",
-            "fieldset": "Rich Text",
-            "description": "Rich text with optional button",
-            "icon": "format_color_text",
-            "display": "list",
-            "non-repeat": {
-              "text": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph,heading2,heading4,heading5,strong,em,hyperlink",
-                  "allowTargetBlank": true,
-                  "label": "Text"
-                }
-              },
-              "button_link": {
-                "type": "Link",
-                "config": {
-                  "allowTargetBlank": true,
-                  "label": "Button Link",
-                  "select": null
-                }
-              },
-              "button_text": {
-                "type": "Text",
-                "config": {
-                  "label": "Button Text"
-                }
-              },
-              "color": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "Blue",
-                    "Red",
-                    "Orange",
-                    "Yellow",
-                    "Green",
-                    "Purple"
-                  ],
-                  "default_value": "Blue",
-                  "label": "Color"
                 }
               }
             },
@@ -549,63 +345,6 @@
               }
             }
           },
-          "video_gallery": {
-            "type": "Slice",
-            "fieldset": "Video Gallery",
-            "description": "List of video submissions based on type",
-            "icon": "video_library",
-            "display": "list",
-            "non-repeat": {
-              "subheading1": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading4",
-                  "label": "Subheading"
-                }
-              },
-              "heading": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading2",
-                  "label": "Heading"
-                }
-              },
-              "text": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph,strong,em,hyperlink",
-                  "allowTargetBlank": true,
-                  "label": "Text"
-                }
-              },
-              "video_submission_type": {
-                "type": "Link",
-                "config": {
-                  "select": "document",
-                  "customtypes": [
-                    "submission_type"
-                  ],
-                  "label": "Video Submission Type"
-                }
-              },
-              "color": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "Blue",
-                    "Red",
-                    "Yellow",
-                    "Orange",
-                    "Green",
-                    "Purple"
-                  ],
-                  "default_value": "Blue",
-                  "label": "Color"
-                }
-              }
-            },
-            "repeat": {}
-          },
           "text_and_video": {
             "type": "Slice",
             "fieldset": "Text and Video",
@@ -644,6 +383,240 @@
                   "multi": "paragraph,heading2,heading4,heading5,strong,hyperlink",
                   "allowTargetBlank": true,
                   "label": "Text"
+                }
+              },
+              "color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Blue",
+                    "Red",
+                    "Yellow",
+                    "Orange",
+                    "Green",
+                    "Purple"
+                  ],
+                  "default_value": "Blue",
+                  "label": "Color"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "video_gallery": {
+            "type": "Slice",
+            "fieldset": "Video Gallery",
+            "description": "List of video submissions based on type",
+            "icon": "video_library",
+            "display": "list",
+            "non-repeat": {
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,heading2,heading4,heading5,strong,em,hyperlink",
+                  "allowTargetBlank": true,
+                  "label": "Text"
+                }
+              },
+              "video_submission_type": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": [
+                    "submission_type"
+                  ],
+                  "label": "Video Submission Type"
+                }
+              },
+              "color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Blue",
+                    "Red",
+                    "Yellow",
+                    "Orange",
+                    "Green",
+                    "Purple"
+                  ],
+                  "default_value": "Blue",
+                  "label": "Color"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "rich_text": {
+            "type": "Slice",
+            "fieldset": "Rich Text",
+            "description": "Rich text with optional button",
+            "icon": "format_color_text",
+            "display": "list",
+            "non-repeat": {
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,heading2,heading4,heading5,strong,em,hyperlink",
+                  "allowTargetBlank": true,
+                  "label": "Text"
+                }
+              },
+              "button_link": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Button Link",
+                  "select": null
+                }
+              },
+              "button_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Button Text"
+                }
+              },
+              "color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Blue",
+                    "Red",
+                    "Orange",
+                    "Yellow",
+                    "Green",
+                    "Purple"
+                  ],
+                  "default_value": "Blue",
+                  "label": "Color"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "call_to_action_card": {
+            "type": "Slice",
+            "fieldset": "Call to Action Card",
+            "description": "Heading and button block with card layout",
+            "icon": "credit_card",
+            "display": "list",
+            "non-repeat": {
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,heading2,heading4,heading5,strong,em,hyperlink",
+                  "allowTargetBlank": true,
+                  "label": "Text"
+                }
+              },
+              "button_link": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Button Link",
+                  "select": null
+                }
+              },
+              "button_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Button Text"
+                }
+              },
+              "color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Blue",
+                    "Red",
+                    "Yellow",
+                    "Orange",
+                    "Green",
+                    "Purple"
+                  ],
+                  "default_value": "Blue",
+                  "label": "Color"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "image_call_to_action": {
+            "type": "Slice",
+            "fieldset": "Image Call to Action",
+            "description": "Call to action with image and buttons",
+            "icon": "call",
+            "display": "list",
+            "non-repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              },
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,heading2,heading4,heading5,strong,em,hyperlink",
+                  "allowTargetBlank": true,
+                  "label": "Text"
+                }
+              },
+              "button_link": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Button Link",
+                  "select": null
+                }
+              },
+              "button_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Button Text"
+                }
+              },
+              "color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Blue",
+                    "Red",
+                    "Yellow",
+                    "Orange",
+                    "Green",
+                    "Purple"
+                  ],
+                  "default_value": "Blue",
+                  "label": "Color"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "two_column_text": {
+            "type": "Slice",
+            "fieldset": "Two Column Text",
+            "description": "Two columns of rich text",
+            "icon": "text_fields",
+            "display": "list",
+            "non-repeat": {
+              "left_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,heading2,heading4,heading5,strong,em,hyperlink,image",
+                  "allowTargetBlank": true,
+                  "label": "Left Text",
+                  "placeholder": "(This text shows first on mobile)"
+                }
+              },
+              "right_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,heading2,heading4,heading5,strong,em,hyperlink",
+                  "allowTargetBlank": true,
+                  "label": "Right Text"
                 }
               },
               "color": {

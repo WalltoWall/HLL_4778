@@ -12,11 +12,8 @@ export { mapDataToContext, mapDataToProps }
 export const gqlFragment = graphql`
 	fragment EventCallToActionCard on PrismicEventDataBodyCallToActionCard {
 		primary {
-			subheading {
-				text
-			}
-			heading {
-				text
+			text {
+				html
 			}
 			button_link {
 				url

@@ -38,8 +38,8 @@ const TwoColumnText = ({
 					variantStyles.textColor
 				)}
 			>
-				{leftHTML && <HTMLContent html={leftHTML} />}
-				{rightHTML && <HTMLContent html={rightHTML} />}
+				{leftHTML && <HTMLContent html={leftHTML} variant="md" />}
+				{rightHTML && <HTMLContent html={rightHTML} variant="md" />}
 			</div>
 		</BoundedBox>
 	)

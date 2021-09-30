@@ -45,6 +45,7 @@ const CallToAction = ({
 						{heading}
 					</h2>
 				)}
+
 				{buttonHref && buttonText && (
 					<ButtonLink color="yellow" href={buttonHref}>
 						{buttonText}
