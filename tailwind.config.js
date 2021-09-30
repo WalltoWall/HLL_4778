@@ -1,3 +1,20 @@
+const colors = {
+	white: "#fff",
+	black: "#000",
+	transparent: "#fff0",
+	current: "currentColor",
+
+	gray: { 13: "#241F20", 23: "#3f3738" },
+	beige: { 92: "#F7F2E2" },
+
+	red: { 45: "#C83228" },
+	orange: { 55: "#EB5A32" },
+	yellow: { 50: "#FFAB00" },
+	green: { 27: "#6D8E00" },
+	blue: { 31: "#007CA0" },
+	purple: { 57: "#6E3CBE", 73: "#be93e4" },
+}
+
 module.exports = {
 	purge: ["./src/**/*.{ts,tsx}"],
 	mode: "jit",
@@ -48,22 +65,9 @@ module.exports = {
 			{}
 		),
 
-		colors: {
-			white: "#fff",
-			black: "#000",
-			transparent: "#fff0",
-			current: "currentColor",
-
-			gray: { 13: "#241F20", 23: "#3f3738" },
-			beige: { 92: "#F7F2E2" },
-
-			red: { 45: "#C83228" },
-			orange: { 55: "#EB5A32" },
-			yellow: { 50: "#FFAB00" },
-			green: { 27: "#6D8E00" },
-			blue: { 31: "#007CA0" },
-			purple: { 57: "#6E3CBE" },
-		},
+		colors,
+		fill: colors,
+		stroke: colors,
 
 		capsize: {
 			fontMetrics: {

@@ -30,7 +30,6 @@ export const DesktopPeople = ({
 			<DesktopSlider
 				people={people}
 				setActivePerson={setActivePerson}
-				activePerson={activePerson}
 				variantStyles={variantStyles}
 			/>
 

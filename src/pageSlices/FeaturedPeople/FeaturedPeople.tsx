@@ -40,7 +40,7 @@ const FeaturedPeople = ({
 			<BoundedBox
 				className={clsx(
 					variantStyles.bg,
-					nextOverhangs && "!pb-40 !-mb-16 md:!pb-0 md:!-mb-0"
+					nextOverhangs && "!pb-40 !-mb-16 sm:!-mb-20 md:!pb-0 md:!-mb-0"
 				)}
 				nextSharesBg
 				previousOverhangs={previousOverhangs}
@@ -71,7 +71,7 @@ const FeaturedPeople = ({
 						)}
 					</div>
 
-					<MobilePeople people={people} />
+					<MobilePeople people={people} variantStyles={variantStyles} />
 				</div>
 			</BoundedBox>
 

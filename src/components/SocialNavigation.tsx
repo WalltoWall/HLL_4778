@@ -22,7 +22,7 @@ const SocialIconLink = ({ href, children, label }: SocialIconLinkProps) => {
 			href={href}
 			className={clsx(
 				"w-10 h-10 lg:w-14 lg:h-14",
-				"text-beige-92 hover:text-purple-57 focus:text-purple-57"
+				"text-beige-92 hover:text-purple-73 focus:text-purple-73"
 			)}
 		>
 			<VisuallyHidden>{label}</VisuallyHidden>
