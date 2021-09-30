@@ -58,13 +58,10 @@ export function mapDataToProps({
 	data,
 	nextContext,
 	previousContext,
-	nextType,
 }: MapDataToPropsCtx<RichTextFragment>) {
 	const color = getColorVariant(data.primary?.color)
 	const prevCtx = resolvePrevContext(previousContext)
 	const nextCtx = resolveNextContext(nextContext)
-
-	console.log(nextCtx, nextType)
 
 	return {
 		textHTML: undefIfEmpty(data.primary?.text?.html),
