@@ -58,7 +58,7 @@ export const DesktopPerson = ({ person, isActive }: DesktopPersonProps) => {
 			)}
 
 			<div className="flex items-center space-x-2">
-				<PlusIcon className="w-6 h-6 text-black" isOpen={isActive} />
+				<PlusIcon className="w-6 h-6 text-gray-13" isOpen={isActive} />
 
 				<p className="font-bold underline uppercase font-sansExt text-16">
 					Bio

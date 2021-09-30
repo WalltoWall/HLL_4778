@@ -51,10 +51,10 @@ const variantMap: Record<ColorVariant, FilterableEventsVariant> = {
 		bg: "bg-yellow-50",
 		controlsBg: "bg-yellow-50",
 		controlsBorder: "border-beige-92",
-		inactiveControlTextColor: "text-black",
-		activeContolTextColor: "text-black",
+		inactiveControlTextColor: "text-gray-13",
+		activeContolTextColor: "text-gray-13",
 		activeButtonBg: "bg-beige-92",
-		textColor: "text-black",
+		textColor: "text-gray-13",
 	},
 }
 

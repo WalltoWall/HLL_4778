@@ -41,14 +41,14 @@ const colorVariantMap: Record<ColorVariant, ColorVariantStyles> = {
 	},
 	orange: {
 		bg: "bg-orange-55",
-		textColor: "text-black",
+		textColor: "text-gray-13",
 		buttonColor: "yellow",
 		borderColor: "border-black",
 		placeholderColor: "placeholder-black/60",
 	},
 	yellow: {
 		bg: "bg-yellow-50",
-		textColor: "text-black",
+		textColor: "text-gray-13",
 		buttonColor: "black",
 		borderColor: "border-black",
 		placeholderColor: "placeholder-black/60",

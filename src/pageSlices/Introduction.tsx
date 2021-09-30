@@ -66,7 +66,7 @@ const Introduction = ({
 							className={clsx(
 								"font-serif leading-1",
 								"text-42 md:text-52 lg:text-62",
-								"isolate text-black"
+								"isolate text-gray-13"
 							)}
 						>
 							{heading}

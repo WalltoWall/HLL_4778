@@ -70,7 +70,7 @@ export const MobilePerson = ({ person }: MobilePersonProps) => {
 				>
 					<Collapsible.Trigger>
 						<div className="flex items-center space-x-2">
-							<PlusIcon className="w-5 h-5 text-black" isOpen={isExpanded} />
+							<PlusIcon className="w-5 h-5 text-gray-13" isOpen={isExpanded} />
 
 							<p className="font-bold underline uppercase font-sansExt text-13">
 								Bio
