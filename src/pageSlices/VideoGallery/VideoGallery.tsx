@@ -98,12 +98,13 @@ export function mapDataToProps({
 	previousContext,
 }: MapDataToPropsCtx<VideoGalleryFragment>) {
 	const submissionType = data.primary?.video_submission_type?.uid
+	const color = getColorVariant(data.primary?.color)
 
 	return {
 		heading: data.primary?.heading?.text,
 		subheading: data.primary?.subheading1?.text,
 		textHTML: undefIfEmpty(data.primary?.text?.html),
-		color: getColorVariant(data.primary?.color),
+		color,
 
 		videos:
 			data.primary?.video_submission_type?.document?.submissions?.map(
@@ -121,7 +122,7 @@ export function mapDataToProps({
 				})
 			) ?? [],
 
-		nextSharesBg: nextContext?.backgroundColor === "blue",
+		nextSharesBg: nextContext?.backgroundColor === color,
 		previousOverhangs: previousContext?.overhangsPrevious,
 		nextOverhangs: nextContext?.overhangsNext,
 	}

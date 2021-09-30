@@ -45,7 +45,7 @@ export const StartableVideo = ({
 				<Image
 					src={videoThumbnailURL}
 					alt={videoThumbnailAlt ?? ""}
-					className="absolute inset-0 object-cover object-center pointer-events-none brightness-75"
+					className="absolute inset-0 object-cover object-center pointer-events-none brightness-[.70]"
 				/>
 			)}
 

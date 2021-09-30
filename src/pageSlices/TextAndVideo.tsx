@@ -34,14 +34,18 @@ const TextAndVideo = ({
 			nextOverhangs={nextOverhangs}
 			previousOverhangs={previousOverhangs}
 		>
-			<div className="-mx-5 md:-mx-8">
-				<StartableVideo
-					className="aspect-w-16 aspect-h-9"
-					videoThumbnailURL={videoThumbnailURL}
-					videoThumbnailAlt={videoThumbnailAlt}
-					videoURL={videoURL}
-					filledPlayIcon
-				/>
+			<div className="grid gap-y-10">
+				<div className="-mx-5 md:-mx-8">
+					<StartableVideo
+						className="aspect-w-16 aspect-h-9"
+						videoThumbnailURL={videoThumbnailURL}
+						videoThumbnailAlt={videoThumbnailAlt}
+						videoURL={videoURL}
+						filledPlayIcon
+					/>
+				</div>
+
+				{textHTML && <HTMLContent html={textHTML} className="text-center" />}
 			</div>
 		</BoundedBox>
 	)
@@ -52,8 +56,10 @@ export function mapDataToProps({
 	nextContext,
 	previousContext,
 }: MapDataToPropsCtx<TextAndVideoFragment>) {
+	const color = getColorVariant(data.primary?.color)
+
 	return {
-		color: getColorVariant(data.primary?.color),
+		color,
 		textHTML: undefIfEmpty(data.primary?.text?.html),
 		videoThumbnailURL: data.primary?.video_thumbnail?.url,
 		videoThumbnailAlt: data.primary?.video_thumbnail?.alt,
@@ -62,7 +68,7 @@ export function mapDataToProps({
 			| "right",
 		videoURL: data.primary?.video_url,
 
-		nextSharesBg: nextContext?.backgroundColor === "blue",
+		nextSharesBg: nextContext?.backgroundColor === color,
 		previousOverhangs: previousContext?.overhangsPrevious,
 		nextOverhangs: nextContext?.overhangsNext,
 	}

@@ -50,11 +50,13 @@ export function mapDataToProps({
 	nextContext,
 	previousContext,
 }: MapDataToPropsCtx<TwoColumnTextFragment>) {
+	const color = getColorVariant(data.primary?.color)
+
 	return {
 		leftHTML: undefIfEmpty(data.primary?.left_text?.html),
 		rightHTML: undefIfEmpty(data.primary?.right_text?.html),
-		color: getColorVariant(data.primary?.color),
-		nextSharesBg: nextContext?.backgroundColor === "blue",
+		color,
+		nextSharesBg: nextContext?.backgroundColor === color,
 		previousOverhangs: previousContext?.overhangsPrevious,
 		nextOverhangs: nextContext?.overhangsNext,
 	}
