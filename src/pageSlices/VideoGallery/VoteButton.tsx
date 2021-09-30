@@ -30,11 +30,7 @@ export const VoteButton = ({ video }: VideoProps) => {
 		}
 	}
 
-	const voteText = isLoading
-		? "Voting..."
-		: userHasVoted
-		? "You've voted!"
-		: "Cast your vote!"
+	const voteText = isLoading ? "Voting..." : userHasVoted ? "Voted!" : "Vote"
 
 	return (
 		<UnstyledButton

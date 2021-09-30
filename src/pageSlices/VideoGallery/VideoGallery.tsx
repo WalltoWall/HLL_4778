@@ -2,6 +2,7 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import { undefIfEmpty } from "@walltowall/helpers"
 import clsx from "clsx"
+import shuffle from "just-shuffle"
 
 import type {
 	MapDataToContextCtx,
@@ -84,25 +85,27 @@ export function mapDataToProps({
 	const prevCtx = resolvePrevContext(previousContext)
 	const nextCtx = resolveNextContext(nextContext)
 
+	const videos =
+		data.primary?.video_submission_type?.document?.submissions?.map(
+			(submission) => ({
+				name: submission?.data?.name?.text,
+				descriptionHTML: undefIfEmpty(submission?.data?.description?.html),
+				subtitle: submission?.data?.subtitle?.text,
+				videoThumbnailURL: submission?.data?.video_thumbnail?.url,
+				videoThumbnailAlt: submission?.data?.video_thumbnail?.alt,
+				videoURL: submission?.data?.video_url,
+				votable: submission?.data?.votable ?? false,
+				uid: submission?.uid,
+				href: submission?.url,
+				submissionType,
+			})
+		) ?? []
+
 	return {
 		textHTML: undefIfEmpty(data.primary?.text?.html),
 		color,
 
-		videos:
-			data.primary?.video_submission_type?.document?.submissions?.map(
-				(submission) => ({
-					name: submission?.data?.name?.text,
-					descriptionHTML: undefIfEmpty(submission?.data?.description?.html),
-					subtitle: submission?.data?.subtitle?.text,
-					videoThumbnailURL: submission?.data?.video_thumbnail?.url,
-					videoThumbnailAlt: submission?.data?.video_thumbnail?.alt,
-					videoURL: submission?.data?.video_url,
-					votable: submission?.data?.votable ?? false,
-					uid: submission?.uid,
-					href: submission?.url,
-					submissionType,
-				})
-			) ?? [],
+		videos: shuffle(videos),
 
 		nextSharesBg: nextContext?.backgroundColor === color,
 		previousOverhangs: prevCtx?.overhangsNext,
