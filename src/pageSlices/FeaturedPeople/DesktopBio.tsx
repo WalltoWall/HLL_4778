@@ -29,6 +29,46 @@ const Arrow = () => {
 	)
 }
 
+interface BioIconWithTextProps {
+	icon: (props: React.ComponentPropsWithoutRef<"svg">) => JSX.Element
+	href: string
+	children: React.ReactNode
+	className?: string
+}
+
+const BioIconWithText = ({
+	href,
+	icon: Icon,
+	children,
+	className,
+}: BioIconWithTextProps) => {
+	return (
+		<Link
+			className={clsx("flex items-center space-x-2 group", className)}
+			href={href}
+		>
+			<Icon
+				className={clsx(
+					"w-8 h-8 lg:w-10 lg:h-10",
+					"text-yellow-50",
+					"group-hover:text-purple-73 group-focus:text-purple-73",
+					"transition"
+				)}
+			/>
+
+			<p
+				className={clsx(
+					"font-bold uppercase font-sansExt text-13 lg:text-16",
+					"group-hover:text-purple-73 group-focus:text-purple-73",
+					"transition"
+				)}
+			>
+				{children}
+			</p>
+		</Link>
+	)
+}
+
 export const DesktopBio = ({
 	person,
 	variantStyles,
@@ -38,43 +78,35 @@ export const DesktopBio = ({
 	return (
 		<>
 			<BoundedBox
-				className={clsx("relative bg-gray-13 text-beige-92", "")}
+				className="relative bg-gray-13 text-beige-92"
 				variant="bio"
 				width="base"
 			>
 				<Arrow />
 
-				{person.bioHTML && <HTMLContent html={person.bioHTML} />}
+				<div className="flex flex-col items-start">
+					{person.bioHTML && <HTMLContent html={person.bioHTML} />}
 
-				{person.instagramHandle && person.instagramHref && (
-					<Link
-						className={clsx("flex items-center space-x-2", "mt-8 lg:mt-12")}
-						href={person.instagramHref}
-					>
-						<InstagramIcon
-							className={clsx("w-8 h-8 lg:w-10 lg:h-10", "text-yellow-50")}
-						/>
-
-						<p className="font-bold uppercase font-sansExt text-13 lg:text-16">
+					{person.instagramHandle && person.instagramHref && (
+						<BioIconWithText
+							href={person.instagramHref}
+							icon={InstagramIcon}
+							className="mt-8 lg:mt-12"
+						>
 							@{person.instagramHandle}
-						</p>
-					</Link>
-				)}
+						</BioIconWithText>
+					)}
 
-				{person.websiteLabel && person.websiteHref && (
-					<Link
-						className={clsx("flex items-center space-x-2", "mt-3 lg:mt-5")}
-						href={person.websiteHref}
-					>
-						<GlobeIcon
-							className={clsx("w-8 h-8 lg:w-10 lg:h-10", "text-yellow-50")}
-						/>
-
-						<p className="font-bold uppercase font-sansExt text-13 lg:text-16">
+					{person.websiteLabel && person.websiteHref && (
+						<BioIconWithText
+							href={person.websiteHref}
+							icon={GlobeIcon}
+							className="mt-3 lg:mt-5"
+						>
 							{person.websiteLabel}
-						</p>
-					</Link>
-				)}
+						</BioIconWithText>
+					)}
+				</div>
 			</BoundedBox>
 
 			<BoundedBox

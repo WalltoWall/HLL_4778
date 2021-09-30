@@ -23,8 +23,11 @@ const ArrowButton = ({ className, label, ...props }: ArrowButtonProps) => {
 			className={clsx(
 				"w-13 h-13 lg:w-16 lg:h-16",
 				"absolute top-[35%] translate-y-[-50%]",
-				className
+				className,
+				"hover:text-purple-57 focus:text-purple-57",
+				"transition"
 			)}
+			withRing={false}
 			{...props}
 		>
 			<VisuallyHidden>{label}</VisuallyHidden>
@@ -51,7 +54,6 @@ const Gradient = ({
 
 interface SliderProps {
 	people: Person[]
-	activePerson: Person | undefined
 	setActivePerson: (person: Person) => void
 	variantStyles: ColorVariantStyles
 }
@@ -59,7 +61,6 @@ interface SliderProps {
 export const DesktopSlider = ({
 	people,
 	setActivePerson,
-	activePerson,
 	variantStyles,
 }: SliderProps) => {
 	const [sliderRef, slider] = useKeenSlider<HTMLUListElement>({

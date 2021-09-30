@@ -50,12 +50,12 @@ export const BoundedBox = React.forwardRef<HTMLElement, BoundedBoxProps>(
 					nextSharesBg && !nextOverhangs && "pb-0 sm:pb-0 md:pb-0 lg:pb-0",
 					nextOverhangs &&
 						clsx(
-							"-mb-16 sm:-mb-16 md:-mb-24 lg:-mb-36",
+							"-mb-16 sm:-mb-20 md:-mb-24 lg:-mb-36",
 							"pb-40 sm:pb-40 md:pb-48 lg:pb-80"
 						),
 					previousOverhangs &&
 						clsx(
-							"-mt-16 sm:-mt-16 md:-mt-24 lg:-mt-36",
+							"-mt-16 sm:-mt-20 md:-mt-24 lg:-mt-36",
 							"pt-40 sm:pt-40 md:pt-48 lg:pt-80"
 						),
 					className,

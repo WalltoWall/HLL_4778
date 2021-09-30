@@ -25,7 +25,7 @@ export const Footer = ({ lastOverhangs = false }: FooterProps) => {
 			tag="footer"
 			className={clsx(
 				"bg-gray-13 text-beige-92",
-				lastOverhangs && "pt-43 md:pt-58 lg:pt-99",
+				lastOverhangs && "pt-43 sm:pt-47 md:pt-58 lg:pt-99",
 				lastOverhangs && "-mt-16 sm:-mt-20 md:-mt-24 lg:-mt-36",
 				"!pb-8"
 			)}
@@ -63,7 +63,7 @@ export const Footer = ({ lastOverhangs = false }: FooterProps) => {
 						Website design and development <br /> by{" "}
 						<Link
 							href="https://walltowall.com"
-							className="font-normal underline focus:text-purple-57 hover:text-purple-57"
+							className="font-normal underline focus:text-purple-73 hover:text-purple-73"
 						>
 							Wall-to-Wall Studios
 						</Link>

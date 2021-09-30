@@ -4,18 +4,21 @@ import * as Collapsible from "@radix-ui/react-collapsible"
 
 import { Image } from "../../components/Image"
 import { PlusIcon } from "../../components/PlusIcon"
-
-import type { Person } from "./FeaturedPeople"
 import { HTMLContent } from "../../components/HTMLContent"
 import { InstagramIcon } from "../../components/InstagramIcon"
 import { Link } from "../../components/Link"
 import { GlobeIcon } from "../../components/GlobeIcon"
+import { UnstyledButton } from "../../components/UnstyledButton"
+
+import type { Person } from "./FeaturedPeople"
+import type { ColorVariantStyles } from "../../lib/colorVariant"
 
 interface MobilePersonProps {
 	person: Person
+	variantStyles: ColorVariantStyles
 }
 
-export const MobilePerson = ({ person }: MobilePersonProps) => {
+export const MobilePerson = ({ person, variantStyles }: MobilePersonProps) => {
 	const [isExpanded, setIsExpanded] = React.useState(false)
 
 	return (
@@ -26,7 +29,7 @@ export const MobilePerson = ({ person }: MobilePersonProps) => {
 						<Image
 							src={person.imageURL}
 							alt={person.imageAlt ?? person.name}
-							className="w-full h-full rounded-full"
+							className="object-cover object-center w-full h-full rounded-full"
 						/>
 					</div>
 				</div>
@@ -73,14 +76,24 @@ export const MobilePerson = ({ person }: MobilePersonProps) => {
 					onOpenChange={(open: boolean) => setIsExpanded(open)}
 					className="flex flex-col items-center"
 				>
-					<Collapsible.Trigger>
-						<div className="flex items-center space-x-2">
-							<PlusIcon className="w-5 h-5 text-gray-13" isOpen={isExpanded} />
+					<Collapsible.Trigger asChild>
+						<UnstyledButton className="group">
+							<div className="flex items-center space-x-2">
+								<PlusIcon
+									className="w-5 h-5 sm:w-[22px] sm:h-[22px]"
+									plusClassName={clsx(
+										"text-gray-13",
+										variantStyles.plusIconPunchoutColor
+									)}
+									circleClassName="text-gray-13"
+									isOpen={isExpanded}
+								/>
 
-							<p className="font-bold underline uppercase font-sansExt text-13">
-								Bio
-							</p>
-						</div>
+								<p className="font-bold uppercase font-sansExt text-13 sm:text-16">
+									Bio
+								</p>
+							</div>
+						</UnstyledButton>
 					</Collapsible.Trigger>
 
 					<Collapsible.Content className="flex flex-col items-start px-3 pt-4">

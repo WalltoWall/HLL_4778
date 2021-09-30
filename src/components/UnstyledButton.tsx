@@ -1,16 +1,19 @@
 import * as React from "react"
 import clsx from "clsx"
 
-export type UnstyledButtonProps = React.ComponentPropsWithoutRef<"button">
+export interface UnstyledButtonProps
+	extends React.ComponentPropsWithoutRef<"button"> {
+	withRing?: boolean
+}
 
 export const UnstyledButton = React.forwardRef<
 	HTMLButtonElement,
 	UnstyledButtonProps
->(({ className, ...props }, ref) => {
+>(({ className, withRing = true, ...props }, ref) => {
 	return (
 		<button
 			ref={ref}
-			className={clsx(className, "focus:ring focus:outline-none")}
+			className={clsx(className, withRing && "focus:ring focus:outline-none")}
 			{...props}
 		/>
 	)
