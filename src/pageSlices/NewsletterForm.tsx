@@ -154,7 +154,6 @@ const NewsletterForm = ({
 
 export function mapDataToProps({
 	data,
-	nextType,
 }: MapDataToPropsCtx<
 	NewsletterFormFragment,
 	ReturnType<typeof mapDataToContext>
@@ -163,17 +162,16 @@ export function mapDataToProps({
 		heading: data.primary?.heading?.text,
 		placeholderText: data.primary?.placeholder_text,
 		color: getColorVariant(data.primary?.color),
-		overhangsPrevious: true,
-		overhangsNext: !nextType,
 	}
 }
 
-export function mapDataToContext(
-	_ctx: MapDataToContextCtx<NewsletterFormFragment>
-) {
+export function mapDataToContext({
+	nextType,
+}: MapDataToContextCtx<NewsletterFormFragment>) {
 	return {
 		backgroundColor: Symbol("never"),
-		overhangsNext: true,
+		overhangsPrevious: true,
+		overhangsNext: !nextType,
 	}
 }
 

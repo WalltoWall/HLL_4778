@@ -10,6 +10,7 @@ import { getColorVariant, getColorVariantStyles } from "../lib/colorVariant"
 import { HTMLContent } from "../components/HTMLContent"
 import { BoundedBox } from "../components/BoundedBox"
 import { ButtonLink } from "../components/Button"
+import { resolveNextContext, resolvePrevContext } from "../lib/mapToComponents"
 
 export const sliceType = "PrismicPageDataBodyRichText"
 
@@ -17,8 +18,8 @@ const RichText = ({
 	textHTML,
 	buttonHref,
 	buttonText,
-	nextSharesBg,
 	color,
+	nextSharesBg,
 	nextOverhangs,
 	previousOverhangs,
 }: ReturnType<typeof mapDataToProps>) => {
@@ -57,17 +58,23 @@ export function mapDataToProps({
 	data,
 	nextContext,
 	previousContext,
+	nextType,
 }: MapDataToPropsCtx<RichTextFragment>) {
 	const color = getColorVariant(data.primary?.color)
+	const prevCtx = resolvePrevContext(previousContext)
+	const nextCtx = resolveNextContext(nextContext)
+
+	console.log(nextCtx, nextType)
 
 	return {
 		textHTML: undefIfEmpty(data.primary?.text?.html),
 		buttonHref: data.primary?.button_link?.url,
 		buttonText: data.primary?.button_text,
 		color,
+
 		nextSharesBg: nextContext?.backgroundColor === color,
-		previousOverhangs: previousContext?.overhangsNext,
-		nextOverhangs: nextContext?.overhangsPrevious,
+		previousOverhangs: prevCtx?.overhangsNext,
+		nextOverhangs: nextCtx?.overhangsPrevious,
 	}
 }
 
