@@ -8,6 +8,10 @@ import { ColorVariant, getColorVariant } from "../../lib/colorVariant"
 import { DesktopEvents } from "./DesktopEvents"
 import { MobileEvents } from "./MobileEvents"
 import { getFilterableEventsVariant } from "./getFilterableEventsVariant"
+import {
+	resolveNextContext,
+	resolvePrevContext,
+} from "../../lib/mapToComponents"
 
 import type { IllustrationType } from "./getIllustrationUrl"
 import type {
@@ -101,6 +105,9 @@ export function mapDataToProps({
 	nextContext,
 	previousContext,
 }: MapDataToPropsCtx<FilterableEventsFragment>) {
+	const prevCtx = resolvePrevContext(previousContext)
+	const nextCtx = resolveNextContext(nextContext)
+
 	return {
 		events:
 			data.items?.map((item) => {
@@ -117,8 +124,9 @@ export function mapDataToProps({
 					href: item?.event?.url,
 				}
 			}) ?? [],
-		previousOverhangs: previousContext?.overhangsPrevious,
-		nextOverhangs: nextContext?.overhangsNext,
+
+		previousOverhangs: prevCtx?.overhangsNext,
+		nextOverhangs: nextCtx?.overhangsPrevious,
 	}
 }
 

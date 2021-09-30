@@ -35,12 +35,25 @@ export function mapDataToProps({
 
 export function mapDataToContext({
 	NextComp,
+	PreviousComp,
 	...rest
 }: MapDataToContextCtx<AnchorFragment>) {
 	//@ts-expect-error - Slice components generally have this function available.
-	const forwardedCtx = NextComp?.mapDataToContext?.({ NextComp, ...rest })
+	const nextCtx = NextComp?.mapDataToContext?.({
+		NextComp,
+		...rest,
+	})
 
-	return forwardedCtx
+	//@ts-expect-error - Slice components generally have this function available.
+	const prevCtx = PreviousComp?.mapDataToContext?.({
+		NextComp,
+		...rest,
+	})
+
+	return {
+		nextCtx,
+		prevCtx,
+	}
 }
 
 export const gqlFragment = graphql`

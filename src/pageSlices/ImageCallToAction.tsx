@@ -10,6 +10,7 @@ import { ButtonLink } from "../components/Button"
 import { ArchImage } from "../components/ArchImage"
 import { HTMLContent } from "../components/HTMLContent"
 import { getColorVariant, getColorVariantStyles } from "../lib/colorVariant"
+import { resolvePrevContext, resolveNextContext } from "../lib/mapToComponents"
 
 export const sliceType = "PrismicPageDataBodyImageCallToAction"
 
@@ -75,14 +76,24 @@ const ImageCallToAction = ({
 
 export function mapDataToProps({
 	data,
+	nextContext,
+	previousContext,
 }: MapDataToPropsCtx<ImageCallToActionFragment>) {
+	const color = getColorVariant(data.primary?.color)
+	const prevCtx = resolvePrevContext(previousContext)
+	const nextCtx = resolveNextContext(nextContext)
+
 	return {
 		imageUrl: data.primary?.image?.url,
 		imageAlt: data.primary?.image?.alt,
 		textHTML: data.primary?.text?.html,
 		buttonHref: data.primary?.button_link?.url,
 		buttonText: data.primary?.button_text,
-		color: getColorVariant(data.primary?.color),
+		color,
+
+		nextSharesBg: nextContext?.backgroundColor === color,
+		previousOverhangs: prevCtx?.overhangsNext,
+		nextOverhangs: nextCtx?.overhangsPrevious,
 	}
 }
 
