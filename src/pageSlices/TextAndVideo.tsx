@@ -65,7 +65,6 @@ const TextAndVideo = ({
 						html={textHTML}
 						className={clsx(
 							variantStyles.textColor,
-							"text-center",
 							"max-w-xl",
 							isImageOnRight
 								? "md:col-start-1 md:text-right md:ml-auto"
