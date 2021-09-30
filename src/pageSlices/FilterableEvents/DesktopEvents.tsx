@@ -3,15 +3,13 @@ import * as React from "react"
 import { m } from "framer-motion"
 
 import { Image } from "../../components/Image"
-
-import { useIsDesktop } from "../../hooks/useMediaQuery"
 import { DesktopEventCard } from "./DesktopEventCard"
 import { FilterControls } from "./FilterControls"
+import { getIllustrationUrl } from "./getIllustrationUrl"
+import { Link } from "../../components/Link"
 
 import type { Event } from "./FilterableEvents"
 import type { EventsListProps } from "./MobileEvents"
-import { getIllustrationUrl } from "./getIllustrationUrl"
-import { Link } from "../../components/Link"
 
 interface DesktopIllustrationProps {
 	activeEvent: Event
@@ -64,10 +62,6 @@ export const DesktopEvents = ({
 	className,
 	...props
 }: DesktopEventsProps) => {
-	const isDesktop = useIsDesktop()
-
-	if (!isDesktop) return null
-
 	return (
 		<div
 			className={clsx(
