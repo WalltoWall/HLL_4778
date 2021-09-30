@@ -29,11 +29,28 @@ export const VideoPopup = ({ variantStyles, video }: VideoProps) => {
 				)}
 			>
 				<ArrowButton
-					className="absolute translate-x-[-100%] -left-8 rotate-180 text-beige-92 top-[50%] translate-y-[-50%]"
+					className={clsx(
+						"absolute",
+						"-bottom-6 translate-y-[100%]",
+						"left-[50%] translate-x-[-125%]",
+						"lg:-left-8 lg:translate-x-[-100%]",
+						"lg:top-[50%] lg:translate-y-[-50%]",
+						"lg:bottom-[unset]",
+						"text-beige-92",
+						"rotate-180"
+					)}
 					label="Previous video"
 				/>
 				<ArrowButton
-					className="absolute -right-8 translate-x-[100%] text-beige-92 top-[50%] translate-y-[-50%]"
+					className={clsx(
+						"absolute",
+						"-bottom-6 translate-y-[100%]",
+						"right-[50%] translate-x-[125%]",
+						"lg:-right-8 lg:translate-x-[100%]",
+						"lg:top-[50%] lg:translate-y-[-50%]",
+						"lg:bottom-[unset]",
+						"text-beige-92"
+					)}
 					label="Next video"
 				/>
 
