@@ -78,7 +78,7 @@ const Introduction = ({
 					<HTMLContent
 						html={textHTML}
 						htmlClassName={styles.html}
-						className={clsx("w-3/4 lg:w-full", variantStyles.textColor)}
+						className={clsx("max-w-xs", variantStyles.textColor)}
 					/>
 				)}
 			</div>
