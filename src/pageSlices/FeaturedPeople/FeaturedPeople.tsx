@@ -65,9 +65,14 @@ const FeaturedPeople = ({
 						)}
 
 						{heading && (
-							<h4 className={clsx("font-serif text-42 md:text-52 lg:text-62")}>
+							<h2
+								className={clsx(
+									"font-serif text-42 md:text-52 lg:text-62",
+									"leading-1_15"
+								)}
+							>
 								{heading}
-							</h4>
+							</h2>
 						)}
 					</div>
 
