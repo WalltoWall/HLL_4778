@@ -7,16 +7,13 @@ import clsx from "clsx"
 
 export const sliceType = "PrismicPageDataBodyAnchor"
 
-const Anchor = ({
-	id,
-}: // adjustForOverhang,
-ReturnType<typeof mapDataToProps>) => {
+const Anchor = ({ id, nextOverhangs }: ReturnType<typeof mapDataToProps>) => {
 	return (
 		<div
 			id={id}
 			className={clsx(
-				"relative"
-				// adjustForOverhang && "-top-40 md:-top-48 lg:-top-64"
+				"relative",
+				nextOverhangs && "-top-16 sm:-top-20 md:-top-24 lg:-top-36"
 			)}
 			aria-hidden
 		/>
@@ -29,7 +26,7 @@ export function mapDataToProps({
 }: MapDataToPropsCtx<AnchorFragment>) {
 	return {
 		id: data.primary?.anchor,
-		adjustForOverhang: nextContext?.overhangs,
+		nextOverhangs: nextContext?.overhangsPrevious,
 	}
 }
 
