@@ -28,12 +28,12 @@ export const MobileEventCard = ({
 	const { ref } = useUpdateEventInView({
 		updateEvent: updateActiveEvent,
 		event,
-		threshold: 0.25,
+		threshold: 0.75,
 	})
 	const illustrationUrl = getIllustrationUrl(event.illustration)
 
 	return (
-		<div className="space-y-6" ref={ref}>
+		<div className="space-y-6">
 			<Link
 				href={event.href}
 				className={clsx("block bg-beige-92 aspect-w-1 aspect-h-1")}
@@ -44,6 +44,7 @@ export const MobileEventCard = ({
 			</Link>
 
 			<EventDescription
+				ref={ref}
 				variantStyles={variantStyles}
 				extraStyles={extraStyles}
 				date={event.date}

@@ -44,7 +44,7 @@ export const MobileEvents = ({
 				className="sticky z-10 self-center top-5"
 			/>
 
-			<div className="space-y-16 lg:hidden">
+			<div className="space-y-25 lg:hidden">
 				{events.map((event, idx) => (
 					<MobileEventCard
 						key={`event-${idx}`}
