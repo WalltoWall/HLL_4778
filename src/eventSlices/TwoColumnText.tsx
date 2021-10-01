@@ -19,6 +19,11 @@ export const gqlFragment = graphql`
 				html
 			}
 			color
+			button_text
+			button_link {
+				url
+			}
+			button_side
 		}
 	}
 `

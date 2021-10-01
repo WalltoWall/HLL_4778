@@ -633,6 +633,30 @@
                   "default_value": "Blue",
                   "label": "Color"
                 }
+              },
+              "button_link": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Button Link"
+                }
+              },
+              "button_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Button Text"
+                }
+              },
+              "button_side": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Left",
+                    "Right"
+                  ],
+                  "default_value": "Left",
+                  "label": "Button Side"
+                }
               }
             },
             "repeat": {}

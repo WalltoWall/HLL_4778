@@ -21,7 +21,7 @@ interface FactoryOptions<
 > {
 	base: string
 	variants: TVariants
-	defaultVariants?: TDefaultVariants
+	defaultVariants: TDefaultVariants
 }
 
 export function variantFnFactory<

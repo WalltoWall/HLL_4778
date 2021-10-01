@@ -21,6 +21,7 @@ const buttonVariants = variantFnFactory({
 				"bg-gray-13 text-beige-92",
 				"hover:border-gray-13 hover:text-gray-13"
 			),
+			white: clsx("bg-white text-gray-13", "hover:border-white"),
 		},
 	},
 	defaultVariants: {},
