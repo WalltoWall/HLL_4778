@@ -1,30 +1,33 @@
 import * as React from "react"
+import clsx from "clsx"
 
 import { MobileEventCard } from "./MobileEventCard"
 import { useIsDesktop } from "../../hooks/useMediaQuery"
 import { FilterControls } from "./FilterControls"
 
 import type { EventType, Event } from "./FilterableEvents"
-import type { FilterableEventsVariant } from "./getFilterableEventsVariant"
-import clsx from "clsx"
+import type { FilterableEventsExtraStyles } from "./getFilterableEventsExtraStyles"
+import type { ColorVariantStyles } from "../../lib/colorVariant"
 
 export interface EventsListProps extends React.ComponentProps<"div"> {
 	updateActiveEvent: (newEvent: Event) => void
-	activeVariant: FilterableEventsVariant
+	extraStyles: FilterableEventsExtraStyles
 	events: Event[]
 	activeFilter: EventType | undefined
 	clearFilters: () => void
 	filterEvents: (type: EventType) => void
+	variantStyles: ColorVariantStyles
 }
 
 export const MobileEvents = ({
 	events,
 	updateActiveEvent,
-	activeVariant,
+	extraStyles,
 	activeFilter,
 	clearFilters,
 	filterEvents,
 	className,
+	variantStyles,
 	...props
 }: EventsListProps) => {
 	const isDesktop = useIsDesktop()
@@ -34,7 +37,7 @@ export const MobileEvents = ({
 	return (
 		<div className={clsx("flex flex-col space-y-16", className)} {...props}>
 			<FilterControls
-				activeVariant={activeVariant}
+				extraStyles={extraStyles}
 				activeFilter={activeFilter}
 				clearFilters={clearFilters}
 				filterEvents={filterEvents}
@@ -47,7 +50,8 @@ export const MobileEvents = ({
 						key={`event-${idx}`}
 						event={event}
 						updateActiveEvent={updateActiveEvent}
-						activeVariant={activeVariant}
+						extraStyles={extraStyles}
+						variantStyles={variantStyles}
 					/>
 				))}
 			</div>

@@ -5,14 +5,16 @@ import { Link } from "../../components/Link"
 import { HTMLContent } from "../../components/HTMLContent"
 
 import type { Event } from "./FilterableEvents"
-import type { FilterableEventsVariant } from "./getFilterableEventsVariant"
+import type { ColorVariantStyles } from "../../lib/colorVariant"
+import type { FilterableEventsExtraStyles } from "./getFilterableEventsExtraStyles"
 
 interface Props extends Omit<Event, "color" | "illustration"> {
-	activeVariant: FilterableEventsVariant
+	variantStyles: ColorVariantStyles
+	extraStyles: FilterableEventsExtraStyles
 }
 
 export const EventDescription = React.forwardRef<HTMLDivElement, Props>(
-	({ date, descriptionHTML, href, title, activeVariant }, ref) => {
+	({ date, descriptionHTML, href, title, variantStyles, extraStyles }, ref) => {
 		const dateAndMonth = date.toLocaleDateString("en-US", {
 			month: "short",
 			day: "numeric",
@@ -33,22 +35,28 @@ export const EventDescription = React.forwardRef<HTMLDivElement, Props>(
 							"tracking-caps uppercase font-sansExt",
 							"text-16 lg:text-18",
 							"leading-1_5",
-							"transition duration-300",
-							activeVariant.textColor
+							"transition",
+							variantStyles.textColor
 						)}
 					>
 						{dateAndMonth} at {time}
 					</p>
 
 					{title && (
-						<Link href={href} className={clsx("block")}>
+						<Link
+							href={href}
+							className={clsx(
+								"block",
+								variantStyles.textColor,
+								extraStyles.hoverLinkColor,
+								"transition"
+							)}
+						>
 							<h4
 								className={clsx(
 									"font-serif",
 									"text-32 md:text-42 lg:text-52",
-									"leading-1",
-									activeVariant.textColor,
-									"transition duration-300"
+									"leading-1"
 								)}
 							>
 								{title}
@@ -61,21 +69,18 @@ export const EventDescription = React.forwardRef<HTMLDivElement, Props>(
 					<HTMLContent
 						html={descriptionHTML}
 						variant="md"
-						className={clsx(
-							"transition duration-300 max-w-sm",
-							activeVariant.textColor
-						)}
+						className={clsx("transition max-w-sm", variantStyles.textColor)}
 					/>
 				)}
 
 				<Link
 					href="/"
 					className={clsx(
-						"block underline transition duration-300",
+						"block underline transition",
 						"uppercase font-sansExt",
 						"text-13 md:text-16 lg:text-18",
 						"leading-1_5",
-						activeVariant.textColor
+						variantStyles.textColor
 					)}
 				>
 					RSVP Now
