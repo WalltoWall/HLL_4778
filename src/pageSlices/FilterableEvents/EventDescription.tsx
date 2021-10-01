@@ -74,16 +74,17 @@ export const EventDescription = React.forwardRef<HTMLDivElement, Props>(
 				)}
 
 				<Link
-					href="/"
+					href={href}
 					className={clsx(
 						"block underline transition",
 						"uppercase font-sansExt",
 						"text-13 md:text-16 lg:text-18",
 						"leading-1_5",
-						variantStyles.textColor
+						variantStyles.textColor,
+						extraStyles.hoverLinkColor
 					)}
 				>
-					RSVP Now
+					Learn More
 				</Link>
 			</div>
 		)
