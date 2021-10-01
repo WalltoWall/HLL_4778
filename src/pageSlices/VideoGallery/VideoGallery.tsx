@@ -32,7 +32,30 @@ const VideoGallery = ({
 	nextSharesBg,
 	previousOverhangs,
 }: VideoGalleryProps) => {
+	const [activeVideoIdx, setActiveVideoIdx] = React.useState<
+		number | undefined
+	>(undefined)
 	const variantStyles = getColorVariantStyles(color)
+
+	const onOpenChangeFactory = (idx: number) => (open: boolean) => {
+		if (open) setActiveVideoIdx(idx)
+		else setActiveVideoIdx(undefined)
+	}
+
+	function nextVideo() {
+		if (activeVideoIdx === undefined || activeVideoIdx === videos.length - 1)
+			return
+
+		setActiveVideoIdx(activeVideoIdx + 1)
+	}
+
+	function previousVideo() {
+		if (activeVideoIdx === undefined || activeVideoIdx <= 0) return
+
+		setActiveVideoIdx(activeVideoIdx - 1)
+	}
+
+	console.log(activeVideoIdx)
 
 	return (
 		<BoundedBox
@@ -67,6 +90,10 @@ const VideoGallery = ({
 						key={`videoGallery-${idx}`}
 						video={video}
 						variantStyles={variantStyles}
+						isOpen={activeVideoIdx === idx}
+						onOpenChange={onOpenChangeFactory(idx)}
+						nextVideo={nextVideo}
+						previousVideo={previousVideo}
 					/>
 				))}
 			</div>

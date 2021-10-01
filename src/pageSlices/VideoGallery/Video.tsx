@@ -13,11 +13,22 @@ import type { ColorVariantStyles } from "../../lib/colorVariant"
 export interface VideoProps {
 	video: TVideo
 	variantStyles: ColorVariantStyles
+	isOpen: boolean
+	onOpenChange: (open: boolean) => void
+	nextVideo: () => void
+	previousVideo: () => void
 }
 
-export const Video = ({ video, variantStyles }: VideoProps) => {
+export const Video = ({
+	video,
+	variantStyles,
+	isOpen,
+	onOpenChange,
+	nextVideo,
+	previousVideo,
+}: VideoProps) => {
 	return (
-		<Dialog.Root>
+		<Dialog.Root open={isOpen} onOpenChange={onOpenChange}>
 			<Dialog.Trigger asChild>
 				<UnstyledButton className="block bg-beige-92 aspect-w-1 aspect-h-1">
 					<VisuallyHidden>View {video.name}'s video.</VisuallyHidden>
@@ -29,7 +40,12 @@ export const Video = ({ video, variantStyles }: VideoProps) => {
 				</UnstyledButton>
 			</Dialog.Trigger>
 
-			<VideoPopup video={video} variantStyles={variantStyles} />
+			<VideoPopup
+				video={video}
+				variantStyles={variantStyles}
+				nextVideo={nextVideo}
+				previousVideo={previousVideo}
+			/>
 		</Dialog.Root>
 	)
 }

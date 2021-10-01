@@ -6,9 +6,13 @@ import { ThumbIcon } from "../../components/ThumbIcon"
 import { useUser } from "../../hooks/useUser"
 import { useVoteMutation } from "../../hooks/useVoteMutation"
 
-import type { VideoProps } from "./Video"
+import type { TVideo } from "./VideoGallery"
 
-export const VoteButton = ({ video }: VideoProps) => {
+interface VoteButtonProps {
+	video: TVideo
+}
+
+export const VoteButton = ({ video }: VoteButtonProps) => {
 	const { user, voteForVideo } = useUser()
 	const { voteMutation, isLoading } = useVoteMutation()
 
