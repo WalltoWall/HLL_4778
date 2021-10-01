@@ -35,7 +35,7 @@ export const EventDescription = React.forwardRef<HTMLDivElement, Props>(
 							"tracking-caps uppercase font-sansExt",
 							"text-16 lg:text-18",
 							"leading-1_5",
-							"transition",
+							"transition duration-300",
 							variantStyles.textColor
 						)}
 					>
@@ -49,7 +49,7 @@ export const EventDescription = React.forwardRef<HTMLDivElement, Props>(
 								"block",
 								variantStyles.textColor,
 								extraStyles.hoverLinkColor,
-								"transition"
+								"transition duration-300"
 							)}
 						>
 							<h4
@@ -69,14 +69,17 @@ export const EventDescription = React.forwardRef<HTMLDivElement, Props>(
 					<HTMLContent
 						html={descriptionHTML}
 						variant="md"
-						className={clsx("transition max-w-sm", variantStyles.textColor)}
+						className={clsx(
+							"transition duration-300 max-w-sm",
+							variantStyles.textColor
+						)}
 					/>
 				)}
 
 				<Link
 					href={href}
 					className={clsx(
-						"block underline transition",
+						"block underline transition duration-300",
 						"uppercase font-sansExt",
 						"text-13 md:text-16 lg:text-18",
 						"leading-1_5",
