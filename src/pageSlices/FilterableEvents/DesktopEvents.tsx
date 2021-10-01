@@ -23,6 +23,7 @@ const DesktopIllustration = ({ activeEvent }: DesktopIllustrationProps) => {
 	return (
 		<Link
 			href={activeEvent.href}
+			withRing={false}
 			aria-label={`Go to ${activeEvent.title} details page.`}
 			className={clsx(
 				"col-start-2 row-start-2",

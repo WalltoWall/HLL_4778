@@ -41,7 +41,7 @@ export const EventDescription = React.forwardRef<HTMLDivElement, Props>(
 					</p>
 
 					{title && (
-						<Link href={href} className="block">
+						<Link href={href} className={clsx("block")}>
 							<h4
 								className={clsx(
 									"font-serif",

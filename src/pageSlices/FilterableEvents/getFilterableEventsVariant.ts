@@ -56,6 +56,15 @@ const variantMap: Record<ColorVariant, FilterableEventsVariant> = {
 		activeButtonBg: "bg-beige-92",
 		textColor: "text-gray-13",
 	},
+	orange: {
+		bg: "bg-orange-55",
+		controlsBg: "bg-beige-92",
+		controlsBorder: "border-orange-55",
+		inactiveControlTextColor: "text-orange-55",
+		activeContolTextColor: "text-white",
+		activeButtonBg: "bg-orange-55",
+		textColor: "text-beige-92",
+	},
 }
 
 export function getFilterableEventsVariant(

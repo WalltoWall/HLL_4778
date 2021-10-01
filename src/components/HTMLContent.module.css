@@ -18,6 +18,10 @@
 	& a {
 		@apply underline font-medium;
 	}
+
+	& strong {
+		@apply font-bold;
+	}
 }
 
 .htmlContent {
