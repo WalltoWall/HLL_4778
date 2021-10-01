@@ -207,7 +207,7 @@
 							"left_text": {
 								"type": "StructuredText",
 								"config": {
-									"multi": "paragraph, heading2, heading4, heading5, strong, em, hyperlink, image",
+									"multi": "paragraph,heading2,heading4,heading5,strong,em,hyperlink,image",
 									"allowTargetBlank": true,
 									"label": "Left Text",
 									"placeholder": "(This text shows first on mobile)"
@@ -216,7 +216,7 @@
 							"right_text": {
 								"type": "StructuredText",
 								"config": {
-									"multi": "paragraph, heading2, heading4, heading5, strong, em, hyperlink",
+									"multi": "paragraph,heading2,heading4,heading5,strong,em,hyperlink",
 									"allowTargetBlank": true,
 									"label": "Right Text"
 								}
@@ -234,6 +234,27 @@
 									],
 									"default_value": "Blue",
 									"label": "Color"
+								}
+							},
+							"button_link": {
+								"type": "Link",
+								"config": {
+									"allowTargetBlank": true,
+									"label": "Button Link"
+								}
+							},
+							"button_text": {
+								"type": "Text",
+								"config": {
+									"label": "Button Text"
+								}
+							},
+							"button_side": {
+								"type": "Select",
+								"config": {
+									"options": ["Left", "Right"],
+									"default_value": "Left",
+									"label": "Button Side"
 								}
 							}
 						},
@@ -257,7 +278,7 @@
 							"text": {
 								"type": "StructuredText",
 								"config": {
-									"multi": "paragraph, heading2, heading4, heading5, strong, em, hyperlink",
+									"multi": "paragraph,heading2,heading4,heading5,strong,em,hyperlink",
 									"allowTargetBlank": true,
 									"label": "Text"
 								}
@@ -406,7 +427,7 @@
 							"text": {
 								"type": "StructuredText",
 								"config": {
-									"multi": "paragraph, heading2, heading4, heading5, strong, em, hyperlink",
+									"multi": "paragraph,heading2,heading4,heading5,strong,em,hyperlink",
 									"allowTargetBlank": true,
 									"label": "Text"
 								}
@@ -453,7 +474,7 @@
 							"text": {
 								"type": "StructuredText",
 								"config": {
-									"multi": "paragraph, heading2, heading4, heading5, strong, em, hyperlink",
+									"multi": "paragraph,heading2,heading4,heading5,strong,em,hyperlink",
 									"allowTargetBlank": true,
 									"label": "Text"
 								}
@@ -627,7 +648,7 @@
 							"text": {
 								"type": "StructuredText",
 								"config": {
-									"multi": "paragraph, heading2, heading4, heading5, strong, em, hyperlink",
+									"multi": "paragraph,heading2,heading4,heading5,strong,em,hyperlink",
 									"allowTargetBlank": true,
 									"label": "Text"
 								}

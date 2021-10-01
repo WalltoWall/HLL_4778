@@ -2306,6 +2306,9 @@ export type PrismicEventDataBodyTwoColumnText = PrismicSliceType & {
 }
 
 export type PrismicEventDataBodyTwoColumnTextPrimary = {
+	button_link?: Maybe<PrismicLinkType>
+	button_side?: Maybe<Scalars["String"]>
+	button_text?: Maybe<Scalars["String"]>
 	color?: Maybe<Scalars["String"]>
 	left_text?: Maybe<PrismicStructuredTextType>
 	right_text?: Maybe<PrismicStructuredTextType>
@@ -3556,6 +3559,9 @@ export type PrismicPageDataBodyTwoColumnText = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyTwoColumnTextPrimary = {
+	button_link?: Maybe<PrismicLinkType>
+	button_side?: Maybe<Scalars["String"]>
+	button_text?: Maybe<Scalars["String"]>
 	color?: Maybe<Scalars["String"]>
 	left_text?: Maybe<PrismicStructuredTextType>
 	right_text?: Maybe<PrismicStructuredTextType>
@@ -9529,6 +9535,81 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_T
 		left_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatLeft_Text>
 		right_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatRight_Text>
 		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColor>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_Link>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_Text>
+		button_side?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_Side>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_Link =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_LinkConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_LinkConfig =
+	{
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_LinkConfigFilterInput =
+	{
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_LinkFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_LinkConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_Side =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_SideConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_SideConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_SideConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_SideFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_SideConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_Text =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_TextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_TextConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_TextConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_TextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_TextConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColor =
@@ -9562,6 +9643,9 @@ export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_T
 		left_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatLeft_TextFilterInput>
 		right_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatRight_TextFilterInput>
 		color?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColorFilterInput>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_LinkFilterInput>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_TextFilterInput>
+		button_side?: Maybe<SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_SideFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasEventBodyBodyConfigChoicesTwo_Column_TextNon_RepeatLeft_Text =
@@ -11852,6 +11936,81 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_Te
 		left_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatLeft_Text>
 		right_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatRight_Text>
 		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColor>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_Link>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_Text>
+		button_side?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_Side>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_Link =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_LinkConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_LinkConfig =
+	{
+		allowTargetBlank?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_LinkConfigFilterInput =
+	{
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_LinkFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_LinkConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_Side =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_SideConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_SideConfig =
+	{
+		options?: Maybe<Array<Maybe<Scalars["String"]>>>
+		default_value?: Maybe<Scalars["String"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_SideConfigFilterInput =
+	{
+		options?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<StringQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_SideFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_SideConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_Text =
+	{
+		type?: Maybe<Scalars["String"]>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_TextConfig>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_TextConfig =
+	{
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_TextConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_TextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_TextConfigFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColor =
@@ -11885,6 +12044,9 @@ export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_Te
 		left_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatLeft_TextFilterInput>
 		right_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatRight_TextFilterInput>
 		color?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatColorFilterInput>
+		button_link?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_LinkFilterInput>
+		button_text?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_TextFilterInput>
+		button_side?: Maybe<SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatButton_SideFilterInput>
 	}
 
 export type SitePluginPluginOptionsSchemasPageBodyBodyConfigChoicesTwo_Column_TextNon_RepeatLeft_Text =
@@ -13753,8 +13915,11 @@ export type EventTextAndVideoFragment = {
 export type EventTwoColumnTextFragment = {
 	primary?: Maybe<{
 		color?: Maybe<string>
+		button_text?: Maybe<string>
+		button_side?: Maybe<string>
 		left_text?: Maybe<{ html?: Maybe<string> }>
 		right_text?: Maybe<{ html?: Maybe<string> }>
+		button_link?: Maybe<{ url?: Maybe<string> }>
 	}>
 }
 
@@ -14012,8 +14177,11 @@ export type TextAndVideoFragment = {
 export type TwoColumnTextFragment = {
 	primary?: Maybe<{
 		color?: Maybe<string>
+		button_text?: Maybe<string>
+		button_side?: Maybe<string>
 		left_text?: Maybe<{ html?: Maybe<string> }>
 		right_text?: Maybe<{ html?: Maybe<string> }>
+		button_link?: Maybe<{ url?: Maybe<string> }>
 	}>
 }
 
