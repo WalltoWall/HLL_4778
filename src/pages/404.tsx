@@ -23,10 +23,10 @@ const NotFoundPage = () => {
 		<Layout>
 			<SEO pageTitle="Not Found" />
 
-			<section className="relative flex flex-col items-center justify-center h-screen bg-gray-13 isolate">
+			<section className="relative flex flex-col items-center justify-center h-screen bg-gray-13">
 				<NotFoundGradient />
 
-				<div className="px-8 text-center text-beige-92">
+				<div className="px-8 text-center text-beige-92 isolate">
 					<p
 						className={clsx(
 							"font-bold uppercase tracking-caps font-sansExt",
