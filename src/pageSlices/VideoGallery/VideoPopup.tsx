@@ -7,10 +7,23 @@ import { MenuButton } from "../../components/MenuButton"
 import { VoteButton } from "./VoteButton"
 import { StartableVideo } from "../../components/StartableVideo"
 
-import type { VideoProps } from "./Video"
+import type { TVideo } from "./VideoGallery"
 import { ArrowButton } from "../../components/ArrowButton"
+import type { ColorVariantStyles } from "../../lib/colorVariant"
 
-export const VideoPopup = ({ variantStyles, video }: VideoProps) => {
+interface VideoPopupProps {
+	video: TVideo
+	variantStyles: ColorVariantStyles
+	nextVideo: () => void
+	previousVideo: () => void
+}
+
+export const VideoPopup = ({
+	variantStyles,
+	video,
+	nextVideo,
+	previousVideo,
+}: VideoPopupProps) => {
 	return (
 		<>
 			<Dialog.Overlay className="fixed inset-0 bg-gray-13/70">
@@ -28,32 +41,6 @@ export const VideoPopup = ({ variantStyles, video }: VideoProps) => {
 					"fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
 				)}
 			>
-				<ArrowButton
-					className={clsx(
-						"absolute",
-						"-bottom-6 translate-y-[100%]",
-						"left-[50%] translate-x-[-125%]",
-						"lg:-left-8 lg:translate-x-[-100%]",
-						"lg:top-[50%] lg:translate-y-[-50%]",
-						"lg:bottom-[unset]",
-						"text-beige-92",
-						"rotate-180"
-					)}
-					label="Previous video"
-				/>
-				<ArrowButton
-					className={clsx(
-						"absolute",
-						"-bottom-6 translate-y-[100%]",
-						"right-[50%] translate-x-[125%]",
-						"lg:-right-8 lg:translate-x-[100%]",
-						"lg:top-[50%] lg:translate-y-[-50%]",
-						"lg:bottom-[unset]",
-						"text-beige-92"
-					)}
-					label="Next video"
-				/>
-
 				<div
 					className={clsx(
 						"max-w-3xl w-[90vw]",
@@ -113,7 +100,7 @@ export const VideoPopup = ({ variantStyles, video }: VideoProps) => {
 								</Dialog.Description>
 							</div>
 
-							<VoteButton video={video} variantStyles={variantStyles} />
+							<VoteButton video={video} />
 						</div>
 
 						{video.descriptionHTML && (
@@ -121,6 +108,34 @@ export const VideoPopup = ({ variantStyles, video }: VideoProps) => {
 						)}
 					</div>
 				</div>
+
+				<ArrowButton
+					className={clsx(
+						"absolute",
+						"-bottom-6 translate-y-[100%]",
+						"left-[50%] translate-x-[-125%]",
+						"lg:-left-8 lg:translate-x-[-100%]",
+						"lg:top-[50%] lg:translate-y-[-50%]",
+						"lg:bottom-[unset]",
+						"text-beige-92",
+						"rotate-180"
+					)}
+					label="Previous video"
+					onClick={previousVideo}
+				/>
+				<ArrowButton
+					className={clsx(
+						"absolute",
+						"-bottom-6 translate-y-[100%]",
+						"right-[50%] translate-x-[125%]",
+						"lg:-right-8 lg:translate-x-[100%]",
+						"lg:top-[50%] lg:translate-y-[-50%]",
+						"lg:bottom-[unset]",
+						"text-beige-92"
+					)}
+					label="Next video"
+					onClick={nextVideo}
+				/>
 			</Dialog.Content>
 		</>
 	)

@@ -57,6 +57,7 @@ export const StartableVideo = ({
 						"text-beige-92 hover:text-purple-57 focus:text-purple-57 focus:outline-none",
 						"transition duration-200"
 					)}
+					withRing={false}
 					onClick={startVideo}
 				>
 					<PlayIcon filled={filledPlayIcon} className="w-8 md:w-10 lg:w-12" />
