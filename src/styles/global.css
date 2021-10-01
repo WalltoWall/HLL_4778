@@ -13,3 +13,7 @@ button {
 		radial-gradient(#7452d4 33%, #7452d400 67%) -120px -24px no-repeat,
 		radial-gradient(#007ca0 40%, #007ca000 70%) -470px 150px no-repeat, #ffab00;
 }
+
+.gradient-texture {
+	background: url(../assets/noise-texture.webp) repeat;
+}
