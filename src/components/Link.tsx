@@ -4,14 +4,21 @@ import { useLocation } from "@reach/router"
 import { isInternal, isAnchorOnly, extractAnchor } from "@walltowall/helpers"
 import clsx from "clsx"
 
-export type LinkProps = React.ComponentPropsWithoutRef<"a">
+export interface LinkProps extends React.ComponentPropsWithoutRef<"a"> {
+	withRing?: boolean
+}
 
-export const Link = ({ href, className, ...props }: LinkProps) => {
+export const Link = ({
+	href,
+	className,
+	withRing = true,
+	...props
+}: LinkProps) => {
 	const location = useLocation()
 	const linkProps = {
 		className: clsx(
 			className,
-			"focus:ring focus:outline-none",
+			withRing && "focus:ring focus:outline-none",
 			"transition duration-250 ease-out"
 		),
 		...props,
