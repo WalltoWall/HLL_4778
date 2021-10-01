@@ -17,6 +17,10 @@ export interface VideoProps {
 	onOpenChange: (open: boolean) => void
 	nextVideo: () => void
 	previousVideo: () => void
+	votable: boolean
+	endDate?: Date
+	onFirstVideo: boolean
+	onLastVideo: boolean
 }
 
 export const Video = ({
@@ -26,6 +30,10 @@ export const Video = ({
 	onOpenChange,
 	nextVideo,
 	previousVideo,
+	votable,
+	endDate,
+	onFirstVideo,
+	onLastVideo,
 }: VideoProps) => {
 	return (
 		<Dialog.Root open={isOpen} onOpenChange={onOpenChange}>
@@ -45,6 +53,10 @@ export const Video = ({
 				variantStyles={variantStyles}
 				nextVideo={nextVideo}
 				previousVideo={previousVideo}
+				votable={votable}
+				endDate={endDate}
+				onFirstVideo={onFirstVideo}
+				onLastVideo={onLastVideo}
 			/>
 		</Dialog.Root>
 	)

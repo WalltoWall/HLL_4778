@@ -21,6 +21,10 @@ export const gqlFragment = graphql`
 				document {
 					... on PrismicSubmissionType {
 						_previewable
+						data {
+							votable
+							end_time
+						}
 						submissions {
 							_previewable
 							url
@@ -40,7 +44,6 @@ export const gqlFragment = graphql`
 									alt
 								}
 								video_url
-								votable
 							}
 						}
 					}

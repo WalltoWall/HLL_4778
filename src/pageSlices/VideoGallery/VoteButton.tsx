@@ -7,20 +7,47 @@ import { useUser } from "../../hooks/useUser"
 import { useVoteMutation } from "../../hooks/useVoteMutation"
 
 import type { TVideo } from "./VideoGallery"
+import { useInterval } from "../../hooks/useInterval"
 
 interface VoteButtonProps {
 	video: TVideo
+	endDate?: Date
 }
 
-export const VoteButton = ({ video }: VoteButtonProps) => {
+const ONE_MINUTE_IN_MS = 1000 * 60
+
+function useCheckIfVotingEnded(
+	endDate?: Date,
+	checkInerval = ONE_MINUTE_IN_MS
+) {
+	const [hasVotingEnded, setHasVotingEnded] = React.useState(() => {
+		if (!endDate) return true
+
+		return endDate.getTime() <= Date.now()
+	})
+
+	useInterval(() => {
+		if (!endDate || hasVotingEnded) return
+
+		if (endDate.getTime() <= Date.now()) {
+			setHasVotingEnded(true)
+		}
+	}, checkInerval)
+
+	return hasVotingEnded
+}
+
+export const VoteButton = ({ video, endDate }: VoteButtonProps) => {
 	const { user, voteForVideo } = useUser()
 	const { voteMutation, isLoading } = useVoteMutation()
+	const votesEnded = useCheckIfVotingEnded(endDate)
 
 	const userHasVoted = video.uid ? user?.votedVideos.includes(video.uid) : false
 
 	async function sendVote() {
-		if (!user?.id || !video.uid || !video.submissionType) return
 		if (userHasVoted) return
+		if (!user?.id || !video.uid || !video.submissionType) return
+		if (votesEnded) return
 
 		const success = await voteMutation({
 			userId: user.id,
@@ -34,17 +61,23 @@ export const VoteButton = ({ video }: VoteButtonProps) => {
 		}
 	}
 
-	const voteText = isLoading ? "Voting..." : userHasVoted ? "Voted!" : "Vote"
+	const voteText = votesEnded
+		? "Voting ended"
+		: isLoading
+		? "Voting..."
+		: userHasVoted
+		? "Voted!"
+		: "Vote"
 
 	return (
 		<UnstyledButton
 			onClick={sendVote}
-			disabled={userHasVoted}
+			disabled={userHasVoted || votesEnded}
 			className={clsx(
 				"flex flex-col items-end",
 				"space-y-2 md:space-y-5 lg:space-y-5",
 				"text-center justify-self-end",
-				userHasVoted && "cursor-not-allowed"
+				(userHasVoted || votesEnded) && "cursor-not-allowed"
 			)}
 		>
 			<ThumbIcon

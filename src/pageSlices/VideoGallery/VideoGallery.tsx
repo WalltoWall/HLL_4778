@@ -28,6 +28,8 @@ const VideoGallery = ({
 	textHTML,
 	color,
 	videos,
+	votable,
+	endDate,
 	nextOverhangs,
 	nextSharesBg,
 	previousOverhangs,
@@ -42,20 +44,20 @@ const VideoGallery = ({
 		else setActiveVideoIdx(undefined)
 	}
 
+	const onLastVideo = activeVideoIdx === videos.length - 1
+	const onFirstVideo = activeVideoIdx !== undefined && activeVideoIdx <= 0
+
 	function nextVideo() {
-		if (activeVideoIdx === undefined || activeVideoIdx === videos.length - 1)
-			return
+		if (onLastVideo || activeVideoIdx === undefined) return
 
 		setActiveVideoIdx(activeVideoIdx + 1)
 	}
 
 	function previousVideo() {
-		if (activeVideoIdx === undefined || activeVideoIdx <= 0) return
+		if (onFirstVideo || activeVideoIdx === undefined) return
 
 		setActiveVideoIdx(activeVideoIdx - 1)
 	}
-
-	console.log(activeVideoIdx)
 
 	return (
 		<BoundedBox
@@ -94,6 +96,10 @@ const VideoGallery = ({
 						onOpenChange={onOpenChangeFactory(idx)}
 						nextVideo={nextVideo}
 						previousVideo={previousVideo}
+						votable={votable}
+						endDate={endDate}
+						onFirstVideo={onFirstVideo}
+						onLastVideo={onLastVideo}
 					/>
 				))}
 			</div>
@@ -106,11 +112,10 @@ export function mapDataToProps({
 	nextContext,
 	previousContext,
 }: MapDataToPropsCtx<VideoGalleryFragment>) {
-	const submissionType = data.primary?.video_submission_type?.uid
-
+	const submissionType = data.primary?.video_submission_type
 	const color = getColorVariant(data.primary?.color)
-	const prevCtx = resolvePrevContext(previousContext)
-	const nextCtx = resolveNextContext(nextContext)
+
+	const endDate = submissionType?.document?.data?.end_time as string | undefined
 
 	const videos =
 		data.primary?.video_submission_type?.document?.submissions?.map(
@@ -121,16 +126,20 @@ export function mapDataToProps({
 				videoThumbnailURL: submission?.data?.video_thumbnail?.url,
 				videoThumbnailAlt: submission?.data?.video_thumbnail?.alt,
 				videoURL: submission?.data?.video_url,
-				votable: submission?.data?.votable ?? false,
 				uid: submission?.uid,
 				href: submission?.url,
-				submissionType,
+				submissionType: submissionType?.uid,
 			})
 		) ?? []
+
+	const prevCtx = resolvePrevContext(previousContext)
+	const nextCtx = resolveNextContext(nextContext)
 
 	return {
 		textHTML: undefIfEmpty(data.primary?.text?.html),
 		color,
+		votable: submissionType?.document?.data?.votable ?? false,
+		endDate: endDate ? new Date(endDate) : undefined,
 
 		videos: shuffle(videos),
 
@@ -160,6 +169,10 @@ export const gqlFragment = graphql`
 				document {
 					... on PrismicSubmissionType {
 						_previewable
+						data {
+							votable
+							end_time
+						}
 						submissions {
 							_previewable
 							url
@@ -179,7 +192,6 @@ export const gqlFragment = graphql`
 									alt
 								}
 								video_url
-								votable
 							}
 						}
 					}
