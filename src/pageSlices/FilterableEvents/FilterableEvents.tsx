@@ -76,7 +76,7 @@ const FilterableEvents = ({
 		<BoundedBox
 			tag="section"
 			ref={containerRef}
-			className={clsx("relative transition", variantStyles.bg)}
+			className={clsx("relative transition duration-300", variantStyles.bg)}
 			nextOverhangs={nextOverhangs}
 			previousOverhangs={previousOverhangs}
 		>

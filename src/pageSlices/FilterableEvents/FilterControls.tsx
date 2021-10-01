@@ -25,7 +25,7 @@ const FilterButton = ({
 				"text-11 md:text-13 lg:text-15",
 				"uppercase leading-1_15 font-bold",
 				"rounded-full py-3 px-3",
-				"transition",
+				"transition duration-300",
 				isActive && extraStyles.activeContolTextColor,
 				!isActive && extraStyles.inactiveControlTextColor,
 				className
