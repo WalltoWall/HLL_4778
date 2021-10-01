@@ -64,7 +64,7 @@ const Introduction = ({
 
 						<h2
 							className={clsx(
-								"font-serif leading-1",
+								"font-serif leading-1_1",
 								"text-42 md:text-52 lg:text-62",
 								"isolate text-gray-13"
 							)}
