@@ -84,28 +84,22 @@ export const DesktopBio = ({
 			>
 				<Arrow />
 
-				<div className="flex flex-col items-start">
+				<div className="flex flex-col items-start space-y-8 lg:space-y-12">
 					{person.bioHTML && <HTMLContent html={person.bioHTML} />}
 
-					{person.instagramHandle && person.instagramHref && (
-						<BioIconWithText
-							href={person.instagramHref}
-							icon={InstagramIcon}
-							className="mt-8 lg:mt-12"
-						>
-							@{person.instagramHandle}
-						</BioIconWithText>
-					)}
+					<div className="space-y-3 lg:space-y-5">
+						{person.instagramHandle && person.instagramHref && (
+							<BioIconWithText href={person.instagramHref} icon={InstagramIcon}>
+								@{person.instagramHandle}
+							</BioIconWithText>
+						)}
 
-					{person.websiteLabel && person.websiteHref && (
-						<BioIconWithText
-							href={person.websiteHref}
-							icon={GlobeIcon}
-							className="mt-3 lg:mt-5"
-						>
-							{person.websiteLabel}
-						</BioIconWithText>
-					)}
+						{person.websiteLabel && person.websiteHref && (
+							<BioIconWithText href={person.websiteHref} icon={GlobeIcon}>
+								{person.websiteLabel}
+							</BioIconWithText>
+						)}
+					</div>
 				</div>
 			</BoundedBox>
 
