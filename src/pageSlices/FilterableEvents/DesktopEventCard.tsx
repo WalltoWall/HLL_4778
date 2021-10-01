@@ -4,14 +4,18 @@ import { useUpdateEventInView } from "./useUpdateEventInView"
 import { EventDescription } from "./EventDescription"
 
 import type { EventCardProps } from "./MobileEventCard"
+import clsx from "clsx"
 
-type DesktopEventCardProps = EventCardProps
+interface DesktopEventCardProps extends EventCardProps {
+	isFirstEvent: boolean
+}
 
 export const DesktopEventCard = ({
 	event,
 	updateActiveEvent,
 	variantStyles,
 	extraStyles,
+	isFirstEvent,
 }: DesktopEventCardProps) => {
 	const { ref } = useUpdateEventInView({
 		updateEvent: updateActiveEvent,
@@ -20,7 +24,7 @@ export const DesktopEventCard = ({
 	})
 
 	return (
-		<div className="h-screen col-start-1">
+		<div className={clsx("h-screen col-start-1", isFirstEvent && "mt-[33vh]")}>
 			<EventDescription
 				extraStyles={extraStyles}
 				variantStyles={variantStyles}
