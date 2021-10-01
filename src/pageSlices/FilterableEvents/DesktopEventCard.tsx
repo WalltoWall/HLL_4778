@@ -10,7 +10,8 @@ type DesktopEventCardProps = EventCardProps
 export const DesktopEventCard = ({
 	event,
 	updateActiveEvent,
-	activeVariant,
+	variantStyles,
+	extraStyles,
 }: DesktopEventCardProps) => {
 	const { ref } = useUpdateEventInView({
 		updateEvent: updateActiveEvent,
@@ -21,7 +22,8 @@ export const DesktopEventCard = ({
 	return (
 		<div className="h-screen col-start-1">
 			<EventDescription
-				activeVariant={activeVariant}
+				extraStyles={extraStyles}
+				variantStyles={variantStyles}
 				date={event.date}
 				descriptionHTML={event.descriptionHTML}
 				title={event.title}

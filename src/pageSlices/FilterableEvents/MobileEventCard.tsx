@@ -8,19 +8,22 @@ import { useUpdateEventInView } from "./useUpdateEventInView"
 import { EventDescription } from "./EventDescription"
 import { getIllustrationUrl } from "./getIllustrationUrl"
 
-import type { FilterableEventsVariant } from "./getFilterableEventsVariant"
+import type { FilterableEventsExtraStyles } from "./getFilterableEventsExtraStyles"
 import type { Event } from "./FilterableEvents"
+import type { ColorVariantStyles } from "../../lib/colorVariant"
 
 export interface EventCardProps {
 	event: Event
 	updateActiveEvent: (newEvent: Event) => void
-	activeVariant: FilterableEventsVariant
+	variantStyles: ColorVariantStyles
+	extraStyles: FilterableEventsExtraStyles
 }
 
 export const MobileEventCard = ({
 	event,
 	updateActiveEvent,
-	activeVariant,
+	extraStyles,
+	variantStyles,
 }: EventCardProps) => {
 	const { ref } = useUpdateEventInView({
 		updateEvent: updateActiveEvent,
@@ -41,7 +44,8 @@ export const MobileEventCard = ({
 			</Link>
 
 			<EventDescription
-				activeVariant={activeVariant}
+				variantStyles={variantStyles}
+				extraStyles={extraStyles}
 				date={event.date}
 				descriptionHTML={event.descriptionHTML}
 				title={event.title}

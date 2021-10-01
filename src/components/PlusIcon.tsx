@@ -22,7 +22,7 @@ export const PlusIcon = ({
 					r="10"
 					className={clsx(
 						"stroke-current group-hover:fill-current group-focus:fill-current",
-						"transition duration-200",
+						"transition",
 						circleClassName
 					)}
 				/>
@@ -30,11 +30,7 @@ export const PlusIcon = ({
 				<g
 					strokeLinecap="round"
 					strokeLinejoin="round"
-					className={clsx(
-						"stroke-current",
-						"transition duration-200",
-						plusClassName
-					)}
+					className={clsx("stroke-current", "transition", plusClassName)}
 				>
 					<path d="m7 11h8" />
 					<path d="m11 7v8" className={clsx(isOpen && "opacity-0")} />

@@ -55,12 +55,13 @@ interface DesktopEventsProps extends EventsListProps {
 export const DesktopEvents = ({
 	events,
 	activeEvent,
-	activeVariant,
+	extraStyles,
 	updateActiveEvent,
 	activeFilter,
 	clearFilters,
 	filterEvents,
 	className,
+	variantStyles,
 	...props
 }: DesktopEventsProps) => {
 	return (
@@ -74,7 +75,7 @@ export const DesktopEvents = ({
 			{...props}
 		>
 			<FilterControls
-				activeVariant={activeVariant}
+				extraStyles={extraStyles}
 				activeFilter={activeFilter}
 				clearFilters={clearFilters}
 				filterEvents={filterEvents}
@@ -88,8 +89,9 @@ export const DesktopEvents = ({
 				<DesktopEventCard
 					key={`desktopEvent-${idx}`}
 					event={event}
-					activeVariant={activeVariant}
+					extraStyles={extraStyles}
 					updateActiveEvent={updateActiveEvent}
+					variantStyles={variantStyles}
 				/>
 			))}
 

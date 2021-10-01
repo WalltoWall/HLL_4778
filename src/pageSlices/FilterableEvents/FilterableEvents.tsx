@@ -4,10 +4,14 @@ import { graphql } from "gatsby"
 import { undefIfEmpty } from "@walltowall/helpers"
 
 import { BoundedBox } from "../../components/BoundedBox"
-import { ColorVariant, getColorVariant } from "../../lib/colorVariant"
+import {
+	ColorVariant,
+	getColorVariant,
+	getColorVariantStyles,
+} from "../../lib/colorVariant"
 import { DesktopEvents } from "./DesktopEvents"
 import { MobileEvents } from "./MobileEvents"
-import { getFilterableEventsVariant } from "./getFilterableEventsVariant"
+import { getFilterableEventsExtraStyles } from "./getFilterableEventsExtraStyles"
 import {
 	resolveNextContext,
 	resolvePrevContext,
@@ -65,36 +69,36 @@ const FilterableEvents = ({
 		scrollToContainerTop()
 	}
 
-	const activeColorVariant = getFilterableEventsVariant(activeEvent.color)
+	const variantStyles = getColorVariantStyles(activeEvent.color)
+	const extraStyles = getFilterableEventsExtraStyles(activeEvent.color)
 
 	return (
 		<BoundedBox
 			tag="section"
 			ref={containerRef}
-			className={clsx(
-				"relative transition duration-300",
-				activeColorVariant.bg
-			)}
+			className={clsx("relative transition", variantStyles.bg)}
 			nextOverhangs={nextOverhangs}
 			previousOverhangs={previousOverhangs}
 		>
 			<MobileEvents
 				events={filteredEvents}
 				updateActiveEvent={setActiveEvent}
-				activeVariant={activeColorVariant}
+				extraStyles={extraStyles}
 				activeFilter={activeFilter}
 				clearFilters={clearFilters}
 				filterEvents={filterEvents}
+				variantStyles={variantStyles}
 			/>
 
 			<DesktopEvents
 				events={filteredEvents}
 				updateActiveEvent={setActiveEvent}
-				activeVariant={activeColorVariant}
+				extraStyles={extraStyles}
 				activeEvent={activeEvent}
 				activeFilter={activeFilter}
 				clearFilters={clearFilters}
 				filterEvents={filterEvents}
+				variantStyles={variantStyles}
 			/>
 		</BoundedBox>
 	)

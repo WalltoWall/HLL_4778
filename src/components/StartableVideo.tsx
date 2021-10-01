@@ -55,7 +55,7 @@ export const StartableVideo = ({
 						"absolute inset-0",
 						"flex justify-center items-center",
 						"text-beige-92 hover:text-purple-57 focus:text-purple-57 focus:outline-none",
-						"transition duration-200"
+						"transition"
 					)}
 					withRing={false}
 					onClick={startVideo}

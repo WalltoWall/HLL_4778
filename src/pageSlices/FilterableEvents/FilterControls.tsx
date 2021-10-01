@@ -3,18 +3,18 @@ import clsx from "clsx"
 import { AnimateSharedLayout, m } from "framer-motion"
 
 import type { EventType } from "./FilterableEvents"
-import type { FilterableEventsVariant } from "./getFilterableEventsVariant"
+import type { FilterableEventsExtraStyles } from "./getFilterableEventsExtraStyles"
 
 interface FilterButtonProps extends React.ComponentPropsWithoutRef<"button"> {
 	isActive: boolean
-	activeVariant: FilterableEventsVariant
+	extraStyles: FilterableEventsExtraStyles
 }
 
 const FilterButton = ({
 	isActive,
 	children,
 	className,
-	activeVariant,
+	extraStyles,
 	...props
 }: FilterButtonProps) => {
 	return (
@@ -25,9 +25,9 @@ const FilterButton = ({
 				"text-11 md:text-13 lg:text-15",
 				"uppercase leading-1_15 font-bold",
 				"rounded-full py-3 px-3",
-				"transition duration-300",
-				isActive && activeVariant.activeContolTextColor,
-				!isActive && activeVariant.inactiveControlTextColor,
+				"transition",
+				isActive && extraStyles.activeContolTextColor,
+				!isActive && extraStyles.inactiveControlTextColor,
 				className
 			)}
 			{...props}
@@ -39,8 +39,8 @@ const FilterButton = ({
 					className={clsx(
 						"absolute inset-0 rounded-full pointer-events-none",
 						"shadow",
-						"transition-colors duration-300",
-						activeVariant.activeButtonBg
+						"transition-colors",
+						extraStyles.activeButtonBg
 					)}
 				/>
 			)}
@@ -51,14 +51,14 @@ const FilterButton = ({
 }
 
 interface FilterControlsProps extends React.ComponentPropsWithoutRef<"div"> {
-	activeVariant: FilterableEventsVariant
+	extraStyles: FilterableEventsExtraStyles
 	activeFilter: EventType | undefined
 	clearFilters: () => void
 	filterEvents: (type: EventType) => void
 }
 
 export const FilterControls = ({
-	activeVariant,
+	extraStyles,
 	activeFilter,
 	clearFilters,
 	filterEvents,
@@ -72,8 +72,8 @@ export const FilterControls = ({
 				"p-1",
 				"flex justify-center space-x-3 lg:space-x-5",
 				"shadow-xl border-2",
-				activeVariant.controlsBg,
-				activeVariant.controlsBorder,
+				extraStyles.controlsBg,
+				extraStyles.controlsBorder,
 				className
 			)}
 			{...props}
@@ -82,28 +82,28 @@ export const FilterControls = ({
 				<FilterButton
 					isActive={!activeFilter}
 					onClick={clearFilters}
-					activeVariant={activeVariant}
+					extraStyles={extraStyles}
 				>
 					All
 				</FilterButton>
 				<FilterButton
 					onClick={() => filterEvents("watch")}
 					isActive={activeFilter === "watch"}
-					activeVariant={activeVariant}
+					extraStyles={extraStyles}
 				>
 					Watch
 				</FilterButton>
 				<FilterButton
 					isActive={activeFilter === "participate"}
 					onClick={() => filterEvents("participate")}
-					activeVariant={activeVariant}
+					extraStyles={extraStyles}
 				>
 					Participate
 				</FilterButton>
 				<FilterButton
 					isActive={activeFilter === "learn"}
 					onClick={() => filterEvents("learn")}
-					activeVariant={activeVariant}
+					extraStyles={extraStyles}
 				>
 					Learn
 				</FilterButton>
