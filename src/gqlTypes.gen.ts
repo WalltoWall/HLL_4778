@@ -5490,11 +5490,22 @@ export type PrismicSubmissionTypeConnectionGroupArgs = {
 }
 
 export type PrismicSubmissionTypeDataType = {
+	end_time?: Maybe<Scalars["Date"]>
 	name?: Maybe<PrismicStructuredTextType>
+	votable?: Maybe<Scalars["Boolean"]>
+}
+
+export type PrismicSubmissionTypeDataTypeEnd_TimeArgs = {
+	formatString?: Maybe<Scalars["String"]>
+	fromNow?: Maybe<Scalars["Boolean"]>
+	difference?: Maybe<Scalars["String"]>
+	locale?: Maybe<Scalars["String"]>
 }
 
 export type PrismicSubmissionTypeDataTypeFilterInput = {
+	end_time?: Maybe<DateQueryOperatorInput>
 	name?: Maybe<PrismicStructuredTextTypeFilterInput>
+	votable?: Maybe<BooleanQueryOperatorInput>
 }
 
 export type PrismicSubmissionTypeEdge = {
@@ -5505,9 +5516,11 @@ export type PrismicSubmissionTypeEdge = {
 
 export enum PrismicSubmissionTypeFieldsEnum {
 	Uid = "uid",
+	DataEndTime = "data___end_time",
 	DataNameText = "data___name___text",
 	DataNameHtml = "data___name___html",
 	DataNameRaw = "data___name___raw",
+	DataVotable = "data___votable",
 	DataRaw = "dataRaw",
 	PrismicId = "prismicId",
 	AlternateLanguages = "alternate_languages",
@@ -5938,7 +5951,6 @@ export type PrismicVideoSubmissionDataType = {
 	type?: Maybe<PrismicLinkType>
 	video_thumbnail?: Maybe<PrismicVideoSubmissionDataVideoThumbnailImageType>
 	video_url?: Maybe<Scalars["String"]>
-	votable?: Maybe<Scalars["Boolean"]>
 }
 
 export type PrismicVideoSubmissionDataTypeFilterInput = {
@@ -5948,7 +5960,6 @@ export type PrismicVideoSubmissionDataTypeFilterInput = {
 	type?: Maybe<PrismicLinkTypeFilterInput>
 	video_thumbnail?: Maybe<PrismicVideoSubmissionDataVideoThumbnailImageTypeFilterInput>
 	video_url?: Maybe<StringQueryOperatorInput>
-	votable?: Maybe<BooleanQueryOperatorInput>
 }
 
 export type PrismicVideoSubmissionDataVideoThumbnailImageType = {
@@ -6143,7 +6154,6 @@ export enum PrismicVideoSubmissionFieldsEnum {
 	DataVideoThumbnailLocalFileId = "data___video_thumbnail___localFile___id",
 	DataVideoThumbnailLocalFileChildren = "data___video_thumbnail___localFile___children",
 	DataVideoUrl = "data___video_url",
-	DataVotable = "data___votable",
 	DataRaw = "dataRaw",
 	PrismicId = "prismicId",
 	AlternateLanguages = "alternate_languages",
@@ -13335,11 +13345,35 @@ export type SitePluginPluginOptionsSchemasSubmission_TypeFilterInput = {
 export type SitePluginPluginOptionsSchemasSubmission_TypeMain = {
 	name?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainName>
 	uid?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainUid>
+	votable?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainVotable>
+	end_time?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainEnd_Time>
 }
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainEnd_Time = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainEnd_TimeConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainEnd_TimeConfig = {
+	label?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainEnd_TimeConfigFilterInput =
+	{
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainEnd_TimeFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainEnd_TimeConfigFilterInput>
+	}
 
 export type SitePluginPluginOptionsSchemasSubmission_TypeMainFilterInput = {
 	name?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainNameFilterInput>
 	uid?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainUidFilterInput>
+	votable?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainVotableFilterInput>
+	end_time?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainEnd_TimeFilterInput>
 }
 
 export type SitePluginPluginOptionsSchemasSubmission_TypeMainName = {
@@ -13382,6 +13416,28 @@ export type SitePluginPluginOptionsSchemasSubmission_TypeMainUidFilterInput = {
 	config?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainUidConfigFilterInput>
 }
 
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainVotable = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainVotableConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainVotableConfig = {
+	default_value?: Maybe<Scalars["Boolean"]>
+	label?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainVotableConfigFilterInput =
+	{
+		default_value?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainVotableFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainVotableConfigFilterInput>
+	}
+
 export type SitePluginPluginOptionsSchemasVideo_Submission = {
 	Main?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMain>
 }
@@ -13398,7 +13454,6 @@ export type SitePluginPluginOptionsSchemasVideo_SubmissionMain = {
 	video_thumbnail?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_Thumbnail>
 	subtitle?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainSubtitle>
 	description?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainDescription>
-	votable?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVotable>
 }
 
 export type SitePluginPluginOptionsSchemasVideo_SubmissionMainDescription = {
@@ -13434,7 +13489,6 @@ export type SitePluginPluginOptionsSchemasVideo_SubmissionMainFilterInput = {
 	video_thumbnail?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_ThumbnailFilterInput>
 	subtitle?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainSubtitleFilterInput>
 	description?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainDescriptionFilterInput>
-	votable?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVotableFilterInput>
 }
 
 export type SitePluginPluginOptionsSchemasVideo_SubmissionMainName = {
@@ -13567,28 +13621,6 @@ export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_UrlFilterInp
 	{
 		type?: Maybe<StringQueryOperatorInput>
 		config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVideo_UrlConfigFilterInput>
-	}
-
-export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVotable = {
-	type?: Maybe<Scalars["String"]>
-	config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVotableConfig>
-}
-
-export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVotableConfig = {
-	default_value?: Maybe<Scalars["Boolean"]>
-	label?: Maybe<Scalars["String"]>
-}
-
-export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVotableConfigFilterInput =
-	{
-		default_value?: Maybe<BooleanQueryOperatorInput>
-		label?: Maybe<StringQueryOperatorInput>
-	}
-
-export type SitePluginPluginOptionsSchemasVideo_SubmissionMainVotableFilterInput =
-	{
-		type?: Maybe<StringQueryOperatorInput>
-		config?: Maybe<SitePluginPluginOptionsSchemasVideo_SubmissionMainVotableConfigFilterInput>
 	}
 
 export type SitePluginSortInput = {
@@ -13741,6 +13773,7 @@ export type EventVideoGalleryFragment = {
 			uid?: Maybe<string>
 			document?: Maybe<{
 				_previewable: string
+				data?: Maybe<{ votable?: Maybe<boolean>; end_time?: Maybe<unknown> }>
 				submissions?: Maybe<
 					Array<
 						Maybe<{
@@ -13749,7 +13782,6 @@ export type EventVideoGalleryFragment = {
 							uid: string
 							data?: Maybe<{
 								video_url?: Maybe<string>
-								votable?: Maybe<boolean>
 								name?: Maybe<{ text?: Maybe<string> }>
 								description?: Maybe<{ html?: Maybe<string> }>
 								subtitle?: Maybe<{ text?: Maybe<string> }>
@@ -14000,6 +14032,7 @@ export type VideoGalleryFragment = {
 			uid?: Maybe<string>
 			document?: Maybe<{
 				_previewable: string
+				data?: Maybe<{ votable?: Maybe<boolean>; end_time?: Maybe<unknown> }>
 				submissions?: Maybe<
 					Array<
 						Maybe<{
@@ -14008,7 +14041,6 @@ export type VideoGalleryFragment = {
 							uid: string
 							data?: Maybe<{
 								video_url?: Maybe<string>
-								votable?: Maybe<boolean>
 								name?: Maybe<{ text?: Maybe<string> }>
 								description?: Maybe<{ html?: Maybe<string> }>
 								subtitle?: Maybe<{ text?: Maybe<string> }>

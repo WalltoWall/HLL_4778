@@ -50,13 +50,6 @@
 				"allowTargetBlank": true,
 				"label": "Description"
 			}
-		},
-		"votable": {
-			"type": "Boolean",
-			"config": {
-				"default_value": true,
-				"label": "Votable"
-			}
 		}
 	}
 }

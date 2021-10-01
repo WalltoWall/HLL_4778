@@ -16,6 +16,10 @@ interface VideoPopupProps {
 	variantStyles: ColorVariantStyles
 	nextVideo: () => void
 	previousVideo: () => void
+	votable: boolean
+	endDate?: Date
+	onFirstVideo: boolean
+	onLastVideo: boolean
 }
 
 export const VideoPopup = ({
@@ -23,6 +27,10 @@ export const VideoPopup = ({
 	video,
 	nextVideo,
 	previousVideo,
+	votable,
+	endDate,
+	onLastVideo,
+	onFirstVideo,
 }: VideoPopupProps) => {
 	return (
 		<>
@@ -100,7 +108,7 @@ export const VideoPopup = ({
 								</Dialog.Description>
 							</div>
 
-							<VoteButton video={video} />
+							{votable && <VoteButton video={video} endDate={endDate} />}
 						</div>
 
 						{video.descriptionHTML && (
@@ -109,33 +117,37 @@ export const VideoPopup = ({
 					</div>
 				</div>
 
-				<ArrowButton
-					className={clsx(
-						"absolute",
-						"-bottom-6 translate-y-[100%]",
-						"left-[50%] translate-x-[-125%]",
-						"lg:-left-8 lg:translate-x-[-100%]",
-						"lg:top-[50%] lg:translate-y-[-50%]",
-						"lg:bottom-[unset]",
-						"text-beige-92",
-						"rotate-180"
-					)}
-					label="Previous video"
-					onClick={previousVideo}
-				/>
-				<ArrowButton
-					className={clsx(
-						"absolute",
-						"-bottom-6 translate-y-[100%]",
-						"right-[50%] translate-x-[125%]",
-						"lg:-right-8 lg:translate-x-[100%]",
-						"lg:top-[50%] lg:translate-y-[-50%]",
-						"lg:bottom-[unset]",
-						"text-beige-92"
-					)}
-					label="Next video"
-					onClick={nextVideo}
-				/>
+				{!onFirstVideo && (
+					<ArrowButton
+						className={clsx(
+							"absolute",
+							"-bottom-6 translate-y-[100%]",
+							"left-[50%] translate-x-[-125%]",
+							"lg:-left-8 lg:translate-x-[-100%]",
+							"lg:top-[50%] lg:translate-y-[-50%]",
+							"lg:bottom-[unset]",
+							"text-beige-92",
+							"rotate-180"
+						)}
+						label="Previous video"
+						onClick={previousVideo}
+					/>
+				)}
+				{!onLastVideo && (
+					<ArrowButton
+						className={clsx(
+							"absolute",
+							"-bottom-6 translate-y-[100%]",
+							"right-[50%] translate-x-[125%]",
+							"lg:-right-8 lg:translate-x-[100%]",
+							"lg:top-[50%] lg:translate-y-[-50%]",
+							"lg:bottom-[unset]",
+							"text-beige-92"
+						)}
+						label="Next video"
+						onClick={nextVideo}
+					/>
+				)}
 			</Dialog.Content>
 		</>
 	)

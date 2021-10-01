@@ -12,6 +12,19 @@
 			"config": {
 				"label": "UID"
 			}
+		},
+		"votable": {
+			"type": "Boolean",
+			"config": {
+				"default_value": false,
+				"label": "Votable"
+			}
+		},
+		"end_time": {
+			"type": "Timestamp",
+			"config": {
+				"label": "End Time"
+			}
 		}
 	}
 }
