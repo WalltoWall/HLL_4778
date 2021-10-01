@@ -92,6 +92,7 @@ export const DesktopEvents = ({
 					extraStyles={extraStyles}
 					updateActiveEvent={updateActiveEvent}
 					variantStyles={variantStyles}
+					isFirstEvent={idx === 0}
 				/>
 			))}
 
