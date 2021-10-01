@@ -4,8 +4,6 @@ import { useInView } from "react-intersection-observer"
 import clsx from "clsx"
 import type { Gradient as GradientController } from "../lib/gradient"
 
-import * as styles from "./Gradient.module.css"
-
 interface Props extends React.ComponentPropsWithoutRef<"canvas"> {
 	shouldPlay?: boolean
 }
@@ -20,6 +18,7 @@ export const Gradient = ({
 	if (process.env.NODE_ENV === "development") {
 		return null
 	}
+	console.log("why")
 
 	const shouldReduceMotion = useReducedMotion()
 	const gradientRef = React.useRef<GradientController>()
@@ -56,7 +55,7 @@ export const Gradient = ({
 			id={id}
 			ref={canvasRef}
 			data-transition-in
-			className={clsx("w-full h-full", styles.gradient, className)}
+			className={clsx("w-full h-full", "gradient", className)}
 			style={
 				{
 					...style,
