@@ -1,8 +1,9 @@
 import * as React from "react"
 import mergeRefs from "react-merge-refs"
-import { useReducedMotion } from "framer-motion"
+import { useReducedMotion, m } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { graphql } from "gatsby"
+import { useLocation } from "@reach/router"
 import clsx from "clsx"
 
 import { Image } from "../components/Image"
@@ -24,6 +25,9 @@ const VideoHero = ({
 	const videoRef = React.useRef<HTMLVideoElement | null>(null)
 	const { ref: observerRef, inView } = useInView({ threshold: 0 })
 	const shouldReduceMotion = useReducedMotion()
+	const location = useLocation()
+
+	const isHomePage = location.pathname === "/"
 
 	// Pause the video when the video is not in view.
 	React.useEffect(() => {
@@ -98,6 +102,25 @@ const VideoHero = ({
 					>
 						{text}
 					</h1>
+				)}
+
+				{isHomePage && (
+					<div className="absolute inset-x-0 flex flex-col items-center space-y-3 -bottom-9">
+						<p className="font-sans text-beige-92 text-12 md:text-13 lg:text-14 leading-1_15">
+							Explore
+						</p>
+
+						<m.div
+							aria-hidden
+							className="bg-beige-92 w-[1px] h-18 origin-top rounded"
+							initial={{ scaleY: 0 }}
+							animate={{ scaleY: 1 }}
+							transition={{
+								type: "spring",
+								duration: 1.5,
+							}}
+						/>
+					</div>
 				)}
 			</div>
 		</section>

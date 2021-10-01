@@ -8,6 +8,7 @@ import clsx from "clsx"
 
 interface DesktopEventCardProps extends EventCardProps {
 	isFirstEvent: boolean
+	hasActiveFilter: boolean
 }
 
 export const DesktopEventCard = ({
@@ -16,6 +17,7 @@ export const DesktopEventCard = ({
 	variantStyles,
 	extraStyles,
 	isFirstEvent,
+	hasActiveFilter,
 }: DesktopEventCardProps) => {
 	const { ref } = useUpdateEventInView({
 		updateEvent: updateActiveEvent,
@@ -24,7 +26,12 @@ export const DesktopEventCard = ({
 	})
 
 	return (
-		<div className={clsx("h-screen col-start-1", isFirstEvent && "mt-[33vh]")}>
+		<div
+			className={clsx(
+				"h-screen col-start-1",
+				isFirstEvent && !hasActiveFilter && "mt-[33vh]"
+			)}
+		>
 			<EventDescription
 				extraStyles={extraStyles}
 				variantStyles={variantStyles}

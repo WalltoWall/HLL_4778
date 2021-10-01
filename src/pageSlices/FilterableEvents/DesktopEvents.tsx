@@ -64,6 +64,8 @@ export const DesktopEvents = ({
 	variantStyles,
 	...props
 }: DesktopEventsProps) => {
+	const hasActiveFilter = activeFilter !== undefined
+
 	return (
 		<div
 			className={clsx(
@@ -93,6 +95,7 @@ export const DesktopEvents = ({
 					updateActiveEvent={updateActiveEvent}
 					variantStyles={variantStyles}
 					isFirstEvent={idx === 0}
+					hasActiveFilter={hasActiveFilter}
 				/>
 			))}
 
