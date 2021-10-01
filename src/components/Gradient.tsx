@@ -18,7 +18,6 @@ export const Gradient = ({
 	if (process.env.NODE_ENV === "development") {
 		return null
 	}
-	console.log("why")
 
 	const shouldReduceMotion = useReducedMotion()
 	const gradientRef = React.useRef<GradientController>()
