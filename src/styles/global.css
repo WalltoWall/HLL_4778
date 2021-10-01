@@ -6,3 +6,10 @@ html {
 button {
 	-webkit-tap-highlight-color: transparent;
 }
+
+.gradient {
+	background: radial-gradient(#e70000 40%, #007ca000 60%) -620px -180px
+			no-repeat,
+		radial-gradient(#7452d4 33%, #7452d400 67%) -120px -24px no-repeat,
+		radial-gradient(#007ca0 40%, #007ca000 70%) -470px 150px no-repeat, #ffab00;
+}

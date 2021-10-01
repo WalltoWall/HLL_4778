@@ -10,18 +10,48 @@ import { Link, LinkProps } from "../Link"
 import { usePrismicPrimaryNavigation } from "../../hooks/usePrismicPrimaryNavigation"
 import { SocialNavigation } from "../SocialNavigation"
 import { Gradient } from "../Gradient"
+import { delay } from "../../lib/delay"
+import { extractAnchor } from "@walltowall/helpers"
 
-interface Props {
+interface MobileDrawerLinkProps extends LinkProps {
 	toggleMenu: () => void
-	isOpen: boolean
 }
 
 const MobileDrawerLink = ({
 	href,
 	children,
 	className,
+	toggleMenu,
 	...props
-}: LinkProps) => {
+}: MobileDrawerLinkProps) => {
+	async function manuallyScrollIfHomePageAnchor(
+		event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+	) {
+		// If we're on the home page, we need to manually close our mobile menu and
+		// scroll to the approopriate anchor link since Radix's Dialog component
+		// places a scroll lock on the <body> tag.
+		if (location.pathname !== "/" || !href) return
+
+		event.preventDefault()
+
+		// First, we need to close our menu which will remove the scroll lock from
+		// the <body> tag.
+		toggleMenu()
+
+		// This is kind of hacky, but we need to wait for the next tick of the event
+		// loop so we can ensure that the menu is closed and the scroll lock has
+		// been removed.
+		await delay(10)
+
+		const anchorId = extractAnchor(href)
+		if (!anchorId) return
+
+		// Setting location.hash will scroll us to the appropriate anchor link just
+		// as if we clicked on it normally. History will be automatically updated
+		// just as the user would expect.
+		location.hash = anchorId
+	}
+
 	return (
 		<Link
 			href={href}
@@ -29,11 +59,17 @@ const MobileDrawerLink = ({
 				"text-52 font-serif leading-1 text-beige-92 block",
 				className
 			)}
+			onClick={manuallyScrollIfHomePageAnchor}
 			{...props}
 		>
 			{children}
 		</Link>
 	)
+}
+
+interface Props {
+	toggleMenu: () => void
+	isOpen: boolean
 }
 
 export const MobileDrawer = ({ toggleMenu, isOpen }: Props) => {
@@ -72,7 +108,11 @@ export const MobileDrawer = ({ toggleMenu, isOpen }: Props) => {
 
 				<nav className="flex flex-col items-start flex-grow space-y-8">
 					{navigation.items.map((item, idx) => (
-						<MobileDrawerLink key={`mobileDrawer-${idx}`} href={item.href}>
+						<MobileDrawerLink
+							key={`mobileDrawer-${idx}`}
+							href={item.href}
+							toggleMenu={toggleMenu}
+						>
 							{item.label}
 						</MobileDrawerLink>
 					))}
