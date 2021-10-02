@@ -115,6 +115,7 @@ const NewsletterForm = ({
 						"max-w-[90ch]"
 					)}
 					onSubmit={submitToNetlify}
+					data-netlify={true}
 				>
 					<input
 						placeholder={placeholderText}
