@@ -1,4 +1,6 @@
 import * as React from "react"
+import { undefIfEmpty } from "@walltowall/helpers"
+
 import { graphql, useStaticQuery } from "gatsby"
 import { SettingsQuery } from "../gqlTypes.gen"
 
@@ -33,6 +35,11 @@ export function usePrismicSettings() {
 						url
 					}
 					footer_logo_url
+
+					enabled
+					text {
+						html
+					}
 				}
 			}
 		}
@@ -56,6 +63,9 @@ export function usePrismicSettings() {
 			twitterUsername: data?.twitter_username,
 			openGraphImageUrl: data?.open_graph_image?.url,
 			footerLogoUrl: data?.footer_logo_url,
+
+			notificationBarEnabled: data?.enabled ?? false,
+			notificationHTML: undefIfEmpty(data?.text?.html),
 		}
 	}, [])
 }

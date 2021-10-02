@@ -4,6 +4,7 @@ import clsx from "clsx"
 import * as styles from "./HTMLContent.module.css"
 
 const variants = {
+	sm: styles.htmlContentSmall,
 	default: styles.htmlContent,
 	md: styles.htmlContentMedium,
 	lg: styles.htmlContentLarge,

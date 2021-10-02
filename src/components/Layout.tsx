@@ -5,6 +5,7 @@ import { Header } from "./Header"
 import { MobileMenuProvider } from "./Header/MobileMenuProvider"
 import { MediaQueryProvider } from "../hooks/useMediaQuery"
 import { UserProvider } from "../hooks/useUser"
+import { NotificationBar } from "./NotificationBar"
 
 interface LayoutProps {
 	children: React.ReactNode
@@ -14,11 +15,14 @@ interface LayoutProps {
 const LayoutNodes = React.memo(
 	({ children, lastOverhangs = false }: LayoutProps) => {
 		return (
-			<div className="relative">
-				<Header />
-				<main className="relative">{children}</main>
-				<Footer lastOverhangs={lastOverhangs} />
-			</div>
+			<>
+				<NotificationBar />
+				<div className="relative">
+					<Header />
+					<main className="relative">{children}</main>
+					<Footer lastOverhangs={lastOverhangs} />
+				</div>
+			</>
 		)
 	}
 )

@@ -14109,11 +14109,13 @@ export type SettingsQuery = {
 			twitter_url?: Maybe<string>
 			twitter_username?: Maybe<string>
 			footer_logo_url?: Maybe<string>
+			enabled?: Maybe<boolean>
 			site_name?: Maybe<{ text?: Maybe<string> }>
 			site_description?: Maybe<{ text?: Maybe<string> }>
 			site_copyright?: Maybe<{ text?: Maybe<string>; html?: Maybe<string> }>
 			twitter_card_image?: Maybe<{ url?: Maybe<string> }>
 			open_graph_image?: Maybe<{ url?: Maybe<string> }>
+			text?: Maybe<{ html?: Maybe<string> }>
 		}>
 	}>
 }

@@ -24,6 +24,14 @@
 	}
 }
 
+.htmlContentSmall {
+	& p {
+		@apply text-12 md:text-13 lg:text-14 
+		leading-1_2
+		mb-7 lg:mb-9;
+	}
+}
+
 .htmlContent {
 	& h2 {
 		@apply text-28 md:text-32 lg:text-36
