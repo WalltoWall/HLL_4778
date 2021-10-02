@@ -56,7 +56,22 @@ const FilterableEvents = ({
 	function scrollToContainerTop() {
 		if (!containerRef.current) return
 
+		const isDesktop = window.matchMedia("(min-width: 1024px)").matches
+		const isTablet = window.matchMedia("(min-width: 768px)").matches
+
 		containerRef.current.scrollIntoView({ block: "start" })
+
+		// If we're on mobile, we want to additionally scroll by the amount needed
+		// to enable the "sticky" positioning so that the controls are always
+		// in the same spot.
+		if (isDesktop) return
+
+		if (isTablet) {
+			window.scrollBy({ top: 19 * 4 })
+		} else {
+			// Mobile
+			window.scrollBy({ top: 11 * 4 })
+		}
 	}
 
 	function clearFilters() {
