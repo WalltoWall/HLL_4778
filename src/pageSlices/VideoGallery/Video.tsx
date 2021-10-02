@@ -9,6 +9,7 @@ import { VideoPopup } from "./VideoPopup"
 
 import type { TVideo } from "./VideoGallery"
 import type { ColorVariantStyles } from "../../lib/colorVariant"
+import clsx from "clsx"
 
 export interface VideoProps {
 	video: TVideo
@@ -40,12 +41,18 @@ export const Video = ({
 	return (
 		<Dialog.Root open={isOpen} onOpenChange={onOpenChange}>
 			<Dialog.Trigger asChild>
-				<UnstyledButton className="block bg-beige-92 aspect-w-1 aspect-h-1">
+				<UnstyledButton
+					className={clsx(
+						"block bg-beige-92 aspect-w-1 aspect-h-1",
+						"hover:brightness-[1.15] focus:brightness-[1.15] transition duration-250"
+					)}
+				>
 					<VisuallyHidden>View {video.name}'s video.</VisuallyHidden>
+
 					<Image
 						src={video.videoThumbnailURL}
 						alt={video.videoThumbnailAlt ?? ""}
-						className="absolute object-cover w-full h-full"
+						className="absolute object-cover object-center w-full h-full"
 					/>
 				</UnstyledButton>
 			</Dialog.Trigger>

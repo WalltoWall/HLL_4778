@@ -61,7 +61,7 @@ export const StartableVideo = ({
 						"absolute inset-0",
 						"flex justify-center items-center",
 						"text-beige-92",
-						"transition duration-300",
+						"transition duration-250",
 						"group",
 						"hover:bg-gray-13/20"
 					)}
@@ -76,7 +76,7 @@ export const StartableVideo = ({
 						<PauseIcon
 							className={clsx(
 								"w-10 md:w-12 lg:w-14",
-								"transition duration-300",
+								"transition duration-250",
 								"opacity-0",
 								"group-hover:opacity-100"
 							)}
