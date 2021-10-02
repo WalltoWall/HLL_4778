@@ -23,6 +23,7 @@ export const gqlFragment = graphql`
 						_previewable
 						data {
 							votable
+							mute_videos
 							end_time
 						}
 						submissions {

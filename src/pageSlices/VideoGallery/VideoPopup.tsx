@@ -20,6 +20,7 @@ interface VideoPopupProps {
 	endDate?: Date
 	onFirstVideo: boolean
 	onLastVideo: boolean
+	mute: boolean
 }
 
 export const VideoPopup = ({
@@ -31,6 +32,7 @@ export const VideoPopup = ({
 	endDate,
 	onLastVideo,
 	onFirstVideo,
+	mute,
 }: VideoPopupProps) => {
 	return (
 		<>
@@ -75,6 +77,7 @@ export const VideoPopup = ({
 							videoThumbnailAlt={video.videoThumbnailAlt}
 							videoURL={video.videoURL}
 							filledPlayIcon
+							muted={mute}
 						/>
 					</div>
 

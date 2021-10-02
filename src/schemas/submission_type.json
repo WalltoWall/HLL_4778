@@ -20,6 +20,15 @@
 				"label": "Votable"
 			}
 		},
+		"mute_videos": {
+			"type": "Boolean",
+			"config": {
+				"placeholder_false": "No",
+				"placeholder_true": "Yes",
+				"default_value": false,
+				"label": "Mute Videos"
+			}
+		},
 		"end_time": {
 			"type": "Timestamp",
 			"config": {

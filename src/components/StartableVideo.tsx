@@ -5,12 +5,15 @@ import { useStartableVideo } from "../hooks/useStartableVideo"
 import { Image } from "./Image"
 import { UnstyledButton } from "./UnstyledButton"
 import { PlayIcon } from "./PlayIcon"
+import { PauseIcon } from "./PauseIcon"
+import { VisuallyHidden } from "./VisuallyHidden"
 
 interface Props extends React.ComponentPropsWithoutRef<"div"> {
 	videoURL: string | undefined
 	videoThumbnailURL: string | undefined
 	videoThumbnailAlt?: string
 	filledPlayIcon?: boolean
+	muted?: boolean
 }
 
 export const StartableVideo = ({
@@ -19,9 +22,11 @@ export const StartableVideo = ({
 	videoThumbnailURL,
 	videoThumbnailAlt,
 	filledPlayIcon = false,
+	muted = false,
 	...props
 }: Props) => {
-	const { hasVideoStarted, startVideo, videoRef } = useStartableVideo()
+	const { hasVideoStarted, isPlaying, startVideo, stopVideo, videoRef } =
+		useStartableVideo()
 
 	return (
 		<div className={clsx("bg-gray-13", className)} {...props}>
@@ -33,9 +38,11 @@ export const StartableVideo = ({
 						"object-cover object-center w-full h-full",
 						!hasVideoStarted && "hidden"
 					)}
-					controls
+					loop
 					controlsList="nodownload noremoteplayback"
 					disablePictureInPicture
+					playsInline
+					muted={muted}
 				>
 					<source type="video/mp4" src={videoURL} />
 				</video>
@@ -49,18 +56,35 @@ export const StartableVideo = ({
 				/>
 			)}
 
-			{!hasVideoStarted && videoURL && (
+			{videoURL && (
 				<UnstyledButton
 					className={clsx(
 						"absolute inset-0",
 						"flex justify-center items-center",
-						"text-beige-92 hover:text-purple-57 focus:text-purple-57 focus:outline-none",
-						"transition"
+						"text-beige-92",
+						"transition duration-300",
+						"group",
+						"hover:bg-gray-13/20"
 					)}
 					withRing={false}
-					onClick={startVideo}
+					onClick={() => (isPlaying ? stopVideo() : startVideo())}
 				>
-					<PlayIcon filled={filledPlayIcon} className="w-8 md:w-10 lg:w-12" />
+					<VisuallyHidden>
+						{isPlaying ? "Pause video" : "Play video"}
+					</VisuallyHidden>
+
+					{isPlaying ? (
+						<PauseIcon
+							className={clsx(
+								"w-10 md:w-12 lg:w-14",
+								"transition duration-300",
+								"opacity-0",
+								"group-hover:opacity-100"
+							)}
+						/>
+					) : (
+						<PlayIcon filled={filledPlayIcon} className="w-8 md:w-10 lg:w-12" />
+					)}
 				</UnstyledButton>
 			)}
 		</div>

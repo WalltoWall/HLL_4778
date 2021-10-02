@@ -21,6 +21,7 @@ export interface VideoProps {
 	endDate?: Date
 	onFirstVideo: boolean
 	onLastVideo: boolean
+	mute: boolean
 }
 
 export const Video = ({
@@ -34,6 +35,7 @@ export const Video = ({
 	endDate,
 	onFirstVideo,
 	onLastVideo,
+	mute,
 }: VideoProps) => {
 	return (
 		<Dialog.Root open={isOpen} onOpenChange={onOpenChange}>
@@ -57,6 +59,7 @@ export const Video = ({
 				endDate={endDate}
 				onFirstVideo={onFirstVideo}
 				onLastVideo={onLastVideo}
+				mute={mute}
 			/>
 		</Dialog.Root>
 	)
