@@ -4214,6 +4214,7 @@ export type PrismicSettingsDataTwitterCardImageImageTypeFilterInput = {
 }
 
 export type PrismicSettingsDataType = {
+	enabled?: Maybe<Scalars["Boolean"]>
 	facebook_url?: Maybe<Scalars["String"]>
 	footer_logo_url?: Maybe<Scalars["String"]>
 	instagram_url?: Maybe<Scalars["String"]>
@@ -4222,6 +4223,7 @@ export type PrismicSettingsDataType = {
 	site_copyright?: Maybe<PrismicStructuredTextType>
 	site_description?: Maybe<PrismicStructuredTextType>
 	site_name?: Maybe<PrismicStructuredTextType>
+	text?: Maybe<PrismicStructuredTextType>
 	title?: Maybe<PrismicStructuredTextType>
 	twitter_card_image?: Maybe<PrismicSettingsDataTwitterCardImageImageType>
 	twitter_url?: Maybe<Scalars["String"]>
@@ -4230,6 +4232,7 @@ export type PrismicSettingsDataType = {
 }
 
 export type PrismicSettingsDataTypeFilterInput = {
+	enabled?: Maybe<BooleanQueryOperatorInput>
 	facebook_url?: Maybe<StringQueryOperatorInput>
 	footer_logo_url?: Maybe<StringQueryOperatorInput>
 	instagram_url?: Maybe<StringQueryOperatorInput>
@@ -4238,6 +4241,7 @@ export type PrismicSettingsDataTypeFilterInput = {
 	site_copyright?: Maybe<PrismicStructuredTextTypeFilterInput>
 	site_description?: Maybe<PrismicStructuredTextTypeFilterInput>
 	site_name?: Maybe<PrismicStructuredTextTypeFilterInput>
+	text?: Maybe<PrismicStructuredTextTypeFilterInput>
 	title?: Maybe<PrismicStructuredTextTypeFilterInput>
 	twitter_card_image?: Maybe<PrismicSettingsDataTwitterCardImageImageTypeFilterInput>
 	twitter_url?: Maybe<StringQueryOperatorInput>
@@ -4252,6 +4256,7 @@ export type PrismicSettingsEdge = {
 }
 
 export enum PrismicSettingsFieldsEnum {
+	DataEnabled = "data___enabled",
 	DataFacebookUrl = "data___facebook_url",
 	DataFooterLogoUrl = "data___footer_logo_url",
 	DataInstagramUrl = "data___instagram_url",
@@ -4322,6 +4327,9 @@ export enum PrismicSettingsFieldsEnum {
 	DataSiteNameText = "data___site_name___text",
 	DataSiteNameHtml = "data___site_name___html",
 	DataSiteNameRaw = "data___site_name___raw",
+	DataTextText = "data___text___text",
+	DataTextHtml = "data___text___html",
+	DataTextRaw = "data___text___raw",
 	DataTitleText = "data___title___text",
 	DataTitleHtml = "data___title___html",
 	DataTitleRaw = "data___title___raw",
@@ -5497,6 +5505,7 @@ export type PrismicSubmissionTypeConnectionGroupArgs = {
 
 export type PrismicSubmissionTypeDataType = {
 	end_time?: Maybe<Scalars["Date"]>
+	mute_videos?: Maybe<Scalars["Boolean"]>
 	name?: Maybe<PrismicStructuredTextType>
 	votable?: Maybe<Scalars["Boolean"]>
 }
@@ -5510,6 +5519,7 @@ export type PrismicSubmissionTypeDataTypeEnd_TimeArgs = {
 
 export type PrismicSubmissionTypeDataTypeFilterInput = {
 	end_time?: Maybe<DateQueryOperatorInput>
+	mute_videos?: Maybe<BooleanQueryOperatorInput>
 	name?: Maybe<PrismicStructuredTextTypeFilterInput>
 	votable?: Maybe<BooleanQueryOperatorInput>
 }
@@ -5523,6 +5533,7 @@ export type PrismicSubmissionTypeEdge = {
 export enum PrismicSubmissionTypeFieldsEnum {
 	Uid = "uid",
 	DataEndTime = "data___end_time",
+	DataMuteVideos = "data___mute_videos",
 	DataNameText = "data___name___text",
 	DataNameHtml = "data___name___html",
 	DataNameRaw = "data___name___raw",
@@ -7603,7 +7614,6 @@ export enum SitePageFieldsEnum {
 	PluginCreatorPluginOptionsCacheDigest = "pluginCreator___pluginOptions___cacheDigest",
 	PluginCreatorPluginOptionsRepositoryName = "pluginCreator___pluginOptions___repositoryName",
 	PluginCreatorPluginOptionsAccessToken = "pluginCreator___pluginOptions___accessToken",
-	PluginCreatorPluginOptionsPromptForAccessToken = "pluginCreator___pluginOptions___promptForAccessToken",
 	PluginCreatorPluginOptionsApiEndpoint = "pluginCreator___pluginOptions___apiEndpoint",
 	PluginCreatorPluginOptionsLang = "pluginCreator___pluginOptions___lang",
 	PluginCreatorPluginOptionsImageImgixParamsAuto = "pluginCreator___pluginOptions___imageImgixParams___auto",
@@ -7611,6 +7621,7 @@ export enum SitePageFieldsEnum {
 	PluginCreatorPluginOptionsImageImgixParamsQ = "pluginCreator___pluginOptions___imageImgixParams___q",
 	PluginCreatorPluginOptionsImagePlaceholderImgixParamsW = "pluginCreator___pluginOptions___imagePlaceholderImgixParams___w",
 	PluginCreatorPluginOptionsImagePlaceholderImgixParamsBlur = "pluginCreator___pluginOptions___imagePlaceholderImgixParams___blur",
+	PluginCreatorPluginOptionsPromptForAccessToken = "pluginCreator___pluginOptions___promptForAccessToken",
 	PluginCreatorPluginOptionsToolbar = "pluginCreator___pluginOptions___toolbar",
 	PluginCreatorPluginOptionsPath = "pluginCreator___pluginOptions___path",
 	PluginCreatorPluginOptionsPathCheck = "pluginCreator___pluginOptions___pathCheck",
@@ -7814,7 +7825,6 @@ export enum SitePluginFieldsEnum {
 	PluginOptionsCacheDigest = "pluginOptions___cacheDigest",
 	PluginOptionsRepositoryName = "pluginOptions___repositoryName",
 	PluginOptionsAccessToken = "pluginOptions___accessToken",
-	PluginOptionsPromptForAccessToken = "pluginOptions___promptForAccessToken",
 	PluginOptionsApiEndpoint = "pluginOptions___apiEndpoint",
 	PluginOptionsLang = "pluginOptions___lang",
 	PluginOptionsImageImgixParamsAuto = "pluginOptions___imageImgixParams___auto",
@@ -7822,6 +7832,7 @@ export enum SitePluginFieldsEnum {
 	PluginOptionsImageImgixParamsQ = "pluginOptions___imageImgixParams___q",
 	PluginOptionsImagePlaceholderImgixParamsW = "pluginOptions___imagePlaceholderImgixParams___w",
 	PluginOptionsImagePlaceholderImgixParamsBlur = "pluginOptions___imagePlaceholderImgixParams___blur",
+	PluginOptionsPromptForAccessToken = "pluginOptions___promptForAccessToken",
 	PluginOptionsToolbar = "pluginOptions___toolbar",
 	PluginOptionsPath = "pluginOptions___path",
 	PluginOptionsPathCheck = "pluginOptions___pathCheck",
@@ -8072,18 +8083,18 @@ export type SitePluginPluginOptions = {
 	cacheDigest?: Maybe<Scalars["String"]>
 	repositoryName?: Maybe<Scalars["String"]>
 	accessToken?: Maybe<Scalars["String"]>
-	promptForAccessToken?: Maybe<Scalars["Boolean"]>
+	schemas?: Maybe<SitePluginPluginOptionsSchemas>
 	apiEndpoint?: Maybe<Scalars["String"]>
 	lang?: Maybe<Scalars["String"]>
 	imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParams>
 	imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParams>
+	promptForAccessToken?: Maybe<Scalars["Boolean"]>
 	toolbar?: Maybe<Scalars["String"]>
 	path?: Maybe<Scalars["String"]>
 	pathCheck?: Maybe<Scalars["Boolean"]>
 	allExtensions?: Maybe<Scalars["Boolean"]>
 	isTSX?: Maybe<Scalars["Boolean"]>
 	jsxPragma?: Maybe<Scalars["String"]>
-	schemas?: Maybe<SitePluginPluginOptionsSchemas>
 }
 
 export type SitePluginPluginOptionsFilterInput = {
@@ -8106,18 +8117,18 @@ export type SitePluginPluginOptionsFilterInput = {
 	cacheDigest?: Maybe<StringQueryOperatorInput>
 	repositoryName?: Maybe<StringQueryOperatorInput>
 	accessToken?: Maybe<StringQueryOperatorInput>
-	promptForAccessToken?: Maybe<BooleanQueryOperatorInput>
+	schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>
 	apiEndpoint?: Maybe<StringQueryOperatorInput>
 	lang?: Maybe<StringQueryOperatorInput>
 	imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParamsFilterInput>
 	imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParamsFilterInput>
+	promptForAccessToken?: Maybe<BooleanQueryOperatorInput>
 	toolbar?: Maybe<StringQueryOperatorInput>
 	path?: Maybe<StringQueryOperatorInput>
 	pathCheck?: Maybe<BooleanQueryOperatorInput>
 	allExtensions?: Maybe<BooleanQueryOperatorInput>
 	isTSX?: Maybe<BooleanQueryOperatorInput>
 	jsxPragma?: Maybe<StringQueryOperatorInput>
-	schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>
 }
 
 export type SitePluginPluginOptionsImageImgixParams = {
@@ -12584,12 +12595,14 @@ export type SitePluginPluginOptionsSchemasSettings = {
 	Main?: Maybe<SitePluginPluginOptionsSchemasSettingsMain>
 	Redirects?: Maybe<SitePluginPluginOptionsSchemasSettingsRedirects>
 	SEO?: Maybe<SitePluginPluginOptionsSchemasSettingsSeo>
+	Notification_Bar?: Maybe<SitePluginPluginOptionsSchemasSettingsNotification_Bar>
 }
 
 export type SitePluginPluginOptionsSchemasSettingsFilterInput = {
 	Main?: Maybe<SitePluginPluginOptionsSchemasSettingsMainFilterInput>
 	Redirects?: Maybe<SitePluginPluginOptionsSchemasSettingsRedirectsFilterInput>
 	SEO?: Maybe<SitePluginPluginOptionsSchemasSettingsSeoFilterInput>
+	Notification_Bar?: Maybe<SitePluginPluginOptionsSchemasSettingsNotification_BarFilterInput>
 }
 
 export type SitePluginPluginOptionsSchemasSettingsMain = {
@@ -12830,6 +12843,68 @@ export type SitePluginPluginOptionsSchemasSettingsMainYoutube_UrlFilterInput = {
 	type?: Maybe<StringQueryOperatorInput>
 	config?: Maybe<SitePluginPluginOptionsSchemasSettingsMainYoutube_UrlConfigFilterInput>
 }
+
+export type SitePluginPluginOptionsSchemasSettingsNotification_Bar = {
+	enabled?: Maybe<SitePluginPluginOptionsSchemasSettingsNotification_BarEnabled>
+	text?: Maybe<SitePluginPluginOptionsSchemasSettingsNotification_BarText>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsNotification_BarEnabled = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSettingsNotification_BarEnabledConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsNotification_BarEnabledConfig =
+	{
+		placeholder_false?: Maybe<Scalars["String"]>
+		placeholder_true?: Maybe<Scalars["String"]>
+		default_value?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsNotification_BarEnabledConfigFilterInput =
+	{
+		placeholder_false?: Maybe<StringQueryOperatorInput>
+		placeholder_true?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsNotification_BarEnabledFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSettingsNotification_BarEnabledConfigFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsNotification_BarFilterInput =
+	{
+		enabled?: Maybe<SitePluginPluginOptionsSchemasSettingsNotification_BarEnabledFilterInput>
+		text?: Maybe<SitePluginPluginOptionsSchemasSettingsNotification_BarTextFilterInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsNotification_BarText = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSettingsNotification_BarTextConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsNotification_BarTextConfig = {
+	single?: Maybe<Scalars["String"]>
+	allowTargetBlank?: Maybe<Scalars["Boolean"]>
+	label?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsSchemasSettingsNotification_BarTextConfigFilterInput =
+	{
+		single?: Maybe<StringQueryOperatorInput>
+		allowTargetBlank?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSettingsNotification_BarTextFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSettingsNotification_BarTextConfigFilterInput>
+	}
 
 export type SitePluginPluginOptionsSchemasSettingsRedirects = {
 	redirects?: Maybe<SitePluginPluginOptionsSchemasSettingsRedirectsRedirects>
@@ -13508,6 +13583,7 @@ export type SitePluginPluginOptionsSchemasSubmission_TypeMain = {
 	name?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainName>
 	uid?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainUid>
 	votable?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainVotable>
+	mute_videos?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainMute_Videos>
 	end_time?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainEnd_Time>
 }
 
@@ -13535,8 +13611,36 @@ export type SitePluginPluginOptionsSchemasSubmission_TypeMainFilterInput = {
 	name?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainNameFilterInput>
 	uid?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainUidFilterInput>
 	votable?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainVotableFilterInput>
+	mute_videos?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainMute_VideosFilterInput>
 	end_time?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainEnd_TimeFilterInput>
 }
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainMute_Videos = {
+	type?: Maybe<Scalars["String"]>
+	config?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainMute_VideosConfig>
+}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainMute_VideosConfig =
+	{
+		placeholder_false?: Maybe<Scalars["String"]>
+		placeholder_true?: Maybe<Scalars["String"]>
+		default_value?: Maybe<Scalars["Boolean"]>
+		label?: Maybe<Scalars["String"]>
+	}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainMute_VideosConfigFilterInput =
+	{
+		placeholder_false?: Maybe<StringQueryOperatorInput>
+		placeholder_true?: Maybe<StringQueryOperatorInput>
+		default_value?: Maybe<BooleanQueryOperatorInput>
+		label?: Maybe<StringQueryOperatorInput>
+	}
+
+export type SitePluginPluginOptionsSchemasSubmission_TypeMainMute_VideosFilterInput =
+	{
+		type?: Maybe<StringQueryOperatorInput>
+		config?: Maybe<SitePluginPluginOptionsSchemasSubmission_TypeMainMute_VideosConfigFilterInput>
+	}
 
 export type SitePluginPluginOptionsSchemasSubmission_TypeMainName = {
 	type?: Maybe<Scalars["String"]>
@@ -13938,7 +14042,11 @@ export type EventVideoGalleryFragment = {
 			uid?: Maybe<string>
 			document?: Maybe<{
 				_previewable: string
-				data?: Maybe<{ votable?: Maybe<boolean>; end_time?: Maybe<unknown> }>
+				data?: Maybe<{
+					votable?: Maybe<boolean>
+					mute_videos?: Maybe<boolean>
+					end_time?: Maybe<unknown>
+				}>
 				submissions?: Maybe<
 					Array<
 						Maybe<{
@@ -14200,7 +14308,11 @@ export type VideoGalleryFragment = {
 			uid?: Maybe<string>
 			document?: Maybe<{
 				_previewable: string
-				data?: Maybe<{ votable?: Maybe<boolean>; end_time?: Maybe<unknown> }>
+				data?: Maybe<{
+					votable?: Maybe<boolean>
+					mute_videos?: Maybe<boolean>
+					end_time?: Maybe<unknown>
+				}>
 				submissions?: Maybe<
 					Array<
 						Maybe<{

@@ -30,6 +30,7 @@ const VideoGallery = ({
 	videos,
 	votable,
 	endDate,
+	mute,
 	nextOverhangs,
 	nextSharesBg,
 	previousOverhangs,
@@ -100,6 +101,7 @@ const VideoGallery = ({
 						endDate={endDate}
 						onFirstVideo={onFirstVideo}
 						onLastVideo={onLastVideo}
+						mute={mute}
 					/>
 				))}
 			</div>
@@ -140,6 +142,7 @@ export function mapDataToProps({
 		color,
 		votable: submissionType?.document?.data?.votable ?? false,
 		endDate: endDate ? new Date(endDate) : undefined,
+		mute: submissionType?.document?.data?.mute_videos ?? false,
 
 		videos: shuffle(videos),
 
@@ -171,6 +174,7 @@ export const gqlFragment = graphql`
 						_previewable
 						data {
 							votable
+							mute_videos
 							end_time
 						}
 						submissions {
