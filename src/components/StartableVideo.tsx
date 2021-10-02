@@ -41,7 +41,6 @@ export const StartableVideo = ({
 					loop
 					controlsList="nodownload noremoteplayback"
 					disablePictureInPicture
-					playsInline
 					muted={muted}
 				>
 					<source type="video/mp4" src={videoURL} />
