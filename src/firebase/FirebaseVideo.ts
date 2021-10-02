@@ -4,6 +4,7 @@ import {
 	doc,
 	getDoc,
 	setDoc,
+	getDocs,
 } from "firebase/firestore/lite"
 import { db } from "./infra"
 
@@ -11,9 +12,11 @@ interface FirebaseVideoData {
 	votes: number
 }
 
+const ROOT_COLLECTION_NAME = "videos"
+
 const videoCollection = collection(
 	db,
-	"videos"
+	ROOT_COLLECTION_NAME
 ) as CollectionReference<FirebaseVideoData>
 
 interface ConstructorArgs {
@@ -24,8 +27,8 @@ interface ConstructorArgs {
 
 export class FirebaseVideo {
 	public votes: number
-	private submissionType: string
-	private uid: string
+	public submissionType: string
+	public uid: string
 
 	constructor({ votes, uid, submissionType }: ConstructorArgs) {
 		this.votes = votes ?? 0
@@ -68,5 +71,26 @@ export class FirebaseVideo {
 		const data = docSnap.data()
 
 		return new FirebaseVideo({ uid, votes: data.votes, submissionType })
+	}
+
+	static async findAllByType(submissionType: string): Promise<FirebaseVideo[]> {
+		const submissionTypeCollection = collection(
+			db,
+			ROOT_COLLECTION_NAME,
+			"submissionTypes",
+			submissionType
+		) as CollectionReference<FirebaseVideoData>
+
+		const snapshot = await getDocs(submissionTypeCollection)
+
+		return snapshot.docs.map((doc) => {
+			const data = doc.data()
+
+			return new FirebaseVideo({
+				votes: data.votes,
+				submissionType,
+				uid: doc.id,
+			})
+		})
 	}
 }

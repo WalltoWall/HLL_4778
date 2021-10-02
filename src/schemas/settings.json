@@ -124,5 +124,24 @@
         "label": "Open Graph Image"
       }
     }
+  },
+  "Notification Bar": {
+    "enabled": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "Disabled",
+        "placeholder_true": "Enabled",
+        "default_value": false,
+        "label": "Enabled"
+      }
+    },
+    "text": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph, strong, em, hyperlink",
+        "allowTargetBlank": true,
+        "label": "Text"
+      }
+    }
   }
 }
