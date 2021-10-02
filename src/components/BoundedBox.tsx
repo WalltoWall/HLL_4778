@@ -5,12 +5,14 @@ export const variants = {
 	base: "py-16 sm:py-20 md:py-24 lg:py-36",
 	bio: "pt-16 sm:pt-20 md:pt-24 lg:pt-36 sm:pb-9 md:pb-13 lg:pb-18",
 	header: "py-6 md:py-7 lg:py-8",
+	notification: "py-4",
 }
 
 export const maxWidthVariants = {
 	base: "max-w-[1200px]",
 	lg: "max-w-[1650px]",
 	wide: "max-w-[2000px]",
+	notification: "max-w-xl",
 }
 
 export interface BoundedBoxProps extends React.ComponentPropsWithoutRef<"div"> {
