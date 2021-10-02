@@ -16,6 +16,8 @@
 		"votable": {
 			"type": "Boolean",
 			"config": {
+				"placeholder_false": "No",
+				"placeholder_true": "Yes",
 				"default_value": false,
 				"label": "Votable"
 			}
