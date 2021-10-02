@@ -35,16 +35,16 @@ function getFormStateVariant(state: FormState): FormStateVariant {
 		case "submitting":
 			return {
 				color: "gray",
-				text: "Hang tight! Subscribing...",
+				text: "Subscribing...",
 			}
 
 		case "submitted":
-			return { color: "green", text: "Thank you for subscribing!" }
+			return { color: "green", text: "Mahalo!" }
 
 		case "error":
 			return {
 				color: "red",
-				text: "Oops! Something went wrong. Try again?",
+				text: "Oops! Something went wrong.",
 			}
 
 		default:
