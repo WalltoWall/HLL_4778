@@ -18,7 +18,7 @@ export const DesktopPerson = ({ person }: DesktopPersonProps) => {
 						<Image
 							src={person.imageURL}
 							alt={person.imageAlt ?? person.name}
-							className="object-cover w-full h-full rounded-full"
+							className="object-cover object-center w-full h-full rounded-full"
 						/>
 					</div>
 				</div>
