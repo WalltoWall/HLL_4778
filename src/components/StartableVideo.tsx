@@ -51,7 +51,7 @@ export const StartableVideo = ({
 				<Image
 					src={videoThumbnailURL}
 					alt={videoThumbnailAlt ?? ""}
-					className="absolute inset-0 object-cover object-center pointer-events-none brightness-[.70]"
+					className="absolute inset-0 object-cover object-center pointer-events-none"
 				/>
 			)}
 
@@ -63,7 +63,8 @@ export const StartableVideo = ({
 						"text-beige-92",
 						"transition duration-250",
 						"group",
-						"hover:bg-gray-13/20"
+						!isPlaying && "bg-gray-13/40 hover:bg-gray-13/20",
+						isPlaying && "bg-gray-13/0 hover:bg-gray-13/40"
 					)}
 					withRing={false}
 					onClick={() => (isPlaying ? stopVideo() : startVideo())}
@@ -75,7 +76,7 @@ export const StartableVideo = ({
 					{isPlaying ? (
 						<PauseIcon
 							className={clsx(
-								"w-10 md:w-12 lg:w-14",
+								"w-11 md:w-13 lg:w-15",
 								"transition duration-250",
 								"opacity-0",
 								"group-hover:opacity-100"
