@@ -1,11 +1,12 @@
 import * as React from "react"
 import { MapToComponents } from "react-map-to-components"
 import { graphql, PageProps } from "gatsby"
+import { withPrismicPreview } from "gatsby-plugin-prismic-previews"
 
 import { SEO } from "../components/SEO"
 import { Layout } from "../components/Layout"
 
-import type {} from "../gqlTypes.gen"
+import type { EventTemplateQuery } from "../gqlTypes.gen"
 
 import * as TwoColumnText from "../eventSlices/TwoColumnText"
 import * as Introduction from "../eventSlices/Introduction"
@@ -21,6 +22,8 @@ import * as FeaturedPeople from "../eventSlices/FeaturedPeople"
 import * as VideoGallery from "../eventSlices/VideoGallery"
 import * as TextAndVideo from "../eventSlices/TextAndVideo"
 
+import { linkResolver } from "../prismic"
+
 import {
 	mapDataToContextFactory,
 	mapDataToPropsFactory,
@@ -30,6 +33,7 @@ import {
 	getSliceKey,
 	getSliceType,
 } from "../lib/mapToComponents"
+import { PRISMIC_REPOSITORY_NAME } from "../constants"
 
 const sliceMap: SliceMap = {
 	TwoColumnText,
@@ -51,7 +55,7 @@ const map = mapFactory(sliceMap)
 const mapDataToProps = mapDataToPropsFactory(sliceMap)
 const mapDataToContext = mapDataToContextFactory(sliceMap)
 
-const PageTemplate = ({ data }: PageProps<any>) => {
+const EventTemplate = ({ data }: PageProps<EventTemplateQuery>) => {
 	const event = data.prismicEvent
 
 	const sliceList = event?.data?.body ?? []
@@ -110,4 +114,9 @@ export const eventTemplateQuery = graphql`
 	}
 `
 
-export default PageTemplate
+export default withPrismicPreview(EventTemplate, [
+	{
+		repositoryName: PRISMIC_REPOSITORY_NAME,
+		linkResolver,
+	},
+])
