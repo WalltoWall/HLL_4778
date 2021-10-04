@@ -14,6 +14,8 @@ import {
 	getColorVariantStyles,
 } from "../lib/colorVariant"
 
+const NETLIFY_FORM_NAME = "Newsletter Form"
+
 type FormState = "unsubmitted" | "submitting" | "submitted" | "error"
 
 interface FormSchema {
@@ -69,7 +71,7 @@ const NewsletterForm = ({
 
 		try {
 			const wasSuccessful = await postNetlifyForm({
-				formName: "newsletter-signup",
+				formName: NETLIFY_FORM_NAME,
 				data: createFormData({ email: target.email.value }),
 			})
 
@@ -115,7 +117,8 @@ const NewsletterForm = ({
 						"max-w-[90ch]"
 					)}
 					onSubmit={submitToNetlify}
-					data-netlify={true}
+					name={NETLIFY_FORM_NAME}
+					data-netlify
 				>
 					<input
 						placeholder={placeholderText}
