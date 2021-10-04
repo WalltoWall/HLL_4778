@@ -1,6 +1,7 @@
 import * as React from "react"
 import { MapToComponents, TCtx, TCtxWithContext } from "react-map-to-components"
 import { graphql, PageProps } from "gatsby"
+import { withPrismicPreview } from "gatsby-plugin-prismic-previews"
 
 import { SEO } from "../components/SEO"
 import { Layout } from "../components/Layout"
@@ -24,6 +25,8 @@ import * as FeaturedPeople from "../pageSlices/FeaturedPeople"
 import * as VideoGallery from "../pageSlices/VideoGallery"
 import * as TextAndVideo from "../pageSlices/TextAndVideo"
 
+import { linkResolver } from "../prismic"
+
 import {
 	mapDataToContextFactory,
 	mapDataToPropsFactory,
@@ -33,6 +36,7 @@ import {
 	getSliceKey,
 	getSliceType,
 } from "../lib/mapToComponents"
+import { PRISMIC_REPOSITORY_NAME } from "../constants"
 
 const sliceMap: SliceMap = {
 	VideoHero,
@@ -137,4 +141,9 @@ export const pageTemplateQuery = graphql`
 	}
 `
 
-export default PageTemplate
+export default withPrismicPreview(PageTemplate, [
+	{
+		repositoryName: PRISMIC_REPOSITORY_NAME,
+		linkResolver,
+	},
+])
