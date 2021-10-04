@@ -21,6 +21,9 @@ const ImageCallToAction = ({
 	buttonHref,
 	buttonText,
 	color,
+	nextOverhangs,
+	nextSharesBg,
+	previousOverhangs,
 }: ReturnType<typeof mapDataToProps>) => {
 	const variantStyles = getColorVariantStyles(color)
 
@@ -29,6 +32,9 @@ const ImageCallToAction = ({
 			tag="section"
 			className={clsx(variantStyles.bg, variantStyles.textColor)}
 			width="base"
+			nextSharesBg={nextSharesBg}
+			nextOverhangs={nextOverhangs}
+			previousOverhangs={previousOverhangs}
 		>
 			<div
 				className={clsx(
