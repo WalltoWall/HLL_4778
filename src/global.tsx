@@ -13,16 +13,19 @@
 
 import * as React from "react"
 import { LazyMotion, domMax } from "framer-motion"
+import { PrismicPreviewProvider } from "gatsby-plugin-prismic-previews"
 
 import "@fontsource/work-sans/variable.css"
 import "tailwindcss/tailwind.css"
-// import "gatsby-plugin-prismic-previews/dist/styles.css"
+import "gatsby-plugin-prismic-previews/dist/styles.css"
 import "./styles/global.css"
 
 export const GlobalProviders: React.FC = ({ children }) => {
 	return (
-		<LazyMotion strict features={domMax}>
-			{children}
-		</LazyMotion>
+		<PrismicPreviewProvider>
+			<LazyMotion strict features={domMax}>
+				{children}
+			</LazyMotion>
+		</PrismicPreviewProvider>
 	)
 }
