@@ -118,7 +118,6 @@ const NewsletterForm = ({
 					)}
 					onSubmit={submitToNetlify}
 					name={NETLIFY_FORM_NAME}
-					data-netlify
 				>
 					<input
 						placeholder={placeholderText}
