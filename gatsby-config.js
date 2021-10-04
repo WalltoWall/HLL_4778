@@ -10,9 +10,7 @@ const siteMetadata = {
 	siteUrl: "https://www.example.org",
 }
 
-/**
- * @type {import("gatsby").GatsbyConfig}
- */
+/** @type {import("gatsby").GatsbyConfig} */
 module.exports = {
 	flags: {
 		FAST_DEV: true,
@@ -45,13 +43,13 @@ module.exports = {
 				linkResolver: require("./src/prismic").linkResolver,
 			},
 		},
-		{
-			resolve: "gatsby-plugin-prismic-previews",
-			options: {
-				repositoryName: process.env.GATSBY_PRISMIC_REPOSITORY_NAME,
-				accessToken: process.env.GATSBY_PRISMIC_ACCESS_TOKEN,
-			},
-		},
+		// {
+		// 	resolve: "gatsby-plugin-prismic-previews",
+		// 	options: {
+		// 		repositoryName: process.env.GATSBY_PRISMIC_REPOSITORY_NAME,
+		// 		accessToken: process.env.GATSBY_PRISMIC_ACCESS_TOKEN,
+		// 	},
+		// },
 		// process.env.GOOGLE_ANALYTICS_TRACKING_ID && {
 		// 	resolve: "gatsby-plugin-google-gtag",
 		// 	options: {
