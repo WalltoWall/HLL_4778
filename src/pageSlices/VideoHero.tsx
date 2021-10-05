@@ -34,9 +34,9 @@ const VideoHero = ({
 		if (!videoRef.current) return
 
 		if (inView) {
-			videoRef.current?.play()
+			videoRef.current.play()
 		} else {
-			videoRef.current?.pause()
+			!videoRef.current.paused && videoRef.current.pause()
 		}
 	}, [inView])
 
@@ -44,7 +44,7 @@ const VideoHero = ({
 	React.useEffect(() => {
 		if (!videoRef.current) return
 
-		if (isMobileMenuOpen) {
+		if (isMobileMenuOpen && !videoRef.current.paused) {
 			videoRef.current.pause()
 		} else {
 			videoRef.current.play()

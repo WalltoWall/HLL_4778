@@ -44,7 +44,7 @@ const Introduction = ({
 	return (
 		<BoundedBox
 			tag="section"
-			className={clsx(variantStyles.bg, "!pb-20")}
+			className={clsx(variantStyles.bg, "!pb-12")}
 			nextSharesBg={nextSharesBg}
 		>
 			<div className="max-w-[560px] space-y-5 md:space-y-8 lg:space-y-12">
