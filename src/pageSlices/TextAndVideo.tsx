@@ -57,6 +57,7 @@ const TextAndVideo = ({
 						videoThumbnailAlt={videoThumbnailAlt}
 						videoURL={videoURL}
 						filledPlayIcon
+						withControls
 					/>
 				</div>
 

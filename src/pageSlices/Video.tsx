@@ -20,6 +20,7 @@ const VideoHero = ({
 				videoThumbnailAlt={videoThumbnailAlt}
 				videoURL={videoUrl}
 				filledPlayIcon
+				withControls
 			/>
 		</section>
 	)

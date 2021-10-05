@@ -14,6 +14,7 @@ interface Props extends React.ComponentPropsWithoutRef<"div"> {
 	videoThumbnailAlt?: string
 	filledPlayIcon?: boolean
 	muted?: boolean
+	withControls?: boolean
 }
 
 export const StartableVideo = ({
@@ -23,6 +24,7 @@ export const StartableVideo = ({
 	videoThumbnailAlt,
 	filledPlayIcon = false,
 	muted = false,
+	withControls = false,
 	...props
 }: Props) => {
 	const { hasVideoStarted, isPlaying, startVideo, stopVideo, videoRef } =
@@ -38,10 +40,11 @@ export const StartableVideo = ({
 						"object-cover object-center w-full h-full",
 						!hasVideoStarted && "hidden"
 					)}
-					loop
+					loop={!withControls}
 					controlsList="nodownload noremoteplayback"
 					disablePictureInPicture
 					muted={muted}
+					controls={withControls}
 				>
 					<source type="video/mp4" src={videoURL} />
 				</video>
@@ -64,7 +67,8 @@ export const StartableVideo = ({
 						"transition duration-250",
 						"group",
 						!isPlaying && "bg-gray-13/40 hover:bg-gray-13/20",
-						isPlaying && "bg-gray-13/0 hover:bg-gray-13/40"
+						isPlaying && "bg-gray-13/0 hover:bg-gray-13/40",
+						withControls && isPlaying && "pointer-events-none"
 					)}
 					withRing={false}
 					onClick={() => (isPlaying ? stopVideo() : startVideo())}
