@@ -65,7 +65,7 @@ const TwoColumnText = ({
 
 				{hasButton && (
 					<ButtonLink
-						color="white"
+						color="beige"
 						href={buttonURL}
 						className={clsx(
 							"justify-self-center",
