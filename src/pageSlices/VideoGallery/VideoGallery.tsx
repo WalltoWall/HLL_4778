@@ -88,22 +88,23 @@ const VideoGallery = ({
 					"-mx-5 md:-mx-8 lg:mx-0"
 				)}
 			>
-				{videos.map((video, idx) => (
-					<Video
-						key={`videoGallery-${idx}`}
-						video={video}
-						variantStyles={variantStyles}
-						isOpen={activeVideoIdx === idx}
-						onOpenChange={onOpenChangeFactory(idx)}
-						nextVideo={nextVideo}
-						previousVideo={previousVideo}
-						votable={votable}
-						endDate={endDate}
-						onFirstVideo={onFirstVideo}
-						onLastVideo={onLastVideo}
-						mute={mute}
-					/>
-				))}
+				{typeof window !== "undefined" &&
+					videos.map((video, idx) => (
+						<Video
+							key={`videoGallery-${idx}`}
+							video={video}
+							variantStyles={variantStyles}
+							isOpen={activeVideoIdx === idx}
+							onOpenChange={onOpenChangeFactory(idx)}
+							nextVideo={nextVideo}
+							previousVideo={previousVideo}
+							votable={votable}
+							endDate={endDate}
+							onFirstVideo={onFirstVideo}
+							onLastVideo={onLastVideo}
+							mute={mute}
+						/>
+					))}
 			</div>
 		</BoundedBox>
 	)
