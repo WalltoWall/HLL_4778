@@ -40,6 +40,7 @@ export const StartableVideo = ({
 						"object-cover object-center w-full h-full",
 						!hasVideoStarted && "hidden"
 					)}
+					preload="none"
 					loop={!withControls}
 					controlsList="nodownload noremoteplayback"
 					disablePictureInPicture

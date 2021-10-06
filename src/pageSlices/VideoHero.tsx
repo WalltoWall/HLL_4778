@@ -68,6 +68,7 @@ const VideoHero = ({
 							src={videoThumbnailUrl}
 							alt={videoThumbnailAlt ?? ""}
 							className="object-cover object-center w-full h-full brightness-[.65]"
+							loading="eager"
 						/>
 					)}
 				</div>
@@ -86,6 +87,8 @@ const VideoHero = ({
 						loop
 						muted
 						playsInline
+						poster={videoThumbnailUrl}
+						preload="none"
 					>
 						<source type="video/mp4" src={videoUrl} />
 					</video>
