@@ -22,6 +22,7 @@ module.exports = {
 		"gatsby-plugin-postcss",
 		"gatsby-plugin-catch-links",
 		"gatsby-plugin-sitemap",
+		"gatsby-plugin-loadable-components-ssr",
 		{
 			resolve: "gatsby-plugin-manifest",
 			options: {
