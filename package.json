@@ -13,6 +13,7 @@
 	"dependencies": {
 		"@fast-csv/format": "^4.3.5",
 		"@fontsource/work-sans": "^4.5.1",
+		"@loadable/component": "^5.15.0",
 		"@lukeed/uuid": "^2.0.0",
 		"@prismicio/helpers": "^2.0.0-alpha.8",
 		"@radix-ui/react-announce": "^0.1.0",
@@ -66,6 +67,7 @@
 		"gatsby-plugin-netlify": "^3.14.0",
 		"gatsby-plugin-postcss": "^4.14.0",
 		"gatsby-plugin-sitemap": "^4.10.0",
+		"gatsby-plugin-loadable-components-ssr": "^3.4.0",
 		"gatsby-source-prismic": "^4.1.6",
 		"postcss": "^8.3.8",
 		"postcss-nested": "^5.0.6",
