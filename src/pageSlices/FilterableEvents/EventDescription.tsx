@@ -7,6 +7,7 @@ import { HTMLContent } from "../../components/HTMLContent"
 import type { Event } from "./FilterableEvents"
 import type { ColorVariantStyles } from "../../lib/colorVariant"
 import type { FilterableEventsExtraStyles } from "./getFilterableEventsExtraStyles"
+import { VisuallyHidden } from "../../components/VisuallyHidden"
 
 interface Props extends Omit<Event, "color" | "illustration"> {
 	variantStyles: ColorVariantStyles
@@ -87,6 +88,7 @@ export const EventDescription = React.forwardRef<HTMLDivElement, Props>(
 						extraStyles.hoverLinkColor
 					)}
 				>
+					<VisuallyHidden>Learn more about {title}</VisuallyHidden>
 					Learn More
 				</Link>
 			</div>
