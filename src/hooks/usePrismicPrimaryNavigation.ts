@@ -1,9 +1,11 @@
 import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import { useMergePrismicPreviewData } from "gatsby-plugin-prismic-previews"
+
 import { PrimaryNavigationQuery } from "../gqlTypes.gen"
 
 export function usePrismicPrimaryNavigation() {
-	const result = useStaticQuery<PrimaryNavigationQuery>(graphql`
+	const staticData = useStaticQuery<PrimaryNavigationQuery>(graphql`
 		query PrimaryNavigation {
 			prismicNavigation(uid: { eq: "primary" }) {
 				_previewable
@@ -20,6 +22,7 @@ export function usePrismicPrimaryNavigation() {
 			}
 		}
 	`)
+	const { data: result } = useMergePrismicPreviewData(staticData)
 
 	return React.useMemo(() => {
 		return {
