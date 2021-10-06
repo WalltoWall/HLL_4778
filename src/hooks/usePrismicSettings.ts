@@ -1,11 +1,12 @@
 import * as React from "react"
 import { undefIfEmpty } from "@walltowall/helpers"
+import { useMergePrismicPreviewData } from "gatsby-plugin-prismic-previews"
 
 import { graphql, useStaticQuery } from "gatsby"
 import { SettingsQuery } from "../gqlTypes.gen"
 
 export function usePrismicSettings() {
-	const result = useStaticQuery<SettingsQuery>(graphql`
+	const staticData = useStaticQuery<SettingsQuery>(graphql`
 		query Settings {
 			prismicSettings {
 				_previewable
@@ -44,6 +45,7 @@ export function usePrismicSettings() {
 			}
 		}
 	`)
+	const { data: result } = useMergePrismicPreviewData(staticData)
 
 	return React.useMemo(() => {
 		const data = result.prismicSettings?.data
