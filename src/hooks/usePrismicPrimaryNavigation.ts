@@ -1,4 +1,3 @@
-import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { useMergePrismicPreviewData } from "gatsby-plugin-prismic-previews"
 
@@ -24,13 +23,11 @@ export function usePrismicPrimaryNavigation() {
 	`)
 	const { data: result } = useMergePrismicPreviewData(staticData)
 
-	return React.useMemo(() => {
-		return {
-			items:
-				result.prismicNavigation?.data?.nav_items?.map((item) => ({
-					label: item?.label?.text,
-					href: item?.link?.url,
-				})) ?? [],
-		}
-	}, [])
+	return {
+		items:
+			result.prismicNavigation?.data?.nav_items?.map((item) => ({
+				label: item?.label?.text,
+				href: item?.link?.url,
+			})) ?? [],
+	}
 }
