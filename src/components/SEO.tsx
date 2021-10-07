@@ -19,9 +19,6 @@ export const SEO = ({ metaDescription, pageTitle, metaTitle }: SEOProps) => {
 				{title} | {settings.siteName}
 			</Title>
 
-			{/* Fonts */}
-			<Link rel="stylesheet" href="https://use.typekit.net/bry3kbj.css" />
-
 			<Meta name="description" content={description} />
 
 			{/* Open Graph */}

@@ -22,7 +22,6 @@ module.exports = {
 		"gatsby-plugin-postcss",
 		"gatsby-plugin-catch-links",
 		"gatsby-plugin-sitemap",
-		"gatsby-plugin-loadable-components-ssr",
 		{
 			resolve: "gatsby-plugin-manifest",
 			options: {
@@ -51,13 +50,21 @@ module.exports = {
 				accessToken: process.env.GATSBY_PRISMIC_ACCESS_TOKEN,
 			},
 		},
-		// process.env.GOOGLE_ANALYTICS_TRACKING_ID && {
-		// 	resolve: "gatsby-plugin-google-gtag",
-		// 	options: {
-		// 		trackingIds: [process.env.GOOGLE_ANALYTICS_TRACKING_ID],
-		// 		exclude: ["/preview/**", "/admin/**", "/docs/**"],
-		// 	},
-		// },
+		process.env.TYPEKIT_PROJECT_ID && {
+			resolve: "gatsby-plugin-web-font-loader",
+			options: {
+				typekit: {
+					id: process.env.TYPEKIT_PROJECT_ID,
+				},
+			},
+		},
+		process.env.GOOGLE_MEASUREMENT_ID && {
+			resolve: "gatsby-plugin-google-gtag",
+			options: {
+				trackingIds: [process.env.GOOGLE_MEASUREMENT_ID],
+				exclude: ["/preview/**", "/admin/**", "/docs/**"],
+			},
+		},
 		"gatsby-plugin-netlify",
 	].filter(Boolean),
 }
