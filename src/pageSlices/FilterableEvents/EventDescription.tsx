@@ -23,6 +23,7 @@ export const EventDescription = React.forwardRef<HTMLDivElement, Props>(
 		const time = date.toLocaleTimeString("en-US", {
 			hour12: true,
 			hour: "numeric",
+			minute: "2-digit",
 		})
 
 		return (
