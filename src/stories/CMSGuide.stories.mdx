@@ -1,4 +1,5 @@
 import { Meta } from "@storybook/addon-docs"
+import { hrefTo } from "@storybook/addon-links"
 import Code from "./assets/code-brackets.svg"
 import Colors from "./assets/colors.svg"
 import Comments from "./assets/comments.svg"
@@ -7,6 +8,7 @@ import Flow from "./assets/flow.svg"
 import Plugin from "./assets/plugin.svg"
 import Repo from "./assets/repo.svg"
 import StackAlt from "./assets/stackalt.svg"
+import StorybookControls from "./assets/storybook-controls.png"
 
 import { Card } from "./components/Card.tsx"
 import { Pill } from "./components/Pill.tsx"
@@ -37,77 +39,75 @@ Welcome to your website's documentation. Every part of the site is documented in
 detail to give you an understanding of how to manage and update its content.
 
 > **Important**: When reading the documentation, be sure to click the **Docs**
-> button toward the top of the page.
+> button toward the top of the page to view additional information.
 
-<CapsHeading style={{ marginBottom: 12, marginTop: 24 }}>Configure</CapsHeading>
+<img src={StorybookControls} alt="" />
+
+<CapsHeading style={{ marginBottom: 12, marginTop: 36 }}>
+	Useful Links
+</CapsHeading>
 
 <div className="link-list">
 	<Card
-		href="https://storybook.js.org/docs/react/addons/addon-types"
+		href="https://honolulupride.com/admin"
 		imgSrc={Plugin}
-		imgAlt="plugin"
-		heading="Presets for popular tools"
-		text="Easy setup for TypeScript, SCSS and more."
+		heading="Content Management System"
+		text="Access your site's content management system."
 	/>
 	<Card
-		href="https://storybook.js.org/docs/react/configure/webpack"
-		imgSrc={StackAlt}
-		imgAlt="Build"
-		heading="Build configuration"
-		text="How to customize webpack and Babel"
-	/>
-	<Card
-		href="https://storybook.js.org/docs/react/configure/styling-and-css"
+		href="https://app.netlify.com"
 		imgSrc={Colors}
-		imgAlt="colors"
-		heading="Styling"
-		text="How to load and configure CSS libraries"
+		heading="Netlify"
+		text="View form submissions and web-hosting details."
 	/>
 	<Card
-		href="https://storybook.js.org/docs/react/get-started/setup#configure-storybook-for-your-stack"
+		href="https://honolulupride.com/api/export?videoSubmissionType=tiny-floats"
 		imgSrc={Flow}
-		imgAlt="flow"
-		heading="Data"
-		text="Providers and mocking for data libraries"
+		heading="Tiny Floats Export"
+		text="Create an export of the voting results."
+	/>
+	<Card
+		story="Slices/Call To Action"
+		imgSrc={StackAlt}
+		heading="Slices"
+		text="Reference of blocks used to build pages."
 	/>
 </div>
 
-<CapsHeading style={{ marginBottom: 12, marginTop: 24 }}>Learn</CapsHeading>
+<CapsHeading style={{ marginBottom: 12, marginTop: 36 }}>
+	Common Document Types
+</CapsHeading>
 
 <div className="link-list" style={{ marginBottom: 36 }}>
 	<Card
-		href="https://storybook.js.org/docs"
+		story="Document Types/Page"
 		imgSrc={Repo}
-		imgAlt="repo"
-		heading="Storybook documentation"
-		text="Configure, customize, and extend"
+		heading="Page"
+		text="Represents a page on the site."
 	/>
 	<Card
-		href="https://storybook.js.org/tutorials/"
+		story="Document Types/Event"
 		imgSrc={Direction}
-		imgAlt="direction"
-		heading="In-depth guides"
-		text="Best practices from leading teams"
+		heading="Event"
+		text="Represents a page on the site at /events."
 	/>
 	<Card
-		href="https://github.com/storybookjs/storybook"
+		story="Document Types/Settings"
 		imgSrc={Code}
-		imgAlt="code"
-		heading="GitHub project"
-		text="View the source and add issues"
+		heading="Settings"
+		text="Global site settings and SEO."
 	/>
 	<Card
-		href="https://discord.gg/storybook"
+		story="Document Types/Video Submission"
 		imgSrc={Comments}
-		imgAlt="comments"
-		heading="Discord chat"
-		text="Chat with maintainers and the community"
+		heading="Video Submission"
+		text="Represents a user's video submission."
 	/>
 </div>
 
 ## Sections
 
-Use the sidebar to the left to navgigate through different sections of the
+Use the sidebar to the left to navigate through different sections of the
 documentation, or navigate through main sections found above.
 
 ### Documentation
@@ -118,12 +118,15 @@ management guides.
 - **General**: Overview of managing the site and its content.
 - **Prismic** CMS: Guides on using the site's content management system,
   Prismic.
-- **Workflows**: Instructions on performing common content updates.
 
 ### Slices
 
 Documentation regarding Slices, the reusable building blocks used to create
 pages on the site.
+
+Each slice document has a fully interactive example and descriptions of the
+fields used in Prismic. Some fields can be live-edited here to preview what
+different forms of content would look like.
 
 ### Document Types
 
@@ -139,4 +142,5 @@ respective documentation within the **Document Types** section.
 ### Style Guide
 
 Colors and typography used throughout the site are listed within the **Style
-Guide** section. Use these specifications when creating new website content.
+Guide** section. Use these specifications when creating new website or media
+related content.

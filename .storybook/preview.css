@@ -5,3 +5,12 @@
 .sbdocs-content {
 	max-width: 850px !important;
 }
+
+.sbdocs-h1,
+.sbdocs-h2,
+.sbdocs-h3,
+.sbdocs-h4,
+.sbdocs-h5,
+.sbdocs-h6 {
+	font-weight: bold;
+}
