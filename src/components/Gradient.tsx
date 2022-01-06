@@ -6,15 +6,18 @@ import type { Gradient as GradientController } from "../lib/gradient"
 
 interface Props extends React.ComponentPropsWithoutRef<"div"> {
 	shouldPlay?: boolean
+	__HACKY_SB_OVERRIDE__?: boolean
 }
 
 export const Gradient = ({
 	id = "gradient-canvas",
 	style,
 	shouldPlay = true,
+	__HACKY_SB_OVERRIDE__ = false,
 	...props
 }: Props) => {
-	if (process.env.NODE_ENV === "development") return null
+	if (process.env.NODE_ENV === "development" && !__HACKY_SB_OVERRIDE__)
+		return null
 
 	const shouldReduceMotion = useReducedMotion()
 	const gradientRef = React.useRef<GradientController>()

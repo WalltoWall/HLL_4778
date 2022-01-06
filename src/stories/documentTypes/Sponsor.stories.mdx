@@ -1,0 +1,33 @@
+import { Meta } from "@storybook/addon-docs"
+import { FieldsTable } from "../components/FieldsTable"
+
+<Meta title="Document Types/Sponsor" />
+
+# Sponsor
+
+The Sponsor custom type represents a sponsor's information and a sponsor on the
+site. This document type is primarily used in conjunction with the
+[Sponsors List](/story/document-types-sponsors-list--page) document type and the
+[Sponsors Slice](/).
+
+### Fields
+
+<FieldsTable>
+	<FieldsTable.Row
+		name="Name"
+		type="Title"
+		description="Name of the sponsor"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Link"
+		type="Link"
+		description="Link to the sponsor's webpage"
+	/>
+	<FieldsTable.Row
+		name="Image"
+		type="Image"
+		description="Sponsor's logo"
+		isRequired
+	/>
+</FieldsTable>

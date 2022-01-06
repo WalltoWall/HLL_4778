@@ -1,0 +1,54 @@
+import { Meta } from "@storybook/addon-docs"
+import { FieldsTable } from "../components/FieldsTable"
+
+<Meta title="Document Types/Sponsors List" />
+
+# Sponsors List
+
+The Sponsors List custom type represents a listing of
+[Sponsors](/story/document-types-sponsor--page) and is primarily used in
+conjunction with the [Sponsors Slice](/).
+
+This document type is used to set the order of sponsors when it is selected via
+the [Sponsors Slice](/).
+
+### Fields
+
+<FieldsTable>
+	<FieldsTable.Row
+		name="Name"
+		type="Title"
+		description="Name of the document"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="UID"
+		type="ID"
+		description="Unique identifier"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Rainbows Over Waikiki Sponsor"
+		type="Link (Sponsor)"
+		description="Sponsor to be shown in the 'Rainbows Over Waikiki' section"
+		isRequired
+	/>
+</FieldsTable>
+
+### Repeatable Fields (Sponsors)
+
+There are sections for **Visionary**, **Gold**, **Silver**, **Bronze** and
+**Partner** sponsors. For each of these sections, the fields available are the
+same.
+
+Within each section, Sponsors can be re-ordered to determine their placement on
+the site.
+
+<FieldsTable>
+	<FieldsTable.Row
+		name="Sponsor"
+		type="Link (Sponsor)"
+		description="Sponsor to show"
+		isRequired
+	/>
+</FieldsTable>

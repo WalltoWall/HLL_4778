@@ -1,0 +1,52 @@
+import { Meta } from "@storybook/addon-docs"
+
+import { FieldsTable } from "../components/FieldsTable"
+
+<Meta title="Document Types/Navigation" />
+
+# Navigation
+
+The Navigation custom type represents groups of pages used to navigate the site.
+This includes navigation lists displayed in the header.
+
+The site only supports one navigation document: **Primary**. Any additional
+Navigation documents will not have an affect on the site.
+
+### Fields
+
+Primary fields for this document. Do not edit. Editing will likely break the
+navigation functionality on the site!
+
+<FieldsTable>
+	<FieldsTable.Row
+		name="Title"
+		type="Title"
+		description="Name of the document. Should not be changed"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="UID"
+		type="ID"
+		description="Name of the document. Should not be changed"
+		isRequired
+	/>
+</FieldsTable>
+
+### Repeatable Fields (Nav Items)
+
+Each repeatable nav-item represents a link in the navigation menu.
+
+<FieldsTable>
+	<FieldsTable.Row
+		name="Name"
+		type="Plain Text"
+		description="Name of the link"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Link"
+		type="Link"
+		description="Link for the navigatoin item"
+		isRequired
+	/>
+</FieldsTable>

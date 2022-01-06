@@ -1,0 +1,64 @@
+import { Meta } from "@storybook/addon-docs"
+import { FieldsTable } from "../components/FieldsTable"
+
+<Meta title="Document Types/Event" />
+
+# Event
+
+The Event document type represents a page on the site. All Events URLs are
+prefixed with `/events` and have a URL based on the `UID` field. For example, if
+the UID for an Event is `tiny-floats`, the final URL will be
+`/events/tiny-floats`.
+
+Events are managed in Prismic using two tabs: **Main** and **Body**.
+
+- **Main**: Information about the event such as its title, URL and type.
+- **Body**: Event page Content such as images and text.
+
+All Event pages within the website start with the main header and end with the
+main footer. All content (slices) on the page is designed to be responsive to
+work on both mobile and desktop devices.
+
+Event pages content in the **Body** tab is created using Slices. For more
+information on Slices, [refer to the Slice documentation](/).
+
+### Fields
+
+<FieldsTable>
+	<FieldsTable.Row
+		name="Name"
+		type="Title"
+		description="Name of the submission type"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="UID"
+		type="ID"
+		description="Unique identifier. Determines final URL"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Illustration"
+		type="Dropdown"
+		description="Select an illustration to show for this event"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Type"
+		type="Dropdown"
+		description="The type of event"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Description"
+		type="Rich Text"
+		description="The rich text shown for the event"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Date"
+		type="Date"
+		description="The date that the event takes place"
+		isRequired
+	/>
+</FieldsTable>

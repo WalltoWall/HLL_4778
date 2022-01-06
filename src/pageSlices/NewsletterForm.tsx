@@ -54,15 +54,26 @@ function getFormStateVariant(state: FormState): FormStateVariant {
 	}
 }
 
+interface NewsletterFormProps extends ReturnType<typeof mapDataToProps> {
+	className?: string
+	withTransform?: boolean
+	__PREVENT_SUBMISSIONS_SB__?: boolean
+}
+
 const NewsletterForm = ({
 	heading,
 	placeholderText,
 	color,
-}: ReturnType<typeof mapDataToProps>) => {
+	className,
+	withTransform = true,
+	__PREVENT_SUBMISSIONS_SB__ = false,
+}: NewsletterFormProps) => {
 	const [submissionState, setSubmissionState] =
 		React.useState<FormState>("unsubmitted")
 
 	async function submitToNetlify(event: React.FormEvent<HTMLFormElement>) {
+		if (__PREVENT_SUBMISSIONS_SB__) return
+
 		event.preventDefault()
 
 		setSubmissionState("submitting")
@@ -86,13 +97,13 @@ const NewsletterForm = ({
 	const variantStyles = getColorVariantStyles(formStateVariant.color ?? color)
 
 	return (
-		<BoundedBox tag="section" className="h-0">
+		<BoundedBox tag="section" className={clsx(className, "h-0")}>
 			<Card
 				className={clsx(
 					variantStyles.bg,
 					"space-y-18 md:space-y-32 lg:space-y-45",
 					"transition duration-250",
-					"translate-y-[-50%]"
+					withTransform && "translate-y-[-50%]"
 				)}
 			>
 				{heading && (

@@ -1,0 +1,44 @@
+import { Meta } from "@storybook/addon-docs"
+import { FieldsTable } from "../components/FieldsTable"
+
+<Meta title="Document Types/Submission Type" />
+
+# Submission Type
+
+The Submission document type represents a submission criteria used for
+[Video Submission](/story/document-types-video-submission--page) documents.
+
+### Fields
+
+<FieldsTable>
+	<FieldsTable.Row
+		name="Name"
+		type="Title"
+		description="Name of the submission type"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="UID"
+		type="ID"
+		description="Unique identifier"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Votable"
+		type="Switch"
+		description="Enable or disable voting for these submission types"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Mute Videos"
+		type="Switch"
+		description="Enforce a mute for all submissions during playback"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="End Time"
+		type="Date"
+		description="If votable, specify an end time for voting"
+		isRequired
+	/>
+</FieldsTable>
