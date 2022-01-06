@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const twColors = require("tailwindcss/colors")
+
 const colors = {
 	white: "#fff",
 	black: "#000",
@@ -13,6 +16,8 @@ const colors = {
 	green: { 27: "#6D8E00" },
 	blue: { 31: "#007CA0" },
 	purple: { 57: "#6E3CBE", 73: "#be93e4" },
+
+	docsGray: twColors.coolGray,
 }
 
 module.exports = {
