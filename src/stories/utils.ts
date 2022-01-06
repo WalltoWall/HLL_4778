@@ -66,4 +66,26 @@ export function colorVariants() {
 	}
 }
 
+export function image() {
+	return {
+		name: "Image",
+		description: "Image shown for the slice",
+		table: { type: false, defaultValue: { summary: "none" } },
+		control: false,
+	}
+}
+
+interface ListArgs {
+	name: string
+	description: string
+}
+export function list({ name, description }: ListArgs) {
+	return {
+		name,
+		description,
+		table: { type: false },
+		control: false,
+	}
+}
+
 export { stripIndents as html } from "common-tags"

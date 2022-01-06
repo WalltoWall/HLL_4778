@@ -60,7 +60,7 @@ const Template: ComponentStory<typeof TwoColumnText> = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {
-	leftHTML: html` <h2>${words(10)}</h2> `,
+	leftHTML: html`<h2>${words(10)}</h2>`,
 	rightHTML: html`
 		<h4>${words(8)}</h4>
 		<p>${paragraphs(1)}</p>
