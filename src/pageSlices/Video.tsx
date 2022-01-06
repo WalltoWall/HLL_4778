@@ -7,18 +7,18 @@ import { StartableVideo } from "../components/StartableVideo"
 
 export const sliceType = "PrismicPageDataBodyVideo"
 
-const VideoHero = ({
+const Video = ({
 	videoThumbnailAlt,
-	videoThumbnailUrl,
-	videoUrl,
+	videoThumbnailURL,
+	videoURL,
 }: ReturnType<typeof mapDataToProps>) => {
 	return (
 		<section>
 			<StartableVideo
 				className="aspect-w-16 aspect-h-9"
-				videoThumbnailURL={videoThumbnailUrl}
+				videoThumbnailURL={videoThumbnailURL}
 				videoThumbnailAlt={videoThumbnailAlt}
-				videoURL={videoUrl}
+				videoURL={videoURL}
 				filledPlayIcon
 				withControls
 			/>
@@ -28,9 +28,9 @@ const VideoHero = ({
 
 export function mapDataToProps({ data }: MapDataToPropsCtx<VideoFragment>) {
 	return {
-		videoThumbnailUrl: data.primary?.thumbnail?.url,
+		videoThumbnailURL: data.primary?.thumbnail?.url,
 		videoThumbnailAlt: data.primary?.thumbnail?.alt,
-		videoUrl: data.primary?.video_url,
+		videoURL: data.primary?.video_url,
 	}
 }
 
@@ -50,4 +50,4 @@ export const gqlFragment = graphql`
 	}
 `
 
-export default VideoHero
+export default Video

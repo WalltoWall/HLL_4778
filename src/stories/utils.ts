@@ -66,10 +66,18 @@ export function colorVariants() {
 	}
 }
 
-export function image() {
+interface ImageArgs {
+	name?: string
+	description?: string
+}
+export function image({
+	name = "Image",
+	description = "Image shown for the slice",
+}: ImageArgs = {}) {
 	return {
-		name: "Image",
-		description: "Image shown for the slice",
+		name,
+		description,
+		type: { required: true, name: "string" },
 		table: { type: false, defaultValue: { summary: "none" } },
 		control: false,
 	}
@@ -87,5 +95,8 @@ export function list({ name, description }: ListArgs) {
 		control: false,
 	}
 }
+
+export const placeholderVideoURL =
+	"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
 
 export { stripIndents as html } from "common-tags"
