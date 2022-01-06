@@ -11,16 +11,18 @@ import type { ColorVariantStyles } from "../../lib/colorVariant"
 
 import "keen-slider/keen-slider.min.css"
 
-const Gradient = ({
-	className,
-	...props
-}: React.ComponentPropsWithoutRef<"div">) => {
+interface GradientProps extends React.ComponentPropsWithoutRef<"div"> {
+	variantStyles: ColorVariantStyles
+}
+
+const Gradient = ({ className, variantStyles, ...props }: GradientProps) => {
 	return (
 		<div
 			aria-hidden
 			className={clsx(
 				className,
-				"absolute inset-y-0 pointer-events-none w-75 from-yellow-50 to-transparent"
+				variantStyles.gradientOrigin,
+				"absolute inset-y-0 pointer-events-none w-75 to-transparent"
 			)}
 			{...props}
 		/>
@@ -69,8 +71,16 @@ export const DesktopSlider = ({
 					))}
 				</ul>
 
-				<Gradient aria-hidden className="left-10 bg-gradient-to-r" />
-				<Gradient aria-hidden className="right-10 bg-gradient-to-l" />
+				<Gradient
+					aria-hidden
+					variantStyles={variantStyles}
+					className="left-10 bg-gradient-to-r"
+				/>
+				<Gradient
+					aria-hidden
+					variantStyles={variantStyles}
+					className="right-10 bg-gradient-to-l"
+				/>
 
 				<ArrowButton
 					className="rotate-180 left-3 absolute top-[35%] translate-y-[-50%]"
