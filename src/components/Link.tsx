@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link as GatsbyLink } from "gatsby"
-import { useLocation } from "@reach/router"
+import { useLocation } from "@gatsbyjs/reach-router"
 import { isInternal, isAnchorOnly, extractAnchor } from "@walltowall/helpers"
 import clsx from "clsx"
 

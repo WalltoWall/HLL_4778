@@ -14,22 +14,29 @@ import { HTMLContent } from "../components/HTMLContent"
 
 export const sliceType = "PrismicPageDataBodyCallToActionCard"
 
+interface CallToActionCardProps extends ReturnType<typeof mapDataToProps> {
+	withTransform?: boolean
+	className?: string
+}
+
 const CallToActionCard = ({
 	textHTML,
 	buttonHref,
 	buttonText,
 	color,
-}: ReturnType<typeof mapDataToProps>) => {
+	withTransform = true,
+	className,
+}: CallToActionCardProps) => {
 	const variantStyles = getColorVariantStyles(color)
 
 	return (
-		<BoundedBox tag="section" width="base" className="h-0">
+		<BoundedBox tag="section" width="base" className={clsx(className, "h-0")}>
 			<Card
 				className={clsx(
 					"isolate",
 					"grid justify-items-center",
 					"gap-y-8 md:gap-y-9 lg:gap-y-12",
-					"translate-y-[-50%]",
+					withTransform && "translate-y-[-50%]",
 					variantStyles.bg,
 					variantStyles.textColor
 				)}

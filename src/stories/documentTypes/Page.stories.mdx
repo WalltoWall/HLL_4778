@@ -1,0 +1,59 @@
+import { Meta } from "@storybook/addon-docs"
+import { FieldsTable } from "../components/FieldsTable"
+
+<Meta title="Document Types/Page" />
+
+# Event
+
+The Page document type represents a page on the site. All Page URLs are based on
+the `UID` field. For example, if the UID for an Page is `about-us`, the final
+URL will be `/about-us`.
+
+Pages are managed in Prismic using two tabs: **Main** and **Body**.
+
+- **Main**: Information about the event such as its title, URL and type.
+- **Body**: Event page Content such as images and text.
+
+All pages within the website start with the main header and end with the main
+footer. All content (slices) on the page is designed to be responsive to work on
+both mobile and desktop devices.
+
+Page content in the **Body** tab is created using Slices. For more information
+on Slices, [refer to the Slice documentation](/).
+
+### Fields
+
+<FieldsTable>
+	<FieldsTable.Row
+		name="Name"
+		type="Title"
+		description="Name of the submission type"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="UID"
+		type="ID"
+		description="Unique identifier. Determines final URL"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Meta Title"
+		type="Text"
+		description="Override the page title in search results"
+	/>
+	<FieldsTable.Row
+		name="Meta Description"
+		type="Text"
+		description="Short description of the page's content"
+	/>
+	<FieldsTable.Row
+		name="Redirect To"
+		type="Link"
+		description="Redirect this page to another page or external URL"
+	/>
+	<FieldsTable.Row
+		name="Redirect Is Permanent"
+		type="Switch"
+		description="Self descriptive"
+	/>
+</FieldsTable>

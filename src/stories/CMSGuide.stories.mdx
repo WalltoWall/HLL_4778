@@ -1,0 +1,142 @@
+import { Meta } from "@storybook/addon-docs"
+import Code from "./assets/code-brackets.svg"
+import Colors from "./assets/colors.svg"
+import Comments from "./assets/comments.svg"
+import Direction from "./assets/direction.svg"
+import Flow from "./assets/flow.svg"
+import Plugin from "./assets/plugin.svg"
+import Repo from "./assets/repo.svg"
+import StackAlt from "./assets/stackalt.svg"
+
+import { Card } from "./components/Card.tsx"
+import { Pill } from "./components/Pill.tsx"
+import { CapsHeading } from "./components/CapsHeading.tsx"
+
+<Meta title="CMS Guide" />
+
+<style>{`
+  .link-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 10px;
+  }
+
+  @media (min-width: 620px) {
+    .link-list {
+      row-gap: 20px;
+      column-gap: 20px;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+`}</style>
+
+# CMS Guide
+
+Welcome to your website's documentation. Every part of the site is documented in
+detail to give you an understanding of how to manage and update its content.
+
+> **Important**: When reading the documentation, be sure to click the **Docs**
+> button toward the top of the page.
+
+<CapsHeading style={{ marginBottom: 12, marginTop: 24 }}>Configure</CapsHeading>
+
+<div className="link-list">
+	<Card
+		href="https://storybook.js.org/docs/react/addons/addon-types"
+		imgSrc={Plugin}
+		imgAlt="plugin"
+		heading="Presets for popular tools"
+		text="Easy setup for TypeScript, SCSS and more."
+	/>
+	<Card
+		href="https://storybook.js.org/docs/react/configure/webpack"
+		imgSrc={StackAlt}
+		imgAlt="Build"
+		heading="Build configuration"
+		text="How to customize webpack and Babel"
+	/>
+	<Card
+		href="https://storybook.js.org/docs/react/configure/styling-and-css"
+		imgSrc={Colors}
+		imgAlt="colors"
+		heading="Styling"
+		text="How to load and configure CSS libraries"
+	/>
+	<Card
+		href="https://storybook.js.org/docs/react/get-started/setup#configure-storybook-for-your-stack"
+		imgSrc={Flow}
+		imgAlt="flow"
+		heading="Data"
+		text="Providers and mocking for data libraries"
+	/>
+</div>
+
+<CapsHeading style={{ marginBottom: 12, marginTop: 24 }}>Learn</CapsHeading>
+
+<div className="link-list" style={{ marginBottom: 36 }}>
+	<Card
+		href="https://storybook.js.org/docs"
+		imgSrc={Repo}
+		imgAlt="repo"
+		heading="Storybook documentation"
+		text="Configure, customize, and extend"
+	/>
+	<Card
+		href="https://storybook.js.org/tutorials/"
+		imgSrc={Direction}
+		imgAlt="direction"
+		heading="In-depth guides"
+		text="Best practices from leading teams"
+	/>
+	<Card
+		href="https://github.com/storybookjs/storybook"
+		imgSrc={Code}
+		imgAlt="code"
+		heading="GitHub project"
+		text="View the source and add issues"
+	/>
+	<Card
+		href="https://discord.gg/storybook"
+		imgSrc={Comments}
+		imgAlt="comments"
+		heading="Discord chat"
+		text="Chat with maintainers and the community"
+	/>
+</div>
+
+## Sections
+
+Use the sidebar to the left to navgigate through different sections of the
+documentation, or navigate through main sections found above.
+
+### Documentation
+
+General information about website content, its underlying services, and
+management guides.
+
+- **General**: Overview of managing the site and its content.
+- **Prismic** CMS: Guides on using the site's content management system,
+  Prismic.
+- **Workflows**: Instructions on performing common content updates.
+
+### Slices
+
+Documentation regarding Slices, the reusable building blocks used to create
+pages on the site.
+
+### Document Types
+
+While [Pages](/story/document-types-page--page) and
+[Events](/story/document-types-event--page) will be the most common document
+types used throughout the site, all other content is managed through a
+collection of other document types. This includes content such as the site's
+copyright text, navigation menus and video submissions.
+
+Learn more about the different fields available to each document type in their
+respective documentation within the **Document Types** section.
+
+### Style Guide
+
+Colors and typography used throughout the site are listed within the **Style
+Guide** section. Use these specifications when creating new website content.

@@ -1,0 +1,57 @@
+import { Meta } from "@storybook/addon-docs"
+import { FieldsTable } from "../components/FieldsTable"
+
+<Meta title="Document Types/Video Submission" />
+
+# Video Submission
+
+The Video Submission document type represents a user-generated video submission
+that is to be displayed on the site. Used primarily in conjunction with the
+[Videos Slice](/).
+
+### Fields
+
+<FieldsTable>
+	<FieldsTable.Row
+		name="Name"
+		type="Title"
+		description="Name of the submission"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="UID"
+		type="ID"
+		description="Unique identifier"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Type"
+		type="Link (Submission Type)"
+		description="The submission type this submission is for"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Video URL"
+		type="Text"
+		description="JWPlayer URL for the video. Must end in .mp4"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Video Thumbnail"
+		type="Image"
+		description="Thumbnail shown for the video"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Subtitle"
+		type="Text"
+		description="Content shown under name"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Description"
+		type="Rich Text"
+		description="Self descriptive"
+		isRequired
+	/>
+</FieldsTable>

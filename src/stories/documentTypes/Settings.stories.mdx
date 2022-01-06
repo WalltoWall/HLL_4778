@@ -1,0 +1,130 @@
+import { Meta } from "@storybook/addon-docs"
+import { FieldsTable } from "../components/FieldsTable"
+
+<Meta title="Document Types/Settings" />
+
+# Settings
+
+The Settings document type represents general settings for the site. The
+settings document has several tabs at the top that categorize various settings
+to edit.
+
+**Note**: Only one Settings document can be created. The master document
+contains all content.
+
+### Main
+
+<FieldsTable>
+	<FieldsTable.Row
+		name="Title"
+		type="Title"
+		description="Do not edit"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Site Name"
+		type="Title"
+		description="Name of the site"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Site Description"
+		type="Text"
+		description="Description of the site provided to search engines"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Site Copyright"
+		type="Text"
+		description="Copyright text in footer. {YEAR} will be replaced with the current year."
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Facebook URL"
+		type="Text"
+		description="Facebook URL handle"
+	/>
+	<FieldsTable.Row
+		name="Instagram URL"
+		type="Text"
+		description="Instagram URL handle"
+	/>
+	<FieldsTable.Row
+		name="YouTube URL"
+		type="Text"
+		description="YouTube URL handle"
+	/>
+	<FieldsTable.Row
+		name="Twitter URL"
+		type="Text"
+		description="Twitter URL handle"
+	/>
+	<FieldsTable.Row
+		name="Twitter Username"
+		type="Text"
+		description="Self descriptive"
+	/>
+	<FieldsTable.Row
+		name="Footer Logo URL"
+		type="Text"
+		description="Link the LGBT Foundation logo will point to"
+	/>
+</FieldsTable>
+
+### Redirects
+
+Visitors can be redirected from one URL to another by adding it to this list.
+
+> **Note**: Only set **Is Permanent** if you are 100% sure the redirect will not
+> need to be undone. You **cannot** undo a permanent redirect.
+
+<FieldsTable>
+	<FieldsTable.Row
+		name="Redirects"
+		type="List"
+		description="List of redirects"
+	/>
+</FieldsTable>
+
+### SEO
+
+Fields for managing SEO related functionality of the site.
+
+<FieldsTable>
+	<FieldsTable.Row
+		name="Twitter Card Image"
+		type="Image"
+		description="Card shown in Twitter share cards. Must be 800x418px"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Open Graph Image"
+		type="Image"
+		description="Card shown in other social media share cards. Must be 1200x627px"
+		isRequired
+	/>
+</FieldsTable>
+
+### Notification Bar
+
+The Notification fields represents a notification displayed to all users at the
+top of the page.
+
+> **Note**: Displaying a notification will shift all content on a page down and
+> reduce the user's visible area. **Please keep this message under 140
+> characters**.
+
+<FieldsTable>
+	<FieldsTable.Row
+		name="Enabled"
+		type="Switch"
+		description="Toggle the visibility of the notification"
+		isRequired
+	/>
+	<FieldsTable.Row
+		name="Text"
+		type="Rich Text"
+		description="Text shown in the notification bar"
+		isRequired
+	/>
+</FieldsTable>
