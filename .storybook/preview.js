@@ -3,7 +3,9 @@ import "./preview.css"
 import "../src/styles/global.css"
 import "tailwindcss/tailwind.css"
 import { LocationProvider } from "@gatsbyjs/reach-router"
+import { IdProvider } from "@radix-ui/react-id"
 import { MediaQueryProvider } from "../src/hooks/useMediaQuery"
+import { LazyMotion, domMax } from "framer-motion"
 import { MobileMenuProvider } from "../src/components/Header/MobileMenuProvider"
 
 const rootSortOrder = [
@@ -42,12 +44,16 @@ export const parameters = {
 
 export const decorators = [
 	(Story) => (
-		<LocationProvider>
-			<MediaQueryProvider>
-				<MobileMenuProvider>
-					<Story />
-				</MobileMenuProvider>
-			</MediaQueryProvider>
-		</LocationProvider>
+		<IdProvider>
+			<LazyMotion strict features={domMax}>
+				<LocationProvider>
+					<MediaQueryProvider>
+						<MobileMenuProvider>
+							<Story />
+						</MobileMenuProvider>
+					</MediaQueryProvider>
+				</LocationProvider>
+			</LazyMotion>
+		</IdProvider>
 	),
 ]
