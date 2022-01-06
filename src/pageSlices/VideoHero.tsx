@@ -3,7 +3,7 @@ import mergeRefs from "react-merge-refs"
 import { useReducedMotion, m } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { graphql } from "gatsby"
-import { useLocation } from "@reach/router"
+import { useLocation } from "@gatsbyjs/reach-router"
 import clsx from "clsx"
 
 import { Image } from "../components/Image"
@@ -18,8 +18,8 @@ export const sliceType = "PrismicPageDataBodyVideoHero"
 const VideoHero = ({
 	text,
 	videoThumbnailAlt,
-	videoThumbnailUrl,
-	videoUrl,
+	videoThumbnailURL,
+	videoURL,
 }: ReturnType<typeof mapDataToProps>) => {
 	const { isOpen: isMobileMenuOpen } = useMobileMenu()
 	const videoRef = React.useRef<HTMLVideoElement | null>(null)
@@ -63,9 +63,9 @@ const VideoHero = ({
 		>
 			<div className="flex flex-col justify-center h-full px-8 2xl:h-[800px]">
 				<div className="absolute inset-0 pointer-events-none bg-gray-13">
-					{videoThumbnailUrl && (
+					{videoThumbnailURL && (
 						<Image
-							src={videoThumbnailUrl}
+							src={videoThumbnailURL}
 							alt={videoThumbnailAlt ?? ""}
 							className="object-cover object-center w-full h-full brightness-[.65]"
 							loading="eager"
@@ -73,7 +73,7 @@ const VideoHero = ({
 					)}
 				</div>
 
-				{videoUrl && (
+				{videoURL && (
 					<video
 						ref={mergeRefs([videoRef, observerRef])}
 						className={clsx(
@@ -87,10 +87,10 @@ const VideoHero = ({
 						loop
 						muted
 						playsInline
-						poster={videoThumbnailUrl}
+						poster={videoThumbnailURL}
 						preload="none"
 					>
-						<source type="video/mp4" src={videoUrl} />
+						<source type="video/mp4" src={videoURL} />
 					</video>
 				)}
 
@@ -133,9 +133,9 @@ const VideoHero = ({
 export function mapDataToProps({ data }: MapDataToPropsCtx<VideoHeroFragment>) {
 	return {
 		text: data.primary?.text?.text,
-		videoThumbnailUrl: data.primary?.video_thumbnail?.url,
+		videoThumbnailURL: data.primary?.video_thumbnail?.url,
 		videoThumbnailAlt: data.primary?.video_thumbnail?.alt,
-		videoUrl: data.primary?.video_url,
+		videoURL: data.primary?.video_url,
 	}
 }
 

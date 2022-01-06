@@ -9,7 +9,7 @@ export default {
 	argTypes: {
 		textHTML: string({
 			name: "Text",
-			description: "Rich text with formatting shown in block",
+			description: "Rich text with formatting shown in slice",
 		}),
 		buttonText: string({
 			name: "Button Text",
