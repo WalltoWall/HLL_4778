@@ -4,7 +4,7 @@ import GradientText from "../../pageSlices/GradientText"
 import { hidden, string, words } from "../utils"
 
 export default {
-	title: "Slices/GradientText",
+	title: "Slices/Gradient Text",
 	component: GradientText,
 	argTypes: {
 		text: string({

@@ -4,7 +4,7 @@ import FilterableEvents from "../../pageSlices/FilterableEvents"
 import { hidden, html, list, sentences, words } from "../utils"
 
 export default {
-	title: "Slices/FilterableEvents",
+	title: "Slices/Filterable Events",
 	component: FilterableEvents,
 	argTypes: {
 		events: list({
