@@ -1,11 +1,19 @@
 # Developer Documentation
 
-The following collection of documents aims to provide an overview of development
-on this project.
-
 If you feel anything is missing, please contribute to the
 `WalltoWall/nextjs-ww-starter` repository to ensure future projects benefit from
 the additions.
+
+## Project Specifics
+
+### Redirects
+
+Currently this site is configured via `netlify.toml` to redirect all visitors
+back to the Hawaii LGBT Legacy Foundation website. To undo this redirect, remove
+the `[[redirects]]` blocks from the `netlify.toml` file.
+
+The following collection of documents aims to provide an overview of development
+on this project.
 
 ## Basics
 
