@@ -8,3 +8,15 @@ GOOGLE_MEASUREMENT_ID = "G-G4K6Y1QGWY"
 AWS_LAMBDA_JS_RUNTIME = "nodejs14.x"
 TYPEKIT_PROJECT_ID = "bry3kbj"
 CLIENT_DOCS_URL = "https://honolulupride-docs.netlify.app"
+
+[[redirects]]
+  from = "https://www.honolulupride.com/*"
+  to = "https://hawaiilgbtlegacyfoundation.com/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "https://honolulupride.com/*"
+  to = "https://hawaiilgbtlegacyfoundation.com/"
+  status = 302
+  force = true
