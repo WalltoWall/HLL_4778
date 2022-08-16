@@ -1,5 +1,5 @@
 import { initializeApp, FirebaseOptions } from "firebase/app"
-import { getFirestore, collection, addDoc } from "firebase/firestore/lite"
+import { getFirestore } from "firebase/firestore/lite"
 
 const firebaseConfig: FirebaseOptions = {
 	apiKey: "AIzaSyCzGV6VAnb9awgEoZp_f0wytSrsUSSkQcw",
