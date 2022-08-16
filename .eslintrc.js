@@ -17,12 +17,7 @@ module.exports = {
 		ecmaVersion: 12,
 		sourceType: "module",
 	},
-	plugins: [
-		"react",
-		"react-hooks",
-		"eslint-plugin-tsdoc",
-		"@typescript-eslint",
-	],
+	plugins: ["react", "react-hooks", "@typescript-eslint"],
 	rules: {
 		"prefer-const": "off",
 		"no-console": ["warn", { allow: ["info", "warn", "error"] }],
@@ -45,7 +40,5 @@ module.exports = {
 
 		"react/prop-types": "off",
 		"react/no-unescaped-entities": "off",
-
-		"tsdoc/syntax": "warn",
 	},
 }
