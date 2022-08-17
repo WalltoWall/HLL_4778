@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useInView } from "react-intersection-observer"
+import { useInView } from "../../hooks/useInView"
 
 import type { Event } from "./FilterableEvents"
 
@@ -7,14 +7,16 @@ interface Args {
 	updateEvent: (event: Event) => void
 	event: Event
 	threshold?: number
+	ref: React.RefObject<HTMLElement>
 }
 
 export function useUpdateEventInView({
 	updateEvent,
 	event,
 	threshold = 0,
+	ref,
 }: Args) {
-	const { ref, inView } = useInView({ threshold })
+	const inView = useInView({ threshold, ref })
 
 	React.useEffect(() => {
 		if (!inView) return
@@ -22,5 +24,5 @@ export function useUpdateEventInView({
 		updateEvent(event)
 	}, [inView, event])
 
-	return { ref }
+	return inView
 }

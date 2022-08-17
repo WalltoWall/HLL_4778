@@ -1,10 +1,10 @@
 import * as React from "react"
 
-import { useUpdateEventInView } from "./useUpdateEventInView"
 import { EventDescription } from "./EventDescription"
 
 import type { EventCardProps } from "./MobileEventCard"
 import clsx from "clsx"
+import { useInView } from "../../hooks/useInView"
 
 interface DesktopEventCardProps extends EventCardProps {
 	isFirstEvent: boolean
@@ -19,11 +19,12 @@ export const DesktopEventCard = ({
 	isFirstEvent,
 	hasActiveFilter,
 }: DesktopEventCardProps) => {
-	const { ref } = useUpdateEventInView({
-		updateEvent: updateActiveEvent,
-		event,
-		threshold: 1,
-	})
+	const ref = React.useRef<HTMLDivElement>(null)
+	const inView = useInView({ threshold: 1, ref })
+
+	React.useEffect(() => {
+		updateActiveEvent(event)
+	}, [inView, event])
 
 	return (
 		<div

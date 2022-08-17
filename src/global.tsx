@@ -17,7 +17,6 @@ import {
 	componentResolverFromMap,
 	PrismicPreviewProvider,
 } from "gatsby-plugin-prismic-previews"
-import { IdProvider } from "@radix-ui/react-id"
 import { PRISMIC_REPOSITORY_NAME } from "./constants"
 import { linkResolver } from "./prismic"
 
@@ -30,23 +29,21 @@ import "./styles/global.css"
 
 export const GlobalProviders: React.FC = ({ children }) => {
 	return (
-		<IdProvider>
-			<PrismicPreviewProvider
-				repositoryConfigs={[
-					{
-						repositoryName: PRISMIC_REPOSITORY_NAME,
-						linkResolver,
-						componentResolver: componentResolverFromMap({
-							page: PageTemplate,
-							event: EventTemplate,
-						}),
-					},
-				]}
-			>
-				<LazyMotion strict features={domMax}>
-					{children}
-				</LazyMotion>
-			</PrismicPreviewProvider>
-		</IdProvider>
+		<PrismicPreviewProvider
+			repositoryConfigs={[
+				{
+					repositoryName: PRISMIC_REPOSITORY_NAME,
+					linkResolver,
+					componentResolver: componentResolverFromMap({
+						page: PageTemplate,
+						event: EventTemplate,
+					}),
+				},
+			]}
+		>
+			<LazyMotion strict features={domMax}>
+				{children}
+			</LazyMotion>
+		</PrismicPreviewProvider>
 	)
 }
