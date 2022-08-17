@@ -15,7 +15,6 @@
 	"dependencies": {
 		"@fast-csv/format": "^4.3.5",
 		"@fontsource/work-sans": "^4.5.11",
-		"@gatsbyjs/reach-router": "^1.3.9",
 		"@lukeed/uuid": "^2.0.0",
 		"@prismicio/helpers": "^2.0.0-alpha.8",
 		"@radix-ui/react-announce": "^0.1.0",
@@ -27,9 +26,7 @@
 		"firebase": "^9.9.2",
 		"framer-motion": "^4.1.17",
 		"gatsby": "^4.21.0",
-		"gatsby-plugin-catch-links": "^4.21.0",
 		"gatsby-plugin-prismic-previews": "^5.2.8",
-		"graphql-request": "^3.5.0",
 		"just-shuffle": "^4.1.1",
 		"keen-slider": "^5.5.1",
 		"react": "17.0.2",
@@ -40,7 +37,6 @@
 		"react-merge-refs": "^1.1.0",
 		"tiny-invariant": "^1.2.0",
 		"use-local-storage-state": "^11.0.0",
-		"use-media": "^1.4.0",
 		"use-persisted-state": "^0.3.3",
 		"zod": "^3.18.0"
 	},

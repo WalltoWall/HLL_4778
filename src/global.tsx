@@ -13,18 +13,36 @@
 
 import * as React from "react"
 import { LazyMotion, domMax } from "framer-motion"
-import { PrismicPreviewProvider } from "gatsby-plugin-prismic-previews"
+import {
+	componentResolverFromMap,
+	PrismicPreviewProvider,
+} from "gatsby-plugin-prismic-previews"
 import { IdProvider } from "@radix-ui/react-id"
+import { PRISMIC_REPOSITORY_NAME } from "./constants"
+import { linkResolver } from "./prismic"
+
+import PageTemplate from "./templates/page"
+import EventTemplate from "./templates/event"
 
 import "@fontsource/work-sans/variable.css"
 import "tailwindcss/tailwind.css"
-import "gatsby-plugin-prismic-previews/dist/styles.css"
 import "./styles/global.css"
 
 export const GlobalProviders: React.FC = ({ children }) => {
 	return (
 		<IdProvider>
-			<PrismicPreviewProvider>
+			<PrismicPreviewProvider
+				repositoryConfigs={[
+					{
+						repositoryName: PRISMIC_REPOSITORY_NAME,
+						linkResolver,
+						componentResolver: componentResolverFromMap({
+							page: PageTemplate,
+							event: EventTemplate,
+						}),
+					},
+				]}
+			>
 				<LazyMotion strict features={domMax}>
 					{children}
 				</LazyMotion>

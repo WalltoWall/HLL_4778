@@ -18,10 +18,9 @@ module.exports = {
 	},
 	siteMetadata,
 	plugins: [
-		process.env.ANALYZE && "gatsby-plugin-webpack-bundle-analyser-v2",
 		"gatsby-plugin-postcss",
-		"gatsby-plugin-catch-links",
 		"gatsby-plugin-sitemap",
+		"gatsby-plugin-image",
 		{
 			resolve: "gatsby-plugin-manifest",
 			options: {
