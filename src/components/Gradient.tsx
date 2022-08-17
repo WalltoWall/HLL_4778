@@ -1,51 +1,41 @@
 import * as React from "react"
 import { useReducedMotion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
+import { useInView } from "../hooks/useInView"
 import clsx from "clsx"
 import type { Gradient as GradientController } from "../lib/gradient"
 
 interface Props extends React.ComponentPropsWithoutRef<"div"> {
 	shouldPlay?: boolean
-	__HACKY_SB_OVERRIDE__?: boolean
 }
 
-export const Gradient = ({
-	id = "gradient-canvas",
-	style,
-	shouldPlay = true,
-	__HACKY_SB_OVERRIDE__ = false,
-	...props
-}: Props) => {
-	if (process.env.NODE_ENV === "development" && !__HACKY_SB_OVERRIDE__)
-		return null
-
+export const Gradient = ({ style, shouldPlay = true, ...props }: Props) => {
 	const shouldReduceMotion = useReducedMotion()
-	const gradientRef = React.useRef<GradientController>()
-	const { ref: canvasRef, inView } = useInView({ threshold: 0 })
+	const rGradient = React.useRef<GradientController>()
+	const rCanvas = React.useRef<HTMLCanvasElement>(null)
+	const inView = useInView({ threshold: 0, ref: rCanvas })
 
 	React.useEffect(() => {
 		import("../lib/gradient").then((module) => {
 			const GradientController = module.Gradient
 
-			const gradient = new GradientController()
-			gradientRef.current = gradient
+			rGradient.current = new GradientController()
 
 			//@ts-expect-error - Compiled JS types are wonky.
-			gradientRef.current.initGradient(`#${id}`)
+			rGradient.current.initGradient(rCanvas.current)
 		})
 
-		return () => gradientRef.current?.disconnect()
-	}, [id])
+		return () => rGradient.current?.disconnect()
+	}, [])
 
 	React.useEffect(() => {
-		if (!gradientRef.current) return
+		if (!rGradient.current) return
 
 		if (inView && shouldPlay && !shouldReduceMotion) {
 			//@ts-expect-error - Compiled JS types are wonky.
-			gradientRef.current.play()
+			rGradient.current.play()
 		} else {
 			//@ts-expect-error - Compiled JS types are wonky.
-			gradientRef.current.pause()
+			rGradient.current.pause()
 		}
 	}, [inView, shouldPlay, shouldReduceMotion])
 
@@ -53,8 +43,7 @@ export const Gradient = ({
 		<div {...props}>
 			<div className="relative w-full h-full">
 				<canvas
-					id={id}
-					ref={canvasRef}
+					ref={rCanvas}
 					data-transition-in
 					className={clsx("w-full h-full", "gradient")}
 					style={

@@ -10,11 +10,9 @@ import type { GradientTextFragment } from "../gqlTypes.gen"
 
 export const sliceType = "PrismicPageDataBodyGradientText"
 
-interface Props extends ReturnType<typeof mapDataToProps> {
-	__HACKY_SB_OVERRIDE__?: boolean
-}
+type Props = ReturnType<typeof mapDataToProps>
 
-const GradientText = ({ text, __HACKY_SB_OVERRIDE__ = false }: Props) => {
+const GradientText = ({ text }: Props) => {
 	const { isOpen: isMobileMenuOpen } = useMobileMenu()
 
 	return (
@@ -28,7 +26,6 @@ const GradientText = ({ text, __HACKY_SB_OVERRIDE__ = false }: Props) => {
 		>
 			<Gradient
 				className="absolute inset-0 2xl:absolute 2xl:inset-0 2xl:w-full 2xl:h-full"
-				__HACKY_SB_OVERRIDE__={__HACKY_SB_OVERRIDE__}
 				shouldPlay={!isMobileMenuOpen}
 			/>
 

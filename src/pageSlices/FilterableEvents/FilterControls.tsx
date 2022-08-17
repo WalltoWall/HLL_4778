@@ -1,6 +1,6 @@
 import * as React from "react"
 import clsx from "clsx"
-import { AnimateSharedLayout, m } from "framer-motion"
+import { m } from "framer-motion"
 
 import type { EventType } from "./FilterableEvents"
 import type { FilterableEventsExtraStyles } from "./getFilterableEventsExtraStyles"
@@ -78,36 +78,34 @@ export const FilterControls = ({
 			)}
 			{...props}
 		>
-			<AnimateSharedLayout>
-				<FilterButton
-					isActive={!activeFilter}
-					onClick={clearFilters}
-					extraStyles={extraStyles}
-				>
-					All
-				</FilterButton>
-				<FilterButton
-					onClick={() => filterEvents("watch")}
-					isActive={activeFilter === "watch"}
-					extraStyles={extraStyles}
-				>
-					Watch
-				</FilterButton>
-				<FilterButton
-					isActive={activeFilter === "participate"}
-					onClick={() => filterEvents("participate")}
-					extraStyles={extraStyles}
-				>
-					Participate
-				</FilterButton>
-				<FilterButton
-					isActive={activeFilter === "learn"}
-					onClick={() => filterEvents("learn")}
-					extraStyles={extraStyles}
-				>
-					Learn
-				</FilterButton>
-			</AnimateSharedLayout>
+			<FilterButton
+				isActive={!activeFilter}
+				onClick={clearFilters}
+				extraStyles={extraStyles}
+			>
+				All
+			</FilterButton>
+			<FilterButton
+				onClick={() => filterEvents("watch")}
+				isActive={activeFilter === "watch"}
+				extraStyles={extraStyles}
+			>
+				Watch
+			</FilterButton>
+			<FilterButton
+				isActive={activeFilter === "participate"}
+				onClick={() => filterEvents("participate")}
+				extraStyles={extraStyles}
+			>
+				Participate
+			</FilterButton>
+			<FilterButton
+				isActive={activeFilter === "learn"}
+				onClick={() => filterEvents("learn")}
+				extraStyles={extraStyles}
+			>
+				Learn
+			</FilterButton>
 		</div>
 	)
 }

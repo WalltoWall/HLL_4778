@@ -25,10 +25,12 @@ export const MobileEventCard = ({
 	extraStyles,
 	variantStyles,
 }: EventCardProps) => {
-	const { ref } = useUpdateEventInView({
+	const ref = React.useRef<HTMLDivElement>(null)
+	useUpdateEventInView({
 		updateEvent: updateActiveEvent,
 		event,
 		threshold: 0.75,
+		ref,
 	})
 	const illustrationUrl = getIllustrationUrl(event.illustration)
 
