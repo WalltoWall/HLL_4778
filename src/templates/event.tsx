@@ -22,8 +22,6 @@ import * as FeaturedPeople from "../eventSlices/FeaturedPeople"
 import * as VideoGallery from "../eventSlices/VideoGallery"
 import * as TextAndVideo from "../eventSlices/TextAndVideo"
 
-import { linkResolver } from "../prismic"
-
 import {
 	mapDataToContextFactory,
 	mapDataToPropsFactory,
@@ -33,7 +31,6 @@ import {
 	getSliceKey,
 	getSliceType,
 } from "../lib/mapToComponents"
-import { PRISMIC_REPOSITORY_NAME } from "../constants"
 
 const sliceMap: SliceMap = {
 	TwoColumnText,
@@ -114,9 +111,4 @@ export const eventTemplateQuery = graphql`
 	}
 `
 
-export default withPrismicPreview(EventTemplate, [
-	{
-		repositoryName: PRISMIC_REPOSITORY_NAME,
-		linkResolver,
-	},
-])
+export default withPrismicPreview(EventTemplate)

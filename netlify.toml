@@ -10,13 +10,14 @@ TYPEKIT_PROJECT_ID = "bry3kbj"
 CLIENT_DOCS_URL = "https://honolulupride-docs.netlify.app"
 
 [[redirects]]
-  from = "https://www.honolulupride.com/*"
-  to = "https://hawaiilgbtlegacyfoundation.com/"
-  status = 302
-  force = true
+from = "https://www.honolulupride.com/*"
+to = "https://hawaiilgbtlegacyfoundation.com/"
+status = 302
+force = true
 
 [[redirects]]
-  from = "https://honolulupride.com/*"
-  to = "https://hawaiilgbtlegacyfoundation.com/"
-  status = 302
-  force = true
+from = "https://honolulupride.com/*"
+to = "https://hawaiilgbtlegacyfoundation.com/"
+status = 302
+force = true
+

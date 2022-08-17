@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useMedia } from "use-media"
+import { useMedia } from "./useMedia"
 
 interface MediaContextValue {
 	isDesktop: boolean
@@ -16,8 +16,8 @@ interface Props {
 }
 
 export const MediaQueryProvider = React.memo(({ children }: Props) => {
-	const isDesktop = useMedia({ minWidth: "1024px" })
-	const isTablet = useMedia({ minWidth: "768px" })
+	const isDesktop = useMedia("(min-width: 1024px)")
+	const isTablet = useMedia("(min-width): 768px")
 
 	const value = React.useMemo(
 		() => ({ isDesktop, isTablet }),

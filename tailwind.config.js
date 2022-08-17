@@ -17,13 +17,12 @@ const colors = {
 	blue: { 31: "#007CA0" },
 	purple: { 57: "#6E3CBE", 73: "#be93e4" },
 
-	docsGray: twColors.coolGray,
+	docsGray: twColors.gray,
 }
 
 module.exports = {
-	purge: ["./src/**/*.{ts,tsx}"],
+	content: ["./src/**/*.{ts,tsx}"],
 	mode: "jit",
-	darkMode: false, // or 'media' or 'class'
 	theme: {
 		fontSize: {
 			8: "8px",

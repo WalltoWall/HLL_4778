@@ -3,7 +3,6 @@ import mergeRefs from "react-merge-refs"
 import { useReducedMotion, m } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { graphql } from "gatsby"
-import { useLocation } from "@gatsbyjs/reach-router"
 import clsx from "clsx"
 
 import { Image } from "../components/Image"
@@ -25,9 +24,10 @@ const VideoHero = ({
 	const videoRef = React.useRef<HTMLVideoElement | null>(null)
 	const { ref: observerRef, inView } = useInView({ threshold: 0 })
 	const shouldReduceMotion = useReducedMotion()
-	const location = useLocation()
+	// const location = useLocation()
 
-	const isHomePage = location.pathname === "/"
+	// const isHomePage = location.pathname === "/"
+	const isHomePage = true
 
 	// Pause the video when the video is not in view.
 	React.useEffect(() => {
