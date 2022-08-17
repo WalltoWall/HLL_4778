@@ -12,11 +12,11 @@ export const SEO = ({ metaDescription, pageTitle, metaTitle }: SEOProps) => {
 	const description = metaDescription ?? settings.siteDescription
 	const title = metaTitle ?? pageTitle
 
+	const resolvedTitle = `${title} | ${settings.siteName}`
+
 	return (
 		<>
-			<title>
-				{title} | {settings.siteName}
-			</title>
+			<title>{resolvedTitle}</title>
 
 			<meta name="description" content={description} />
 

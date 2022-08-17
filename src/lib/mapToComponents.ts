@@ -13,7 +13,7 @@ interface SliceModule {
 }
 export type SliceMap = Record<string, SliceModule>
 
-type ReshapedSliceComponent = SliceModule["default"] & {
+type SliceComponent = SliceModule["default"] & {
 	mapDataToProps?: SliceModule["mapDataToProps"]
 	mapDataToContext?: SliceModule["mapDataToProps"]
 }
@@ -24,7 +24,7 @@ export function mapFactory(sliceMap: SliceMap): MapToComponentsProps["map"] {
 	for (const key in sliceMap) {
 		const module = sliceMap[key]
 
-		const Component = module.default as ReshapedSliceComponent
+		const Component = module.default as SliceComponent
 		Component.mapDataToProps = module.mapDataToProps
 		Component.mapDataToContext = module.mapDataToContext
 
