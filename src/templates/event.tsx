@@ -1,6 +1,6 @@
 import * as React from "react"
 import { MapToComponents } from "react-map-to-components"
-import { graphql, PageProps } from "gatsby"
+import { graphql, PageProps, HeadProps } from "gatsby"
 import { withPrismicPreview } from "gatsby-plugin-prismic-previews"
 
 import { SEO } from "../components/SEO"
@@ -54,7 +54,6 @@ const mapDataToContext = mapDataToContextFactory(sliceMap)
 
 const EventTemplate = ({ data }: PageProps<EventTemplateQuery>) => {
 	const event = data.prismicEvent
-
 	const sliceList = event?.data?.body ?? []
 	const lastSlice = sliceList[sliceList.length - 1]
 
@@ -64,8 +63,6 @@ const EventTemplate = ({ data }: PageProps<EventTemplateQuery>) => {
 				lastSlice?.__typename === "PrismicEventDataBodyNewsletterForm"
 			}
 		>
-			<SEO pageTitle={event?.data?.title?.text ?? "Honolulu Pride"} />
-
 			<MapToComponents
 				getKey={getSliceKey}
 				getType={getSliceType}
@@ -77,6 +74,12 @@ const EventTemplate = ({ data }: PageProps<EventTemplateQuery>) => {
 			/>
 		</Layout>
 	)
+}
+
+export const Head = ({ data }: HeadProps<EventTemplateQuery>) => {
+	const event = data.prismicEvent
+
+	return <SEO pageTitle={event?.data?.title?.text ?? "Honolulu Pride"} />
 }
 
 export const eventTemplateQuery = graphql`

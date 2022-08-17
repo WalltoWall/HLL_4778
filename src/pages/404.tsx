@@ -1,6 +1,7 @@
 import * as React from "react"
 import clsx from "clsx"
 import { withPrismicUnpublishedPreview } from "gatsby-plugin-prismic-previews"
+import { HeadProps } from "gatsby"
 
 import { ButtonLink } from "../components/Button"
 import { Gradient } from "../components/Gradient"
@@ -22,8 +23,6 @@ const NotFoundGradient = () => {
 const NotFoundPage = () => {
 	return (
 		<Layout>
-			<SEO pageTitle="Not Found" />
-
 			<section className="relative flex flex-col items-center justify-center h-screen bg-gray-13">
 				<NotFoundGradient />
 
@@ -69,5 +68,7 @@ const NotFoundPage = () => {
 		</Layout>
 	)
 }
+
+export const Head = (_props: HeadProps) => <SEO pageTitle="Not Found" />
 
 export default withPrismicUnpublishedPreview(NotFoundPage)

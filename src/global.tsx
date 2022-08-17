@@ -27,23 +27,29 @@ import "@fontsource/work-sans/variable.css"
 import "tailwindcss/tailwind.css"
 import "./styles/global.css"
 
-export const GlobalProviders: React.FC = ({ children }) => {
+interface Props {
+	children: React.ReactNode
+}
+
+export const GlobalProviders = ({ children }: Props) => {
 	return (
-		<PrismicPreviewProvider
-			repositoryConfigs={[
-				{
-					repositoryName: PRISMIC_REPOSITORY_NAME,
-					linkResolver,
-					componentResolver: componentResolverFromMap({
-						page: PageTemplate,
-						event: EventTemplate,
-					}),
-				},
-			]}
-		>
-			<LazyMotion strict features={domMax}>
-				{children}
-			</LazyMotion>
-		</PrismicPreviewProvider>
+		<React.Suspense>
+			<PrismicPreviewProvider
+				repositoryConfigs={[
+					{
+						repositoryName: PRISMIC_REPOSITORY_NAME,
+						linkResolver,
+						componentResolver: componentResolverFromMap({
+							page: PageTemplate,
+							event: EventTemplate,
+						}),
+					},
+				]}
+			>
+				<LazyMotion strict features={domMax}>
+					{children}
+				</LazyMotion>
+			</PrismicPreviewProvider>
+		</React.Suspense>
 	)
 }
