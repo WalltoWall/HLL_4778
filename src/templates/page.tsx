@@ -1,6 +1,6 @@
 import * as React from "react"
 import { MapToComponents, TCtx, TCtxWithContext } from "react-map-to-components"
-import { graphql, PageProps } from "gatsby"
+import { graphql, HeadProps, PageProps } from "gatsby"
 import { withPrismicPreview } from "gatsby-plugin-prismic-previews"
 
 import { SEO } from "../components/SEO"
@@ -72,7 +72,6 @@ const mapDataToContext = mapDataToContextFactory(sliceMap)
 
 const PageTemplate = ({ data }: PageProps<PageTemplateQuery>) => {
 	const page = data.prismicPage
-
 	const sliceList = page?.data?.body ?? []
 	const lastSlice = sliceList[sliceList.length - 1]
 
@@ -82,12 +81,6 @@ const PageTemplate = ({ data }: PageProps<PageTemplateQuery>) => {
 				lastSlice?.__typename === "PrismicPageDataBodyNewsletterForm"
 			}
 		>
-			<SEO
-				metaTitle={page?.data?.meta_title}
-				metaDescription={page?.data?.meta_description}
-				pageTitle={page?.data?.title?.text ?? "Honolulu Pride"}
-			/>
-
 			<MapToComponents
 				getKey={getSliceKey}
 				getType={getSliceType}
@@ -98,6 +91,18 @@ const PageTemplate = ({ data }: PageProps<PageTemplateQuery>) => {
 				default={fallbackSlice}
 			/>
 		</Layout>
+	)
+}
+
+export const Head = ({ data }: HeadProps<PageTemplateQuery>) => {
+	const page = data.prismicPage
+
+	return (
+		<SEO
+			metaTitle={page?.data?.meta_title}
+			metaDescription={page?.data?.meta_description}
+			pageTitle={page?.data?.title?.text ?? "Honolulu Pride"}
+		/>
 	)
 }
 

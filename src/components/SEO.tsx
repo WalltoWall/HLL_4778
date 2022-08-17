@@ -1,5 +1,4 @@
 import * as React from "react"
-import { Title, Link, Meta } from "react-head"
 import { usePrismicSettings } from "../hooks/usePrismicSettings"
 
 interface SEOProps {
@@ -15,29 +14,29 @@ export const SEO = ({ metaDescription, pageTitle, metaTitle }: SEOProps) => {
 
 	return (
 		<>
-			<Title>
+			<title>
 				{title} | {settings.siteName}
-			</Title>
+			</title>
 
-			<Meta name="description" content={description} />
+			<meta name="description" content={description} />
 
 			{/* Open Graph */}
-			<Meta property="og:type" content="website" />
-			<Meta property="og:site_name" content={settings.siteName} />
-			<Meta property="og:description" content={description} />
-			<Meta property="og:title" content={title} />
-			<Meta
+			<meta property="og:type" content="website" />
+			<meta property="og:site_name" content={settings.siteName} />
+			<meta property="og:description" content={description} />
+			<meta property="og:title" content={title} />
+			<meta
 				name="image"
 				property="og:image"
 				content={settings.openGraphImageUrl}
 			/>
 
 			{/* Twitter */}
-			<Meta name="twitter:card" content="summary_large_image" />
-			<Meta name="twitter:site" content={settings.twitterUsername} />
-			<Meta name="twitter:title" content={title} />
-			<Meta name="twitter:description" content={description} />
-			<Meta name="twitter:image" content={settings.twitterCardImageUrl} />
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content={settings.twitterUsername} />
+			<meta name="twitter:title" content={title} />
+			<meta name="twitter:description" content={description} />
+			<meta name="twitter:image" content={settings.twitterCardImageUrl} />
 		</>
 	)
 }
