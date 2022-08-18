@@ -1,12 +1,12 @@
 import * as React from "react"
 import { useReducedMotion, m } from "framer-motion"
-import { useInView } from "../hooks/useInView"
 import { graphql } from "gatsby"
 import clsx from "clsx"
+import { useLocation } from "@gatsbyjs/reach-router"
 
 import { Image } from "../components/Image"
 import { useMobileMenu } from "../components/Header/MobileMenuProvider"
-
+import { useInView } from "../hooks/useInView"
 import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
 import type { VideoHeroFragment } from "../gqlTypes.gen"
 
@@ -22,10 +22,9 @@ const VideoHero = ({
 	const rVideo = React.useRef<HTMLVideoElement | null>(null)
 	const inView = useInView({ threshold: 0, ref: rVideo })
 	const shouldReduceMotion = useReducedMotion()
-	// const location = useLocation()
+	const location = useLocation()
 
-	// const isHomePage = location.pathname === "/"
-	const isHomePage = true
+	const isHomePage = location.pathname === "/"
 
 	// Pause the video when the video is not in view.
 	React.useEffect(() => {
