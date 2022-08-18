@@ -24,6 +24,7 @@ import * as Video from "../pageSlices/Video"
 import * as FeaturedPeople from "../pageSlices/FeaturedPeople"
 import * as VideoGallery from "../pageSlices/VideoGallery"
 import * as TextAndVideo from "../pageSlices/TextAndVideo"
+import * as PrideCalendar from "../pageSlices/PrideCalendar"
 
 import {
 	mapDataToContextFactory,
@@ -52,6 +53,7 @@ const sliceMap: SliceMap = {
 	FeaturedPeople,
 	VideoGallery,
 	TextAndVideo,
+	PrideCalendar,
 }
 
 export type MapDataToPropsCtx<
@@ -135,6 +137,7 @@ export const pageTemplateQuery = graphql`
 					...FeaturedPeople
 					...VideoGallery
 					...TextAndVideo
+					...PrideCalendar
 				}
 			}
 			uid

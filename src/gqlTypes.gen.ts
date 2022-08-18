@@ -1833,6 +1833,78 @@ export type PrismicEventDataBodyNewsletterFormPrimary = {
 	placeholder_text?: Maybe<Scalars["String"]>
 }
 
+export type PrismicEventDataBodyPrideCalendar = PrismicSliceType & {
+	items: Array<PrismicEventDataBodyPrideCalendarItem>
+	primary: PrismicEventDataBodyPrideCalendarPrimary
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyPrideCalendarItem = {
+	event_description?: Maybe<PrismicStructuredTextType>
+	event_link?: Maybe<PrismicLinkType>
+	event_title?: Maybe<PrismicStructuredTextType>
+	image?: Maybe<PrismicEventDataBodyPrideCalendarItemsImageImageType>
+}
+
+export type PrismicEventDataBodyPrideCalendarItemsImageImageType = {
+	alt?: Maybe<Scalars["String"]>
+	copyright?: Maybe<Scalars["String"]>
+	dimensions?: Maybe<PrismicImageDimensionsType>
+	/** A plain imgix URL with the URL and params applied. */
+	url?: Maybe<Scalars["String"]>
+	/** Should be used to generate fixed-width images (i.e. the size of the image doesn't change when the size of the browser changes, and are "fixed"). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFixed fragment should be used. See the project's README for more information. */
+	fixed?: Maybe<ImgixFixed>
+	/** Should be used to generate fluid-width images (i.e. images that change when the size of the browser changes). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFluid fragment should be used. See the project's README for more information. */
+	fluid?: Maybe<ImgixFluid>
+	gatsbyImageData?: Maybe<Scalars["JSON"]>
+	localFile?: Maybe<File>
+}
+
+export type PrismicEventDataBodyPrideCalendarItemsImageImageTypeUrlArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicEventDataBodyPrideCalendarItemsImageImageTypeFixedArgs = {
+	width?: Maybe<Scalars["Int"]>
+	height?: Maybe<Scalars["Int"]>
+	quality?: Maybe<Scalars["Int"]>
+	imgixParams?: Maybe<ImgixParamsInput>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicEventDataBodyPrideCalendarItemsImageImageTypeFluidArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+	maxWidth?: Maybe<Scalars["Int"]>
+	maxHeight?: Maybe<Scalars["Int"]>
+	srcSetBreakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicEventDataBodyPrideCalendarItemsImageImageTypeGatsbyImageDataArgs =
+	{
+		layout?: Maybe<GatsbyImageLayout>
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		aspectRatio?: Maybe<Scalars["Float"]>
+		outputPixelDensities?: Maybe<Array<Maybe<Scalars["Float"]>>>
+		breakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		sizes?: Maybe<Scalars["String"]>
+		backgroundColor?: Maybe<Scalars["String"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+		placeholder?: Maybe<ImgixPlaceholder>
+		widthTolerance?: Maybe<Scalars["Float"]>
+		srcSetMinWidth?: Maybe<Scalars["Int"]>
+		srcSetMaxWidth?: Maybe<Scalars["Int"]>
+	}
+
+export type PrismicEventDataBodyPrideCalendarPrimary = {
+	color?: Maybe<Scalars["String"]>
+	text?: Maybe<PrismicStructuredTextType>
+}
+
 export type PrismicEventDataBodyRichText = PrismicSliceType & {
 	primary: PrismicEventDataBodyRichTextPrimary
 	id: Scalars["ID"]
@@ -1855,6 +1927,7 @@ export type PrismicEventDataBodySlicesType =
 	| PrismicEventDataBodyImageCallToAction
 	| PrismicEventDataBodyIntroduction
 	| PrismicEventDataBodyNewsletterForm
+	| PrismicEventDataBodyPrideCalendar
 	| PrismicEventDataBodyRichText
 	| PrismicEventDataBodyTextAndVideo
 	| PrismicEventDataBodyTwoColumnText
@@ -3016,6 +3089,78 @@ export type PrismicPageDataBodyNewsletterFormPrimary = {
 	placeholder_text?: Maybe<Scalars["String"]>
 }
 
+export type PrismicPageDataBodyPrideCalendar = PrismicSliceType & {
+	items: Array<PrismicPageDataBodyPrideCalendarItem>
+	primary: PrismicPageDataBodyPrideCalendarPrimary
+	id: Scalars["ID"]
+	slice_type: Scalars["String"]
+	slice_label?: Maybe<Scalars["String"]>
+}
+
+export type PrismicPageDataBodyPrideCalendarItem = {
+	event_description?: Maybe<PrismicStructuredTextType>
+	event_link?: Maybe<PrismicLinkType>
+	event_title?: Maybe<PrismicStructuredTextType>
+	image?: Maybe<PrismicPageDataBodyPrideCalendarItemsImageImageType>
+}
+
+export type PrismicPageDataBodyPrideCalendarItemsImageImageType = {
+	alt?: Maybe<Scalars["String"]>
+	copyright?: Maybe<Scalars["String"]>
+	dimensions?: Maybe<PrismicImageDimensionsType>
+	/** A plain imgix URL with the URL and params applied. */
+	url?: Maybe<Scalars["String"]>
+	/** Should be used to generate fixed-width images (i.e. the size of the image doesn't change when the size of the browser changes, and are "fixed"). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFixed fragment should be used. See the project's README for more information. */
+	fixed?: Maybe<ImgixFixed>
+	/** Should be used to generate fluid-width images (i.e. images that change when the size of the browser changes). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFluid fragment should be used. See the project's README for more information. */
+	fluid?: Maybe<ImgixFluid>
+	gatsbyImageData?: Maybe<Scalars["JSON"]>
+	localFile?: Maybe<File>
+}
+
+export type PrismicPageDataBodyPrideCalendarItemsImageImageTypeUrlArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicPageDataBodyPrideCalendarItemsImageImageTypeFixedArgs = {
+	width?: Maybe<Scalars["Int"]>
+	height?: Maybe<Scalars["Int"]>
+	quality?: Maybe<Scalars["Int"]>
+	imgixParams?: Maybe<ImgixParamsInput>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicPageDataBodyPrideCalendarItemsImageImageTypeFluidArgs = {
+	imgixParams?: Maybe<ImgixParamsInput>
+	maxWidth?: Maybe<Scalars["Int"]>
+	maxHeight?: Maybe<Scalars["Int"]>
+	srcSetBreakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+	placeholderImgixParams?: Maybe<ImgixParamsInput>
+}
+
+export type PrismicPageDataBodyPrideCalendarItemsImageImageTypeGatsbyImageDataArgs =
+	{
+		layout?: Maybe<GatsbyImageLayout>
+		width?: Maybe<Scalars["Int"]>
+		height?: Maybe<Scalars["Int"]>
+		aspectRatio?: Maybe<Scalars["Float"]>
+		outputPixelDensities?: Maybe<Array<Maybe<Scalars["Float"]>>>
+		breakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
+		sizes?: Maybe<Scalars["String"]>
+		backgroundColor?: Maybe<Scalars["String"]>
+		imgixParams?: Maybe<ImgixParamsInput>
+		placeholderImgixParams?: Maybe<ImgixParamsInput>
+		placeholder?: Maybe<ImgixPlaceholder>
+		widthTolerance?: Maybe<Scalars["Float"]>
+		srcSetMinWidth?: Maybe<Scalars["Int"]>
+		srcSetMaxWidth?: Maybe<Scalars["Int"]>
+	}
+
+export type PrismicPageDataBodyPrideCalendarPrimary = {
+	color?: Maybe<Scalars["String"]>
+	text?: Maybe<PrismicStructuredTextType>
+}
+
 export type PrismicPageDataBodyRichText = PrismicSliceType & {
 	primary: PrismicPageDataBodyRichTextPrimary
 	id: Scalars["ID"]
@@ -3040,6 +3185,7 @@ export type PrismicPageDataBodySlicesType =
 	| PrismicPageDataBodyImageCallToAction
 	| PrismicPageDataBodyIntroduction
 	| PrismicPageDataBodyNewsletterForm
+	| PrismicPageDataBodyPrideCalendar
 	| PrismicPageDataBodyRichText
 	| PrismicPageDataBodySponsors
 	| PrismicPageDataBodyTextAndVideo
@@ -6666,7 +6812,6 @@ export enum SiteFieldsEnum {
 	BuildTime = "buildTime",
 	SiteMetadataTitle = "siteMetadata___title",
 	SiteMetadataDescription = "siteMetadata___description",
-	SiteMetadataTitleShort = "siteMetadata___titleShort",
 	SiteMetadataSiteUrl = "siteMetadata___siteUrl",
 	Port = "port",
 	Host = "host",
@@ -7529,14 +7674,12 @@ export type SitePluginSortInput = {
 export type SiteSiteMetadata = {
 	title?: Maybe<Scalars["String"]>
 	description?: Maybe<Scalars["String"]>
-	titleShort?: Maybe<Scalars["String"]>
 	siteUrl?: Maybe<Scalars["String"]>
 }
 
 export type SiteSiteMetadataFilterInput = {
 	title?: Maybe<StringQueryOperatorInput>
 	description?: Maybe<StringQueryOperatorInput>
-	titleShort?: Maybe<StringQueryOperatorInput>
 	siteUrl?: Maybe<StringQueryOperatorInput>
 }
 
@@ -7621,6 +7764,16 @@ export type EventNewsletterFormFragment = {
 		color?: Maybe<string>
 		heading?: Maybe<{ text?: Maybe<string> }>
 	}
+}
+
+export type EventPrideCalendarFragment = {
+	primary: { color?: Maybe<string>; text?: Maybe<{ html?: Maybe<string> }> }
+	items: Array<{
+		event_description?: Maybe<{ html?: Maybe<string> }>
+		event_link?: Maybe<{ url?: Maybe<string> }>
+		event_title?: Maybe<{ text?: Maybe<string> }>
+		image?: Maybe<{ alt?: Maybe<string>; url?: Maybe<string> }>
+	}>
 }
 
 export type EventRichTextFragment = {
@@ -7833,6 +7986,16 @@ export type NewsletterFormFragment = {
 	}
 }
 
+export type PrideCalendarFragment = {
+	primary: { color?: Maybe<string>; text?: Maybe<{ html?: Maybe<string> }> }
+	items: Array<{
+		event_description?: Maybe<{ html?: Maybe<string> }>
+		event_link?: Maybe<{ url?: Maybe<string> }>
+		event_title?: Maybe<{ text?: Maybe<string> }>
+		image?: Maybe<{ alt?: Maybe<string>; url?: Maybe<string> }>
+	}>
+}
+
 export type RichTextFragment = {
 	primary: {
 		button_text?: Maybe<string>
@@ -7997,6 +8160,9 @@ export type EventTemplateQuery = {
 						__typename: "PrismicEventDataBodyNewsletterForm"
 				  } & EventNewsletterFormFragment)
 				| ({
+						__typename: "PrismicEventDataBodyPrideCalendar"
+				  } & EventPrideCalendarFragment)
+				| ({
 						__typename: "PrismicEventDataBodyRichText"
 				  } & EventRichTextFragment)
 				| ({
@@ -8056,6 +8222,9 @@ export type PageTemplateQuery = {
 				| ({
 						__typename: "PrismicPageDataBodyNewsletterForm"
 				  } & NewsletterFormFragment)
+				| ({
+						__typename: "PrismicPageDataBodyPrideCalendar"
+				  } & PrideCalendarFragment)
 				| ({ __typename: "PrismicPageDataBodyRichText" } & RichTextFragment)
 				| ({ __typename: "PrismicPageDataBodySponsors" } & SponsorsFragment)
 				| ({

@@ -21,6 +21,7 @@ import * as Video from "../eventSlices/Video"
 import * as FeaturedPeople from "../eventSlices/FeaturedPeople"
 import * as VideoGallery from "../eventSlices/VideoGallery"
 import * as TextAndVideo from "../eventSlices/TextAndVideo"
+import * as PrideCalendar from "../eventSlices/PrideCalendar"
 
 import {
 	mapDataToContextFactory,
@@ -46,6 +47,7 @@ const sliceMap: SliceMap = {
 	FeaturedPeople,
 	VideoGallery,
 	TextAndVideo,
+	PrideCalendar,
 }
 
 const map = mapFactory(sliceMap)
@@ -106,6 +108,7 @@ export const eventTemplateQuery = graphql`
 					...EventFeaturedPeople
 					...EventVideoGallery
 					...EventTextAndVideo
+					...EventPrideCalendar
 				}
 			}
 			uid
