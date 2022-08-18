@@ -22,7 +22,7 @@ const Gradient = ({ className, variantStyles, ...props }: GradientProps) => {
 			className={clsx(
 				className,
 				variantStyles.gradientOrigin,
-				"absolute inset-y-0 pointer-events-none w-75 to-transparent"
+				"absolute inset-y-0 pointer-events-none w-40 to-transparent"
 			)}
 			{...props}
 		/>
@@ -40,22 +40,27 @@ export const DesktopSlider = ({
 	setActivePerson,
 	variantStyles,
 }: SliderProps) => {
-	const [sliderRef, slider] = useKeenSlider<HTMLUListElement>({
+	const [isReady, setIsReady] = React.useState(false)
+	const [rList, rSlider] = useKeenSlider<HTMLUListElement>({
+		slides: {
+			perView: 3,
+			spacing: 30,
+			origin: "center",
+		},
 		loop: true,
-		slidesPerView: 3,
-		centered: true,
-		spacing: 30,
 
 		breakpoints: {
 			"(min-width: 1024px)": {
-				spacing: 60,
+				slides: { spacing: 60, perView: 3, origin: "center" },
 			},
 		},
 
 		slideChanged: (slider) => {
-			const nextPerson = people[slider.details().relativeSlide]
+			const nextPerson = people[slider.track.details.rel]
 			setActivePerson(nextPerson)
 		},
+
+		created: () => setIsReady(true),
 	})
 
 	return (
@@ -64,8 +69,14 @@ export const DesktopSlider = ({
 			width="lg"
 			nextSharesBg
 		>
-			<div className="relative px-10">
-				<ul ref={sliderRef} className="keen-slider">
+			<div
+				className={clsx(
+					"relative px-10",
+					isReady ? "opacity-100" : "opacity-0",
+					"transition duration-300 ease"
+				)}
+			>
+				<ul ref={rList} className="keen-slider">
 					{people.map((person, idx) => (
 						<DesktopPerson key={`desktopPerson-${idx}`} person={person} />
 					))}
@@ -85,12 +96,12 @@ export const DesktopSlider = ({
 				<ArrowButton
 					className="rotate-180 left-3 absolute top-[35%] translate-y-[-50%]"
 					label="Previous person"
-					onClick={() => slider.prev()}
+					onClick={() => rSlider.current?.prev()}
 				/>
 				<ArrowButton
 					className="right-3 absolute top-[35%] translate-y-[-50%]"
 					label="Next person"
-					onClick={() => slider.next()}
+					onClick={() => rSlider.current?.next()}
 				/>
 			</div>
 		</BoundedBox>

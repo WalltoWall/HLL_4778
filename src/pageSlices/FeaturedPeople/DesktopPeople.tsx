@@ -1,7 +1,5 @@
 import * as React from "react"
-import * as Announce from "@radix-ui/react-announce"
 
-import { useIsTablet } from "../../hooks/useMediaQuery"
 import { BoundedBoxProps } from "../../components/BoundedBox"
 import { DesktopBio } from "./DesktopBio"
 import { DesktopSlider } from "./DesktopSlider"
@@ -20,10 +18,7 @@ export const DesktopPeople = ({
 	nextSharesBg,
 	variantStyles,
 }: DesktopPeopleProps) => {
-	const isTablet = useIsTablet()
-	const [activePerson, setActivePerson] = React.useState<Person | undefined>()
-
-	if (!isTablet) return null
+	const [activePerson, setActivePerson] = React.useState<Person>(people[0])
 
 	return (
 		<div className="hidden md:block md:-mt-15">
@@ -33,16 +28,14 @@ export const DesktopPeople = ({
 				variantStyles={variantStyles}
 			/>
 
-			<Announce.Root type="polite">
-				{activePerson && (
-					<DesktopBio
-						person={activePerson}
-						variantStyles={variantStyles}
-						nextSharesBg={nextSharesBg}
-						nextOverhangs={nextOverhangs}
-					/>
-				)}
-			</Announce.Root>
+			{activePerson && (
+				<DesktopBio
+					person={activePerson}
+					variantStyles={variantStyles}
+					nextSharesBg={nextSharesBg}
+					nextOverhangs={nextOverhangs}
+				/>
+			)}
 		</div>
 	)
 }

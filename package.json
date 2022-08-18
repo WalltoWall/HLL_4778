@@ -16,8 +16,7 @@
 		"@fast-csv/format": "^4.3.5",
 		"@fontsource/work-sans": "^4.5.11",
 		"@lukeed/uuid": "^2.0.0",
-		"@prismicio/helpers": "^2.0.0-alpha.8",
-		"@radix-ui/react-announce": "^0.1.0",
+		"@prismicio/helpers": "^2.3.3",
 		"@radix-ui/react-collapsible": "^1.0.0",
 		"@radix-ui/react-dialog": "^1.0.0",
 		"@radix-ui/react-id": "^1.0.0",
@@ -32,9 +31,7 @@
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"react-map-to-components": "^1.2.1",
-		"tiny-invariant": "^1.2.0",
 		"use-local-storage-state": "^18.1.1",
-		"use-persisted-state": "^0.3.3",
 		"zod": "^3.18.0"
 	},
 	"devDependencies": {
@@ -49,7 +46,6 @@
 		"@types/common-tags": "^1.8.1",
 		"@types/react": "^18.0.17",
 		"@types/react-dom": "^18.0.6",
-		"@types/use-persisted-state": "^0.3.1",
 		"@typescript-eslint/eslint-plugin": "^5.33.1",
 		"@typescript-eslint/parser": "^5.33.1",
 		"autoprefixer": "^10.4.8",

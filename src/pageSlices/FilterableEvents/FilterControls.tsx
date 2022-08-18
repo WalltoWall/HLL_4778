@@ -8,6 +8,7 @@ import type { FilterableEventsExtraStyles } from "./getFilterableEventsExtraStyl
 interface FilterButtonProps extends React.ComponentPropsWithoutRef<"button"> {
 	isActive: boolean
 	extraStyles: FilterableEventsExtraStyles
+	layoutIdPrefix: string
 }
 
 const FilterButton = ({
@@ -15,6 +16,7 @@ const FilterButton = ({
 	children,
 	className,
 	extraStyles,
+	layoutIdPrefix,
 	...props
 }: FilterButtonProps) => {
 	return (
@@ -34,7 +36,7 @@ const FilterButton = ({
 		>
 			{isActive && (
 				<m.div
-					layoutId="pillBg"
+					layoutId={layoutIdPrefix + "pillBg"}
 					initial={false}
 					className={clsx(
 						"absolute inset-0 rounded-full pointer-events-none",
@@ -55,6 +57,7 @@ interface FilterControlsProps extends React.ComponentPropsWithoutRef<"div"> {
 	activeFilter: EventType | undefined
 	clearFilters: () => void
 	filterEvents: (type: EventType) => void
+	layoutIdPrefix: string
 }
 
 export const FilterControls = ({
@@ -63,6 +66,7 @@ export const FilterControls = ({
 	clearFilters,
 	filterEvents,
 	className,
+	layoutIdPrefix,
 	...props
 }: FilterControlsProps) => {
 	return (
@@ -82,6 +86,7 @@ export const FilterControls = ({
 				isActive={!activeFilter}
 				onClick={clearFilters}
 				extraStyles={extraStyles}
+				layoutIdPrefix={layoutIdPrefix}
 			>
 				All
 			</FilterButton>
@@ -89,6 +94,7 @@ export const FilterControls = ({
 				onClick={() => filterEvents("watch")}
 				isActive={activeFilter === "watch"}
 				extraStyles={extraStyles}
+				layoutIdPrefix={layoutIdPrefix}
 			>
 				Watch
 			</FilterButton>
@@ -96,6 +102,7 @@ export const FilterControls = ({
 				isActive={activeFilter === "participate"}
 				onClick={() => filterEvents("participate")}
 				extraStyles={extraStyles}
+				layoutIdPrefix={layoutIdPrefix}
 			>
 				Participate
 			</FilterButton>
@@ -103,6 +110,7 @@ export const FilterControls = ({
 				isActive={activeFilter === "learn"}
 				onClick={() => filterEvents("learn")}
 				extraStyles={extraStyles}
+				layoutIdPrefix={layoutIdPrefix}
 			>
 				Learn
 			</FilterButton>

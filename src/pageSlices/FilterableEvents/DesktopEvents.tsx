@@ -81,6 +81,7 @@ export const DesktopEvents = ({
 				activeFilter={activeFilter}
 				clearFilters={clearFilters}
 				filterEvents={filterEvents}
+				layoutIdPrefix="desktop"
 				className={clsx(
 					"sticky z-10 top-16",
 					"self-start col-span-2 justify-self-start"

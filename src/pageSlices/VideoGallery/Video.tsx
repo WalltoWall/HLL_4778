@@ -48,7 +48,6 @@ export const Video = ({
 					)}
 				>
 					<VisuallyHidden>View {video.name}'s video.</VisuallyHidden>
-
 					<Image
 						src={video.videoThumbnailURL}
 						alt={video.videoThumbnailAlt ?? ""}

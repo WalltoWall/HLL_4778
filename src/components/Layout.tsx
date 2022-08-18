@@ -3,7 +3,6 @@ import * as React from "react"
 import { Footer } from "./Footer"
 import { Header } from "./Header"
 import { MobileMenuProvider } from "./Header/MobileMenuProvider"
-import { MediaQueryProvider } from "../hooks/useMediaQuery"
 import { UserProvider } from "../hooks/useUser"
 import { NotificationBar } from "./NotificationBar"
 
@@ -30,12 +29,10 @@ LayoutNodes.displayName = "LayoutNodes"
 
 export const Layout = ({ children, lastOverhangs }: LayoutProps) => {
 	return (
-		<MediaQueryProvider>
-			<MobileMenuProvider>
-				<UserProvider>
-					<LayoutNodes lastOverhangs={lastOverhangs}>{children}</LayoutNodes>
-				</UserProvider>
-			</MobileMenuProvider>
-		</MediaQueryProvider>
+		<MobileMenuProvider>
+			<UserProvider>
+				<LayoutNodes lastOverhangs={lastOverhangs}>{children}</LayoutNodes>
+			</UserProvider>
+		</MobileMenuProvider>
 	)
 }

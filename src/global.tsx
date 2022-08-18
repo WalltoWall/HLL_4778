@@ -12,7 +12,7 @@
  */
 
 import * as React from "react"
-import { LazyMotion, domMax } from "framer-motion"
+import { LazyMotion } from "framer-motion"
 import {
 	componentResolverFromMap,
 	PrismicPreviewProvider,
@@ -31,25 +31,26 @@ interface Props {
 	children: React.ReactNode
 }
 
+const loadFeatures = () =>
+	import("./lib/framerFeatures").then((res) => res.default)
+
 export const GlobalProviders = ({ children }: Props) => {
 	return (
-		<React.Suspense>
-			<PrismicPreviewProvider
-				repositoryConfigs={[
-					{
-						repositoryName: PRISMIC_REPOSITORY_NAME,
-						linkResolver,
-						componentResolver: componentResolverFromMap({
-							page: PageTemplate,
-							event: EventTemplate,
-						}),
-					},
-				]}
-			>
-				<LazyMotion strict features={domMax}>
-					{children}
-				</LazyMotion>
-			</PrismicPreviewProvider>
-		</React.Suspense>
+		<PrismicPreviewProvider
+			repositoryConfigs={[
+				{
+					repositoryName: PRISMIC_REPOSITORY_NAME,
+					linkResolver,
+					componentResolver: componentResolverFromMap({
+						page: PageTemplate,
+						event: EventTemplate,
+					}),
+				},
+			]}
+		>
+			<LazyMotion strict features={loadFeatures}>
+				{children}
+			</LazyMotion>
+		</PrismicPreviewProvider>
 	)
 }
