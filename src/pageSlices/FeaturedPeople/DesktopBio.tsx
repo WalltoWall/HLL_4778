@@ -10,12 +10,11 @@ import { Link } from "../../components/Link"
 import type { ColorVariantStyles } from "../../lib/colorVariant"
 import type { Person } from "./FeaturedPeople"
 
-interface DesktopBioProps extends BoundedBoxProps {
-	person: Person
+interface ArrowProps {
 	variantStyles: ColorVariantStyles
 }
 
-const Arrow = () => {
+const Arrow = ({ variantStyles }: ArrowProps) => {
 	return (
 		<div
 			className={clsx(
@@ -23,7 +22,8 @@ const Arrow = () => {
 				"w-0 h-0",
 				"border-l-[44px] border-r-[44px] border-t-[44px]",
 				"lg:border-l-[72px] lg:border-r-[72px] lg:border-t-[72px]",
-				"border-l-transparent border-r-transparent border-t-yellow-50"
+				"border-l-transparent border-r-transparent",
+				variantStyles.arrowPunchoutBorderColor
 			)}
 		/>
 	)
@@ -69,6 +69,11 @@ const BioIconWithText = ({
 	)
 }
 
+interface DesktopBioProps extends BoundedBoxProps {
+	person: Person
+	variantStyles: ColorVariantStyles
+}
+
 export const DesktopBio = ({
 	person,
 	variantStyles,
@@ -82,7 +87,7 @@ export const DesktopBio = ({
 				variant="bio"
 				width="base"
 			>
-				<Arrow />
+				<Arrow variantStyles={variantStyles} />
 
 				<div className="flex flex-col items-start space-y-8 lg:space-y-12">
 					{person.bioHTML && <HTMLContent html={person.bioHTML} />}

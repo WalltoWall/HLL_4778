@@ -13,6 +13,7 @@ import type { VideoGalleryFragment } from "../../gqlTypes.gen"
 import { BoundedBox } from "../../components/BoundedBox"
 import { getColorVariant, getColorVariantStyles } from "../../lib/colorVariant"
 import { HTMLContent } from "../../components/HTMLContent"
+import { ClientOnly } from "../../components/ClientOnly"
 import { Video } from "./Video"
 import {
 	resolvePrevContext,
@@ -23,6 +24,14 @@ export const sliceType = "PrismicPageDataBodyVideoGallery"
 
 type VideoGalleryProps = ReturnType<typeof mapDataToProps>
 export type TVideo = VideoGalleryProps["videos"][number]
+
+const Fallback = ({ videos }: { videos: VideoGalleryProps["videos"] }) => (
+	<>
+		{videos.map((_video, idx) => (
+			<div key={idx} className="bg-beige-92 aspect-w-1 aspect-h-1" />
+		))}
+	</>
+)
 
 const VideoGallery = ({
 	textHTML,
@@ -88,8 +97,8 @@ const VideoGallery = ({
 					"-mx-5 md:-mx-8 lg:mx-0"
 				)}
 			>
-				{typeof window !== "undefined" &&
-					videos.map((video, idx) => (
+				<ClientOnly fallback={<Fallback videos={videos} />}>
+					{videos.map((video, idx) => (
 						<Video
 							key={`videoGallery-${idx}`}
 							video={video}
@@ -105,6 +114,7 @@ const VideoGallery = ({
 							mute={mute}
 						/>
 					))}
+				</ClientOnly>
 			</div>
 		</BoundedBox>
 	)
@@ -144,9 +154,7 @@ export function mapDataToProps({
 		votable: submissionType?.document?.data?.votable ?? false,
 		endDate: endDate ? new Date(endDate) : undefined,
 		mute: submissionType?.document?.data?.mute_videos ?? false,
-
 		videos: shuffle(videos),
-
 		nextSharesBg: nextContext?.backgroundColor === color,
 		previousOverhangs: prevCtx?.overhangsNext,
 		nextOverhangs: nextCtx?.overhangsPrevious,

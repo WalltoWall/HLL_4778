@@ -36,11 +36,10 @@ export const VideoPopup = ({
 }: VideoPopupProps) => {
 	return (
 		<>
-			<Dialog.Overlay className="fixed inset-0 bg-gray-13/70">
+			<Dialog.Overlay className="fixed inset-0 bg-gray-13/70 z-10">
 				<Dialog.Close asChild>
 					<MenuButton
 						isOpen
-						withAnimation={false}
 						className="fixed top-0 right-0 p-5 cursor-pointer text-beige-92"
 					/>
 				</Dialog.Close>
@@ -48,7 +47,7 @@ export const VideoPopup = ({
 
 			<Dialog.Content
 				className={clsx(
-					"fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+					"fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-20"
 				)}
 			>
 				<div

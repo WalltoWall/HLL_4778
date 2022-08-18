@@ -2,7 +2,6 @@ import * as React from "react"
 import clsx from "clsx"
 
 import { MobileEventCard } from "./MobileEventCard"
-import { useIsDesktop } from "../../hooks/useMediaQuery"
 import { FilterControls } from "./FilterControls"
 
 import type { EventType, Event } from "./FilterableEvents"
@@ -30,21 +29,21 @@ export const MobileEvents = ({
 	variantStyles,
 	...props
 }: EventsListProps) => {
-	const isDesktop = useIsDesktop()
-
-	if (isDesktop) return null
-
 	return (
-		<div className={clsx("flex flex-col space-y-16", className)} {...props}>
+		<div
+			className={clsx("flex flex-col space-y-16 lg:hidden", className)}
+			{...props}
+		>
 			<FilterControls
 				extraStyles={extraStyles}
 				activeFilter={activeFilter}
 				clearFilters={clearFilters}
 				filterEvents={filterEvents}
 				className="sticky z-10 self-center top-5"
+				layoutIdPrefix="mobile"
 			/>
 
-			<div className="space-y-25 lg:hidden">
+			<div className="space-y-25">
 				{events.map((event, idx) => (
 					<MobileEventCard
 						key={`event-${idx}`}

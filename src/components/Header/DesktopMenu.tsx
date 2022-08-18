@@ -1,6 +1,5 @@
 import * as React from "react"
 
-import { useIsDesktop } from "../../hooks/useMediaQuery"
 import { usePrismicPrimaryNavigation } from "../../hooks/usePrismicPrimaryNavigation"
 import { DesktopMenuLink } from "./DesktopMenuLink"
 
@@ -8,10 +7,7 @@ export const DesktopMenu = () => {
 	const [isFocusedIdx, setIsFocusedIdx] = React.useState<number | undefined>(
 		undefined
 	)
-	const isDesktop = useIsDesktop()
 	const navigation = usePrismicPrimaryNavigation()
-
-	if (!isDesktop) return null
 
 	return (
 		<nav className="hidden lg:flex text-beige-92 space-x-11">
