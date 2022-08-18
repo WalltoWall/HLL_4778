@@ -5,7 +5,7 @@ import { UnstyledButton } from "./UnstyledButton"
 const Line = ({
 	className,
 	...props
-}: React.ComponentPropsWithoutRef<typeof m.div>) => (
+}: React.ComponentPropsWithoutRef<"div">) => (
 	<div
 		className={clsx("bg-beige-92 w-[30px] h-[3px] rounded-full", className)}
 		{...props}

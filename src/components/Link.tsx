@@ -2,6 +2,7 @@ import * as React from "react"
 import { Link as GatsbyLink } from "gatsby"
 import { isInternal, isAnchorOnly, extractAnchor } from "@walltowall/helpers"
 import clsx from "clsx"
+import { useLocation } from "@gatsbyjs/reach-router"
 
 export interface LinkProps extends React.ComponentPropsWithoutRef<"a"> {
 	withRing?: boolean
@@ -13,6 +14,7 @@ export const Link = ({
 	withRing = true,
 	...props
 }: LinkProps) => {
+	const location = useLocation()
 	const linkProps = {
 		className: clsx(
 			className,
@@ -26,9 +28,9 @@ export const Link = ({
 	if (isAnchorOnly(href)) {
 		let anchorHref = extractAnchor(href)
 
-		// if (location.pathname !== "/") {
-		// 	anchorHref = `/${anchorHref}`
-		// }
+		if (location.pathname !== "/") {
+			anchorHref = `/${anchorHref}`
+		}
 
 		return <a href={anchorHref} {...linkProps} />
 	}

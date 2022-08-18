@@ -51,27 +51,10 @@ const FilterableEvents = ({
 	})
 
 	const [activeEvent, setActiveEvent] = React.useState<Event>(filteredEvents[0])
-	const containerRef = React.useRef<HTMLElement | null>(null)
+	const rContainer = React.useRef<HTMLElement | null>(null)
 
 	function scrollToContainerTop() {
-		if (!containerRef.current) return
-
-		const isDesktop = window.matchMedia("(min-width: 1024px)").matches
-		const isTablet = window.matchMedia("(min-width: 768px)").matches
-
-		containerRef.current.scrollIntoView({ block: "start" })
-
-		// If we're on mobile, we want to additionally scroll by the amount needed
-		// to enable the "sticky" positioning so that the controls are always
-		// in the same spot.
-		if (isDesktop) return
-
-		if (isTablet) {
-			window.scrollBy({ top: 19 * 4 })
-		} else {
-			// Mobile
-			window.scrollBy({ top: 11 * 4 })
-		}
+		rContainer.current?.scrollIntoView({ block: "start" })
 	}
 
 	function clearFilters() {
@@ -90,8 +73,12 @@ const FilterableEvents = ({
 	return (
 		<BoundedBox
 			tag="section"
-			ref={containerRef}
-			className={clsx("relative transition duration-250", variantStyles.bg)}
+			ref={rContainer}
+			className={clsx(
+				"relative transition duration-250",
+				"-scroll-mt-11 sm:-scroll-mt-15 md:-scroll-mt-19",
+				variantStyles.bg
+			)}
 			nextOverhangs={nextOverhangs}
 			previousOverhangs={previousOverhangs}
 		>
