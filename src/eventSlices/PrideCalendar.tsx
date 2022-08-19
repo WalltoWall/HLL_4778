@@ -29,7 +29,7 @@ export const gqlFragment = graphql`
 			}
 			image {
 				alt
-				url
+				gatsbyImageData(layout: FULL_WIDTH, sizes: "550px")
 			}
 		}
 	}
