@@ -7992,7 +7992,7 @@ export type PrideCalendarFragment = {
 		event_description?: Maybe<{ html?: Maybe<string> }>
 		event_link?: Maybe<{ url?: Maybe<string> }>
 		event_title?: Maybe<{ text?: Maybe<string> }>
-		image?: Maybe<{ alt?: Maybe<string>; url?: Maybe<string> }>
+		image?: Maybe<{ alt?: Maybe<string>; gatsbyImageData?: Maybe<unknown> }>
 	}>
 }
 
