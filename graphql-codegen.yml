@@ -10,8 +10,9 @@ generates:
       - typescript
       - typescript-operations
     config:
-      skipTypename: true
+      skipTypename: false
       preResolveTypes: true
+      dedupeFragments: true
       maybeValue: T | undefined
       scalars:
         Date: unknown

@@ -12,6 +12,9 @@ import { HTMLContent } from "../components/HTMLContent"
 import { getColorVariant, getColorVariantStyles } from "../lib/colorVariant"
 import { resolvePrevContext, resolveNextContext } from "../lib/mapToComponents"
 
+type ImageSide = "left" | "right"
+type Props = ReturnType<typeof mapDataToProps>
+
 export const sliceType = "PrismicPageDataBodyImageCallToAction"
 
 const ImageCallToAction = ({
@@ -21,11 +24,13 @@ const ImageCallToAction = ({
 	buttonHref,
 	buttonText,
 	color,
+	imageSide = "left",
 	nextOverhangs,
 	nextSharesBg,
 	previousOverhangs,
-}: ReturnType<typeof mapDataToProps>) => {
+}: Props) => {
 	const variantStyles = getColorVariantStyles(color)
+	const isImageOnLeft = imageSide === "left"
 
 	return (
 		<BoundedBox
@@ -40,6 +45,7 @@ const ImageCallToAction = ({
 				className={clsx(
 					"grid",
 					"gap-y-7 md:gap-y-0",
+					"grid-flow-dense",
 					"md:grid-cols-2 md:items-center",
 					"md:gap-x-12 lg:gap-x-25"
 				)}
@@ -49,7 +55,8 @@ const ImageCallToAction = ({
 						className={clsx(
 							"w-full max-w-sm mx-auto",
 							"mb-2 md:mb-0",
-							"lg:max-w-none lg:mx-0"
+							"lg:max-w-none lg:mx-0",
+							isImageOnLeft ? "md:col-start-1" : "md:col-start-2"
 						)}
 					>
 						<ArchImage src={imageUrl} alt={imageAlt ?? ""} variant="tall" />
@@ -96,6 +103,7 @@ export function mapDataToProps({
 		buttonHref: data.primary?.button_link?.url,
 		buttonText: data.primary?.button_text,
 		color,
+		imageSide: data.primary?.image_side?.toLowerCase() as ImageSide,
 
 		nextSharesBg: nextContext?.backgroundColor === color,
 		previousOverhangs: prevCtx?.overhangsNext,
@@ -126,6 +134,7 @@ export const gqlFragment = graphql`
 			}
 			button_text
 			color
+			image_side
 		}
 	}
 `

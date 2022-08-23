@@ -31,8 +31,9 @@ export interface Event {
 	date: Date
 	href?: string
 	illustration: IllustrationType
+	type: EventType
 }
-export type EventType = "watch" | "participate" | "learn"
+export type EventType = "watch" | "participate" | "learn" | "share"
 
 export const sliceType = "PrismicPageDataBodyFilterableEvents"
 
@@ -75,7 +76,7 @@ const FilterableEvents = ({
 			tag="section"
 			ref={rContainer}
 			className={clsx(
-				"relative transition duration-250",
+				"relative transition duration-500 linear",
 				"-scroll-mt-11 sm:-scroll-mt-15 md:-scroll-mt-19",
 				variantStyles.bg
 			)}
@@ -114,10 +115,11 @@ export function mapDataToProps({
 	const prevCtx = resolvePrevContext(previousContext)
 	const nextCtx = resolveNextContext(nextContext)
 
-	return {
-		events:
-			data.items?.map((item) => {
+	const events =
+		data.items
+			?.map((item) => {
 				const event = item?.event?.document
+				if (!event || !("data" in event)) return
 
 				return {
 					color: getColorVariant(item?.color),
@@ -129,8 +131,11 @@ export function mapDataToProps({
 					type: event?.data?.type?.toLowerCase() as EventType,
 					href: item?.event?.url,
 				}
-			}) ?? [],
+			})
+			.filter(Boolean) ?? []
 
+	return {
+		events: events as Event[],
 		previousOverhangs: prevCtx?.overhangsNext,
 		nextOverhangs: nextCtx?.overhangsPrevious,
 	}

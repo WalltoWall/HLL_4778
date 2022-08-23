@@ -4,7 +4,7 @@ import clsx from "clsx"
 import { Link } from "../../components/Link"
 import { Image } from "../../components/Image"
 
-import { useUpdateEventInView } from "./useUpdateEventInView"
+import { useInView } from "../../hooks/useInView"
 import { EventDescription } from "./EventDescription"
 import { getIllustrationUrl } from "./getIllustrationUrl"
 
@@ -26,12 +26,14 @@ export const MobileEventCard = ({
 	variantStyles,
 }: EventCardProps) => {
 	const ref = React.useRef<HTMLDivElement>(null)
-	useUpdateEventInView({
-		updateEvent: updateActiveEvent,
-		event,
-		threshold: 0.75,
-		ref,
-	})
+	const inView = useInView({ threshold: 0.75, ref })
+
+	React.useEffect(() => {
+		if (!inView) return
+
+		updateActiveEvent(event)
+	}, [inView, event])
+
 	const illustrationUrl = getIllustrationUrl(event.illustration)
 
 	return (

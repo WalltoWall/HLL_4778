@@ -37,6 +37,38 @@
 				"label": "Visionary Sponsors"
 			}
 		},
+		"media_sponsors": {
+			"type": "Group",
+			"config": {
+				"fields": {
+					"sponsor": {
+						"type": "Link",
+						"config": {
+							"select": "document",
+							"customtypes": ["sponsor"],
+							"label": "Sponsor"
+						}
+					}
+				},
+				"label": "Media Sponsors"
+			}
+		},
+		"platinum_sponsors": {
+			"type": "Group",
+			"config": {
+				"fields": {
+					"sponsor": {
+						"type": "Link",
+						"config": {
+							"select": "document",
+							"customtypes": ["sponsor"],
+							"label": "Sponsor"
+						}
+					}
+				},
+				"label": "Platinum Sponsors"
+			}
+		},
 		"gold_sponsors": {
 			"type": "Group",
 			"config": {

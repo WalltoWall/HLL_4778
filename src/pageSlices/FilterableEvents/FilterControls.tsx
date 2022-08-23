@@ -27,7 +27,7 @@ const FilterButton = ({
 				"text-11 md:text-13 lg:text-15",
 				"uppercase leading-1_15 font-bold",
 				"rounded-full py-3 px-3",
-				"transition duration-250",
+				"transition duration-500 linear",
 				isActive && extraStyles.activeContolTextColor,
 				!isActive && extraStyles.inactiveControlTextColor,
 				className
@@ -41,7 +41,7 @@ const FilterButton = ({
 					className={clsx(
 						"absolute inset-0 rounded-full pointer-events-none",
 						"shadow",
-						"transition-colors",
+						"transition-colors duration-500",
 						extraStyles.activeButtonBg
 					)}
 				/>
@@ -91,12 +91,20 @@ export const FilterControls = ({
 				All
 			</FilterButton>
 			<FilterButton
-				onClick={() => filterEvents("watch")}
-				isActive={activeFilter === "watch"}
+				onClick={() => filterEvents("learn")}
+				isActive={activeFilter === "learn"}
 				extraStyles={extraStyles}
 				layoutIdPrefix={layoutIdPrefix}
 			>
-				Watch
+				Learn
+			</FilterButton>
+			<FilterButton
+				isActive={activeFilter === "share"}
+				onClick={() => filterEvents("share")}
+				extraStyles={extraStyles}
+				layoutIdPrefix={layoutIdPrefix}
+			>
+				Share
 			</FilterButton>
 			<FilterButton
 				isActive={activeFilter === "participate"}
@@ -105,14 +113,6 @@ export const FilterControls = ({
 				layoutIdPrefix={layoutIdPrefix}
 			>
 				Participate
-			</FilterButton>
-			<FilterButton
-				isActive={activeFilter === "learn"}
-				onClick={() => filterEvents("learn")}
-				extraStyles={extraStyles}
-				layoutIdPrefix={layoutIdPrefix}
-			>
-				Learn
 			</FilterButton>
 		</div>
 	)

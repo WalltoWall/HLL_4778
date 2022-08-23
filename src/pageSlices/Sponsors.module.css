@@ -1,0 +1,35 @@
+.largeGrid {
+	grid-template-columns: repeat(auto-fit, 200px);
+
+	@screen sm {
+		grid-template-columns: repeat(auto-fit, 250px);
+	}
+
+	@screen lg {
+		grid-template-columns: repeat(auto-fit, 400px);
+	}
+}
+
+.mediumGrid {
+	grid-template-columns: repeat(auto-fit, 125px);
+
+	@screen sm {
+		grid-template-columns: repeat(auto-fit, 160px);
+	}
+
+	@screen lg {
+		grid-template-columns: repeat(auto-fit, 215px);
+	}
+}
+
+.smallGrid {
+	grid-template-columns: repeat(auto-fit, 80px);
+
+	@screen sm {
+		grid-template-columns: repeat(auto-fit, 100px);
+	}
+
+	@screen lg {
+		grid-template-columns: repeat(auto-fit, 150px);
+	}
+}
