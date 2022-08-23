@@ -23,6 +23,8 @@ export const DesktopEventCard = ({
 	const inView = useInView({ threshold: 1, ref })
 
 	React.useEffect(() => {
+		if (!inView) return
+
 		updateActiveEvent(event)
 	}, [inView, event])
 

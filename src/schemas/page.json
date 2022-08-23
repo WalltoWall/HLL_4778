@@ -82,6 +82,21 @@
 									"multi": "heading3",
 									"label": "Text"
 								}
+							},
+							"button_link": {
+								"type": "Link",
+								"config": {
+									"label": "Button Link",
+									"placeholder": "Optional",
+									"select": null
+								}
+							},
+							"button_link_text": {
+								"type": "Text",
+								"config": {
+									"label": "Button Link Text",
+									"placeholder": "Optional"
+								}
 							}
 						},
 						"repeat": {}
@@ -304,6 +319,15 @@
 									],
 									"default_value": "Blue",
 									"label": "Color"
+								}
+							},
+							"image_side": {
+								"type": "Select",
+								"config": {
+									"options": ["Left", "Right"],
+									"default_value": "Left",
+									"label": "Image Side",
+									"placeholder": "Side image will show on desktop"
 								}
 							}
 						},
@@ -778,14 +802,15 @@
 							"event_description": {
 								"type": "StructuredText",
 								"config": {
-									"multi": "paragraph, strong, em",
+									"multi": "paragraph,strong,em",
 									"label": "Event Description"
 								}
 							},
 							"event_link": {
 								"type": "Link",
 								"config": {
-									"label": "Event Link"
+									"label": "Event Link",
+									"select": null
 								}
 							}
 						}

@@ -9,7 +9,7 @@ import type { ColorVariantStyles } from "../../lib/colorVariant"
 import type { FilterableEventsExtraStyles } from "./getFilterableEventsExtraStyles"
 import { VisuallyHidden } from "../../components/VisuallyHidden"
 
-interface Props extends Omit<Event, "color" | "illustration"> {
+interface Props extends Omit<Event, "color" | "illustration" | "type"> {
 	variantStyles: ColorVariantStyles
 	extraStyles: FilterableEventsExtraStyles
 }

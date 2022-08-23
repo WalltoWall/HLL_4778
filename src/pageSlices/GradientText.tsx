@@ -7,45 +7,46 @@ import { useMobileMenu } from "../components/Header/MobileMenuProvider"
 
 import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
 import type { GradientTextFragment } from "../gqlTypes.gen"
+import { ButtonLink } from "../components/Button"
 
 export const sliceType = "PrismicPageDataBodyGradientText"
 
 type Props = ReturnType<typeof mapDataToProps>
 
-const GradientText = ({ text }: Props) => {
+const GradientText = ({ text, buttonHref, buttonText }: Props) => {
 	const { isOpen: isMobileMenuOpen } = useMobileMenu()
 
 	return (
 		<section
-			className={clsx(
-				"relative aspect-w-10 aspect-h-16",
-				"md:aspect-w-16 md:aspect-h-9",
-				"2xl:aspect-none 2xl:h-[900px]",
-				"2xl:relative"
-			)}
+			className={clsx("relative pt-16 pb-10 px-8", "md:py-20", "xl:py-32")}
 		>
 			<Gradient
-				className="absolute inset-0 2xl:absolute 2xl:inset-0 2xl:w-full 2xl:h-full"
+				className="absolute inset-0 pointer-events-none"
 				shouldPlay={!isMobileMenuOpen}
 			/>
 
 			<div
 				className={clsx(
-					"flex items-center justify-center w-full h-full px-8",
-					"2xl:w-full 2xl:h-full"
+					"flex flex-col items-center isolate space-y-8",
+					"md:space-y-12 lg:space-y-16"
 				)}
 			>
 				<h2
 					className={clsx(
-						"font-serif leading-1_2",
+						"font-serif leading-1_3",
 						"text-24 md:text-32 lg:text-42",
 						"relative text-beige-92 text-center",
-						"mx-auto",
-						"max-w-[600px]"
+						"max-w-2xl"
 					)}
 				>
 					{text}
 				</h2>
+
+				{buttonHref && buttonText && (
+					<ButtonLink href={buttonHref} color="beige">
+						{buttonText}
+					</ButtonLink>
+				)}
 			</div>
 		</section>
 	)
@@ -56,6 +57,8 @@ export function mapDataToProps({
 }: MapDataToPropsCtx<GradientTextFragment>) {
 	return {
 		text: data.primary?.text?.text,
+		buttonHref: data.primary?.button_link?.url,
+		buttonText: data.primary?.button_link_text,
 	}
 }
 
@@ -71,6 +74,10 @@ export const gqlFragment = graphql`
 			text {
 				text
 			}
+			button_link {
+				url
+			}
+			button_link_text
 		}
 	}
 `
