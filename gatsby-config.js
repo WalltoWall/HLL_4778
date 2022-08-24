@@ -39,7 +39,6 @@ module.exports = {
 				accessToken: process.env.GATSBY_PRISMIC_ACCESS_TOKEN,
 				schemas: require("./src/schemas"),
 				linkResolver: require("./src/prismic").linkResolver,
-				releaseID: "Yv144hAAACIAGKsB",
 			},
 		},
 		{
