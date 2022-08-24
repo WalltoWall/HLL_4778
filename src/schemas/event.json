@@ -16,7 +16,7 @@
 		"illustration": {
 			"type": "Select",
 			"config": {
-				"options": ["Shaka", "Flag", "Slippers", "Wave"],
+				"options": ["Shaka", "Flag", "Slippers", "Wave", "Butterfly", "Mirror"],
 				"default_value": "Shaka",
 				"label": "Illustration"
 			}
@@ -24,7 +24,7 @@
 		"type": {
 			"type": "Select",
 			"config": {
-				"options": ["Watch", "Participate", "Learn"],
+				"options": ["Watch", "Participate", "Learn", "Share"],
 				"default_value": "Watch",
 				"label": "Type"
 			}
@@ -576,6 +576,15 @@
 									],
 									"default_value": "Blue",
 									"label": "Color"
+								}
+							},
+							"image_side": {
+								"type": "Select",
+								"config": {
+									"options": ["Left", "Right"],
+									"default_value": "Left",
+									"label": "Image Side",
+									"placeholder": "Side image will show on desktop"
 								}
 							}
 						},
