@@ -7,7 +7,7 @@ const colors = {
 	transparent: "#fff0",
 	current: "currentColor",
 
-	gray: { 13: "#241F20", 23: "#3f3738" },
+	gray: { 13: "#241F20", 23: "#3f3738", 89: "#dfe3e6" },
 	beige: { 92: "#F7F2E2" },
 
 	red: { 45: "#C83228" },
