@@ -72,7 +72,12 @@ export const StartableVideo = ({
 						withControls && isPlaying && "pointer-events-none"
 					)}
 					withRing={false}
-					onClick={() => (isPlaying ? stopVideo() : startVideo())}
+					onClick={(e) => {
+						e.preventDefault()
+						e.stopPropagation()
+
+						isPlaying ? stopVideo() : startVideo()
+					}}
 				>
 					<VisuallyHidden>
 						{isPlaying ? "Pause video" : "Play video"}

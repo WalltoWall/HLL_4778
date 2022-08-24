@@ -1,20 +1,17 @@
 import * as React from "react"
-import mergeRefs from "react-merge-refs"
 import { useReducedMotion, m } from "framer-motion"
-import { useInView } from "react-intersection-observer"
 import { graphql } from "gatsby"
-import { useLocation } from "@gatsbyjs/reach-router"
 import clsx from "clsx"
+import { useLocation } from "@gatsbyjs/reach-router"
 
 import { Image } from "../components/Image"
 import { useMobileMenu } from "../components/Header/MobileMenuProvider"
-
+import { useInView } from "../hooks/useInView"
 import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
 import type { VideoHeroFragment } from "../gqlTypes.gen"
 
 export const sliceType = "PrismicPageDataBodyVideoHero"
 
-// TODO: Use intersection observer to pause playback when not in view.
 const VideoHero = ({
 	text,
 	videoThumbnailAlt,
@@ -22,8 +19,8 @@ const VideoHero = ({
 	videoURL,
 }: ReturnType<typeof mapDataToProps>) => {
 	const { isOpen: isMobileMenuOpen } = useMobileMenu()
-	const videoRef = React.useRef<HTMLVideoElement | null>(null)
-	const { ref: observerRef, inView } = useInView({ threshold: 0 })
+	const rVideo = React.useRef<HTMLVideoElement | null>(null)
+	const inView = useInView({ threshold: 0, ref: rVideo })
 	const shouldReduceMotion = useReducedMotion()
 	const location = useLocation()
 
@@ -31,23 +28,23 @@ const VideoHero = ({
 
 	// Pause the video when the video is not in view.
 	React.useEffect(() => {
-		if (!videoRef.current) return
+		if (!rVideo.current) return
 
 		if (inView) {
-			videoRef.current.play()
+			rVideo.current.play()
 		} else {
-			!videoRef.current.paused && videoRef.current.pause()
+			!rVideo.current.paused && rVideo.current.pause()
 		}
 	}, [inView])
 
 	// Pause the video when the mobile menu is open.
 	React.useEffect(() => {
-		if (!videoRef.current) return
+		if (!rVideo.current) return
 
-		if (isMobileMenuOpen && !videoRef.current.paused) {
-			videoRef.current.pause()
+		if (isMobileMenuOpen && !rVideo.current.paused) {
+			rVideo.current.pause()
 		} else {
-			videoRef.current.play()
+			rVideo.current.play()
 		}
 	}, [isMobileMenuOpen])
 
@@ -75,7 +72,7 @@ const VideoHero = ({
 
 				{videoURL && (
 					<video
-						ref={mergeRefs([videoRef, observerRef])}
+						ref={rVideo}
 						className={clsx(
 							"absolute inset-0",
 							"object-cover object-center",

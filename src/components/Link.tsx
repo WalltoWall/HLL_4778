@@ -1,8 +1,8 @@
 import * as React from "react"
 import { Link as GatsbyLink } from "gatsby"
-import { useLocation } from "@gatsbyjs/reach-router"
 import { isInternal, isAnchorOnly, extractAnchor } from "@walltowall/helpers"
 import clsx from "clsx"
+import { useLocation } from "@gatsbyjs/reach-router"
 
 export interface LinkProps extends React.ComponentPropsWithoutRef<"a"> {
 	withRing?: boolean

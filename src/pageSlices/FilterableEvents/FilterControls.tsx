@@ -1,6 +1,6 @@
 import * as React from "react"
 import clsx from "clsx"
-import { AnimateSharedLayout, m } from "framer-motion"
+import { m } from "framer-motion"
 
 import type { EventType } from "./FilterableEvents"
 import type { FilterableEventsExtraStyles } from "./getFilterableEventsExtraStyles"
@@ -8,6 +8,7 @@ import type { FilterableEventsExtraStyles } from "./getFilterableEventsExtraStyl
 interface FilterButtonProps extends React.ComponentPropsWithoutRef<"button"> {
 	isActive: boolean
 	extraStyles: FilterableEventsExtraStyles
+	layoutIdPrefix: string
 }
 
 const FilterButton = ({
@@ -15,6 +16,7 @@ const FilterButton = ({
 	children,
 	className,
 	extraStyles,
+	layoutIdPrefix,
 	...props
 }: FilterButtonProps) => {
 	return (
@@ -25,7 +27,7 @@ const FilterButton = ({
 				"text-11 md:text-13 lg:text-15",
 				"uppercase leading-1_15 font-bold",
 				"rounded-full py-3 px-3",
-				"transition duration-250",
+				"transition duration-500 linear",
 				isActive && extraStyles.activeContolTextColor,
 				!isActive && extraStyles.inactiveControlTextColor,
 				className
@@ -34,12 +36,12 @@ const FilterButton = ({
 		>
 			{isActive && (
 				<m.div
-					layoutId="pillBg"
+					layoutId={layoutIdPrefix + "pillBg"}
 					initial={false}
 					className={clsx(
 						"absolute inset-0 rounded-full pointer-events-none",
 						"shadow",
-						"transition-colors",
+						"transition-colors duration-500",
 						extraStyles.activeButtonBg
 					)}
 				/>
@@ -55,6 +57,7 @@ interface FilterControlsProps extends React.ComponentPropsWithoutRef<"div"> {
 	activeFilter: EventType | undefined
 	clearFilters: () => void
 	filterEvents: (type: EventType) => void
+	layoutIdPrefix: string
 }
 
 export const FilterControls = ({
@@ -63,6 +66,7 @@ export const FilterControls = ({
 	clearFilters,
 	filterEvents,
 	className,
+	layoutIdPrefix,
 	...props
 }: FilterControlsProps) => {
 	return (
@@ -78,36 +82,38 @@ export const FilterControls = ({
 			)}
 			{...props}
 		>
-			<AnimateSharedLayout>
-				<FilterButton
-					isActive={!activeFilter}
-					onClick={clearFilters}
-					extraStyles={extraStyles}
-				>
-					All
-				</FilterButton>
-				<FilterButton
-					onClick={() => filterEvents("watch")}
-					isActive={activeFilter === "watch"}
-					extraStyles={extraStyles}
-				>
-					Watch
-				</FilterButton>
-				<FilterButton
-					isActive={activeFilter === "participate"}
-					onClick={() => filterEvents("participate")}
-					extraStyles={extraStyles}
-				>
-					Participate
-				</FilterButton>
-				<FilterButton
-					isActive={activeFilter === "learn"}
-					onClick={() => filterEvents("learn")}
-					extraStyles={extraStyles}
-				>
-					Learn
-				</FilterButton>
-			</AnimateSharedLayout>
+			<FilterButton
+				isActive={!activeFilter}
+				onClick={clearFilters}
+				extraStyles={extraStyles}
+				layoutIdPrefix={layoutIdPrefix}
+			>
+				All
+			</FilterButton>
+			<FilterButton
+				onClick={() => filterEvents("learn")}
+				isActive={activeFilter === "learn"}
+				extraStyles={extraStyles}
+				layoutIdPrefix={layoutIdPrefix}
+			>
+				Learn
+			</FilterButton>
+			<FilterButton
+				isActive={activeFilter === "share"}
+				onClick={() => filterEvents("share")}
+				extraStyles={extraStyles}
+				layoutIdPrefix={layoutIdPrefix}
+			>
+				Share
+			</FilterButton>
+			<FilterButton
+				isActive={activeFilter === "participate"}
+				onClick={() => filterEvents("participate")}
+				extraStyles={extraStyles}
+				layoutIdPrefix={layoutIdPrefix}
+			>
+				Participate
+			</FilterButton>
 		</div>
 	)
 }

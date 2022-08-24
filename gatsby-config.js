@@ -5,23 +5,21 @@ require("dotenv").config()
 
 const siteMetadata = {
 	title: "Honolulu Pride",
-	titleShort: "HLL",
 	description: "Lorem Ipsum",
 	siteUrl: "https://www.example.org",
 }
 
 /** @type {import("gatsby").GatsbyConfig} */
 module.exports = {
+	siteMetadata,
 	flags: {
 		FAST_DEV: true,
 		DEV_SSR: true,
 	},
-	siteMetadata,
 	plugins: [
-		process.env.ANALYZE && "gatsby-plugin-webpack-bundle-analyser-v2",
 		"gatsby-plugin-postcss",
-		"gatsby-plugin-catch-links",
 		"gatsby-plugin-sitemap",
+		"gatsby-plugin-image",
 		{
 			resolve: "gatsby-plugin-manifest",
 			options: {

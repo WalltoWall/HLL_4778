@@ -9,6 +9,8 @@ import { Link } from "../components/Link"
 import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
 import type { SponsorFragment, SponsorsFragment } from "../gqlTypes.gen"
 
+import * as styles from "./Sponsors.module.css"
+
 export const sliceType = "PrismicPageDataBodySponsors"
 
 const SponsorHeading = ({
@@ -21,7 +23,7 @@ const SponsorHeading = ({
 				className,
 				"font-sans",
 				"text-center",
-				"text-18 md:text-22 lg:text-28",
+				"text-18 sm:text-22 lg:text-28",
 				"leading-1_3 lg:leading-1_15",
 				"font-semibold",
 				"max-w-[20ch]"
@@ -33,12 +35,14 @@ const SponsorHeading = ({
 
 interface SponsorContainerProps extends React.ComponentPropsWithoutRef<"div"> {
 	heading: string
+	withBorder?: boolean
 }
 
 const SponsorContainer = ({
 	className,
 	children,
 	heading,
+	withBorder = true,
 	...props
 }: SponsorContainerProps) => {
 	return (
@@ -46,12 +50,16 @@ const SponsorContainer = ({
 			className={clsx(
 				className,
 				"grid",
-				"gap-y-6 lg:gap-y-12",
+				"gap-y-6 sm:gap-y-10 lg:gap-y-12",
 				"justify-items-center"
 			)}
 			{...props}
 		>
-			<SponsorHeading>{heading}</SponsorHeading>
+			<div className="flex items-center w-full space-x-8 justify-center lg:space-x-16">
+				{withBorder && <div className="h-[2px] bg-gray-89 grow" />}
+				<SponsorHeading className="shrink-0">{heading}</SponsorHeading>
+				{withBorder && <div className="h-[2px] bg-gray-89 grow" />}
+			</div>
 
 			{children}
 		</div>
@@ -74,6 +82,7 @@ const RainbowsSponsor = ({ sponsor, ...props }: RainbowsSponsorProps) => {
 		<SponsorContainer
 			heading="Rainbows Over Waikiki Presenting Sponsor"
 			className="lg:grid-cols-2 lg:items-center lg:gap-10"
+			withBorder={false}
 			{...props}
 		>
 			<Link href={sponsor.href}>
@@ -90,28 +99,26 @@ const RainbowsSponsor = ({ sponsor, ...props }: RainbowsSponsorProps) => {
 }
 
 interface SponsorsListProps extends React.ComponentPropsWithoutRef<"div"> {
+	heading: string
 	sponsors: Sponsor[]
 }
 
-const VisionarySponsors = ({ sponsors, ...props }: SponsorsListProps) => {
+const LargeSponsors = ({ sponsors, heading, ...props }: SponsorsListProps) => {
 	return (
-		<SponsorContainer heading="Visionary" {...props}>
+		<SponsorContainer heading={heading} {...props}>
 			<div
 				className={clsx(
-					"grid grid-cols-2 justify-items-center items-center",
+					"grid justify-items-center items-center justify-center",
 					"w-full",
-					"gap-10 lg:gap-20"
+					"gap-12 sm:gap-16 lg:gap-28",
+					styles.largeGrid
 				)}
 			>
-				{sponsors.map((sponsor, idx) => (
-					<Link key={`visionarySponsor-${idx}`} href={sponsor.href}>
+				{sponsors.map((sponsor) => (
+					<Link key={sponsor.name} href={sponsor.href}>
 						<Image
 							src={sponsor.imageUrl}
 							alt={sponsor.imageAlt ?? sponsor.name}
-							className={clsx(
-								"mx-auto",
-								"max-w-[150px] sm:max-w-[220px] lg:max-w-[350px]"
-							)}
 						/>
 					</Link>
 				))}
@@ -120,25 +127,22 @@ const VisionarySponsors = ({ sponsors, ...props }: SponsorsListProps) => {
 	)
 }
 
-const GoldSponsors = ({ sponsors, ...props }: SponsorsListProps) => {
+const MediumSponsors = ({ sponsors, heading, ...props }: SponsorsListProps) => {
 	return (
-		<SponsorContainer heading="Gold" {...props}>
+		<SponsorContainer heading={heading} {...props}>
 			<div
 				className={clsx(
-					"grid grid-cols-2 justify-items-center items-center",
+					"grid justify-items-center items-center justify-center",
 					"w-full",
-					"gap-10 lg:gap-20"
+					"gap-10 sm:gap-16 lg:gap-28",
+					styles.mediumGrid
 				)}
 			>
-				{sponsors.map((sponsor, idx) => (
-					<Link key={`goldSponsor-${idx}`} href={sponsor.href}>
+				{sponsors.map((sponsor) => (
+					<Link key={sponsor.name} href={sponsor.href}>
 						<Image
 							src={sponsor.imageUrl}
 							alt={sponsor.imageAlt ?? sponsor.name}
-							className={clsx(
-								"mx-auto",
-								"max-w-[135px] sm:max-w-[205px] lg:max-w-[300px]"
-							)}
 						/>
 					</Link>
 				))}
@@ -147,17 +151,15 @@ const GoldSponsors = ({ sponsors, ...props }: SponsorsListProps) => {
 	)
 }
 
-const SilverSponsors = ({ sponsors, ...props }: SponsorsListProps) => {
-	const columns = sponsors.length >= 3 ? "grid-cols-3" : "grid-cols-2"
-
+const SmallSponsors = ({ sponsors, heading, ...props }: SponsorsListProps) => {
 	return (
-		<SponsorContainer heading="Silver" {...props}>
+		<SponsorContainer heading={heading} {...props}>
 			<div
 				className={clsx(
-					"grid justify-items-center items-center",
-					columns,
+					"grid justify-items-center items-center justify-center",
 					"w-full",
-					"gap-10 lg:gap-20"
+					"gap-10 sm:gap-16 lg:gap-28",
+					styles.smallGrid
 				)}
 			>
 				{sponsors.map((sponsor, idx) => (
@@ -165,70 +167,6 @@ const SilverSponsors = ({ sponsors, ...props }: SponsorsListProps) => {
 						<Image
 							src={sponsor.imageUrl}
 							alt={sponsor.imageAlt ?? sponsor.name}
-							className={clsx(
-								"mx-auto",
-								"max-w-[110px] sm:max-w-[190px] lg:max-w-[275px]"
-							)}
-						/>
-					</Link>
-				))}
-			</div>
-		</SponsorContainer>
-	)
-}
-
-const BronzeSponsors = ({ sponsors, ...props }: SponsorsListProps) => {
-	const columns = sponsors.length >= 3 ? "grid-cols-3" : "grid-cols-2"
-
-	return (
-		<SponsorContainer heading="Bronze" {...props}>
-			<div
-				className={clsx(
-					"grid justify-items-center items-center",
-					columns,
-					"w-full",
-					"gap-10 lg:gap-20"
-				)}
-			>
-				{sponsors.map((sponsor, idx) => (
-					<Link key={`bronzeSponsor-${idx}`} href={sponsor.href}>
-						<Image
-							src={sponsor.imageUrl}
-							alt={sponsor.imageAlt ?? sponsor.name}
-							className={clsx(
-								"mx-auto",
-								"max-w-[100px] sm:max-w-[180px] lg:max-w-[250px]"
-							)}
-						/>
-					</Link>
-				))}
-			</div>
-		</SponsorContainer>
-	)
-}
-
-const PartnerSponsors = ({ sponsors, ...props }: SponsorsListProps) => {
-	const columns = sponsors.length >= 3 ? "grid-cols-3" : "grid-cols-2"
-
-	return (
-		<SponsorContainer heading="Partners" {...props}>
-			<div
-				className={clsx(
-					"grid justify-items-center items-center",
-					columns,
-					"w-full",
-					"gap-10 lg:gap-20"
-				)}
-			>
-				{sponsors.map((sponsor, idx) => (
-					<Link key={`partnerSponsor-${idx}`} href={sponsor.href}>
-						<Image
-							src={sponsor.imageUrl}
-							alt={sponsor.imageAlt ?? sponsor.name}
-							className={clsx(
-								"mx-auto",
-								"max-w-[100px] sm:max-w-[170px] lg:max-w-[225px]"
-							)}
 						/>
 					</Link>
 				))}
@@ -245,6 +183,8 @@ const Sponsors = ({
 	partnerSponsors = [],
 	rainbowSponsor,
 	silverSponsors = [],
+	platinumSponsors = [],
+	mediaSponsors = [],
 	visionarySponsors = [],
 }: ReturnType<typeof mapDataToProps>) => {
 	return (
@@ -278,27 +218,41 @@ const Sponsors = ({
 
 			<div className="space-y-16 lg:space-y-30">
 				<RainbowsSponsor sponsor={rainbowSponsor} />
-				<VisionarySponsors sponsors={visionarySponsors} />
-				<GoldSponsors sponsors={goldSponsors} />
-				<SilverSponsors sponsors={silverSponsors} />
-				<BronzeSponsors sponsors={bronzeSponsors} />
-				<PartnerSponsors sponsors={partnerSponsors} />
+				<LargeSponsors sponsors={visionarySponsors} heading="Visionary" />
+				<LargeSponsors sponsors={mediaSponsors} heading="Media" />
+				<MediumSponsors sponsors={platinumSponsors} heading="Platinum" />
+				<MediumSponsors sponsors={goldSponsors} heading="Gold" />
+				<SmallSponsors sponsors={silverSponsors} heading="Silver" />
+				<SmallSponsors sponsors={bronzeSponsors} heading="Bronze" />
+				<SmallSponsors sponsors={partnerSponsors} heading="Community" />
 			</div>
 		</BoundedBox>
 	)
 }
 
-function mapDocumentToSponsor(document?: SponsorFragment): Sponsor {
+type UnknownDoc = Record<string, any> | undefined
+
+function mapDocumentToSponsor(doc?: UnknownDoc): Sponsor {
+	assertSponsor(doc)
+
 	return {
-		href: document?.data?.link?.url,
-		imageAlt: document?.data?.image?.alt,
-		imageUrl: document?.data?.image?.url,
-		name: document?.data?.name?.text,
+		href: doc?.data?.link?.url,
+		imageAlt: doc?.data?.image?.alt,
+		imageUrl: doc?.data?.image?.url,
+		name: doc?.data?.name?.text,
 	}
 }
 
+function assertSponsor(doc: UnknownDoc = {}): asserts doc is SponsorFragment {
+	if (!("data" in doc)) throw new Error("Received invalid sponsor document")
+}
+
 export function mapDataToProps({ data }: MapDataToPropsCtx<SponsorsFragment>) {
-	const sponsorsList = data.primary?.sponsor_list?.document?.data
+	let sponsorDoc = data.primary?.sponsor_list?.document
+	if (!sponsorDoc) sponsorDoc = {}
+	if (!("data" in sponsorDoc)) throw new Error("Received invalid SponsorsList")
+
+	const sponsorsList = sponsorDoc.data
 
 	return {
 		heading: data.primary?.heading?.text,
@@ -307,6 +261,12 @@ export function mapDataToProps({ data }: MapDataToPropsCtx<SponsorsFragment>) {
 			sponsorsList?.rainbows_over_waikiki_sponsor?.document
 		),
 		visionarySponsors: sponsorsList?.visionary_sponsors?.map((s) =>
+			mapDocumentToSponsor(s?.sponsor?.document)
+		),
+		mediaSponsors: sponsorsList?.media_sponsors?.map((s) =>
+			mapDocumentToSponsor(s?.sponsor?.document)
+		),
+		platinumSponsors: sponsorsList?.platinum_sponsors?.map((s) =>
 			mapDocumentToSponsor(s?.sponsor?.document)
 		),
 		goldSponsors: sponsorsList?.gold_sponsors?.map((s) =>
@@ -363,6 +323,20 @@ export const gqlFragment = graphql`
 								}
 							}
 							visionary_sponsors {
+								sponsor {
+									document {
+										...Sponsor
+									}
+								}
+							}
+							media_sponsors {
+								sponsor {
+									document {
+										...Sponsor
+									}
+								}
+							}
+							platinum_sponsors {
 								sponsor {
 									document {
 										...Sponsor

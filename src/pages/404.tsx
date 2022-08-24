@@ -1,20 +1,13 @@
 import * as React from "react"
 import clsx from "clsx"
-import {
-	withPrismicUnpublishedPreview,
-	componentResolverFromMap,
-} from "gatsby-plugin-prismic-previews"
+import { withPrismicUnpublishedPreview } from "gatsby-plugin-prismic-previews"
+import { HeadProps } from "gatsby"
 
 import { ButtonLink } from "../components/Button"
 import { Gradient } from "../components/Gradient"
 import { useMobileMenu } from "../components/Header/MobileMenuProvider"
 import { Layout } from "../components/Layout"
 import { SEO } from "../components/SEO"
-import { PRISMIC_REPOSITORY_NAME } from "../constants"
-import { linkResolver } from "../prismic"
-
-import PageTemplate from "../templates/page"
-import EventTemplate from "../templates/event"
 
 const NotFoundGradient = () => {
 	const { isOpen: isMobileMenuOpen } = useMobileMenu()
@@ -30,8 +23,6 @@ const NotFoundGradient = () => {
 const NotFoundPage = () => {
 	return (
 		<Layout>
-			<SEO pageTitle="Not Found" />
-
 			<section className="relative flex flex-col items-center justify-center h-screen bg-gray-13">
 				<NotFoundGradient />
 
@@ -78,13 +69,6 @@ const NotFoundPage = () => {
 	)
 }
 
-export default withPrismicUnpublishedPreview(NotFoundPage, [
-	{
-		repositoryName: PRISMIC_REPOSITORY_NAME,
-		linkResolver,
-		componentResolver: componentResolverFromMap({
-			event: EventTemplate,
-			page: PageTemplate,
-		}),
-	},
-])
+export const Head = (_props: HeadProps) => <SEO pageTitle="Not Found" />
+
+export default withPrismicUnpublishedPreview(NotFoundPage)

@@ -1,6 +1,6 @@
 import * as React from "react"
 import { MapToComponents } from "react-map-to-components"
-import { graphql, PageProps } from "gatsby"
+import { graphql, PageProps, HeadProps } from "gatsby"
 import { withPrismicPreview } from "gatsby-plugin-prismic-previews"
 
 import { SEO } from "../components/SEO"
@@ -21,8 +21,7 @@ import * as Video from "../eventSlices/Video"
 import * as FeaturedPeople from "../eventSlices/FeaturedPeople"
 import * as VideoGallery from "../eventSlices/VideoGallery"
 import * as TextAndVideo from "../eventSlices/TextAndVideo"
-
-import { linkResolver } from "../prismic"
+import * as PrideCalendar from "../eventSlices/PrideCalendar"
 
 import {
 	mapDataToContextFactory,
@@ -33,7 +32,6 @@ import {
 	getSliceKey,
 	getSliceType,
 } from "../lib/mapToComponents"
-import { PRISMIC_REPOSITORY_NAME } from "../constants"
 
 const sliceMap: SliceMap = {
 	TwoColumnText,
@@ -49,6 +47,7 @@ const sliceMap: SliceMap = {
 	FeaturedPeople,
 	VideoGallery,
 	TextAndVideo,
+	PrideCalendar,
 }
 
 const map = mapFactory(sliceMap)
@@ -57,7 +56,6 @@ const mapDataToContext = mapDataToContextFactory(sliceMap)
 
 const EventTemplate = ({ data }: PageProps<EventTemplateQuery>) => {
 	const event = data.prismicEvent
-
 	const sliceList = event?.data?.body ?? []
 	const lastSlice = sliceList[sliceList.length - 1]
 
@@ -67,8 +65,6 @@ const EventTemplate = ({ data }: PageProps<EventTemplateQuery>) => {
 				lastSlice?.__typename === "PrismicEventDataBodyNewsletterForm"
 			}
 		>
-			<SEO pageTitle={event?.data?.title?.text ?? "Honolulu Pride"} />
-
 			<MapToComponents
 				getKey={getSliceKey}
 				getType={getSliceType}
@@ -80,6 +76,12 @@ const EventTemplate = ({ data }: PageProps<EventTemplateQuery>) => {
 			/>
 		</Layout>
 	)
+}
+
+export const Head = ({ data }: HeadProps<EventTemplateQuery>) => {
+	const event = data.prismicEvent
+
+	return <SEO pageTitle={event?.data?.title?.text ?? "Honolulu Pride"} />
 }
 
 export const eventTemplateQuery = graphql`
@@ -106,6 +108,7 @@ export const eventTemplateQuery = graphql`
 					...EventFeaturedPeople
 					...EventVideoGallery
 					...EventTextAndVideo
+					...EventPrideCalendar
 				}
 			}
 			uid
@@ -114,9 +117,4 @@ export const eventTemplateQuery = graphql`
 	}
 `
 
-export default withPrismicPreview(EventTemplate, [
-	{
-		repositoryName: PRISMIC_REPOSITORY_NAME,
-		linkResolver,
-	},
-])
+export default withPrismicPreview(EventTemplate)

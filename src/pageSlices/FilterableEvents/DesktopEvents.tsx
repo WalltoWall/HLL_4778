@@ -40,7 +40,7 @@ const DesktopIllustration = ({ activeEvent }: DesktopIllustrationProps) => {
 					transition={{ type: "tween", duration: 0.75, ease: "easeOut" }}
 					src={illustrationUrl}
 					alt=""
-					className="absolute inset-0 w-full h-full p-15"
+					className="absolute inset-0 w-full h-full p-15 object-contain"
 					loading="eager"
 				/>
 			</div>
@@ -81,6 +81,7 @@ export const DesktopEvents = ({
 				activeFilter={activeFilter}
 				clearFilters={clearFilters}
 				filterEvents={filterEvents}
+				layoutIdPrefix="desktop"
 				className={clsx(
 					"sticky z-10 top-16",
 					"self-start col-span-2 justify-self-start"

@@ -81,7 +81,7 @@ const FeaturedPeople = ({
 			</BoundedBox>
 
 			<DesktopPeople
-				people={[...people, ...people]}
+				people={people}
 				variantStyles={variantStyles}
 				nextSharesBg={nextSharesBg}
 				nextOverhangs={nextOverhangs}
