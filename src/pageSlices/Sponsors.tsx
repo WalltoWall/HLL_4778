@@ -35,12 +35,14 @@ const SponsorHeading = ({
 
 interface SponsorContainerProps extends React.ComponentPropsWithoutRef<"div"> {
 	heading: string
+	withBorder?: boolean
 }
 
 const SponsorContainer = ({
 	className,
 	children,
 	heading,
+	withBorder = true,
 	...props
 }: SponsorContainerProps) => {
 	return (
@@ -53,7 +55,11 @@ const SponsorContainer = ({
 			)}
 			{...props}
 		>
-			<SponsorHeading>{heading}</SponsorHeading>
+			<div className="flex items-center w-full space-x-8 justify-center lg:space-x-16">
+				{withBorder && <div className="h-[2px] bg-gray-89 grow" />}
+				<SponsorHeading className="shrink-0">{heading}</SponsorHeading>
+				{withBorder && <div className="h-[2px] bg-gray-89 grow" />}
+			</div>
 
 			{children}
 		</div>
@@ -76,6 +82,7 @@ const RainbowsSponsor = ({ sponsor, ...props }: RainbowsSponsorProps) => {
 		<SponsorContainer
 			heading="Rainbows Over Waikiki Presenting Sponsor"
 			className="lg:grid-cols-2 lg:items-center lg:gap-10"
+			withBorder={false}
 			{...props}
 		>
 			<Link href={sponsor.href}>
@@ -223,17 +230,29 @@ const Sponsors = ({
 	)
 }
 
-function mapDocumentToSponsor(document?: SponsorFragment): Sponsor {
+type UnknownDoc = Record<string, any> | undefined
+
+function mapDocumentToSponsor(doc?: UnknownDoc): Sponsor {
+	assertSponsor(doc)
+
 	return {
-		href: document?.data?.link?.url,
-		imageAlt: document?.data?.image?.alt,
-		imageUrl: document?.data?.image?.url,
-		name: document?.data?.name?.text,
+		href: doc?.data?.link?.url,
+		imageAlt: doc?.data?.image?.alt,
+		imageUrl: doc?.data?.image?.url,
+		name: doc?.data?.name?.text,
 	}
 }
 
+function assertSponsor(doc: UnknownDoc = {}): asserts doc is SponsorFragment {
+	if (!("data" in doc)) throw new Error("Received invalid sponsor document")
+}
+
 export function mapDataToProps({ data }: MapDataToPropsCtx<SponsorsFragment>) {
-	const sponsorsList = data.primary?.sponsor_list?.document?.data
+	let sponsorDoc = data.primary?.sponsor_list?.document
+	if (!sponsorDoc) sponsorDoc = {}
+	if (!("data" in sponsorDoc)) throw new Error("Received invalid SponsorsList")
+
+	const sponsorsList = sponsorDoc.data
 
 	return {
 		heading: data.primary?.heading?.text,
