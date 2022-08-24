@@ -1,7 +1,6 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import clsx from "clsx"
-import { GatsbyImage, type IGatsbyImageData } from "gatsby-plugin-image"
 import type { MapDataToContextCtx, MapDataToPropsCtx } from "../templates/page"
 import { getColorVariant, getColorVariantStyles } from "../lib/colorVariant"
 import { resolvePrevContext, resolveNextContext } from "../lib/mapToComponents"
@@ -10,44 +9,62 @@ import { Link } from "../components/Link"
 import { BoundedBox } from "../components/BoundedBox"
 import type { PrideCalendarFragment } from "../gqlTypes.gen"
 import { ArrowIcon } from "../components/ArrowIcon"
+import { StartableVideo } from "../components/StartableVideo"
 
 export const sliceType = "PrismicPageDataBodyPrideCalendar"
 
+const formatter = new Intl.DateTimeFormat("en-us", {
+	month: "short",
+	year: "numeric",
+	day: "2-digit",
+})
+
 const Event = ({
 	href,
-	image,
 	imageAlt,
+	imageUrl,
 	title,
 	descriptionHTML,
+	end,
+	start,
+	videoURL,
 }: PrideCalendarProps["events"][number]) => {
 	return (
 		<Link href={href} className="bg-beige-92 flex flex-col group">
-			{image && (
-				<div className="aspect-w-4 aspect-h-3 shrink-0">
-					<div className="overflow-hidden">
-						<GatsbyImage
-							image={image}
-							alt={imageAlt ?? ""}
-							objectFit="cover"
-							objectPosition="center"
-							className={clsx(
-								"h-full",
-								"group-hover:scale-105 group-focus:scale-105",
-								"group-hover:brightness-105 group-focus:brightness-105",
-								"transition duration-300 ease"
-							)}
-						/>
-					</div>
-				</div>
+			{(imageUrl || videoURL) && (
+				<StartableVideo
+					className="aspect-w-4 aspect-h-3 shrink-0"
+					videoThumbnailURL={imageUrl}
+					videoThumbnailAlt={imageAlt}
+					videoURL={videoURL}
+					filledPlayIcon
+				/>
 			)}
 
-			<div className="px-5 py-6 flex flex-col grow">
+			<div className="px-6 py-7 flex flex-col grow">
 				{title && (
 					<h3
-						className={clsx("font-serif", "text-22 md:text-32", "leading-1_15")}
+						className={clsx(
+							"font-serif transition leading-1_15",
+							"text-22 md:text-28",
+							"group-hover:text-purple-57 group-focus:text-purple-57"
+						)}
 					>
 						{title}
 					</h3>
+				)}
+
+				{(start || end) && (
+					<div
+						className={clsx(
+							"mt-4 font-semibold font-sans",
+							"flex items-center space-x-2"
+						)}
+					>
+						{start && <p className="text-15">{formatter.format(start)}</p>}
+						{start && end && <span className="text-15">—</span>}
+						{end && <p className="text-15">{formatter.format(end)}</p>}
+					</div>
 				)}
 
 				{descriptionHTML && (
@@ -70,6 +87,7 @@ const Event = ({
 					>
 						Learn More
 					</div>
+
 					<ArrowIcon className="w-[1.125rem] transition" />
 				</div>
 			</div>
@@ -111,7 +129,7 @@ const PrideCalendar = ({
 
 			<div
 				className={clsx(
-					"grid grid-cols-2 md:grid-cols-3",
+					"grid md:grid-cols-2 lg:grid-cols-3",
 					"gap-3 lg:gap-5",
 					"mt-12 md:mt-15 lg:mt-18"
 				)}
@@ -122,6 +140,16 @@ const PrideCalendar = ({
 			</div>
 		</BoundedBox>
 	)
+}
+
+function toDateString(val: unknown): Date | undefined {
+	if (!val || typeof val !== "string") return
+
+	try {
+		return new Date(val)
+	} catch {
+		return
+	}
 }
 
 export function mapDataToProps({
@@ -137,8 +165,11 @@ export function mapDataToProps({
 		title: item.event_title?.text,
 		descriptionHTML: item.event_description?.html,
 		href: item.event_link?.url,
-		image: item.image?.gatsbyImageData as IGatsbyImageData | undefined,
+		imageUrl: item.image?.url,
 		imageAlt: item.image?.alt,
+		start: toDateString(item.event_start),
+		end: toDateString(item.event_end),
+		videoURL: item.event_video_url,
 	}))
 
 	return {
@@ -180,8 +211,11 @@ export const gqlFragment = graphql`
 			}
 			image {
 				alt
-				gatsbyImageData(layout: FULL_WIDTH, sizes: "550px")
+				url
 			}
+			event_video_url
+			event_start
+			event_end
 		}
 	}
 `

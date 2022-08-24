@@ -659,7 +659,7 @@
 						"fieldset": "Pride Calendar",
 						"description": "Grid-list of events with images and links.",
 						"icon": "grid_on",
-						"display": "grid",
+						"display": "list",
 						"non-repeat": {
 							"text": {
 								"type": "StructuredText",
@@ -713,6 +713,27 @@
 								"config": {
 									"label": "Event Link",
 									"select": null
+								}
+							},
+							"event_video_url": {
+								"type": "Text",
+								"config": {
+									"label": "Event Video URL",
+									"placeholder": "(Optional)"
+								}
+							},
+							"event_start": {
+								"type": "Date",
+								"config": {
+									"label": "Event Start",
+									"placeholder": "(Optional)"
+								}
+							},
+							"event_end": {
+								"type": "Date",
+								"config": {
+									"label": "Event End",
+									"placeholder": "(Optional)"
 								}
 							}
 						}
