@@ -29,8 +29,11 @@ export const gqlFragment = graphql`
 			}
 			image {
 				alt
-				gatsbyImageData(layout: FULL_WIDTH, sizes: "550px")
+				url
 			}
+			event_video_url
+			event_start
+			event_end
 		}
 	}
 `

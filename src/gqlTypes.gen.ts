@@ -40,6 +40,7 @@ export type DateQueryOperatorInput = {
 }
 
 export type Directory = Node & {
+	__typename?: "Directory"
 	absolutePath: Scalars["String"]
 	accessTime: Scalars["Date"]
 	atime: Scalars["Date"]
@@ -129,6 +130,7 @@ export type DirectoryMtimeArgs = {
 }
 
 export type DirectoryConnection = {
+	__typename?: "DirectoryConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<DirectoryEdge>
 	group: Array<DirectoryGroupConnection>
@@ -163,6 +165,7 @@ export type DirectoryConnectionSumArgs = {
 }
 
 export type DirectoryEdge = {
+	__typename?: "DirectoryEdge"
 	next?: Maybe<Directory>
 	node: Directory
 	previous?: Maybe<Directory>
@@ -334,6 +337,7 @@ export type DirectoryFilterInput = {
 }
 
 export type DirectoryGroupConnection = {
+	__typename?: "DirectoryGroupConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<DirectoryEdge>
 	field: Scalars["String"]
@@ -375,6 +379,7 @@ export type DirectorySortInput = {
 }
 
 export type File = Node & {
+	__typename?: "File"
 	absolutePath: Scalars["String"]
 	accessTime: Scalars["Date"]
 	atime: Scalars["Date"]
@@ -464,6 +469,7 @@ export type FileMtimeArgs = {
 }
 
 export type FileConnection = {
+	__typename?: "FileConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<FileEdge>
 	group: Array<FileGroupConnection>
@@ -498,6 +504,7 @@ export type FileConnectionSumArgs = {
 }
 
 export type FileEdge = {
+	__typename?: "FileEdge"
 	next?: Maybe<File>
 	node: File
 	previous?: Maybe<File>
@@ -669,6 +676,7 @@ export type FileFilterInput = {
 }
 
 export type FileGroupConnection = {
+	__typename?: "FileGroupConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<FileEdge>
 	field: Scalars["String"]
@@ -750,6 +758,7 @@ export type IdQueryOperatorInput = {
 }
 
 export type ImgixFixed = {
+	__typename?: "ImgixFixed"
 	base64: Scalars["String"]
 	height: Scalars["Int"]
 	sizes: Scalars["String"]
@@ -772,6 +781,7 @@ export type ImgixFixedFilterInput = {
 }
 
 export type ImgixFluid = {
+	__typename?: "ImgixFluid"
 	aspectRatio: Scalars["Float"]
 	base64: Scalars["String"]
 	sizes: Scalars["String"]
@@ -1266,6 +1276,7 @@ export type IntQueryOperatorInput = {
 }
 
 export type Internal = {
+	__typename?: "Internal"
 	content?: Maybe<Scalars["String"]>
 	contentDigest: Scalars["String"]
 	contentFilePath?: Maybe<Scalars["String"]>
@@ -1318,6 +1329,7 @@ export type NodeFilterListInput = {
 }
 
 export type PageInfo = {
+	__typename?: "PageInfo"
 	currentPage: Scalars["Int"]
 	hasNextPage: Scalars["Boolean"]
 	hasPreviousPage: Scalars["Boolean"]
@@ -1338,6 +1350,7 @@ export type PrismicAllDocumentTypes =
 	| PrismicVideoSubmission
 
 export type PrismicAlternateLanguageType = {
+	__typename?: "PrismicAlternateLanguageType"
 	document?: Maybe<PrismicAllDocumentTypes>
 	id?: Maybe<Scalars["ID"]>
 	lang?: Maybe<Scalars["String"]>
@@ -1359,6 +1372,7 @@ export type PrismicAlternateLanguageTypeFilterListInput = {
 }
 
 export type PrismicEmbedType = Node & {
+	__typename?: "PrismicEmbedType"
 	children: Array<Node>
 	id: Scalars["ID"]
 	internal: Internal
@@ -1366,6 +1380,7 @@ export type PrismicEmbedType = Node & {
 }
 
 export type PrismicEmbedTypeConnection = {
+	__typename?: "PrismicEmbedTypeConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicEmbedTypeEdge>
 	group: Array<PrismicEmbedTypeGroupConnection>
@@ -1400,6 +1415,7 @@ export type PrismicEmbedTypeConnectionSumArgs = {
 }
 
 export type PrismicEmbedTypeEdge = {
+	__typename?: "PrismicEmbedTypeEdge"
 	next?: Maybe<PrismicEmbedType>
 	node: PrismicEmbedType
 	previous?: Maybe<PrismicEmbedType>
@@ -1509,6 +1525,7 @@ export type PrismicEmbedTypeFilterInput = {
 }
 
 export type PrismicEmbedTypeGroupConnection = {
+	__typename?: "PrismicEmbedTypeGroupConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicEmbedTypeEdge>
 	field: Scalars["String"]
@@ -1550,6 +1567,7 @@ export type PrismicEmbedTypeSortInput = {
 }
 
 export type PrismicEvent = Node & {
+	__typename?: "PrismicEvent"
 	_previewable: Scalars["ID"]
 	alternate_languages: Array<PrismicAlternateLanguageType>
 	children: Array<Node>
@@ -1584,6 +1602,7 @@ export type PrismicEventLast_Publication_DateArgs = {
 }
 
 export type PrismicEventConnection = {
+	__typename?: "PrismicEventConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicEventEdge>
 	group: Array<PrismicEventGroupConnection>
@@ -1618,6 +1637,7 @@ export type PrismicEventConnectionSumArgs = {
 }
 
 export type PrismicEventDataBodyAnchor = PrismicSliceType & {
+	__typename?: "PrismicEventDataBodyAnchor"
 	id: Scalars["ID"]
 	primary: PrismicEventDataBodyAnchorPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -1625,10 +1645,12 @@ export type PrismicEventDataBodyAnchor = PrismicSliceType & {
 }
 
 export type PrismicEventDataBodyAnchorPrimary = {
+	__typename?: "PrismicEventDataBodyAnchorPrimary"
 	anchor?: Maybe<Scalars["String"]>
 }
 
 export type PrismicEventDataBodyCallToAction = PrismicSliceType & {
+	__typename?: "PrismicEventDataBodyCallToAction"
 	id: Scalars["ID"]
 	primary: PrismicEventDataBodyCallToActionPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -1636,6 +1658,7 @@ export type PrismicEventDataBodyCallToAction = PrismicSliceType & {
 }
 
 export type PrismicEventDataBodyCallToActionCard = PrismicSliceType & {
+	__typename?: "PrismicEventDataBodyCallToActionCard"
 	id: Scalars["ID"]
 	primary: PrismicEventDataBodyCallToActionCardPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -1643,6 +1666,7 @@ export type PrismicEventDataBodyCallToActionCard = PrismicSliceType & {
 }
 
 export type PrismicEventDataBodyCallToActionCardPrimary = {
+	__typename?: "PrismicEventDataBodyCallToActionCardPrimary"
 	button_link?: Maybe<PrismicLinkType>
 	button_text?: Maybe<Scalars["String"]>
 	color?: Maybe<Scalars["String"]>
@@ -1650,12 +1674,14 @@ export type PrismicEventDataBodyCallToActionCardPrimary = {
 }
 
 export type PrismicEventDataBodyCallToActionPrimary = {
+	__typename?: "PrismicEventDataBodyCallToActionPrimary"
 	button_link?: Maybe<PrismicLinkType>
 	button_text?: Maybe<Scalars["String"]>
 	heading?: Maybe<PrismicStructuredTextType>
 }
 
 export type PrismicEventDataBodyFeaturedPeople = PrismicSliceType & {
+	__typename?: "PrismicEventDataBodyFeaturedPeople"
 	id: Scalars["ID"]
 	items: Array<PrismicEventDataBodyFeaturedPeopleItem>
 	primary: PrismicEventDataBodyFeaturedPeoplePrimary
@@ -1664,6 +1690,7 @@ export type PrismicEventDataBodyFeaturedPeople = PrismicSliceType & {
 }
 
 export type PrismicEventDataBodyFeaturedPeopleItem = {
+	__typename?: "PrismicEventDataBodyFeaturedPeopleItem"
 	bio?: Maybe<PrismicStructuredTextType>
 	headshot?: Maybe<PrismicEventDataBodyFeaturedPeopleItemsHeadshotImageType>
 	instagram_handle?: Maybe<Scalars["String"]>
@@ -1676,6 +1703,7 @@ export type PrismicEventDataBodyFeaturedPeopleItem = {
 }
 
 export type PrismicEventDataBodyFeaturedPeopleItemsHeadshotImageType = {
+	__typename?: "PrismicEventDataBodyFeaturedPeopleItemsHeadshotImageType"
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
@@ -1730,12 +1758,14 @@ export type PrismicEventDataBodyFeaturedPeopleItemsHeadshotImageTypeUrlArgs = {
 }
 
 export type PrismicEventDataBodyFeaturedPeoplePrimary = {
+	__typename?: "PrismicEventDataBodyFeaturedPeoplePrimary"
 	color?: Maybe<Scalars["String"]>
 	heading?: Maybe<PrismicStructuredTextType>
 	subheading?: Maybe<PrismicStructuredTextType>
 }
 
 export type PrismicEventDataBodyImageCallToAction = PrismicSliceType & {
+	__typename?: "PrismicEventDataBodyImageCallToAction"
 	id: Scalars["ID"]
 	primary: PrismicEventDataBodyImageCallToActionPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -1743,14 +1773,17 @@ export type PrismicEventDataBodyImageCallToAction = PrismicSliceType & {
 }
 
 export type PrismicEventDataBodyImageCallToActionPrimary = {
+	__typename?: "PrismicEventDataBodyImageCallToActionPrimary"
 	button_link?: Maybe<PrismicLinkType>
 	button_text?: Maybe<Scalars["String"]>
 	color?: Maybe<Scalars["String"]>
 	image?: Maybe<PrismicEventDataBodyImageCallToActionPrimaryImageImageType>
+	image_side?: Maybe<Scalars["String"]>
 	text?: Maybe<PrismicStructuredTextType>
 }
 
 export type PrismicEventDataBodyImageCallToActionPrimaryImageImageType = {
+	__typename?: "PrismicEventDataBodyImageCallToActionPrimaryImageImageType"
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
@@ -1806,6 +1839,7 @@ export type PrismicEventDataBodyImageCallToActionPrimaryImageImageTypeUrlArgs =
 	}
 
 export type PrismicEventDataBodyIntroduction = PrismicSliceType & {
+	__typename?: "PrismicEventDataBodyIntroduction"
 	id: Scalars["ID"]
 	primary: PrismicEventDataBodyIntroductionPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -1813,12 +1847,14 @@ export type PrismicEventDataBodyIntroduction = PrismicSliceType & {
 }
 
 export type PrismicEventDataBodyIntroductionPrimary = {
+	__typename?: "PrismicEventDataBodyIntroductionPrimary"
 	color?: Maybe<Scalars["String"]>
 	heading?: Maybe<PrismicStructuredTextType>
 	text?: Maybe<PrismicStructuredTextType>
 }
 
 export type PrismicEventDataBodyNewsletterForm = PrismicSliceType & {
+	__typename?: "PrismicEventDataBodyNewsletterForm"
 	id: Scalars["ID"]
 	primary: PrismicEventDataBodyNewsletterFormPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -1826,12 +1862,14 @@ export type PrismicEventDataBodyNewsletterForm = PrismicSliceType & {
 }
 
 export type PrismicEventDataBodyNewsletterFormPrimary = {
+	__typename?: "PrismicEventDataBodyNewsletterFormPrimary"
 	color?: Maybe<Scalars["String"]>
 	heading?: Maybe<PrismicStructuredTextType>
 	placeholder_text?: Maybe<Scalars["String"]>
 }
 
 export type PrismicEventDataBodyPrideCalendar = PrismicSliceType & {
+	__typename?: "PrismicEventDataBodyPrideCalendar"
 	id: Scalars["ID"]
 	items: Array<PrismicEventDataBodyPrideCalendarItem>
 	primary: PrismicEventDataBodyPrideCalendarPrimary
@@ -1840,13 +1878,32 @@ export type PrismicEventDataBodyPrideCalendar = PrismicSliceType & {
 }
 
 export type PrismicEventDataBodyPrideCalendarItem = {
+	__typename?: "PrismicEventDataBodyPrideCalendarItem"
 	event_description?: Maybe<PrismicStructuredTextType>
+	event_end?: Maybe<Scalars["Date"]>
 	event_link?: Maybe<PrismicLinkType>
+	event_start?: Maybe<Scalars["Date"]>
 	event_title?: Maybe<PrismicStructuredTextType>
+	event_video_url?: Maybe<Scalars["String"]>
 	image?: Maybe<PrismicEventDataBodyPrideCalendarItemsImageImageType>
 }
 
+export type PrismicEventDataBodyPrideCalendarItemEvent_EndArgs = {
+	difference?: InputMaybe<Scalars["String"]>
+	formatString?: InputMaybe<Scalars["String"]>
+	fromNow?: InputMaybe<Scalars["Boolean"]>
+	locale?: InputMaybe<Scalars["String"]>
+}
+
+export type PrismicEventDataBodyPrideCalendarItemEvent_StartArgs = {
+	difference?: InputMaybe<Scalars["String"]>
+	formatString?: InputMaybe<Scalars["String"]>
+	fromNow?: InputMaybe<Scalars["Boolean"]>
+	locale?: InputMaybe<Scalars["String"]>
+}
+
 export type PrismicEventDataBodyPrideCalendarItemsImageImageType = {
+	__typename?: "PrismicEventDataBodyPrideCalendarItemsImageImageType"
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
@@ -1899,11 +1956,13 @@ export type PrismicEventDataBodyPrideCalendarItemsImageImageTypeUrlArgs = {
 }
 
 export type PrismicEventDataBodyPrideCalendarPrimary = {
+	__typename?: "PrismicEventDataBodyPrideCalendarPrimary"
 	color?: Maybe<Scalars["String"]>
 	text?: Maybe<PrismicStructuredTextType>
 }
 
 export type PrismicEventDataBodyRichText = PrismicSliceType & {
+	__typename?: "PrismicEventDataBodyRichText"
 	id: Scalars["ID"]
 	primary: PrismicEventDataBodyRichTextPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -1911,6 +1970,7 @@ export type PrismicEventDataBodyRichText = PrismicSliceType & {
 }
 
 export type PrismicEventDataBodyRichTextPrimary = {
+	__typename?: "PrismicEventDataBodyRichTextPrimary"
 	button_link?: Maybe<PrismicLinkType>
 	button_text?: Maybe<Scalars["String"]>
 	color?: Maybe<Scalars["String"]>
@@ -1934,6 +1994,7 @@ export type PrismicEventDataBodySlicesType =
 	| PrismicEventDataBodyVideoHero
 
 export type PrismicEventDataBodyTextAndVideo = PrismicSliceType & {
+	__typename?: "PrismicEventDataBodyTextAndVideo"
 	id: Scalars["ID"]
 	primary: PrismicEventDataBodyTextAndVideoPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -1941,6 +2002,7 @@ export type PrismicEventDataBodyTextAndVideo = PrismicSliceType & {
 }
 
 export type PrismicEventDataBodyTextAndVideoPrimary = {
+	__typename?: "PrismicEventDataBodyTextAndVideoPrimary"
 	color?: Maybe<Scalars["String"]>
 	text?: Maybe<PrismicStructuredTextType>
 	thumbnail_side?: Maybe<Scalars["String"]>
@@ -1949,6 +2011,7 @@ export type PrismicEventDataBodyTextAndVideoPrimary = {
 }
 
 export type PrismicEventDataBodyTextAndVideoPrimaryVideoThumbnailImageType = {
+	__typename?: "PrismicEventDataBodyTextAndVideoPrimaryVideoThumbnailImageType"
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
@@ -2004,6 +2067,7 @@ export type PrismicEventDataBodyTextAndVideoPrimaryVideoThumbnailImageTypeUrlArg
 	}
 
 export type PrismicEventDataBodyTwoColumnText = PrismicSliceType & {
+	__typename?: "PrismicEventDataBodyTwoColumnText"
 	id: Scalars["ID"]
 	primary: PrismicEventDataBodyTwoColumnTextPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -2011,6 +2075,7 @@ export type PrismicEventDataBodyTwoColumnText = PrismicSliceType & {
 }
 
 export type PrismicEventDataBodyTwoColumnTextPrimary = {
+	__typename?: "PrismicEventDataBodyTwoColumnTextPrimary"
 	button_link?: Maybe<PrismicLinkType>
 	button_side?: Maybe<Scalars["String"]>
 	button_text?: Maybe<Scalars["String"]>
@@ -2020,6 +2085,7 @@ export type PrismicEventDataBodyTwoColumnTextPrimary = {
 }
 
 export type PrismicEventDataBodyVideo = PrismicSliceType & {
+	__typename?: "PrismicEventDataBodyVideo"
 	id: Scalars["ID"]
 	primary: PrismicEventDataBodyVideoPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -2027,6 +2093,7 @@ export type PrismicEventDataBodyVideo = PrismicSliceType & {
 }
 
 export type PrismicEventDataBodyVideoGallery = PrismicSliceType & {
+	__typename?: "PrismicEventDataBodyVideoGallery"
 	id: Scalars["ID"]
 	primary: PrismicEventDataBodyVideoGalleryPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -2034,12 +2101,14 @@ export type PrismicEventDataBodyVideoGallery = PrismicSliceType & {
 }
 
 export type PrismicEventDataBodyVideoGalleryPrimary = {
+	__typename?: "PrismicEventDataBodyVideoGalleryPrimary"
 	color?: Maybe<Scalars["String"]>
 	text?: Maybe<PrismicStructuredTextType>
 	video_submission_type?: Maybe<PrismicLinkType>
 }
 
 export type PrismicEventDataBodyVideoHero = PrismicSliceType & {
+	__typename?: "PrismicEventDataBodyVideoHero"
 	id: Scalars["ID"]
 	primary: PrismicEventDataBodyVideoHeroPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -2047,12 +2116,14 @@ export type PrismicEventDataBodyVideoHero = PrismicSliceType & {
 }
 
 export type PrismicEventDataBodyVideoHeroPrimary = {
+	__typename?: "PrismicEventDataBodyVideoHeroPrimary"
 	text?: Maybe<PrismicStructuredTextType>
 	video_thumbnail?: Maybe<PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageType>
 	video_url?: Maybe<Scalars["String"]>
 }
 
 export type PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageType = {
+	__typename?: "PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageType"
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
@@ -2108,11 +2179,13 @@ export type PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageTypeUrlArgs =
 	}
 
 export type PrismicEventDataBodyVideoPrimary = {
+	__typename?: "PrismicEventDataBodyVideoPrimary"
 	thumbnail?: Maybe<PrismicEventDataBodyVideoPrimaryThumbnailImageType>
 	video_url?: Maybe<Scalars["String"]>
 }
 
 export type PrismicEventDataBodyVideoPrimaryThumbnailImageType = {
+	__typename?: "PrismicEventDataBodyVideoPrimaryThumbnailImageType"
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
@@ -2165,6 +2238,7 @@ export type PrismicEventDataBodyVideoPrimaryThumbnailImageTypeUrlArgs = {
 }
 
 export type PrismicEventDataType = {
+	__typename?: "PrismicEventDataType"
 	body: Array<PrismicEventDataBodySlicesType>
 	date?: Maybe<Scalars["Date"]>
 	description?: Maybe<PrismicStructuredTextType>
@@ -2189,6 +2263,7 @@ export type PrismicEventDataTypeFilterInput = {
 }
 
 export type PrismicEventEdge = {
+	__typename?: "PrismicEventEdge"
 	next?: Maybe<PrismicEvent>
 	node: PrismicEvent
 	previous?: Maybe<PrismicEvent>
@@ -2339,6 +2414,7 @@ export type PrismicEventFilterInput = {
 }
 
 export type PrismicEventGroupConnection = {
+	__typename?: "PrismicEventGroupConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicEventEdge>
 	field: Scalars["String"]
@@ -2380,11 +2456,13 @@ export type PrismicEventSortInput = {
 }
 
 export type PrismicGeoPointType = {
+	__typename?: "PrismicGeoPointType"
 	latitude: Scalars["Float"]
 	longitude: Scalars["Float"]
 }
 
 export type PrismicImageDimensionsType = {
+	__typename?: "PrismicImageDimensionsType"
 	height: Scalars["Int"]
 	width: Scalars["Int"]
 }
@@ -2395,6 +2473,7 @@ export type PrismicImageDimensionsTypeFilterInput = {
 }
 
 export type PrismicImageThumbnailType = {
+	__typename?: "PrismicImageThumbnailType"
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
@@ -2446,6 +2525,7 @@ export type PrismicImageThumbnailTypeUrlArgs = {
 }
 
 export type PrismicLinkType = {
+	__typename?: "PrismicLinkType"
 	document?: Maybe<PrismicAllDocumentTypes>
 	id?: Maybe<Scalars["ID"]>
 	isBroken?: Maybe<Scalars["Boolean"]>
@@ -2493,6 +2573,7 @@ export type PrismicLinkTypeFilterInput = {
 }
 
 export type PrismicNavigation = Node & {
+	__typename?: "PrismicNavigation"
 	_previewable: Scalars["ID"]
 	alternate_languages: Array<PrismicAlternateLanguageType>
 	children: Array<Node>
@@ -2527,6 +2608,7 @@ export type PrismicNavigationLast_Publication_DateArgs = {
 }
 
 export type PrismicNavigationConnection = {
+	__typename?: "PrismicNavigationConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicNavigationEdge>
 	group: Array<PrismicNavigationGroupConnection>
@@ -2561,6 +2643,7 @@ export type PrismicNavigationConnectionSumArgs = {
 }
 
 export type PrismicNavigationDataNavItems = {
+	__typename?: "PrismicNavigationDataNavItems"
 	label?: Maybe<PrismicStructuredTextType>
 	link?: Maybe<PrismicLinkType>
 }
@@ -2575,6 +2658,7 @@ export type PrismicNavigationDataNavItemsFilterListInput = {
 }
 
 export type PrismicNavigationDataType = {
+	__typename?: "PrismicNavigationDataType"
 	nav_items?: Maybe<Array<Maybe<PrismicNavigationDataNavItems>>>
 	title?: Maybe<PrismicStructuredTextType>
 }
@@ -2585,6 +2669,7 @@ export type PrismicNavigationDataTypeFilterInput = {
 }
 
 export type PrismicNavigationEdge = {
+	__typename?: "PrismicNavigationEdge"
 	next?: Maybe<PrismicNavigation>
 	node: PrismicNavigation
 	previous?: Maybe<PrismicNavigation>
@@ -2745,6 +2830,7 @@ export type PrismicNavigationFilterInput = {
 }
 
 export type PrismicNavigationGroupConnection = {
+	__typename?: "PrismicNavigationGroupConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicNavigationEdge>
 	field: Scalars["String"]
@@ -2786,6 +2872,7 @@ export type PrismicNavigationSortInput = {
 }
 
 export type PrismicPage = Node & {
+	__typename?: "PrismicPage"
 	_previewable: Scalars["ID"]
 	alternate_languages: Array<PrismicAlternateLanguageType>
 	children: Array<Node>
@@ -2820,6 +2907,7 @@ export type PrismicPageLast_Publication_DateArgs = {
 }
 
 export type PrismicPageConnection = {
+	__typename?: "PrismicPageConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicPageEdge>
 	group: Array<PrismicPageGroupConnection>
@@ -2854,6 +2942,7 @@ export type PrismicPageConnectionSumArgs = {
 }
 
 export type PrismicPageDataBodyAnchor = PrismicSliceType & {
+	__typename?: "PrismicPageDataBodyAnchor"
 	id: Scalars["ID"]
 	primary: PrismicPageDataBodyAnchorPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -2861,10 +2950,12 @@ export type PrismicPageDataBodyAnchor = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyAnchorPrimary = {
+	__typename?: "PrismicPageDataBodyAnchorPrimary"
 	anchor?: Maybe<Scalars["String"]>
 }
 
 export type PrismicPageDataBodyCallToAction = PrismicSliceType & {
+	__typename?: "PrismicPageDataBodyCallToAction"
 	id: Scalars["ID"]
 	primary: PrismicPageDataBodyCallToActionPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -2872,6 +2963,7 @@ export type PrismicPageDataBodyCallToAction = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyCallToActionCard = PrismicSliceType & {
+	__typename?: "PrismicPageDataBodyCallToActionCard"
 	id: Scalars["ID"]
 	primary: PrismicPageDataBodyCallToActionCardPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -2879,6 +2971,7 @@ export type PrismicPageDataBodyCallToActionCard = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyCallToActionCardPrimary = {
+	__typename?: "PrismicPageDataBodyCallToActionCardPrimary"
 	button_link?: Maybe<PrismicLinkType>
 	button_text?: Maybe<Scalars["String"]>
 	color?: Maybe<Scalars["String"]>
@@ -2886,12 +2979,14 @@ export type PrismicPageDataBodyCallToActionCardPrimary = {
 }
 
 export type PrismicPageDataBodyCallToActionPrimary = {
+	__typename?: "PrismicPageDataBodyCallToActionPrimary"
 	button_link?: Maybe<PrismicLinkType>
 	button_text?: Maybe<Scalars["String"]>
 	heading?: Maybe<PrismicStructuredTextType>
 }
 
 export type PrismicPageDataBodyFeaturedPeople = PrismicSliceType & {
+	__typename?: "PrismicPageDataBodyFeaturedPeople"
 	id: Scalars["ID"]
 	items: Array<PrismicPageDataBodyFeaturedPeopleItem>
 	primary: PrismicPageDataBodyFeaturedPeoplePrimary
@@ -2900,6 +2995,7 @@ export type PrismicPageDataBodyFeaturedPeople = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyFeaturedPeopleItem = {
+	__typename?: "PrismicPageDataBodyFeaturedPeopleItem"
 	bio?: Maybe<PrismicStructuredTextType>
 	headshot?: Maybe<PrismicPageDataBodyFeaturedPeopleItemsHeadshotImageType>
 	instagram_handle?: Maybe<Scalars["String"]>
@@ -2912,6 +3008,7 @@ export type PrismicPageDataBodyFeaturedPeopleItem = {
 }
 
 export type PrismicPageDataBodyFeaturedPeopleItemsHeadshotImageType = {
+	__typename?: "PrismicPageDataBodyFeaturedPeopleItemsHeadshotImageType"
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
@@ -2964,12 +3061,14 @@ export type PrismicPageDataBodyFeaturedPeopleItemsHeadshotImageTypeUrlArgs = {
 }
 
 export type PrismicPageDataBodyFeaturedPeoplePrimary = {
+	__typename?: "PrismicPageDataBodyFeaturedPeoplePrimary"
 	color?: Maybe<Scalars["String"]>
 	heading?: Maybe<PrismicStructuredTextType>
 	subheading?: Maybe<PrismicStructuredTextType>
 }
 
 export type PrismicPageDataBodyFilterableEvents = PrismicSliceType & {
+	__typename?: "PrismicPageDataBodyFilterableEvents"
 	id: Scalars["ID"]
 	items: Array<PrismicPageDataBodyFilterableEventsItem>
 	slice_label?: Maybe<Scalars["String"]>
@@ -2977,11 +3076,13 @@ export type PrismicPageDataBodyFilterableEvents = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyFilterableEventsItem = {
+	__typename?: "PrismicPageDataBodyFilterableEventsItem"
 	color?: Maybe<Scalars["String"]>
 	event?: Maybe<PrismicLinkType>
 }
 
 export type PrismicPageDataBodyGradientText = PrismicSliceType & {
+	__typename?: "PrismicPageDataBodyGradientText"
 	id: Scalars["ID"]
 	primary: PrismicPageDataBodyGradientTextPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -2989,12 +3090,14 @@ export type PrismicPageDataBodyGradientText = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyGradientTextPrimary = {
+	__typename?: "PrismicPageDataBodyGradientTextPrimary"
 	button_link?: Maybe<PrismicLinkType>
 	button_link_text?: Maybe<Scalars["String"]>
 	text?: Maybe<PrismicStructuredTextType>
 }
 
 export type PrismicPageDataBodyImageCallToAction = PrismicSliceType & {
+	__typename?: "PrismicPageDataBodyImageCallToAction"
 	id: Scalars["ID"]
 	primary: PrismicPageDataBodyImageCallToActionPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -3002,6 +3105,7 @@ export type PrismicPageDataBodyImageCallToAction = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyImageCallToActionPrimary = {
+	__typename?: "PrismicPageDataBodyImageCallToActionPrimary"
 	button_link?: Maybe<PrismicLinkType>
 	button_text?: Maybe<Scalars["String"]>
 	color?: Maybe<Scalars["String"]>
@@ -3011,6 +3115,7 @@ export type PrismicPageDataBodyImageCallToActionPrimary = {
 }
 
 export type PrismicPageDataBodyImageCallToActionPrimaryImageImageType = {
+	__typename?: "PrismicPageDataBodyImageCallToActionPrimaryImageImageType"
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
@@ -3065,6 +3170,7 @@ export type PrismicPageDataBodyImageCallToActionPrimaryImageImageTypeUrlArgs = {
 }
 
 export type PrismicPageDataBodyIntroduction = PrismicSliceType & {
+	__typename?: "PrismicPageDataBodyIntroduction"
 	id: Scalars["ID"]
 	primary: PrismicPageDataBodyIntroductionPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -3072,12 +3178,14 @@ export type PrismicPageDataBodyIntroduction = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyIntroductionPrimary = {
+	__typename?: "PrismicPageDataBodyIntroductionPrimary"
 	color?: Maybe<Scalars["String"]>
 	heading?: Maybe<PrismicStructuredTextType>
 	text?: Maybe<PrismicStructuredTextType>
 }
 
 export type PrismicPageDataBodyNewsletterForm = PrismicSliceType & {
+	__typename?: "PrismicPageDataBodyNewsletterForm"
 	id: Scalars["ID"]
 	primary: PrismicPageDataBodyNewsletterFormPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -3085,12 +3193,14 @@ export type PrismicPageDataBodyNewsletterForm = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyNewsletterFormPrimary = {
+	__typename?: "PrismicPageDataBodyNewsletterFormPrimary"
 	color?: Maybe<Scalars["String"]>
 	heading?: Maybe<PrismicStructuredTextType>
 	placeholder_text?: Maybe<Scalars["String"]>
 }
 
 export type PrismicPageDataBodyPrideCalendar = PrismicSliceType & {
+	__typename?: "PrismicPageDataBodyPrideCalendar"
 	id: Scalars["ID"]
 	items: Array<PrismicPageDataBodyPrideCalendarItem>
 	primary: PrismicPageDataBodyPrideCalendarPrimary
@@ -3099,13 +3209,32 @@ export type PrismicPageDataBodyPrideCalendar = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyPrideCalendarItem = {
+	__typename?: "PrismicPageDataBodyPrideCalendarItem"
 	event_description?: Maybe<PrismicStructuredTextType>
+	event_end?: Maybe<Scalars["Date"]>
 	event_link?: Maybe<PrismicLinkType>
+	event_start?: Maybe<Scalars["Date"]>
 	event_title?: Maybe<PrismicStructuredTextType>
+	event_video_url?: Maybe<Scalars["String"]>
 	image?: Maybe<PrismicPageDataBodyPrideCalendarItemsImageImageType>
 }
 
+export type PrismicPageDataBodyPrideCalendarItemEvent_EndArgs = {
+	difference?: InputMaybe<Scalars["String"]>
+	formatString?: InputMaybe<Scalars["String"]>
+	fromNow?: InputMaybe<Scalars["Boolean"]>
+	locale?: InputMaybe<Scalars["String"]>
+}
+
+export type PrismicPageDataBodyPrideCalendarItemEvent_StartArgs = {
+	difference?: InputMaybe<Scalars["String"]>
+	formatString?: InputMaybe<Scalars["String"]>
+	fromNow?: InputMaybe<Scalars["Boolean"]>
+	locale?: InputMaybe<Scalars["String"]>
+}
+
 export type PrismicPageDataBodyPrideCalendarItemsImageImageType = {
+	__typename?: "PrismicPageDataBodyPrideCalendarItemsImageImageType"
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
@@ -3158,11 +3287,13 @@ export type PrismicPageDataBodyPrideCalendarItemsImageImageTypeUrlArgs = {
 }
 
 export type PrismicPageDataBodyPrideCalendarPrimary = {
+	__typename?: "PrismicPageDataBodyPrideCalendarPrimary"
 	color?: Maybe<Scalars["String"]>
 	text?: Maybe<PrismicStructuredTextType>
 }
 
 export type PrismicPageDataBodyRichText = PrismicSliceType & {
+	__typename?: "PrismicPageDataBodyRichText"
 	id: Scalars["ID"]
 	primary: PrismicPageDataBodyRichTextPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -3170,6 +3301,7 @@ export type PrismicPageDataBodyRichText = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyRichTextPrimary = {
+	__typename?: "PrismicPageDataBodyRichTextPrimary"
 	button_link?: Maybe<PrismicLinkType>
 	button_text?: Maybe<Scalars["String"]>
 	color?: Maybe<Scalars["String"]>
@@ -3196,6 +3328,7 @@ export type PrismicPageDataBodySlicesType =
 	| PrismicPageDataBodyVideoHero
 
 export type PrismicPageDataBodySponsors = PrismicSliceType & {
+	__typename?: "PrismicPageDataBodySponsors"
 	id: Scalars["ID"]
 	primary: PrismicPageDataBodySponsorsPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -3203,12 +3336,14 @@ export type PrismicPageDataBodySponsors = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodySponsorsPrimary = {
+	__typename?: "PrismicPageDataBodySponsorsPrimary"
 	heading?: Maybe<PrismicStructuredTextType>
 	sponsor_list?: Maybe<PrismicLinkType>
 	subheading?: Maybe<PrismicStructuredTextType>
 }
 
 export type PrismicPageDataBodyTextAndVideo = PrismicSliceType & {
+	__typename?: "PrismicPageDataBodyTextAndVideo"
 	id: Scalars["ID"]
 	primary: PrismicPageDataBodyTextAndVideoPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -3216,6 +3351,7 @@ export type PrismicPageDataBodyTextAndVideo = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyTextAndVideoPrimary = {
+	__typename?: "PrismicPageDataBodyTextAndVideoPrimary"
 	color?: Maybe<Scalars["String"]>
 	text?: Maybe<PrismicStructuredTextType>
 	thumbnail_side?: Maybe<Scalars["String"]>
@@ -3224,6 +3360,7 @@ export type PrismicPageDataBodyTextAndVideoPrimary = {
 }
 
 export type PrismicPageDataBodyTextAndVideoPrimaryVideoThumbnailImageType = {
+	__typename?: "PrismicPageDataBodyTextAndVideoPrimaryVideoThumbnailImageType"
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
@@ -3279,6 +3416,7 @@ export type PrismicPageDataBodyTextAndVideoPrimaryVideoThumbnailImageTypeUrlArgs
 	}
 
 export type PrismicPageDataBodyTwoColumnText = PrismicSliceType & {
+	__typename?: "PrismicPageDataBodyTwoColumnText"
 	id: Scalars["ID"]
 	primary: PrismicPageDataBodyTwoColumnTextPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -3286,6 +3424,7 @@ export type PrismicPageDataBodyTwoColumnText = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyTwoColumnTextPrimary = {
+	__typename?: "PrismicPageDataBodyTwoColumnTextPrimary"
 	button_link?: Maybe<PrismicLinkType>
 	button_side?: Maybe<Scalars["String"]>
 	button_text?: Maybe<Scalars["String"]>
@@ -3295,6 +3434,7 @@ export type PrismicPageDataBodyTwoColumnTextPrimary = {
 }
 
 export type PrismicPageDataBodyVideo = PrismicSliceType & {
+	__typename?: "PrismicPageDataBodyVideo"
 	id: Scalars["ID"]
 	primary: PrismicPageDataBodyVideoPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -3302,6 +3442,7 @@ export type PrismicPageDataBodyVideo = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyVideoGallery = PrismicSliceType & {
+	__typename?: "PrismicPageDataBodyVideoGallery"
 	id: Scalars["ID"]
 	primary: PrismicPageDataBodyVideoGalleryPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -3309,12 +3450,14 @@ export type PrismicPageDataBodyVideoGallery = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyVideoGalleryPrimary = {
+	__typename?: "PrismicPageDataBodyVideoGalleryPrimary"
 	color?: Maybe<Scalars["String"]>
 	text?: Maybe<PrismicStructuredTextType>
 	video_submission_type?: Maybe<PrismicLinkType>
 }
 
 export type PrismicPageDataBodyVideoHero = PrismicSliceType & {
+	__typename?: "PrismicPageDataBodyVideoHero"
 	id: Scalars["ID"]
 	primary: PrismicPageDataBodyVideoHeroPrimary
 	slice_label?: Maybe<Scalars["String"]>
@@ -3322,12 +3465,14 @@ export type PrismicPageDataBodyVideoHero = PrismicSliceType & {
 }
 
 export type PrismicPageDataBodyVideoHeroPrimary = {
+	__typename?: "PrismicPageDataBodyVideoHeroPrimary"
 	text?: Maybe<PrismicStructuredTextType>
 	video_thumbnail?: Maybe<PrismicPageDataBodyVideoHeroPrimaryVideoThumbnailImageType>
 	video_url?: Maybe<Scalars["String"]>
 }
 
 export type PrismicPageDataBodyVideoHeroPrimaryVideoThumbnailImageType = {
+	__typename?: "PrismicPageDataBodyVideoHeroPrimaryVideoThumbnailImageType"
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
@@ -3383,11 +3528,13 @@ export type PrismicPageDataBodyVideoHeroPrimaryVideoThumbnailImageTypeUrlArgs =
 	}
 
 export type PrismicPageDataBodyVideoPrimary = {
+	__typename?: "PrismicPageDataBodyVideoPrimary"
 	thumbnail?: Maybe<PrismicPageDataBodyVideoPrimaryThumbnailImageType>
 	video_url?: Maybe<Scalars["String"]>
 }
 
 export type PrismicPageDataBodyVideoPrimaryThumbnailImageType = {
+	__typename?: "PrismicPageDataBodyVideoPrimaryThumbnailImageType"
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
@@ -3440,6 +3587,7 @@ export type PrismicPageDataBodyVideoPrimaryThumbnailImageTypeUrlArgs = {
 }
 
 export type PrismicPageDataType = {
+	__typename?: "PrismicPageDataType"
 	body: Array<PrismicPageDataBodySlicesType>
 	meta_description?: Maybe<Scalars["String"]>
 	meta_title?: Maybe<Scalars["String"]>
@@ -3457,6 +3605,7 @@ export type PrismicPageDataTypeFilterInput = {
 }
 
 export type PrismicPageEdge = {
+	__typename?: "PrismicPageEdge"
 	next?: Maybe<PrismicPage>
 	node: PrismicPage
 	previous?: Maybe<PrismicPage>
@@ -3648,6 +3797,7 @@ export type PrismicPageFilterInput = {
 }
 
 export type PrismicPageGroupConnection = {
+	__typename?: "PrismicPageGroupConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicPageEdge>
 	field: Scalars["String"]
@@ -3689,6 +3839,7 @@ export type PrismicPageSortInput = {
 }
 
 export type PrismicSettings = Node & {
+	__typename?: "PrismicSettings"
 	_previewable: Scalars["ID"]
 	alternate_languages: Array<PrismicAlternateLanguageType>
 	children: Array<Node>
@@ -3722,6 +3873,7 @@ export type PrismicSettingsLast_Publication_DateArgs = {
 }
 
 export type PrismicSettingsConnection = {
+	__typename?: "PrismicSettingsConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicSettingsEdge>
 	group: Array<PrismicSettingsGroupConnection>
@@ -3756,6 +3908,7 @@ export type PrismicSettingsConnectionSumArgs = {
 }
 
 export type PrismicSettingsDataOpenGraphImageImageType = {
+	__typename?: "PrismicSettingsDataOpenGraphImageImageType"
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
@@ -3818,6 +3971,7 @@ export type PrismicSettingsDataOpenGraphImageImageTypeFilterInput = {
 }
 
 export type PrismicSettingsDataRedirects = {
+	__typename?: "PrismicSettingsDataRedirects"
 	from_path?: Maybe<Scalars["String"]>
 	is_permanent?: Maybe<Scalars["Boolean"]>
 	to_path?: Maybe<Scalars["String"]>
@@ -3834,6 +3988,7 @@ export type PrismicSettingsDataRedirectsFilterListInput = {
 }
 
 export type PrismicSettingsDataTwitterCardImageImageType = {
+	__typename?: "PrismicSettingsDataTwitterCardImageImageType"
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
@@ -3896,6 +4051,7 @@ export type PrismicSettingsDataTwitterCardImageImageTypeFilterInput = {
 }
 
 export type PrismicSettingsDataType = {
+	__typename?: "PrismicSettingsDataType"
 	enabled?: Maybe<Scalars["Boolean"]>
 	facebook_url?: Maybe<Scalars["String"]>
 	footer_logo_url?: Maybe<Scalars["String"]>
@@ -3932,6 +4088,7 @@ export type PrismicSettingsDataTypeFilterInput = {
 }
 
 export type PrismicSettingsEdge = {
+	__typename?: "PrismicSettingsEdge"
 	next?: Maybe<PrismicSettings>
 	node: PrismicSettings
 	previous?: Maybe<PrismicSettings>
@@ -4242,6 +4399,7 @@ export type PrismicSettingsFilterInput = {
 }
 
 export type PrismicSettingsGroupConnection = {
+	__typename?: "PrismicSettingsGroupConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicSettingsEdge>
 	field: Scalars["String"]
@@ -4297,6 +4455,7 @@ export type PrismicSliceType = {
 }
 
 export type PrismicSponsor = Node & {
+	__typename?: "PrismicSponsor"
 	_previewable: Scalars["ID"]
 	alternate_languages: Array<PrismicAlternateLanguageType>
 	children: Array<Node>
@@ -4330,6 +4489,7 @@ export type PrismicSponsorLast_Publication_DateArgs = {
 }
 
 export type PrismicSponsorConnection = {
+	__typename?: "PrismicSponsorConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicSponsorEdge>
 	group: Array<PrismicSponsorGroupConnection>
@@ -4364,6 +4524,7 @@ export type PrismicSponsorConnectionSumArgs = {
 }
 
 export type PrismicSponsorDataImageImageType = {
+	__typename?: "PrismicSponsorDataImageImageType"
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
@@ -4426,6 +4587,7 @@ export type PrismicSponsorDataImageImageTypeFilterInput = {
 }
 
 export type PrismicSponsorDataType = {
+	__typename?: "PrismicSponsorDataType"
 	image?: Maybe<PrismicSponsorDataImageImageType>
 	link?: Maybe<PrismicLinkType>
 	name?: Maybe<PrismicStructuredTextType>
@@ -4438,6 +4600,7 @@ export type PrismicSponsorDataTypeFilterInput = {
 }
 
 export type PrismicSponsorEdge = {
+	__typename?: "PrismicSponsorEdge"
 	next?: Maybe<PrismicSponsor>
 	node: PrismicSponsor
 	previous?: Maybe<PrismicSponsor>
@@ -4695,6 +4858,7 @@ export type PrismicSponsorFilterInput = {
 }
 
 export type PrismicSponsorGroupConnection = {
+	__typename?: "PrismicSponsorGroupConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicSponsorEdge>
 	field: Scalars["String"]
@@ -4736,6 +4900,7 @@ export type PrismicSponsorSortInput = {
 }
 
 export type PrismicSponsorsList = Node & {
+	__typename?: "PrismicSponsorsList"
 	_previewable: Scalars["ID"]
 	alternate_languages: Array<PrismicAlternateLanguageType>
 	children: Array<Node>
@@ -4770,6 +4935,7 @@ export type PrismicSponsorsListLast_Publication_DateArgs = {
 }
 
 export type PrismicSponsorsListConnection = {
+	__typename?: "PrismicSponsorsListConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicSponsorsListEdge>
 	group: Array<PrismicSponsorsListGroupConnection>
@@ -4804,6 +4970,7 @@ export type PrismicSponsorsListConnectionSumArgs = {
 }
 
 export type PrismicSponsorsListDataBronzeSponsors = {
+	__typename?: "PrismicSponsorsListDataBronzeSponsors"
 	sponsor?: Maybe<PrismicLinkType>
 }
 
@@ -4816,6 +4983,7 @@ export type PrismicSponsorsListDataBronzeSponsorsFilterListInput = {
 }
 
 export type PrismicSponsorsListDataGoldSponsors = {
+	__typename?: "PrismicSponsorsListDataGoldSponsors"
 	sponsor?: Maybe<PrismicLinkType>
 }
 
@@ -4828,6 +4996,7 @@ export type PrismicSponsorsListDataGoldSponsorsFilterListInput = {
 }
 
 export type PrismicSponsorsListDataMediaSponsors = {
+	__typename?: "PrismicSponsorsListDataMediaSponsors"
 	sponsor?: Maybe<PrismicLinkType>
 }
 
@@ -4840,6 +5009,7 @@ export type PrismicSponsorsListDataMediaSponsorsFilterListInput = {
 }
 
 export type PrismicSponsorsListDataPartnerSponsors = {
+	__typename?: "PrismicSponsorsListDataPartnerSponsors"
 	sponsor?: Maybe<PrismicLinkType>
 }
 
@@ -4852,6 +5022,7 @@ export type PrismicSponsorsListDataPartnerSponsorsFilterListInput = {
 }
 
 export type PrismicSponsorsListDataPlatinumSponsors = {
+	__typename?: "PrismicSponsorsListDataPlatinumSponsors"
 	sponsor?: Maybe<PrismicLinkType>
 }
 
@@ -4864,6 +5035,7 @@ export type PrismicSponsorsListDataPlatinumSponsorsFilterListInput = {
 }
 
 export type PrismicSponsorsListDataSilverSponsors = {
+	__typename?: "PrismicSponsorsListDataSilverSponsors"
 	sponsor?: Maybe<PrismicLinkType>
 }
 
@@ -4876,6 +5048,7 @@ export type PrismicSponsorsListDataSilverSponsorsFilterListInput = {
 }
 
 export type PrismicSponsorsListDataType = {
+	__typename?: "PrismicSponsorsListDataType"
 	bronze_sponsors?: Maybe<Array<Maybe<PrismicSponsorsListDataBronzeSponsors>>>
 	gold_sponsors?: Maybe<Array<Maybe<PrismicSponsorsListDataGoldSponsors>>>
 	media_sponsors?: Maybe<Array<Maybe<PrismicSponsorsListDataMediaSponsors>>>
@@ -4904,6 +5077,7 @@ export type PrismicSponsorsListDataTypeFilterInput = {
 }
 
 export type PrismicSponsorsListDataVisionarySponsors = {
+	__typename?: "PrismicSponsorsListDataVisionarySponsors"
 	sponsor?: Maybe<PrismicLinkType>
 }
 
@@ -4916,6 +5090,7 @@ export type PrismicSponsorsListDataVisionarySponsorsFilterListInput = {
 }
 
 export type PrismicSponsorsListEdge = {
+	__typename?: "PrismicSponsorsListEdge"
 	next?: Maybe<PrismicSponsorsList>
 	node: PrismicSponsorsList
 	previous?: Maybe<PrismicSponsorsList>
@@ -5195,6 +5370,7 @@ export type PrismicSponsorsListFilterInput = {
 }
 
 export type PrismicSponsorsListGroupConnection = {
+	__typename?: "PrismicSponsorsListGroupConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicSponsorsListEdge>
 	field: Scalars["String"]
@@ -5243,6 +5419,7 @@ export type PrismicStructuredTextQueryOperatorInput = {
 }
 
 export type PrismicStructuredTextType = {
+	__typename?: "PrismicStructuredTextType"
 	html?: Maybe<Scalars["String"]>
 	/** @deprecated This field has been renamed to `richText`. The `richText` field has the same value the `raw` field. */
 	raw: Scalars["PrismicStructuredText"]
@@ -5258,6 +5435,7 @@ export type PrismicStructuredTextTypeFilterInput = {
 }
 
 export type PrismicSubmissionType = Node & {
+	__typename?: "PrismicSubmissionType"
 	_previewable: Scalars["ID"]
 	alternate_languages: Array<PrismicAlternateLanguageType>
 	children: Array<Node>
@@ -5293,6 +5471,7 @@ export type PrismicSubmissionTypeLast_Publication_DateArgs = {
 }
 
 export type PrismicSubmissionTypeConnection = {
+	__typename?: "PrismicSubmissionTypeConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicSubmissionTypeEdge>
 	group: Array<PrismicSubmissionTypeGroupConnection>
@@ -5327,6 +5506,7 @@ export type PrismicSubmissionTypeConnectionSumArgs = {
 }
 
 export type PrismicSubmissionTypeDataType = {
+	__typename?: "PrismicSubmissionTypeDataType"
 	end_time?: Maybe<Scalars["Date"]>
 	mute_videos?: Maybe<Scalars["Boolean"]>
 	name?: Maybe<PrismicStructuredTextType>
@@ -5348,6 +5528,7 @@ export type PrismicSubmissionTypeDataTypeFilterInput = {
 }
 
 export type PrismicSubmissionTypeEdge = {
+	__typename?: "PrismicSubmissionTypeEdge"
 	next?: Maybe<PrismicSubmissionType>
 	node: PrismicSubmissionType
 	previous?: Maybe<PrismicSubmissionType>
@@ -5494,6 +5675,7 @@ export type PrismicSubmissionTypeFilterInput = {
 }
 
 export type PrismicSubmissionTypeGroupConnection = {
+	__typename?: "PrismicSubmissionTypeGroupConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicSubmissionTypeEdge>
 	field: Scalars["String"]
@@ -5535,6 +5717,7 @@ export type PrismicSubmissionTypeSortInput = {
 }
 
 export type PrismicTypePathType = Node & {
+	__typename?: "PrismicTypePathType"
 	children: Array<Node>
 	id: Scalars["ID"]
 	internal: Internal
@@ -5545,6 +5728,7 @@ export type PrismicTypePathType = Node & {
 }
 
 export type PrismicTypePathTypeConnection = {
+	__typename?: "PrismicTypePathTypeConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicTypePathTypeEdge>
 	group: Array<PrismicTypePathTypeGroupConnection>
@@ -5579,6 +5763,7 @@ export type PrismicTypePathTypeConnectionSumArgs = {
 }
 
 export type PrismicTypePathTypeEdge = {
+	__typename?: "PrismicTypePathTypeEdge"
 	next?: Maybe<PrismicTypePathType>
 	node: PrismicTypePathType
 	previous?: Maybe<PrismicTypePathType>
@@ -5694,6 +5879,7 @@ export type PrismicTypePathTypeFilterInput = {
 }
 
 export type PrismicTypePathTypeGroupConnection = {
+	__typename?: "PrismicTypePathTypeGroupConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicTypePathTypeEdge>
 	field: Scalars["String"]
@@ -5735,6 +5921,7 @@ export type PrismicTypePathTypeSortInput = {
 }
 
 export type PrismicVideoSubmission = Node & {
+	__typename?: "PrismicVideoSubmission"
 	_previewable: Scalars["ID"]
 	alternate_languages: Array<PrismicAlternateLanguageType>
 	children: Array<Node>
@@ -5769,6 +5956,7 @@ export type PrismicVideoSubmissionLast_Publication_DateArgs = {
 }
 
 export type PrismicVideoSubmissionConnection = {
+	__typename?: "PrismicVideoSubmissionConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicVideoSubmissionEdge>
 	group: Array<PrismicVideoSubmissionGroupConnection>
@@ -5803,6 +5991,7 @@ export type PrismicVideoSubmissionConnectionSumArgs = {
 }
 
 export type PrismicVideoSubmissionDataType = {
+	__typename?: "PrismicVideoSubmissionDataType"
 	description?: Maybe<PrismicStructuredTextType>
 	name?: Maybe<PrismicStructuredTextType>
 	subtitle?: Maybe<PrismicStructuredTextType>
@@ -5821,6 +6010,7 @@ export type PrismicVideoSubmissionDataTypeFilterInput = {
 }
 
 export type PrismicVideoSubmissionDataVideoThumbnailImageType = {
+	__typename?: "PrismicVideoSubmissionDataVideoThumbnailImageType"
 	alt?: Maybe<Scalars["String"]>
 	copyright?: Maybe<Scalars["String"]>
 	dimensions?: Maybe<PrismicImageDimensionsType>
@@ -5884,6 +6074,7 @@ export type PrismicVideoSubmissionDataVideoThumbnailImageTypeFilterInput = {
 }
 
 export type PrismicVideoSubmissionEdge = {
+	__typename?: "PrismicVideoSubmissionEdge"
 	next?: Maybe<PrismicVideoSubmission>
 	node: PrismicVideoSubmission
 	previous?: Maybe<PrismicVideoSubmission>
@@ -6152,6 +6343,7 @@ export type PrismicVideoSubmissionFilterInput = {
 }
 
 export type PrismicVideoSubmissionGroupConnection = {
+	__typename?: "PrismicVideoSubmissionGroupConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<PrismicVideoSubmissionEdge>
 	field: Scalars["String"]
@@ -6193,6 +6385,7 @@ export type PrismicVideoSubmissionSortInput = {
 }
 
 export type Query = {
+	__typename?: "Query"
 	allDirectory: DirectoryConnection
 	allFile: FileConnection
 	allPrismicEmbedType: PrismicEmbedTypeConnection
@@ -6669,6 +6862,7 @@ export type QuerySitePluginArgs = {
 }
 
 export type Site = Node & {
+	__typename?: "Site"
 	buildTime?: Maybe<Scalars["Date"]>
 	children: Array<Node>
 	flags?: Maybe<SiteFlags>
@@ -6693,6 +6887,7 @@ export type SiteBuildTimeArgs = {
 }
 
 export type SiteBuildMetadata = Node & {
+	__typename?: "SiteBuildMetadata"
 	buildTime?: Maybe<Scalars["Date"]>
 	children: Array<Node>
 	id: Scalars["ID"]
@@ -6708,6 +6903,7 @@ export type SiteBuildMetadataBuildTimeArgs = {
 }
 
 export type SiteBuildMetadataConnection = {
+	__typename?: "SiteBuildMetadataConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<SiteBuildMetadataEdge>
 	group: Array<SiteBuildMetadataGroupConnection>
@@ -6742,6 +6938,7 @@ export type SiteBuildMetadataConnectionSumArgs = {
 }
 
 export type SiteBuildMetadataEdge = {
+	__typename?: "SiteBuildMetadataEdge"
 	next?: Maybe<SiteBuildMetadata>
 	node: SiteBuildMetadata
 	previous?: Maybe<SiteBuildMetadata>
@@ -6853,6 +7050,7 @@ export type SiteBuildMetadataFilterInput = {
 }
 
 export type SiteBuildMetadataGroupConnection = {
+	__typename?: "SiteBuildMetadataGroupConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<SiteBuildMetadataEdge>
 	field: Scalars["String"]
@@ -6894,6 +7092,7 @@ export type SiteBuildMetadataSortInput = {
 }
 
 export type SiteConnection = {
+	__typename?: "SiteConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<SiteEdge>
 	group: Array<SiteGroupConnection>
@@ -6928,6 +7127,7 @@ export type SiteConnectionSumArgs = {
 }
 
 export type SiteEdge = {
+	__typename?: "SiteEdge"
 	next?: Maybe<Site>
 	node: Site
 	previous?: Maybe<Site>
@@ -7060,6 +7260,7 @@ export type SiteFilterInput = {
 }
 
 export type SiteFlags = {
+	__typename?: "SiteFlags"
 	DEV_SSR?: Maybe<Scalars["Boolean"]>
 	FAST_DEV?: Maybe<Scalars["Boolean"]>
 }
@@ -7070,6 +7271,7 @@ export type SiteFlagsFilterInput = {
 }
 
 export type SiteFunction = Node & {
+	__typename?: "SiteFunction"
 	absoluteCompiledFilePath: Scalars["String"]
 	children: Array<Node>
 	functionRoute: Scalars["String"]
@@ -7084,6 +7286,7 @@ export type SiteFunction = Node & {
 }
 
 export type SiteFunctionConnection = {
+	__typename?: "SiteFunctionConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<SiteFunctionEdge>
 	group: Array<SiteFunctionGroupConnection>
@@ -7118,6 +7321,7 @@ export type SiteFunctionConnectionSumArgs = {
 }
 
 export type SiteFunctionEdge = {
+	__typename?: "SiteFunctionEdge"
 	next?: Maybe<SiteFunction>
 	node: SiteFunction
 	previous?: Maybe<SiteFunction>
@@ -7241,6 +7445,7 @@ export type SiteFunctionFilterInput = {
 }
 
 export type SiteFunctionGroupConnection = {
+	__typename?: "SiteFunctionGroupConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<SiteFunctionEdge>
 	field: Scalars["String"]
@@ -7282,6 +7487,7 @@ export type SiteFunctionSortInput = {
 }
 
 export type SiteGroupConnection = {
+	__typename?: "SiteGroupConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<SiteEdge>
 	field: Scalars["String"]
@@ -7318,6 +7524,7 @@ export type SiteGroupConnectionSumArgs = {
 }
 
 export type SitePage = Node & {
+	__typename?: "SitePage"
 	children: Array<Node>
 	component: Scalars["String"]
 	componentChunkName: Scalars["String"]
@@ -7332,6 +7539,7 @@ export type SitePage = Node & {
 }
 
 export type SitePageConnection = {
+	__typename?: "SitePageConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<SitePageEdge>
 	group: Array<SitePageGroupConnection>
@@ -7366,6 +7574,7 @@ export type SitePageConnectionSumArgs = {
 }
 
 export type SitePageEdge = {
+	__typename?: "SitePageEdge"
 	next?: Maybe<SitePage>
 	node: SitePage
 	previous?: Maybe<SitePage>
@@ -7538,6 +7747,7 @@ export type SitePageFilterInput = {
 }
 
 export type SitePageGroupConnection = {
+	__typename?: "SitePageGroupConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<SitePageEdge>
 	field: Scalars["String"]
@@ -7579,6 +7789,7 @@ export type SitePageSortInput = {
 }
 
 export type SitePlugin = Node & {
+	__typename?: "SitePlugin"
 	browserAPIs?: Maybe<Array<Maybe<Scalars["String"]>>>
 	children: Array<Node>
 	id: Scalars["ID"]
@@ -7595,6 +7806,7 @@ export type SitePlugin = Node & {
 }
 
 export type SitePluginConnection = {
+	__typename?: "SitePluginConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<SitePluginEdge>
 	group: Array<SitePluginGroupConnection>
@@ -7629,6 +7841,7 @@ export type SitePluginConnectionSumArgs = {
 }
 
 export type SitePluginEdge = {
+	__typename?: "SitePluginEdge"
 	next?: Maybe<SitePlugin>
 	node: SitePlugin
 	previous?: Maybe<SitePlugin>
@@ -7756,6 +7969,7 @@ export type SitePluginFilterInput = {
 }
 
 export type SitePluginGroupConnection = {
+	__typename?: "SitePluginGroupConnection"
 	distinct: Array<Scalars["String"]>
 	edges: Array<SitePluginEdge>
 	field: Scalars["String"]
@@ -7797,6 +8011,7 @@ export type SitePluginSortInput = {
 }
 
 export type SiteSiteMetadata = {
+	__typename?: "SiteSiteMetadata"
 	description?: Maybe<Scalars["String"]>
 	siteUrl?: Maybe<Scalars["String"]>
 	title?: Maybe<Scalars["String"]>
@@ -7827,139 +8042,262 @@ export type StringQueryOperatorInput = {
 	regex?: InputMaybe<Scalars["String"]>
 }
 
-export type EventAnchorFragment = { primary: { anchor?: string | undefined } }
+export type EventAnchorFragment = {
+	__typename?: "PrismicEventDataBodyAnchor"
+	primary: {
+		__typename?: "PrismicEventDataBodyAnchorPrimary"
+		anchor?: string | undefined
+	}
+}
 
 export type EventCallToActionFragment = {
+	__typename?: "PrismicEventDataBodyCallToAction"
 	primary: {
+		__typename?: "PrismicEventDataBodyCallToActionPrimary"
 		button_text?: string | undefined
-		heading?: { text?: string | undefined } | undefined
-		button_link?: { url?: string | undefined } | undefined
+		heading?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
+		button_link?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
 	}
 }
 
 export type EventCallToActionCardFragment = {
+	__typename?: "PrismicEventDataBodyCallToActionCard"
 	primary: {
+		__typename?: "PrismicEventDataBodyCallToActionCardPrimary"
 		button_text?: string | undefined
 		color?: string | undefined
-		text?: { html?: string | undefined } | undefined
-		button_link?: { url?: string | undefined } | undefined
+		text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
+		button_link?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
 	}
 }
 
 export type EventFeaturedPeopleFragment = {
+	__typename?: "PrismicEventDataBodyFeaturedPeople"
 	primary: {
+		__typename?: "PrismicEventDataBodyFeaturedPeoplePrimary"
 		color?: string | undefined
-		subheading?: { text?: string | undefined } | undefined
-		heading?: { text?: string | undefined } | undefined
+		subheading?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
+		heading?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
 	}
 	items: Array<{
+		__typename?: "PrismicEventDataBodyFeaturedPeopleItem"
 		instagram_handle?: string | undefined
 		website_label?: string | undefined
-		name?: { text?: string | undefined } | undefined
-		title1?: { text?: string | undefined } | undefined
-		pronouns?: { text?: string | undefined } | undefined
-		bio?: { html?: string | undefined } | undefined
-		headshot?:
-			| { url?: string | undefined; alt?: string | undefined }
+		name?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
 			| undefined
-		instagram_profile_url?: { url?: string | undefined } | undefined
-		website_url?: { url?: string | undefined } | undefined
+		title1?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
+		pronouns?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
+		bio?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
+		headshot?:
+			| {
+					__typename?: "PrismicEventDataBodyFeaturedPeopleItemsHeadshotImageType"
+					url?: string | undefined
+					alt?: string | undefined
+			  }
+			| undefined
+		instagram_profile_url?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
+		website_url?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
 	}>
 }
 
 export type EventImageCallToActionFragment = {
+	__typename?: "PrismicEventDataBodyImageCallToAction"
 	primary: {
+		__typename?: "PrismicEventDataBodyImageCallToActionPrimary"
 		button_text?: string | undefined
 		color?: string | undefined
-		image?: { url?: string | undefined; alt?: string | undefined } | undefined
-		text?: { html?: string | undefined } | undefined
-		button_link?: { url?: string | undefined } | undefined
+		image?:
+			| {
+					__typename?: "PrismicEventDataBodyImageCallToActionPrimaryImageImageType"
+					url?: string | undefined
+					alt?: string | undefined
+			  }
+			| undefined
+		text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
+		button_link?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
 	}
 }
 
 export type EventIntroductionFragment = {
+	__typename?: "PrismicEventDataBodyIntroduction"
 	primary: {
+		__typename?: "PrismicEventDataBodyIntroductionPrimary"
 		color?: string | undefined
-		heading?: { text?: string | undefined } | undefined
-		text?: { html?: string | undefined } | undefined
+		heading?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
+		text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
 	}
 }
 
 export type EventNewsletterFormFragment = {
+	__typename?: "PrismicEventDataBodyNewsletterForm"
 	primary: {
+		__typename?: "PrismicEventDataBodyNewsletterFormPrimary"
 		placeholder_text?: string | undefined
 		color?: string | undefined
-		heading?: { text?: string | undefined } | undefined
+		heading?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
 	}
 }
 
 export type EventPrideCalendarFragment = {
+	__typename?: "PrismicEventDataBodyPrideCalendar"
 	primary: {
+		__typename?: "PrismicEventDataBodyPrideCalendarPrimary"
 		color?: string | undefined
-		text?: { html?: string | undefined } | undefined
+		text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
 	}
 	items: Array<{
-		event_description?: { html?: string | undefined } | undefined
-		event_link?: { url?: string | undefined } | undefined
-		event_title?: { text?: string | undefined } | undefined
+		__typename?: "PrismicEventDataBodyPrideCalendarItem"
+		event_video_url?: string | undefined
+		event_start?: unknown | undefined
+		event_end?: unknown | undefined
+		event_description?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
+		event_link?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
+		event_title?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
 		image?:
-			| { alt?: string | undefined; gatsbyImageData?: unknown | undefined }
+			| {
+					__typename?: "PrismicEventDataBodyPrideCalendarItemsImageImageType"
+					alt?: string | undefined
+					gatsbyImageData?: unknown | undefined
+					url?: string | undefined
+			  }
 			| undefined
 	}>
 }
 
 export type EventRichTextFragment = {
+	__typename?: "PrismicEventDataBodyRichText"
 	primary: {
+		__typename?: "PrismicEventDataBodyRichTextPrimary"
 		button_text?: string | undefined
 		color?: string | undefined
-		text?: { html?: string | undefined } | undefined
-		button_link?: { url?: string | undefined } | undefined
+		text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
+		button_link?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
 	}
 }
 
 export type EventTextAndVideoFragment = {
+	__typename?: "PrismicEventDataBodyTextAndVideo"
 	primary: {
+		__typename?: "PrismicEventDataBodyTextAndVideoPrimary"
 		thumbnail_side?: string | undefined
 		video_url?: string | undefined
 		color?: string | undefined
 		video_thumbnail?:
-			| { url?: string | undefined; alt?: string | undefined }
+			| {
+					__typename?: "PrismicEventDataBodyTextAndVideoPrimaryVideoThumbnailImageType"
+					url?: string | undefined
+					alt?: string | undefined
+			  }
 			| undefined
-		text?: { html?: string | undefined } | undefined
+		text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
 	}
 }
 
 export type EventTwoColumnTextFragment = {
+	__typename?: "PrismicEventDataBodyTwoColumnText"
 	primary: {
+		__typename?: "PrismicEventDataBodyTwoColumnTextPrimary"
 		color?: string | undefined
 		button_text?: string | undefined
 		button_side?: string | undefined
-		left_text?: { html?: string | undefined } | undefined
-		right_text?: { html?: string | undefined } | undefined
-		button_link?: { url?: string | undefined } | undefined
+		left_text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
+		right_text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
+		button_link?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
 	}
 }
 
 export type EventVideoFragment = {
+	__typename?: "PrismicEventDataBodyVideo"
 	primary: {
+		__typename?: "PrismicEventDataBodyVideoPrimary"
 		video_url?: string | undefined
 		thumbnail?:
-			| { alt?: string | undefined; url?: string | undefined }
+			| {
+					__typename?: "PrismicEventDataBodyVideoPrimaryThumbnailImageType"
+					alt?: string | undefined
+					url?: string | undefined
+			  }
 			| undefined
 	}
 }
 
 export type EventVideoGalleryFragment = {
+	__typename?: "PrismicEventDataBodyVideoGallery"
 	primary: {
+		__typename?: "PrismicEventDataBodyVideoGalleryPrimary"
 		color?: string | undefined
-		text?: { html?: string | undefined } | undefined
+		text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
 		video_submission_type?:
 			| {
+					__typename?: "PrismicLinkType"
 					uid?: string | undefined
 					document?:
+						| { __typename?: "PrismicEvent" }
+						| { __typename?: "PrismicNavigation" }
+						| { __typename?: "PrismicPage" }
+						| { __typename?: "PrismicSettings" }
+						| { __typename?: "PrismicSponsor" }
+						| { __typename?: "PrismicSponsorsList" }
 						| {
+								__typename?: "PrismicSubmissionType"
 								_previewable: string
 								data: {
+									__typename?: "PrismicSubmissionTypeDataType"
 									votable?: boolean | undefined
 									mute_videos?: boolean | undefined
 									end_time?: unknown | undefined
@@ -7967,18 +8305,34 @@ export type EventVideoGalleryFragment = {
 								submissions?:
 									| Array<
 											| {
+													__typename?: "PrismicVideoSubmission"
 													_previewable: string
 													url?: string | undefined
 													uid: string
 													data: {
+														__typename?: "PrismicVideoSubmissionDataType"
 														video_url?: string | undefined
-														name?: { text?: string | undefined } | undefined
-														description?:
-															| { html?: string | undefined }
+														name?:
+															| {
+																	__typename?: "PrismicStructuredTextType"
+																	text?: string | undefined
+															  }
 															| undefined
-														subtitle?: { text?: string | undefined } | undefined
+														description?:
+															| {
+																	__typename?: "PrismicStructuredTextType"
+																	html?: string | undefined
+															  }
+															| undefined
+														subtitle?:
+															| {
+																	__typename?: "PrismicStructuredTextType"
+																	text?: string | undefined
+															  }
+															| undefined
 														video_thumbnail?:
 															| {
+																	__typename?: "PrismicVideoSubmissionDataVideoThumbnailImageType"
 																	url?: string | undefined
 																	alt?: string | undefined
 															  }
@@ -7989,7 +8343,7 @@ export type EventVideoGalleryFragment = {
 									  >
 									| undefined
 						  }
-						| {}
+						| { __typename?: "PrismicVideoSubmission" }
 						| undefined
 			  }
 			| undefined
@@ -7997,11 +8351,19 @@ export type EventVideoGalleryFragment = {
 }
 
 export type EventVideoHeroFragment = {
+	__typename?: "PrismicEventDataBodyVideoHero"
 	primary: {
+		__typename?: "PrismicEventDataBodyVideoHeroPrimary"
 		video_url?: string | undefined
-		text?: { text?: string | undefined } | undefined
+		text?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
 		video_thumbnail?:
-			| { alt?: string | undefined; url?: string | undefined }
+			| {
+					__typename?: "PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageType"
+					alt?: string | undefined
+					url?: string | undefined
+			  }
 			| undefined
 	}
 }
@@ -8009,15 +8371,29 @@ export type EventVideoHeroFragment = {
 export type PrimaryNavigationQueryVariables = Exact<{ [key: string]: never }>
 
 export type PrimaryNavigationQuery = {
+	__typename?: "Query"
 	prismicNavigation?:
 		| {
+				__typename?: "PrismicNavigation"
 				_previewable: string
 				data: {
+					__typename?: "PrismicNavigationDataType"
 					nav_items?:
 						| Array<
 								| {
-										label?: { text?: string | undefined } | undefined
-										link?: { url?: string | undefined } | undefined
+										__typename?: "PrismicNavigationDataNavItems"
+										label?:
+											| {
+													__typename?: "PrismicStructuredTextType"
+													text?: string | undefined
+											  }
+											| undefined
+										link?:
+											| {
+													__typename?: "PrismicLinkType"
+													url?: string | undefined
+											  }
+											| undefined
 								  }
 								| undefined
 						  >
@@ -8030,10 +8406,13 @@ export type PrimaryNavigationQuery = {
 export type SettingsQueryVariables = Exact<{ [key: string]: never }>
 
 export type SettingsQuery = {
+	__typename?: "Query"
 	prismicSettings?:
 		| {
+				__typename?: "PrismicSettings"
 				_previewable: string
 				data: {
+					__typename?: "PrismicSettingsDataType"
 					facebook_url?: string | undefined
 					instagram_url?: string | undefined
 					youtube_url?: string | undefined
@@ -8041,77 +8420,168 @@ export type SettingsQuery = {
 					twitter_username?: string | undefined
 					footer_logo_url?: string | undefined
 					enabled?: boolean | undefined
-					site_name?: { text?: string | undefined } | undefined
-					site_description?: { text?: string | undefined } | undefined
-					site_copyright?:
-						| { text?: string | undefined; html?: string | undefined }
+					site_name?:
+						| {
+								__typename?: "PrismicStructuredTextType"
+								text?: string | undefined
+						  }
 						| undefined
-					twitter_card_image?: { url?: string | undefined } | undefined
-					open_graph_image?: { url?: string | undefined } | undefined
-					text?: { html?: string | undefined } | undefined
+					site_description?:
+						| {
+								__typename?: "PrismicStructuredTextType"
+								text?: string | undefined
+						  }
+						| undefined
+					site_copyright?:
+						| {
+								__typename?: "PrismicStructuredTextType"
+								text?: string | undefined
+								html?: string | undefined
+						  }
+						| undefined
+					twitter_card_image?:
+						| {
+								__typename?: "PrismicSettingsDataTwitterCardImageImageType"
+								url?: string | undefined
+						  }
+						| undefined
+					open_graph_image?:
+						| {
+								__typename?: "PrismicSettingsDataOpenGraphImageImageType"
+								url?: string | undefined
+						  }
+						| undefined
+					text?:
+						| {
+								__typename?: "PrismicStructuredTextType"
+								html?: string | undefined
+						  }
+						| undefined
 				}
 		  }
 		| undefined
 }
 
-export type AnchorFragment = { primary: { anchor?: string | undefined } }
+export type AnchorFragment = {
+	__typename?: "PrismicPageDataBodyAnchor"
+	primary: {
+		__typename?: "PrismicPageDataBodyAnchorPrimary"
+		anchor?: string | undefined
+	}
+}
 
 export type CallToActionFragment = {
+	__typename?: "PrismicPageDataBodyCallToAction"
 	primary: {
+		__typename?: "PrismicPageDataBodyCallToActionPrimary"
 		button_text?: string | undefined
-		heading?: { text?: string | undefined } | undefined
-		button_link?: { url?: string | undefined } | undefined
+		heading?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
+		button_link?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
 	}
 }
 
 export type CallToActionCardFragment = {
+	__typename?: "PrismicPageDataBodyCallToActionCard"
 	primary: {
+		__typename?: "PrismicPageDataBodyCallToActionCardPrimary"
 		button_text?: string | undefined
 		color?: string | undefined
-		text?: { html?: string | undefined } | undefined
-		button_link?: { url?: string | undefined } | undefined
+		text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
+		button_link?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
 	}
 }
 
 export type FeaturedPeopleFragment = {
+	__typename?: "PrismicPageDataBodyFeaturedPeople"
 	primary: {
+		__typename?: "PrismicPageDataBodyFeaturedPeoplePrimary"
 		color?: string | undefined
-		subheading?: { text?: string | undefined } | undefined
-		heading?: { text?: string | undefined } | undefined
+		subheading?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
+		heading?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
 	}
 	items: Array<{
+		__typename?: "PrismicPageDataBodyFeaturedPeopleItem"
 		instagram_handle?: string | undefined
 		website_label?: string | undefined
-		name?: { text?: string | undefined } | undefined
-		title1?: { text?: string | undefined } | undefined
-		pronouns?: { text?: string | undefined } | undefined
-		bio?: { html?: string | undefined } | undefined
-		headshot?:
-			| { url?: string | undefined; alt?: string | undefined }
+		name?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
 			| undefined
-		instagram_profile_url?: { url?: string | undefined } | undefined
-		website_url?: { url?: string | undefined } | undefined
+		title1?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
+		pronouns?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
+		bio?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
+		headshot?:
+			| {
+					__typename?: "PrismicPageDataBodyFeaturedPeopleItemsHeadshotImageType"
+					url?: string | undefined
+					alt?: string | undefined
+			  }
+			| undefined
+		instagram_profile_url?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
+		website_url?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
 	}>
 }
 
 export type FilterableEventsFragment = {
+	__typename?: "PrismicPageDataBodyFilterableEvents"
 	items: Array<{
+		__typename?: "PrismicPageDataBodyFilterableEventsItem"
 		color?: string | undefined
 		event?:
 			| {
+					__typename?: "PrismicLinkType"
 					url?: string | undefined
 					document?:
 						| {
+								__typename?: "PrismicEvent"
 								_previewable: string
 								data: {
+									__typename?: "PrismicEventDataType"
 									date?: unknown | undefined
 									illustration?: string | undefined
 									type?: string | undefined
-									description?: { html?: string | undefined } | undefined
-									title?: { text?: string | undefined } | undefined
+									description?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
+									title?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
 								}
 						  }
-						| {}
+						| { __typename?: "PrismicNavigation" }
+						| { __typename?: "PrismicPage" }
+						| { __typename?: "PrismicSettings" }
+						| { __typename?: "PrismicSponsor" }
+						| { __typename?: "PrismicSponsorsList" }
+						| { __typename?: "PrismicSubmissionType" }
+						| { __typename?: "PrismicVideoSubmission" }
 						| undefined
 			  }
 			| undefined
@@ -8119,124 +8589,240 @@ export type FilterableEventsFragment = {
 }
 
 export type GradientTextFragment = {
+	__typename?: "PrismicPageDataBodyGradientText"
 	primary: {
+		__typename?: "PrismicPageDataBodyGradientTextPrimary"
 		button_link_text?: string | undefined
-		text?: { text?: string | undefined } | undefined
-		button_link?: { url?: string | undefined } | undefined
+		text?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
+		button_link?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
 	}
 }
 
 export type ImageCallToActionFragment = {
+	__typename?: "PrismicPageDataBodyImageCallToAction"
 	primary: {
+		__typename?: "PrismicPageDataBodyImageCallToActionPrimary"
 		button_text?: string | undefined
 		color?: string | undefined
 		image_side?: string | undefined
-		image?: { url?: string | undefined; alt?: string | undefined } | undefined
-		text?: { html?: string | undefined } | undefined
-		button_link?: { url?: string | undefined } | undefined
+		image?:
+			| {
+					__typename?: "PrismicPageDataBodyImageCallToActionPrimaryImageImageType"
+					url?: string | undefined
+					alt?: string | undefined
+			  }
+			| undefined
+		text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
+		button_link?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
 	}
 }
 
 export type IntroductionFragment = {
+	__typename?: "PrismicPageDataBodyIntroduction"
 	primary: {
+		__typename?: "PrismicPageDataBodyIntroductionPrimary"
 		color?: string | undefined
-		heading?: { text?: string | undefined } | undefined
-		text?: { html?: string | undefined } | undefined
+		heading?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
+		text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
 	}
 }
 
 export type NewsletterFormFragment = {
+	__typename?: "PrismicPageDataBodyNewsletterForm"
 	primary: {
+		__typename?: "PrismicPageDataBodyNewsletterFormPrimary"
 		placeholder_text?: string | undefined
 		color?: string | undefined
-		heading?: { text?: string | undefined } | undefined
+		heading?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
 	}
 }
 
 export type PrideCalendarFragment = {
+	__typename?: "PrismicPageDataBodyPrideCalendar"
 	primary: {
+		__typename?: "PrismicPageDataBodyPrideCalendarPrimary"
 		color?: string | undefined
-		text?: { html?: string | undefined } | undefined
+		text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
 	}
 	items: Array<{
-		event_description?: { html?: string | undefined } | undefined
-		event_link?: { url?: string | undefined } | undefined
-		event_title?: { text?: string | undefined } | undefined
+		__typename?: "PrismicPageDataBodyPrideCalendarItem"
+		event_video_url?: string | undefined
+		event_start?: unknown | undefined
+		event_end?: unknown | undefined
+		event_description?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
+		event_link?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
+		event_title?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
 		image?:
-			| { alt?: string | undefined; gatsbyImageData?: unknown | undefined }
+			| {
+					__typename?: "PrismicPageDataBodyPrideCalendarItemsImageImageType"
+					alt?: string | undefined
+					gatsbyImageData?: unknown | undefined
+					url?: string | undefined
+			  }
 			| undefined
 	}>
 }
 
 export type RichTextFragment = {
+	__typename?: "PrismicPageDataBodyRichText"
 	primary: {
+		__typename?: "PrismicPageDataBodyRichTextPrimary"
 		button_text?: string | undefined
 		color?: string | undefined
-		text?: { html?: string | undefined } | undefined
-		button_link?: { url?: string | undefined } | undefined
+		text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
+		button_link?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
 	}
 }
 
 export type SponsorFragment = {
+	__typename?: "PrismicSponsor"
 	data: {
-		image?: { alt?: string | undefined; url?: string | undefined } | undefined
-		link?: { url?: string | undefined } | undefined
-		name?: { text?: string | undefined } | undefined
+		__typename?: "PrismicSponsorDataType"
+		image?:
+			| {
+					__typename?: "PrismicSponsorDataImageImageType"
+					alt?: string | undefined
+					url?: string | undefined
+			  }
+			| undefined
+		link?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
+		name?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
 	}
 }
 
 export type SponsorsFragment = {
+	__typename?: "PrismicPageDataBodySponsors"
 	primary: {
-		heading?: { text?: string | undefined } | undefined
-		subheading?: { text?: string | undefined } | undefined
+		__typename?: "PrismicPageDataBodySponsorsPrimary"
+		heading?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
+		subheading?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
 		sponsor_list?:
 			| {
+					__typename?: "PrismicLinkType"
 					document?:
+						| { __typename?: "PrismicEvent" }
+						| { __typename?: "PrismicNavigation" }
+						| { __typename?: "PrismicPage" }
+						| { __typename?: "PrismicSettings" }
+						| { __typename?: "PrismicSponsor" }
 						| {
+								__typename?: "PrismicSponsorsList"
 								id: string
 								data: {
+									__typename?: "PrismicSponsorsListDataType"
 									rainbows_over_waikiki_sponsor?:
 										| {
+												__typename?: "PrismicLinkType"
 												document?:
+													| { __typename?: "PrismicEvent" }
+													| { __typename?: "PrismicNavigation" }
+													| { __typename?: "PrismicPage" }
+													| { __typename?: "PrismicSettings" }
 													| {
+															__typename?: "PrismicSponsor"
 															data: {
+																__typename?: "PrismicSponsorDataType"
 																image?:
 																	| {
+																			__typename?: "PrismicSponsorDataImageImageType"
 																			alt?: string | undefined
 																			url?: string | undefined
 																	  }
 																	| undefined
-																link?: { url?: string | undefined } | undefined
-																name?: { text?: string | undefined } | undefined
+																link?:
+																	| {
+																			__typename?: "PrismicLinkType"
+																			url?: string | undefined
+																	  }
+																	| undefined
+																name?:
+																	| {
+																			__typename?: "PrismicStructuredTextType"
+																			text?: string | undefined
+																	  }
+																	| undefined
 															}
 													  }
-													| {}
+													| { __typename?: "PrismicSponsorsList" }
+													| { __typename?: "PrismicSubmissionType" }
+													| { __typename?: "PrismicVideoSubmission" }
 													| undefined
 										  }
 										| undefined
 									visionary_sponsors?:
 										| Array<
 												| {
+														__typename?: "PrismicSponsorsListDataVisionarySponsors"
 														sponsor?:
 															| {
+																	__typename?: "PrismicLinkType"
 																	document?:
+																		| { __typename?: "PrismicEvent" }
+																		| { __typename?: "PrismicNavigation" }
+																		| { __typename?: "PrismicPage" }
+																		| { __typename?: "PrismicSettings" }
 																		| {
+																				__typename?: "PrismicSponsor"
 																				data: {
+																					__typename?: "PrismicSponsorDataType"
 																					image?:
 																						| {
+																								__typename?: "PrismicSponsorDataImageImageType"
 																								alt?: string | undefined
 																								url?: string | undefined
 																						  }
 																						| undefined
 																					link?:
-																						| { url?: string | undefined }
+																						| {
+																								__typename?: "PrismicLinkType"
+																								url?: string | undefined
+																						  }
 																						| undefined
 																					name?:
-																						| { text?: string | undefined }
+																						| {
+																								__typename?: "PrismicStructuredTextType"
+																								text?: string | undefined
+																						  }
 																						| undefined
 																				}
 																		  }
-																		| {}
+																		| { __typename?: "PrismicSponsorsList" }
+																		| { __typename?: "PrismicSubmissionType" }
+																		| { __typename?: "PrismicVideoSubmission" }
 																		| undefined
 															  }
 															| undefined
@@ -8247,26 +8833,43 @@ export type SponsorsFragment = {
 									media_sponsors?:
 										| Array<
 												| {
+														__typename?: "PrismicSponsorsListDataMediaSponsors"
 														sponsor?:
 															| {
+																	__typename?: "PrismicLinkType"
 																	document?:
+																		| { __typename?: "PrismicEvent" }
+																		| { __typename?: "PrismicNavigation" }
+																		| { __typename?: "PrismicPage" }
+																		| { __typename?: "PrismicSettings" }
 																		| {
+																				__typename?: "PrismicSponsor"
 																				data: {
+																					__typename?: "PrismicSponsorDataType"
 																					image?:
 																						| {
+																								__typename?: "PrismicSponsorDataImageImageType"
 																								alt?: string | undefined
 																								url?: string | undefined
 																						  }
 																						| undefined
 																					link?:
-																						| { url?: string | undefined }
+																						| {
+																								__typename?: "PrismicLinkType"
+																								url?: string | undefined
+																						  }
 																						| undefined
 																					name?:
-																						| { text?: string | undefined }
+																						| {
+																								__typename?: "PrismicStructuredTextType"
+																								text?: string | undefined
+																						  }
 																						| undefined
 																				}
 																		  }
-																		| {}
+																		| { __typename?: "PrismicSponsorsList" }
+																		| { __typename?: "PrismicSubmissionType" }
+																		| { __typename?: "PrismicVideoSubmission" }
 																		| undefined
 															  }
 															| undefined
@@ -8277,26 +8880,43 @@ export type SponsorsFragment = {
 									platinum_sponsors?:
 										| Array<
 												| {
+														__typename?: "PrismicSponsorsListDataPlatinumSponsors"
 														sponsor?:
 															| {
+																	__typename?: "PrismicLinkType"
 																	document?:
+																		| { __typename?: "PrismicEvent" }
+																		| { __typename?: "PrismicNavigation" }
+																		| { __typename?: "PrismicPage" }
+																		| { __typename?: "PrismicSettings" }
 																		| {
+																				__typename?: "PrismicSponsor"
 																				data: {
+																					__typename?: "PrismicSponsorDataType"
 																					image?:
 																						| {
+																								__typename?: "PrismicSponsorDataImageImageType"
 																								alt?: string | undefined
 																								url?: string | undefined
 																						  }
 																						| undefined
 																					link?:
-																						| { url?: string | undefined }
+																						| {
+																								__typename?: "PrismicLinkType"
+																								url?: string | undefined
+																						  }
 																						| undefined
 																					name?:
-																						| { text?: string | undefined }
+																						| {
+																								__typename?: "PrismicStructuredTextType"
+																								text?: string | undefined
+																						  }
 																						| undefined
 																				}
 																		  }
-																		| {}
+																		| { __typename?: "PrismicSponsorsList" }
+																		| { __typename?: "PrismicSubmissionType" }
+																		| { __typename?: "PrismicVideoSubmission" }
 																		| undefined
 															  }
 															| undefined
@@ -8307,26 +8927,43 @@ export type SponsorsFragment = {
 									gold_sponsors?:
 										| Array<
 												| {
+														__typename?: "PrismicSponsorsListDataGoldSponsors"
 														sponsor?:
 															| {
+																	__typename?: "PrismicLinkType"
 																	document?:
+																		| { __typename?: "PrismicEvent" }
+																		| { __typename?: "PrismicNavigation" }
+																		| { __typename?: "PrismicPage" }
+																		| { __typename?: "PrismicSettings" }
 																		| {
+																				__typename?: "PrismicSponsor"
 																				data: {
+																					__typename?: "PrismicSponsorDataType"
 																					image?:
 																						| {
+																								__typename?: "PrismicSponsorDataImageImageType"
 																								alt?: string | undefined
 																								url?: string | undefined
 																						  }
 																						| undefined
 																					link?:
-																						| { url?: string | undefined }
+																						| {
+																								__typename?: "PrismicLinkType"
+																								url?: string | undefined
+																						  }
 																						| undefined
 																					name?:
-																						| { text?: string | undefined }
+																						| {
+																								__typename?: "PrismicStructuredTextType"
+																								text?: string | undefined
+																						  }
 																						| undefined
 																				}
 																		  }
-																		| {}
+																		| { __typename?: "PrismicSponsorsList" }
+																		| { __typename?: "PrismicSubmissionType" }
+																		| { __typename?: "PrismicVideoSubmission" }
 																		| undefined
 															  }
 															| undefined
@@ -8337,26 +8974,43 @@ export type SponsorsFragment = {
 									silver_sponsors?:
 										| Array<
 												| {
+														__typename?: "PrismicSponsorsListDataSilverSponsors"
 														sponsor?:
 															| {
+																	__typename?: "PrismicLinkType"
 																	document?:
+																		| { __typename?: "PrismicEvent" }
+																		| { __typename?: "PrismicNavigation" }
+																		| { __typename?: "PrismicPage" }
+																		| { __typename?: "PrismicSettings" }
 																		| {
+																				__typename?: "PrismicSponsor"
 																				data: {
+																					__typename?: "PrismicSponsorDataType"
 																					image?:
 																						| {
+																								__typename?: "PrismicSponsorDataImageImageType"
 																								alt?: string | undefined
 																								url?: string | undefined
 																						  }
 																						| undefined
 																					link?:
-																						| { url?: string | undefined }
+																						| {
+																								__typename?: "PrismicLinkType"
+																								url?: string | undefined
+																						  }
 																						| undefined
 																					name?:
-																						| { text?: string | undefined }
+																						| {
+																								__typename?: "PrismicStructuredTextType"
+																								text?: string | undefined
+																						  }
 																						| undefined
 																				}
 																		  }
-																		| {}
+																		| { __typename?: "PrismicSponsorsList" }
+																		| { __typename?: "PrismicSubmissionType" }
+																		| { __typename?: "PrismicVideoSubmission" }
 																		| undefined
 															  }
 															| undefined
@@ -8367,26 +9021,43 @@ export type SponsorsFragment = {
 									bronze_sponsors?:
 										| Array<
 												| {
+														__typename?: "PrismicSponsorsListDataBronzeSponsors"
 														sponsor?:
 															| {
+																	__typename?: "PrismicLinkType"
 																	document?:
+																		| { __typename?: "PrismicEvent" }
+																		| { __typename?: "PrismicNavigation" }
+																		| { __typename?: "PrismicPage" }
+																		| { __typename?: "PrismicSettings" }
 																		| {
+																				__typename?: "PrismicSponsor"
 																				data: {
+																					__typename?: "PrismicSponsorDataType"
 																					image?:
 																						| {
+																								__typename?: "PrismicSponsorDataImageImageType"
 																								alt?: string | undefined
 																								url?: string | undefined
 																						  }
 																						| undefined
 																					link?:
-																						| { url?: string | undefined }
+																						| {
+																								__typename?: "PrismicLinkType"
+																								url?: string | undefined
+																						  }
 																						| undefined
 																					name?:
-																						| { text?: string | undefined }
+																						| {
+																								__typename?: "PrismicStructuredTextType"
+																								text?: string | undefined
+																						  }
 																						| undefined
 																				}
 																		  }
-																		| {}
+																		| { __typename?: "PrismicSponsorsList" }
+																		| { __typename?: "PrismicSubmissionType" }
+																		| { __typename?: "PrismicVideoSubmission" }
 																		| undefined
 															  }
 															| undefined
@@ -8397,26 +9068,43 @@ export type SponsorsFragment = {
 									partner_sponsors?:
 										| Array<
 												| {
+														__typename?: "PrismicSponsorsListDataPartnerSponsors"
 														sponsor?:
 															| {
+																	__typename?: "PrismicLinkType"
 																	document?:
+																		| { __typename?: "PrismicEvent" }
+																		| { __typename?: "PrismicNavigation" }
+																		| { __typename?: "PrismicPage" }
+																		| { __typename?: "PrismicSettings" }
 																		| {
+																				__typename?: "PrismicSponsor"
 																				data: {
+																					__typename?: "PrismicSponsorDataType"
 																					image?:
 																						| {
+																								__typename?: "PrismicSponsorDataImageImageType"
 																								alt?: string | undefined
 																								url?: string | undefined
 																						  }
 																						| undefined
 																					link?:
-																						| { url?: string | undefined }
+																						| {
+																								__typename?: "PrismicLinkType"
+																								url?: string | undefined
+																						  }
 																						| undefined
 																					name?:
-																						| { text?: string | undefined }
+																						| {
+																								__typename?: "PrismicStructuredTextType"
+																								text?: string | undefined
+																						  }
 																						| undefined
 																				}
 																		  }
-																		| {}
+																		| { __typename?: "PrismicSponsorsList" }
+																		| { __typename?: "PrismicSubmissionType" }
+																		| { __typename?: "PrismicVideoSubmission" }
 																		| undefined
 															  }
 															| undefined
@@ -8426,7 +9114,8 @@ export type SponsorsFragment = {
 										| undefined
 								}
 						  }
-						| {}
+						| { __typename?: "PrismicSubmissionType" }
+						| { __typename?: "PrismicVideoSubmission" }
 						| undefined
 			  }
 			| undefined
@@ -8434,48 +9123,83 @@ export type SponsorsFragment = {
 }
 
 export type TextAndVideoFragment = {
+	__typename?: "PrismicPageDataBodyTextAndVideo"
 	primary: {
+		__typename?: "PrismicPageDataBodyTextAndVideoPrimary"
 		thumbnail_side?: string | undefined
 		video_url?: string | undefined
 		color?: string | undefined
 		video_thumbnail?:
-			| { url?: string | undefined; alt?: string | undefined }
+			| {
+					__typename?: "PrismicPageDataBodyTextAndVideoPrimaryVideoThumbnailImageType"
+					url?: string | undefined
+					alt?: string | undefined
+			  }
 			| undefined
-		text?: { html?: string | undefined } | undefined
+		text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
 	}
 }
 
 export type TwoColumnTextFragment = {
+	__typename?: "PrismicPageDataBodyTwoColumnText"
 	primary: {
+		__typename?: "PrismicPageDataBodyTwoColumnTextPrimary"
 		color?: string | undefined
 		button_text?: string | undefined
 		button_side?: string | undefined
-		left_text?: { html?: string | undefined } | undefined
-		right_text?: { html?: string | undefined } | undefined
-		button_link?: { url?: string | undefined } | undefined
+		left_text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
+		right_text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
+		button_link?:
+			| { __typename?: "PrismicLinkType"; url?: string | undefined }
+			| undefined
 	}
 }
 
 export type VideoFragment = {
+	__typename?: "PrismicPageDataBodyVideo"
 	primary: {
+		__typename?: "PrismicPageDataBodyVideoPrimary"
 		video_url?: string | undefined
 		thumbnail?:
-			| { alt?: string | undefined; url?: string | undefined }
+			| {
+					__typename?: "PrismicPageDataBodyVideoPrimaryThumbnailImageType"
+					alt?: string | undefined
+					url?: string | undefined
+			  }
 			| undefined
 	}
 }
 
 export type VideoGalleryFragment = {
+	__typename?: "PrismicPageDataBodyVideoGallery"
 	primary: {
+		__typename?: "PrismicPageDataBodyVideoGalleryPrimary"
 		color?: string | undefined
-		text?: { html?: string | undefined } | undefined
+		text?:
+			| { __typename?: "PrismicStructuredTextType"; html?: string | undefined }
+			| undefined
 		video_submission_type?:
 			| {
+					__typename?: "PrismicLinkType"
 					uid?: string | undefined
 					document?:
+						| { __typename?: "PrismicEvent" }
+						| { __typename?: "PrismicNavigation" }
+						| { __typename?: "PrismicPage" }
+						| { __typename?: "PrismicSettings" }
+						| { __typename?: "PrismicSponsor" }
+						| { __typename?: "PrismicSponsorsList" }
 						| {
+								__typename?: "PrismicSubmissionType"
 								_previewable: string
 								data: {
+									__typename?: "PrismicSubmissionTypeDataType"
 									votable?: boolean | undefined
 									mute_videos?: boolean | undefined
 									end_time?: unknown | undefined
@@ -8483,18 +9207,34 @@ export type VideoGalleryFragment = {
 								submissions?:
 									| Array<
 											| {
+													__typename?: "PrismicVideoSubmission"
 													_previewable: string
 													url?: string | undefined
 													uid: string
 													data: {
+														__typename?: "PrismicVideoSubmissionDataType"
 														video_url?: string | undefined
-														name?: { text?: string | undefined } | undefined
-														description?:
-															| { html?: string | undefined }
+														name?:
+															| {
+																	__typename?: "PrismicStructuredTextType"
+																	text?: string | undefined
+															  }
 															| undefined
-														subtitle?: { text?: string | undefined } | undefined
+														description?:
+															| {
+																	__typename?: "PrismicStructuredTextType"
+																	html?: string | undefined
+															  }
+															| undefined
+														subtitle?:
+															| {
+																	__typename?: "PrismicStructuredTextType"
+																	text?: string | undefined
+															  }
+															| undefined
 														video_thumbnail?:
 															| {
+																	__typename?: "PrismicVideoSubmissionDataVideoThumbnailImageType"
 																	url?: string | undefined
 																	alt?: string | undefined
 															  }
@@ -8505,7 +9245,7 @@ export type VideoGalleryFragment = {
 									  >
 									| undefined
 						  }
-						| {}
+						| { __typename?: "PrismicVideoSubmission" }
 						| undefined
 			  }
 			| undefined
@@ -8513,11 +9253,19 @@ export type VideoGalleryFragment = {
 }
 
 export type VideoHeroFragment = {
+	__typename?: "PrismicPageDataBodyVideoHero"
 	primary: {
+		__typename?: "PrismicPageDataBodyVideoHeroPrimary"
 		video_url?: string | undefined
-		text?: { text?: string | undefined } | undefined
+		text?:
+			| { __typename?: "PrismicStructuredTextType"; text?: string | undefined }
+			| undefined
 		video_thumbnail?:
-			| { alt?: string | undefined; url?: string | undefined }
+			| {
+					__typename?: "PrismicPageDataBodyVideoHeroPrimaryVideoThumbnailImageType"
+					alt?: string | undefined
+					url?: string | undefined
+			  }
 			| undefined
 	}
 }
@@ -8527,100 +9275,236 @@ export type EventTemplateQueryVariables = Exact<{
 }>
 
 export type EventTemplateQuery = {
+	__typename?: "Query"
 	prismicEvent?:
 		| {
+				__typename?: "PrismicEvent"
 				_previewable: string
 				uid: string
 				url?: string | undefined
 				data: {
-					title?: { text?: string | undefined } | undefined
+					__typename?: "PrismicEventDataType"
+					title?:
+						| {
+								__typename?: "PrismicStructuredTextType"
+								text?: string | undefined
+						  }
+						| undefined
 					body: Array<
 						| {
 								__typename: "PrismicEventDataBodyAnchor"
-								primary: { anchor?: string | undefined }
+								primary: {
+									__typename?: "PrismicEventDataBodyAnchorPrimary"
+									anchor?: string | undefined
+								}
 						  }
 						| {
 								__typename: "PrismicEventDataBodyCallToAction"
 								primary: {
+									__typename?: "PrismicEventDataBodyCallToActionPrimary"
 									button_text?: string | undefined
-									heading?: { text?: string | undefined } | undefined
-									button_link?: { url?: string | undefined } | undefined
+									heading?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
+									button_link?:
+										| {
+												__typename?: "PrismicLinkType"
+												url?: string | undefined
+										  }
+										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicEventDataBodyCallToActionCard"
 								primary: {
+									__typename?: "PrismicEventDataBodyCallToActionCardPrimary"
 									button_text?: string | undefined
 									color?: string | undefined
-									text?: { html?: string | undefined } | undefined
-									button_link?: { url?: string | undefined } | undefined
+									text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
+									button_link?:
+										| {
+												__typename?: "PrismicLinkType"
+												url?: string | undefined
+										  }
+										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicEventDataBodyFeaturedPeople"
 								primary: {
+									__typename?: "PrismicEventDataBodyFeaturedPeoplePrimary"
 									color?: string | undefined
-									subheading?: { text?: string | undefined } | undefined
-									heading?: { text?: string | undefined } | undefined
+									subheading?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
+									heading?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
 								}
 								items: Array<{
+									__typename?: "PrismicEventDataBodyFeaturedPeopleItem"
 									instagram_handle?: string | undefined
 									website_label?: string | undefined
-									name?: { text?: string | undefined } | undefined
-									title1?: { text?: string | undefined } | undefined
-									pronouns?: { text?: string | undefined } | undefined
-									bio?: { html?: string | undefined } | undefined
+									name?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
+									title1?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
+									pronouns?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
+									bio?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
 									headshot?:
-										| { url?: string | undefined; alt?: string | undefined }
+										| {
+												__typename?: "PrismicEventDataBodyFeaturedPeopleItemsHeadshotImageType"
+												url?: string | undefined
+												alt?: string | undefined
+										  }
 										| undefined
 									instagram_profile_url?:
-										| { url?: string | undefined }
+										| {
+												__typename?: "PrismicLinkType"
+												url?: string | undefined
+										  }
 										| undefined
-									website_url?: { url?: string | undefined } | undefined
+									website_url?:
+										| {
+												__typename?: "PrismicLinkType"
+												url?: string | undefined
+										  }
+										| undefined
 								}>
 						  }
 						| {
 								__typename: "PrismicEventDataBodyImageCallToAction"
 								primary: {
+									__typename?: "PrismicEventDataBodyImageCallToActionPrimary"
 									button_text?: string | undefined
 									color?: string | undefined
 									image?:
-										| { url?: string | undefined; alt?: string | undefined }
+										| {
+												__typename?: "PrismicEventDataBodyImageCallToActionPrimaryImageImageType"
+												url?: string | undefined
+												alt?: string | undefined
+										  }
 										| undefined
-									text?: { html?: string | undefined } | undefined
-									button_link?: { url?: string | undefined } | undefined
+									text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
+									button_link?:
+										| {
+												__typename?: "PrismicLinkType"
+												url?: string | undefined
+										  }
+										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicEventDataBodyIntroduction"
 								primary: {
+									__typename?: "PrismicEventDataBodyIntroductionPrimary"
 									color?: string | undefined
-									heading?: { text?: string | undefined } | undefined
-									text?: { html?: string | undefined } | undefined
+									heading?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
+									text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicEventDataBodyNewsletterForm"
 								primary: {
+									__typename?: "PrismicEventDataBodyNewsletterFormPrimary"
 									placeholder_text?: string | undefined
 									color?: string | undefined
-									heading?: { text?: string | undefined } | undefined
+									heading?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicEventDataBodyPrideCalendar"
 								primary: {
+									__typename?: "PrismicEventDataBodyPrideCalendarPrimary"
 									color?: string | undefined
-									text?: { html?: string | undefined } | undefined
+									text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
 								}
 								items: Array<{
-									event_description?: { html?: string | undefined } | undefined
-									event_link?: { url?: string | undefined } | undefined
-									event_title?: { text?: string | undefined } | undefined
+									__typename?: "PrismicEventDataBodyPrideCalendarItem"
+									event_video_url?: string | undefined
+									event_start?: unknown | undefined
+									event_end?: unknown | undefined
+									event_description?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
+									event_link?:
+										| {
+												__typename?: "PrismicLinkType"
+												url?: string | undefined
+										  }
+										| undefined
+									event_title?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
 									image?:
 										| {
+												__typename?: "PrismicEventDataBodyPrideCalendarItemsImageImageType"
 												alt?: string | undefined
 												gatsbyImageData?: unknown | undefined
+												url?: string | undefined
 										  }
 										| undefined
 								}>
@@ -8628,56 +9512,113 @@ export type EventTemplateQuery = {
 						| {
 								__typename: "PrismicEventDataBodyRichText"
 								primary: {
+									__typename?: "PrismicEventDataBodyRichTextPrimary"
 									button_text?: string | undefined
 									color?: string | undefined
-									text?: { html?: string | undefined } | undefined
-									button_link?: { url?: string | undefined } | undefined
+									text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
+									button_link?:
+										| {
+												__typename?: "PrismicLinkType"
+												url?: string | undefined
+										  }
+										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicEventDataBodyTextAndVideo"
 								primary: {
+									__typename?: "PrismicEventDataBodyTextAndVideoPrimary"
 									thumbnail_side?: string | undefined
 									video_url?: string | undefined
 									color?: string | undefined
 									video_thumbnail?:
-										| { url?: string | undefined; alt?: string | undefined }
+										| {
+												__typename?: "PrismicEventDataBodyTextAndVideoPrimaryVideoThumbnailImageType"
+												url?: string | undefined
+												alt?: string | undefined
+										  }
 										| undefined
-									text?: { html?: string | undefined } | undefined
+									text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicEventDataBodyTwoColumnText"
 								primary: {
+									__typename?: "PrismicEventDataBodyTwoColumnTextPrimary"
 									color?: string | undefined
 									button_text?: string | undefined
 									button_side?: string | undefined
-									left_text?: { html?: string | undefined } | undefined
-									right_text?: { html?: string | undefined } | undefined
-									button_link?: { url?: string | undefined } | undefined
+									left_text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
+									right_text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
+									button_link?:
+										| {
+												__typename?: "PrismicLinkType"
+												url?: string | undefined
+										  }
+										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicEventDataBodyVideo"
 								primary: {
+									__typename?: "PrismicEventDataBodyVideoPrimary"
 									video_url?: string | undefined
 									thumbnail?:
-										| { alt?: string | undefined; url?: string | undefined }
+										| {
+												__typename?: "PrismicEventDataBodyVideoPrimaryThumbnailImageType"
+												alt?: string | undefined
+												url?: string | undefined
+										  }
 										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicEventDataBodyVideoGallery"
 								primary: {
+									__typename?: "PrismicEventDataBodyVideoGalleryPrimary"
 									color?: string | undefined
-									text?: { html?: string | undefined } | undefined
+									text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
 									video_submission_type?:
 										| {
+												__typename?: "PrismicLinkType"
 												uid?: string | undefined
 												document?:
+													| { __typename?: "PrismicEvent" }
+													| { __typename?: "PrismicNavigation" }
+													| { __typename?: "PrismicPage" }
+													| { __typename?: "PrismicSettings" }
+													| { __typename?: "PrismicSponsor" }
+													| { __typename?: "PrismicSponsorsList" }
 													| {
+															__typename?: "PrismicSubmissionType"
 															_previewable: string
 															data: {
+																__typename?: "PrismicSubmissionTypeDataType"
 																votable?: boolean | undefined
 																mute_videos?: boolean | undefined
 																end_time?: unknown | undefined
@@ -8685,22 +9626,34 @@ export type EventTemplateQuery = {
 															submissions?:
 																| Array<
 																		| {
+																				__typename?: "PrismicVideoSubmission"
 																				_previewable: string
 																				url?: string | undefined
 																				uid: string
 																				data: {
+																					__typename?: "PrismicVideoSubmissionDataType"
 																					video_url?: string | undefined
 																					name?:
-																						| { text?: string | undefined }
+																						| {
+																								__typename?: "PrismicStructuredTextType"
+																								text?: string | undefined
+																						  }
 																						| undefined
 																					description?:
-																						| { html?: string | undefined }
+																						| {
+																								__typename?: "PrismicStructuredTextType"
+																								html?: string | undefined
+																						  }
 																						| undefined
 																					subtitle?:
-																						| { text?: string | undefined }
+																						| {
+																								__typename?: "PrismicStructuredTextType"
+																								text?: string | undefined
+																						  }
 																						| undefined
 																					video_thumbnail?:
 																						| {
+																								__typename?: "PrismicVideoSubmissionDataVideoThumbnailImageType"
 																								url?: string | undefined
 																								alt?: string | undefined
 																						  }
@@ -8711,7 +9664,7 @@ export type EventTemplateQuery = {
 																  >
 																| undefined
 													  }
-													| {}
+													| { __typename?: "PrismicVideoSubmission" }
 													| undefined
 										  }
 										| undefined
@@ -8720,10 +9673,20 @@ export type EventTemplateQuery = {
 						| {
 								__typename: "PrismicEventDataBodyVideoHero"
 								primary: {
+									__typename?: "PrismicEventDataBodyVideoHeroPrimary"
 									video_url?: string | undefined
-									text?: { text?: string | undefined } | undefined
+									text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
 									video_thumbnail?:
-										| { alt?: string | undefined; url?: string | undefined }
+										| {
+												__typename?: "PrismicEventDataBodyVideoHeroPrimaryVideoThumbnailImageType"
+												alt?: string | undefined
+												url?: string | undefined
+										  }
 										| undefined
 								}
 						  }
@@ -8738,83 +9701,176 @@ export type PageTemplateQueryVariables = Exact<{
 }>
 
 export type PageTemplateQuery = {
+	__typename?: "Query"
 	prismicPage?:
 		| {
+				__typename?: "PrismicPage"
 				_previewable: string
 				uid: string
 				url?: string | undefined
 				data: {
+					__typename?: "PrismicPageDataType"
 					meta_description?: string | undefined
 					meta_title?: string | undefined
-					title?: { text?: string | undefined } | undefined
+					title?:
+						| {
+								__typename?: "PrismicStructuredTextType"
+								text?: string | undefined
+						  }
+						| undefined
 					body: Array<
 						| {
 								__typename: "PrismicPageDataBodyAnchor"
-								primary: { anchor?: string | undefined }
+								primary: {
+									__typename?: "PrismicPageDataBodyAnchorPrimary"
+									anchor?: string | undefined
+								}
 						  }
 						| {
 								__typename: "PrismicPageDataBodyCallToAction"
 								primary: {
+									__typename?: "PrismicPageDataBodyCallToActionPrimary"
 									button_text?: string | undefined
-									heading?: { text?: string | undefined } | undefined
-									button_link?: { url?: string | undefined } | undefined
+									heading?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
+									button_link?:
+										| {
+												__typename?: "PrismicLinkType"
+												url?: string | undefined
+										  }
+										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicPageDataBodyCallToActionCard"
 								primary: {
+									__typename?: "PrismicPageDataBodyCallToActionCardPrimary"
 									button_text?: string | undefined
 									color?: string | undefined
-									text?: { html?: string | undefined } | undefined
-									button_link?: { url?: string | undefined } | undefined
+									text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
+									button_link?:
+										| {
+												__typename?: "PrismicLinkType"
+												url?: string | undefined
+										  }
+										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicPageDataBodyFeaturedPeople"
 								primary: {
+									__typename?: "PrismicPageDataBodyFeaturedPeoplePrimary"
 									color?: string | undefined
-									subheading?: { text?: string | undefined } | undefined
-									heading?: { text?: string | undefined } | undefined
+									subheading?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
+									heading?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
 								}
 								items: Array<{
+									__typename?: "PrismicPageDataBodyFeaturedPeopleItem"
 									instagram_handle?: string | undefined
 									website_label?: string | undefined
-									name?: { text?: string | undefined } | undefined
-									title1?: { text?: string | undefined } | undefined
-									pronouns?: { text?: string | undefined } | undefined
-									bio?: { html?: string | undefined } | undefined
+									name?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
+									title1?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
+									pronouns?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
+									bio?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
 									headshot?:
-										| { url?: string | undefined; alt?: string | undefined }
+										| {
+												__typename?: "PrismicPageDataBodyFeaturedPeopleItemsHeadshotImageType"
+												url?: string | undefined
+												alt?: string | undefined
+										  }
 										| undefined
 									instagram_profile_url?:
-										| { url?: string | undefined }
+										| {
+												__typename?: "PrismicLinkType"
+												url?: string | undefined
+										  }
 										| undefined
-									website_url?: { url?: string | undefined } | undefined
+									website_url?:
+										| {
+												__typename?: "PrismicLinkType"
+												url?: string | undefined
+										  }
+										| undefined
 								}>
 						  }
 						| {
 								__typename: "PrismicPageDataBodyFilterableEvents"
 								items: Array<{
+									__typename?: "PrismicPageDataBodyFilterableEventsItem"
 									color?: string | undefined
 									event?:
 										| {
+												__typename?: "PrismicLinkType"
 												url?: string | undefined
 												document?:
 													| {
+															__typename?: "PrismicEvent"
 															_previewable: string
 															data: {
+																__typename?: "PrismicEventDataType"
 																date?: unknown | undefined
 																illustration?: string | undefined
 																type?: string | undefined
 																description?:
-																	| { html?: string | undefined }
+																	| {
+																			__typename?: "PrismicStructuredTextType"
+																			html?: string | undefined
+																	  }
 																	| undefined
 																title?:
-																	| { text?: string | undefined }
+																	| {
+																			__typename?: "PrismicStructuredTextType"
+																			text?: string | undefined
+																	  }
 																	| undefined
 															}
 													  }
-													| {}
+													| { __typename?: "PrismicNavigation" }
+													| { __typename?: "PrismicPage" }
+													| { __typename?: "PrismicSettings" }
+													| { __typename?: "PrismicSponsor" }
+													| { __typename?: "PrismicSponsorsList" }
+													| { __typename?: "PrismicSubmissionType" }
+													| { __typename?: "PrismicVideoSubmission" }
 													| undefined
 										  }
 										| undefined
@@ -8823,54 +9879,124 @@ export type PageTemplateQuery = {
 						| {
 								__typename: "PrismicPageDataBodyGradientText"
 								primary: {
+									__typename?: "PrismicPageDataBodyGradientTextPrimary"
 									button_link_text?: string | undefined
-									text?: { text?: string | undefined } | undefined
-									button_link?: { url?: string | undefined } | undefined
+									text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
+									button_link?:
+										| {
+												__typename?: "PrismicLinkType"
+												url?: string | undefined
+										  }
+										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicPageDataBodyImageCallToAction"
 								primary: {
+									__typename?: "PrismicPageDataBodyImageCallToActionPrimary"
 									button_text?: string | undefined
 									color?: string | undefined
 									image_side?: string | undefined
 									image?:
-										| { url?: string | undefined; alt?: string | undefined }
+										| {
+												__typename?: "PrismicPageDataBodyImageCallToActionPrimaryImageImageType"
+												url?: string | undefined
+												alt?: string | undefined
+										  }
 										| undefined
-									text?: { html?: string | undefined } | undefined
-									button_link?: { url?: string | undefined } | undefined
+									text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
+									button_link?:
+										| {
+												__typename?: "PrismicLinkType"
+												url?: string | undefined
+										  }
+										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicPageDataBodyIntroduction"
 								primary: {
+									__typename?: "PrismicPageDataBodyIntroductionPrimary"
 									color?: string | undefined
-									heading?: { text?: string | undefined } | undefined
-									text?: { html?: string | undefined } | undefined
+									heading?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
+									text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicPageDataBodyNewsletterForm"
 								primary: {
+									__typename?: "PrismicPageDataBodyNewsletterFormPrimary"
 									placeholder_text?: string | undefined
 									color?: string | undefined
-									heading?: { text?: string | undefined } | undefined
+									heading?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicPageDataBodyPrideCalendar"
 								primary: {
+									__typename?: "PrismicPageDataBodyPrideCalendarPrimary"
 									color?: string | undefined
-									text?: { html?: string | undefined } | undefined
+									text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
 								}
 								items: Array<{
-									event_description?: { html?: string | undefined } | undefined
-									event_link?: { url?: string | undefined } | undefined
-									event_title?: { text?: string | undefined } | undefined
+									__typename?: "PrismicPageDataBodyPrideCalendarItem"
+									event_video_url?: string | undefined
+									event_start?: unknown | undefined
+									event_end?: unknown | undefined
+									event_description?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
+									event_link?:
+										| {
+												__typename?: "PrismicLinkType"
+												url?: string | undefined
+										  }
+										| undefined
+									event_title?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
 									image?:
 										| {
+												__typename?: "PrismicPageDataBodyPrideCalendarItemsImageImageType"
 												alt?: string | undefined
 												gatsbyImageData?: unknown | undefined
+												url?: string | undefined
 										  }
 										| undefined
 								}>
@@ -8878,56 +10004,123 @@ export type PageTemplateQuery = {
 						| {
 								__typename: "PrismicPageDataBodyRichText"
 								primary: {
+									__typename?: "PrismicPageDataBodyRichTextPrimary"
 									button_text?: string | undefined
 									color?: string | undefined
-									text?: { html?: string | undefined } | undefined
-									button_link?: { url?: string | undefined } | undefined
+									text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
+									button_link?:
+										| {
+												__typename?: "PrismicLinkType"
+												url?: string | undefined
+										  }
+										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicPageDataBodySponsors"
 								primary: {
-									heading?: { text?: string | undefined } | undefined
-									subheading?: { text?: string | undefined } | undefined
+									__typename?: "PrismicPageDataBodySponsorsPrimary"
+									heading?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
+									subheading?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
 									sponsor_list?:
 										| {
+												__typename?: "PrismicLinkType"
 												document?:
+													| { __typename?: "PrismicEvent" }
+													| { __typename?: "PrismicNavigation" }
+													| { __typename?: "PrismicPage" }
+													| { __typename?: "PrismicSettings" }
+													| { __typename?: "PrismicSponsor" }
 													| {
+															__typename?: "PrismicSponsorsList"
 															id: string
 															data: {
+																__typename?: "PrismicSponsorsListDataType"
 																rainbows_over_waikiki_sponsor?:
 																	| {
+																			__typename?: "PrismicLinkType"
 																			document?:
+																				| { __typename?: "PrismicEvent" }
+																				| { __typename?: "PrismicNavigation" }
+																				| { __typename?: "PrismicPage" }
+																				| { __typename?: "PrismicSettings" }
 																				| {
+																						__typename?: "PrismicSponsor"
 																						data: {
+																							__typename?: "PrismicSponsorDataType"
 																							image?:
 																								| {
+																										__typename?: "PrismicSponsorDataImageImageType"
 																										alt?: string | undefined
 																										url?: string | undefined
 																								  }
 																								| undefined
 																							link?:
-																								| { url?: string | undefined }
+																								| {
+																										__typename?: "PrismicLinkType"
+																										url?: string | undefined
+																								  }
 																								| undefined
 																							name?:
-																								| { text?: string | undefined }
+																								| {
+																										__typename?: "PrismicStructuredTextType"
+																										text?: string | undefined
+																								  }
 																								| undefined
 																						}
 																				  }
-																				| {}
+																				| { __typename?: "PrismicSponsorsList" }
+																				| {
+																						__typename?: "PrismicSubmissionType"
+																				  }
+																				| {
+																						__typename?: "PrismicVideoSubmission"
+																				  }
 																				| undefined
 																	  }
 																	| undefined
 																visionary_sponsors?:
 																	| Array<
 																			| {
+																					__typename?: "PrismicSponsorsListDataVisionarySponsors"
 																					sponsor?:
 																						| {
+																								__typename?: "PrismicLinkType"
 																								document?:
 																									| {
+																											__typename?: "PrismicEvent"
+																									  }
+																									| {
+																											__typename?: "PrismicNavigation"
+																									  }
+																									| {
+																											__typename?: "PrismicPage"
+																									  }
+																									| {
+																											__typename?: "PrismicSettings"
+																									  }
+																									| {
+																											__typename?: "PrismicSponsor"
 																											data: {
+																												__typename?: "PrismicSponsorDataType"
 																												image?:
 																													| {
+																															__typename?: "PrismicSponsorDataImageImageType"
 																															alt?:
 																																| string
 																																| undefined
@@ -8938,6 +10131,7 @@ export type PageTemplateQuery = {
 																													| undefined
 																												link?:
 																													| {
+																															__typename?: "PrismicLinkType"
 																															url?:
 																																| string
 																																| undefined
@@ -8945,6 +10139,7 @@ export type PageTemplateQuery = {
 																													| undefined
 																												name?:
 																													| {
+																															__typename?: "PrismicStructuredTextType"
 																															text?:
 																																| string
 																																| undefined
@@ -8952,7 +10147,15 @@ export type PageTemplateQuery = {
 																													| undefined
 																											}
 																									  }
-																									| {}
+																									| {
+																											__typename?: "PrismicSponsorsList"
+																									  }
+																									| {
+																											__typename?: "PrismicSubmissionType"
+																									  }
+																									| {
+																											__typename?: "PrismicVideoSubmission"
+																									  }
 																									| undefined
 																						  }
 																						| undefined
@@ -8963,13 +10166,30 @@ export type PageTemplateQuery = {
 																media_sponsors?:
 																	| Array<
 																			| {
+																					__typename?: "PrismicSponsorsListDataMediaSponsors"
 																					sponsor?:
 																						| {
+																								__typename?: "PrismicLinkType"
 																								document?:
 																									| {
+																											__typename?: "PrismicEvent"
+																									  }
+																									| {
+																											__typename?: "PrismicNavigation"
+																									  }
+																									| {
+																											__typename?: "PrismicPage"
+																									  }
+																									| {
+																											__typename?: "PrismicSettings"
+																									  }
+																									| {
+																											__typename?: "PrismicSponsor"
 																											data: {
+																												__typename?: "PrismicSponsorDataType"
 																												image?:
 																													| {
+																															__typename?: "PrismicSponsorDataImageImageType"
 																															alt?:
 																																| string
 																																| undefined
@@ -8980,6 +10200,7 @@ export type PageTemplateQuery = {
 																													| undefined
 																												link?:
 																													| {
+																															__typename?: "PrismicLinkType"
 																															url?:
 																																| string
 																																| undefined
@@ -8987,6 +10208,7 @@ export type PageTemplateQuery = {
 																													| undefined
 																												name?:
 																													| {
+																															__typename?: "PrismicStructuredTextType"
 																															text?:
 																																| string
 																																| undefined
@@ -8994,7 +10216,15 @@ export type PageTemplateQuery = {
 																													| undefined
 																											}
 																									  }
-																									| {}
+																									| {
+																											__typename?: "PrismicSponsorsList"
+																									  }
+																									| {
+																											__typename?: "PrismicSubmissionType"
+																									  }
+																									| {
+																											__typename?: "PrismicVideoSubmission"
+																									  }
 																									| undefined
 																						  }
 																						| undefined
@@ -9005,13 +10235,30 @@ export type PageTemplateQuery = {
 																platinum_sponsors?:
 																	| Array<
 																			| {
+																					__typename?: "PrismicSponsorsListDataPlatinumSponsors"
 																					sponsor?:
 																						| {
+																								__typename?: "PrismicLinkType"
 																								document?:
 																									| {
+																											__typename?: "PrismicEvent"
+																									  }
+																									| {
+																											__typename?: "PrismicNavigation"
+																									  }
+																									| {
+																											__typename?: "PrismicPage"
+																									  }
+																									| {
+																											__typename?: "PrismicSettings"
+																									  }
+																									| {
+																											__typename?: "PrismicSponsor"
 																											data: {
+																												__typename?: "PrismicSponsorDataType"
 																												image?:
 																													| {
+																															__typename?: "PrismicSponsorDataImageImageType"
 																															alt?:
 																																| string
 																																| undefined
@@ -9022,6 +10269,7 @@ export type PageTemplateQuery = {
 																													| undefined
 																												link?:
 																													| {
+																															__typename?: "PrismicLinkType"
 																															url?:
 																																| string
 																																| undefined
@@ -9029,6 +10277,7 @@ export type PageTemplateQuery = {
 																													| undefined
 																												name?:
 																													| {
+																															__typename?: "PrismicStructuredTextType"
 																															text?:
 																																| string
 																																| undefined
@@ -9036,7 +10285,15 @@ export type PageTemplateQuery = {
 																													| undefined
 																											}
 																									  }
-																									| {}
+																									| {
+																											__typename?: "PrismicSponsorsList"
+																									  }
+																									| {
+																											__typename?: "PrismicSubmissionType"
+																									  }
+																									| {
+																											__typename?: "PrismicVideoSubmission"
+																									  }
 																									| undefined
 																						  }
 																						| undefined
@@ -9047,13 +10304,30 @@ export type PageTemplateQuery = {
 																gold_sponsors?:
 																	| Array<
 																			| {
+																					__typename?: "PrismicSponsorsListDataGoldSponsors"
 																					sponsor?:
 																						| {
+																								__typename?: "PrismicLinkType"
 																								document?:
 																									| {
+																											__typename?: "PrismicEvent"
+																									  }
+																									| {
+																											__typename?: "PrismicNavigation"
+																									  }
+																									| {
+																											__typename?: "PrismicPage"
+																									  }
+																									| {
+																											__typename?: "PrismicSettings"
+																									  }
+																									| {
+																											__typename?: "PrismicSponsor"
 																											data: {
+																												__typename?: "PrismicSponsorDataType"
 																												image?:
 																													| {
+																															__typename?: "PrismicSponsorDataImageImageType"
 																															alt?:
 																																| string
 																																| undefined
@@ -9064,6 +10338,7 @@ export type PageTemplateQuery = {
 																													| undefined
 																												link?:
 																													| {
+																															__typename?: "PrismicLinkType"
 																															url?:
 																																| string
 																																| undefined
@@ -9071,6 +10346,7 @@ export type PageTemplateQuery = {
 																													| undefined
 																												name?:
 																													| {
+																															__typename?: "PrismicStructuredTextType"
 																															text?:
 																																| string
 																																| undefined
@@ -9078,7 +10354,15 @@ export type PageTemplateQuery = {
 																													| undefined
 																											}
 																									  }
-																									| {}
+																									| {
+																											__typename?: "PrismicSponsorsList"
+																									  }
+																									| {
+																											__typename?: "PrismicSubmissionType"
+																									  }
+																									| {
+																											__typename?: "PrismicVideoSubmission"
+																									  }
 																									| undefined
 																						  }
 																						| undefined
@@ -9089,13 +10373,30 @@ export type PageTemplateQuery = {
 																silver_sponsors?:
 																	| Array<
 																			| {
+																					__typename?: "PrismicSponsorsListDataSilverSponsors"
 																					sponsor?:
 																						| {
+																								__typename?: "PrismicLinkType"
 																								document?:
 																									| {
+																											__typename?: "PrismicEvent"
+																									  }
+																									| {
+																											__typename?: "PrismicNavigation"
+																									  }
+																									| {
+																											__typename?: "PrismicPage"
+																									  }
+																									| {
+																											__typename?: "PrismicSettings"
+																									  }
+																									| {
+																											__typename?: "PrismicSponsor"
 																											data: {
+																												__typename?: "PrismicSponsorDataType"
 																												image?:
 																													| {
+																															__typename?: "PrismicSponsorDataImageImageType"
 																															alt?:
 																																| string
 																																| undefined
@@ -9106,6 +10407,7 @@ export type PageTemplateQuery = {
 																													| undefined
 																												link?:
 																													| {
+																															__typename?: "PrismicLinkType"
 																															url?:
 																																| string
 																																| undefined
@@ -9113,6 +10415,7 @@ export type PageTemplateQuery = {
 																													| undefined
 																												name?:
 																													| {
+																															__typename?: "PrismicStructuredTextType"
 																															text?:
 																																| string
 																																| undefined
@@ -9120,7 +10423,15 @@ export type PageTemplateQuery = {
 																													| undefined
 																											}
 																									  }
-																									| {}
+																									| {
+																											__typename?: "PrismicSponsorsList"
+																									  }
+																									| {
+																											__typename?: "PrismicSubmissionType"
+																									  }
+																									| {
+																											__typename?: "PrismicVideoSubmission"
+																									  }
 																									| undefined
 																						  }
 																						| undefined
@@ -9131,13 +10442,30 @@ export type PageTemplateQuery = {
 																bronze_sponsors?:
 																	| Array<
 																			| {
+																					__typename?: "PrismicSponsorsListDataBronzeSponsors"
 																					sponsor?:
 																						| {
+																								__typename?: "PrismicLinkType"
 																								document?:
 																									| {
+																											__typename?: "PrismicEvent"
+																									  }
+																									| {
+																											__typename?: "PrismicNavigation"
+																									  }
+																									| {
+																											__typename?: "PrismicPage"
+																									  }
+																									| {
+																											__typename?: "PrismicSettings"
+																									  }
+																									| {
+																											__typename?: "PrismicSponsor"
 																											data: {
+																												__typename?: "PrismicSponsorDataType"
 																												image?:
 																													| {
+																															__typename?: "PrismicSponsorDataImageImageType"
 																															alt?:
 																																| string
 																																| undefined
@@ -9148,6 +10476,7 @@ export type PageTemplateQuery = {
 																													| undefined
 																												link?:
 																													| {
+																															__typename?: "PrismicLinkType"
 																															url?:
 																																| string
 																																| undefined
@@ -9155,6 +10484,7 @@ export type PageTemplateQuery = {
 																													| undefined
 																												name?:
 																													| {
+																															__typename?: "PrismicStructuredTextType"
 																															text?:
 																																| string
 																																| undefined
@@ -9162,7 +10492,15 @@ export type PageTemplateQuery = {
 																													| undefined
 																											}
 																									  }
-																									| {}
+																									| {
+																											__typename?: "PrismicSponsorsList"
+																									  }
+																									| {
+																											__typename?: "PrismicSubmissionType"
+																									  }
+																									| {
+																											__typename?: "PrismicVideoSubmission"
+																									  }
 																									| undefined
 																						  }
 																						| undefined
@@ -9173,13 +10511,30 @@ export type PageTemplateQuery = {
 																partner_sponsors?:
 																	| Array<
 																			| {
+																					__typename?: "PrismicSponsorsListDataPartnerSponsors"
 																					sponsor?:
 																						| {
+																								__typename?: "PrismicLinkType"
 																								document?:
 																									| {
+																											__typename?: "PrismicEvent"
+																									  }
+																									| {
+																											__typename?: "PrismicNavigation"
+																									  }
+																									| {
+																											__typename?: "PrismicPage"
+																									  }
+																									| {
+																											__typename?: "PrismicSettings"
+																									  }
+																									| {
+																											__typename?: "PrismicSponsor"
 																											data: {
+																												__typename?: "PrismicSponsorDataType"
 																												image?:
 																													| {
+																															__typename?: "PrismicSponsorDataImageImageType"
 																															alt?:
 																																| string
 																																| undefined
@@ -9190,6 +10545,7 @@ export type PageTemplateQuery = {
 																													| undefined
 																												link?:
 																													| {
+																															__typename?: "PrismicLinkType"
 																															url?:
 																																| string
 																																| undefined
@@ -9197,6 +10553,7 @@ export type PageTemplateQuery = {
 																													| undefined
 																												name?:
 																													| {
+																															__typename?: "PrismicStructuredTextType"
 																															text?:
 																																| string
 																																| undefined
@@ -9204,7 +10561,15 @@ export type PageTemplateQuery = {
 																													| undefined
 																											}
 																									  }
-																									| {}
+																									| {
+																											__typename?: "PrismicSponsorsList"
+																									  }
+																									| {
+																											__typename?: "PrismicSubmissionType"
+																									  }
+																									| {
+																											__typename?: "PrismicVideoSubmission"
+																									  }
 																									| undefined
 																						  }
 																						| undefined
@@ -9214,7 +10579,8 @@ export type PageTemplateQuery = {
 																	| undefined
 															}
 													  }
-													| {}
+													| { __typename?: "PrismicSubmissionType" }
+													| { __typename?: "PrismicVideoSubmission" }
 													| undefined
 										  }
 										| undefined
@@ -9223,47 +10589,93 @@ export type PageTemplateQuery = {
 						| {
 								__typename: "PrismicPageDataBodyTextAndVideo"
 								primary: {
+									__typename?: "PrismicPageDataBodyTextAndVideoPrimary"
 									thumbnail_side?: string | undefined
 									video_url?: string | undefined
 									color?: string | undefined
 									video_thumbnail?:
-										| { url?: string | undefined; alt?: string | undefined }
+										| {
+												__typename?: "PrismicPageDataBodyTextAndVideoPrimaryVideoThumbnailImageType"
+												url?: string | undefined
+												alt?: string | undefined
+										  }
 										| undefined
-									text?: { html?: string | undefined } | undefined
+									text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicPageDataBodyTwoColumnText"
 								primary: {
+									__typename?: "PrismicPageDataBodyTwoColumnTextPrimary"
 									color?: string | undefined
 									button_text?: string | undefined
 									button_side?: string | undefined
-									left_text?: { html?: string | undefined } | undefined
-									right_text?: { html?: string | undefined } | undefined
-									button_link?: { url?: string | undefined } | undefined
+									left_text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
+									right_text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
+									button_link?:
+										| {
+												__typename?: "PrismicLinkType"
+												url?: string | undefined
+										  }
+										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicPageDataBodyVideo"
 								primary: {
+									__typename?: "PrismicPageDataBodyVideoPrimary"
 									video_url?: string | undefined
 									thumbnail?:
-										| { alt?: string | undefined; url?: string | undefined }
+										| {
+												__typename?: "PrismicPageDataBodyVideoPrimaryThumbnailImageType"
+												alt?: string | undefined
+												url?: string | undefined
+										  }
 										| undefined
 								}
 						  }
 						| {
 								__typename: "PrismicPageDataBodyVideoGallery"
 								primary: {
+									__typename?: "PrismicPageDataBodyVideoGalleryPrimary"
 									color?: string | undefined
-									text?: { html?: string | undefined } | undefined
+									text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												html?: string | undefined
+										  }
+										| undefined
 									video_submission_type?:
 										| {
+												__typename?: "PrismicLinkType"
 												uid?: string | undefined
 												document?:
+													| { __typename?: "PrismicEvent" }
+													| { __typename?: "PrismicNavigation" }
+													| { __typename?: "PrismicPage" }
+													| { __typename?: "PrismicSettings" }
+													| { __typename?: "PrismicSponsor" }
+													| { __typename?: "PrismicSponsorsList" }
 													| {
+															__typename?: "PrismicSubmissionType"
 															_previewable: string
 															data: {
+																__typename?: "PrismicSubmissionTypeDataType"
 																votable?: boolean | undefined
 																mute_videos?: boolean | undefined
 																end_time?: unknown | undefined
@@ -9271,22 +10683,34 @@ export type PageTemplateQuery = {
 															submissions?:
 																| Array<
 																		| {
+																				__typename?: "PrismicVideoSubmission"
 																				_previewable: string
 																				url?: string | undefined
 																				uid: string
 																				data: {
+																					__typename?: "PrismicVideoSubmissionDataType"
 																					video_url?: string | undefined
 																					name?:
-																						| { text?: string | undefined }
+																						| {
+																								__typename?: "PrismicStructuredTextType"
+																								text?: string | undefined
+																						  }
 																						| undefined
 																					description?:
-																						| { html?: string | undefined }
+																						| {
+																								__typename?: "PrismicStructuredTextType"
+																								html?: string | undefined
+																						  }
 																						| undefined
 																					subtitle?:
-																						| { text?: string | undefined }
+																						| {
+																								__typename?: "PrismicStructuredTextType"
+																								text?: string | undefined
+																						  }
 																						| undefined
 																					video_thumbnail?:
 																						| {
+																								__typename?: "PrismicVideoSubmissionDataVideoThumbnailImageType"
 																								url?: string | undefined
 																								alt?: string | undefined
 																						  }
@@ -9297,7 +10721,7 @@ export type PageTemplateQuery = {
 																  >
 																| undefined
 													  }
-													| {}
+													| { __typename?: "PrismicVideoSubmission" }
 													| undefined
 										  }
 										| undefined
@@ -9306,10 +10730,20 @@ export type PageTemplateQuery = {
 						| {
 								__typename: "PrismicPageDataBodyVideoHero"
 								primary: {
+									__typename?: "PrismicPageDataBodyVideoHeroPrimary"
 									video_url?: string | undefined
-									text?: { text?: string | undefined } | undefined
+									text?:
+										| {
+												__typename?: "PrismicStructuredTextType"
+												text?: string | undefined
+										  }
+										| undefined
 									video_thumbnail?:
-										| { alt?: string | undefined; url?: string | undefined }
+										| {
+												__typename?: "PrismicPageDataBodyVideoHeroPrimaryVideoThumbnailImageType"
+												alt?: string | undefined
+												url?: string | undefined
+										  }
 										| undefined
 								}
 						  }
