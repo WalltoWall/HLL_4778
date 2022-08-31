@@ -5,8 +5,9 @@ require("dotenv").config()
 
 const siteMetadata = {
 	title: "Honolulu Pride",
-	description: "Lorem Ipsum",
-	siteUrl: "https://www.example.org",
+	description:
+		"Celebrate Honolulu Pride virtually with all the fun, educational and inspiring programs from last year, plus a few new surprises. ",
+	siteUrl: "https://honolulupride.com",
 }
 
 /** @type {import("gatsby").GatsbyConfig} */
@@ -46,14 +47,6 @@ module.exports = {
 			options: {
 				repositoryName: process.env.GATSBY_PRISMIC_REPOSITORY_NAME,
 				accessToken: process.env.GATSBY_PRISMIC_ACCESS_TOKEN,
-			},
-		},
-		process.env.TYPEKIT_PROJECT_ID && {
-			resolve: "gatsby-plugin-web-font-loader",
-			options: {
-				typekit: {
-					id: process.env.TYPEKIT_PROJECT_ID,
-				},
 			},
 		},
 		process.env.GOOGLE_MEASUREMENT_ID && {
