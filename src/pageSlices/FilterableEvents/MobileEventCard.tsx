@@ -43,8 +43,12 @@ export const MobileEventCard = ({
 				className={clsx("block bg-beige-92 aspect-w-1 aspect-h-1")}
 				aria-label={`Go to ${event.title} details page.`}
 			>
-				<div className="flex items-center justify-center p-5">
-					<Image src={illustrationUrl} alt="" className="w-full h-full" />
+				<div className="flex items-center justify-center p-5 md:p-10">
+					<Image
+						src={illustrationUrl}
+						alt=""
+						className="w-full h-full object-contain"
+					/>
 				</div>
 			</Link>
 
