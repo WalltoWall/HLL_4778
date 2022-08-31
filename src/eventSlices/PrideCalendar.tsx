@@ -32,8 +32,8 @@ export const gqlFragment = graphql`
 				url
 			}
 			event_video_url
-			event_start
-			event_end
+			event_start(formatString: "LL")
+			event_end(formatString: "LL")
 		}
 	}
 `

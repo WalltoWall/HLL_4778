@@ -142,7 +142,7 @@ const PrideCalendar = ({
 	)
 }
 
-function toDateString(val: unknown): Date | undefined {
+function fromDateString(val: unknown): Date | undefined {
 	if (!val || typeof val !== "string") return
 
 	try {
@@ -167,8 +167,8 @@ export function mapDataToProps({
 		href: item.event_link?.url,
 		imageUrl: item.image?.url,
 		imageAlt: item.image?.alt,
-		start: toDateString(item.event_start),
-		end: toDateString(item.event_end),
+		start: fromDateString(item.event_start),
+		end: fromDateString(item.event_end),
 		videoURL: item.event_video_url,
 	}))
 
@@ -214,8 +214,8 @@ export const gqlFragment = graphql`
 				url
 			}
 			event_video_url
-			event_start
-			event_end
+			event_start(formatString: "LL")
+			event_end(formatString: "LL")
 		}
 	}
 `
