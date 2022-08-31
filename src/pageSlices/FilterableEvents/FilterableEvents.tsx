@@ -125,7 +125,9 @@ export function mapDataToProps({
 					color: getColorVariant(item?.color),
 					title: undefIfEmpty(event?.data?.title?.text),
 					descriptionHTML: undefIfEmpty(event?.data?.description?.html),
-					date: new Date(event?.data?.date as string),
+					date: event.data.date
+						? new Date(event.data.date as string)
+						: undefined,
 					illustration:
 						event?.data?.illustration?.toLowerCase() as IllustrationType,
 					type: event?.data?.type?.toLowerCase() as EventType,

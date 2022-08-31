@@ -16,33 +16,34 @@ interface Props extends Omit<Event, "color" | "illustration" | "type"> {
 
 export const EventDescription = React.forwardRef<HTMLDivElement, Props>(
 	({ date, descriptionHTML, href, title, variantStyles, extraStyles }, ref) => {
-		const dateAndMonth = date.toLocaleDateString("en-US", {
-			month: "short",
-			day: "numeric",
-		})
-		const time = date.toLocaleTimeString("en-US", {
-			hour12: true,
-			hour: "numeric",
-			minute: "2-digit",
-		})
-
 		return (
 			<div
 				className="flex flex-col items-start space-y-7 lg:space-y-9"
 				ref={ref}
 			>
 				<div className="flex flex-col items-start space-y-3 md:space-y-4 lg:space-y-5">
-					<p
-						className={clsx(
-							"tracking-caps uppercase font-sansExt",
-							"text-16 lg:text-18",
-							"leading-1_5",
-							"transition duration-250",
-							variantStyles.textColor
-						)}
-					>
-						{dateAndMonth} at {time}
-					</p>
+					{date && (
+						<p
+							className={clsx(
+								"tracking-caps uppercase font-sansExt",
+								"text-16 lg:text-18",
+								"leading-1_5",
+								"transition duration-250",
+								variantStyles.textColor
+							)}
+						>
+							{date.toLocaleDateString("en-US", {
+								month: "short",
+								day: "numeric",
+							})}{" "}
+							at{" "}
+							{date.toLocaleTimeString("en-US", {
+								hour12: true,
+								hour: "numeric",
+								minute: "2-digit",
+							})}
+						</p>
+					)}
 
 					{title && (
 						<Link
