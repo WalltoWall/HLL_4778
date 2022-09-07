@@ -15,6 +15,14 @@ the `[[redirects]]` blocks from the `netlify.toml` file.
 The following collection of documents aims to provide an overview of development
 on this project.
 
+### Deployments
+
+Since Netlify's pricing changes, deploys need to be done manually.
+
+```bash
+curl -X POST -d {} https://api.netlify.com/build_hooks/61575f06877b7428cf2e89c1
+```
+
 ## Basics
 
 #### [Quick Start](./basics/quick-start.md)
